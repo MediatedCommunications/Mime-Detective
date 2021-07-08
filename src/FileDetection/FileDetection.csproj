@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+	<Nullable>enable</Nullable>
+	<PackageTags>magic numbers, magic words, file headers, file type detection, file signatures, detect extension,</PackageTags>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<RepositoryUrl>https://github.com/MediatedCommunications/FileDetection.Public</RepositoryUrl>
+	<PackageReleaseNotes>Quickly detect file types based on their signatures.  This library requires either the MC.FileDetection.Data.Large or MC.FileDetection.Data.Small repositories.</PackageReleaseNotes>
+  </PropertyGroup>
+
+</Project>
