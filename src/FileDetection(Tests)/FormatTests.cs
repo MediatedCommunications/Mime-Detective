@@ -16,10 +16,9 @@ namespace FileDetection.Tests
         public void JsonRoundTrip()
         {
             var Data1 = EngineData.Example();
-            var Json1 = FileDetection.Data.Engine.DefinitionJsonSerializer.ToJson(Data1);
-            var Data2 = FileDetection.Data.Engine.DefinitionJsonSerializer.FromJson(Json1);
-            var Json2 = FileDetection.Data.Engine.DefinitionJsonSerializer.ToJson(Data2);
-
+            var Json1 = FileDetection.Storage.DefinitionJsonSerializer.ToJson(Data1);
+            var Data2 = FileDetection.Storage.DefinitionJsonSerializer.FromJson(Json1);
+            var Json2 = FileDetection.Storage.DefinitionJsonSerializer.ToJson(Data2);
             Assert.AreEqual(Json1, Json2);
         }
 
@@ -27,9 +26,9 @@ namespace FileDetection.Tests
         public void BinaryRoundTrip()
         {
             var Data1 = EngineData.Example();
-            var Json1 = FileDetection.Data.Engine.DefinitionBinarySerializer.ToBinary(Data1);
-            var Data2 = FileDetection.Data.Engine.DefinitionBinarySerializer.FromBinary(Json1);
-            var Json2 = FileDetection.Data.Engine.DefinitionBinarySerializer.ToBinary(Data2);
+            var Json1 = FileDetection.Storage.DefinitionBinarySerializer.ToBinary(Data1);
+            var Data2 = FileDetection.Storage.DefinitionBinarySerializer.FromBinary(Json1);
+            var Json2 = FileDetection.Storage.DefinitionBinarySerializer.ToBinary(Data2);
 
             Assert.IsTrue(Enumerable.SequenceEqual(Json1, Json2));
         }
@@ -38,9 +37,9 @@ namespace FileDetection.Tests
         public void TestXmlSchema()
         {
             var Data = XmlData.Example();
-            var xml1 = FileDetection.Data.Trid.v2.TridSerializer.ToXml(Data);
+            var xml1 = FileDetection.Storage.Trid.v2.TridSerializer.ToXml(Data);
 
-            var xml2 = FileDetection.Data.Trid.v2.TridSerializer.FromXmlFile($@"C:\Users\Faster Law\Downloads\triddefs_xml\defs\0\{{sa}}proj.trid.xml");
+            var xml2 = FileDetection.Storage.Trid.v2.TridSerializer.FromXmlFile($@"C:\Users\Faster Law\Downloads\triddefs_xml\defs\0\{{sa}}proj.trid.xml");
 
             Assert.IsNotNull(xml1);
             Assert.IsNotNull(xml2);

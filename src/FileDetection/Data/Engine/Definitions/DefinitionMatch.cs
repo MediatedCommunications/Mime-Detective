@@ -1,9 +1,9 @@
-﻿using FileDetection.Data.Diagnostics;
-using FileDetection.Data.Engine;
+﻿using FileDetection.Diagnostics;
+using FileDetection.Storage;
 using System.Collections.Immutable;
 using System.Linq;
 
-namespace FileDetection.Data.Engine
+namespace FileDetection.Engine
 {
     /// <summary>
     /// The results of matching a <see cref="Definition"/> against content.
@@ -26,8 +26,8 @@ namespace FileDetection.Data.Engine
         public decimal Percentage { get; init; }
 
         public Definition Definition { get; init; }
-        public ImmutableDictionary<PrefixSegment, SegmentMatch> FrontSegmentMatches { get; init; } = ImmutableDictionary<PrefixSegment, SegmentMatch>.Empty;
-        public ImmutableDictionary<StringSegment, SegmentMatch> AnySegmentMatches { get; init; } = ImmutableDictionary<StringSegment, SegmentMatch>.Empty;
+        public ImmutableDictionary<PrefixSegment, SegmentMatch> PrefixSegmentMatches { get; init; } = ImmutableDictionary<PrefixSegment, SegmentMatch>.Empty;
+        public ImmutableDictionary<StringSegment, SegmentMatch> StringSegmentMatches { get; init; } = ImmutableDictionary<StringSegment, SegmentMatch>.Empty;
 
         public override string? GetDebuggerDisplay()
         {

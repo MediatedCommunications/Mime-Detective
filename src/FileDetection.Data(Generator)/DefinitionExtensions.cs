@@ -1,4 +1,5 @@
-﻿using FileDetection.Data.Engine;
+﻿using FileDetection.Engine;
+using FileDetection.Storage;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;

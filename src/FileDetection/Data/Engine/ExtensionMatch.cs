@@ -1,8 +1,7 @@
-﻿using FileDetection.Data.Diagnostics;
-using FileDetection.Data.Engine;
+﻿using FileDetection.Diagnostics;
 using System.Collections.Immutable;
 
-namespace FileDetection.Data.Engine
+namespace FileDetection.Engine
 {
     public record ExtensionMatch : DisplayRecord
     {

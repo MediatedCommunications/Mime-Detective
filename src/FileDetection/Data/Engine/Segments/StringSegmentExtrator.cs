@@ -1,4 +1,4 @@
-﻿using FileDetection.Data.Engine;
+﻿using FileDetection.Storage;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FileDetection.Data.Engine
+namespace FileDetection.Engine
 {
     public static class StringSegmentExtrator
     {

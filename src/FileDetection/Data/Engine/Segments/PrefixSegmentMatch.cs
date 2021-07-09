@@ -1,7 +1,7 @@
-﻿using FileDetection.Data.Engine;
+﻿using FileDetection.Storage;
 using System.Collections.Immutable;
 
-namespace FileDetection.Data.Engine
+namespace FileDetection.Engine
 {
     /// <summary>
     /// Represents a successful match against a <see cref="PrefixSegment"/>.

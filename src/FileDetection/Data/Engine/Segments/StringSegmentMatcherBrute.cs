@@ -1,6 +1,7 @@
-﻿using System.Collections.Immutable;
+﻿using FileDetection.Storage;
+using System.Collections.Immutable;
 
-namespace FileDetection.Data.Engine
+namespace FileDetection.Engine
 {
     /// <summary>
     /// An <see cref="ISegmentMatcher"/> that matches a <see cref="StringSegment"/> against content.

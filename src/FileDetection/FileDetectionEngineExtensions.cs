@@ -1,4 +1,4 @@
-﻿using FileDetection.Data.Engine;
+﻿using FileDetection.Engine;
 using System.Collections.Immutable;
 using System.Linq;
 

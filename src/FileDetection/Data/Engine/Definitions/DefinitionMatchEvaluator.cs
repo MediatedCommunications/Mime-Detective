@@ -1,21 +1,21 @@
-﻿using FileDetection.Data.Engine;
+﻿using FileDetection.Storage;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 using System.Threading;
 
-namespace FileDetection.Data.Engine
+namespace FileDetection.Engine
 {
 
     /// <summary>
     /// Handles evaluating a <see cref="Definition"/> against content and scoring it.
     /// </summary>
-    public class DefinitionMatchEvaluator
+    internal class DefinitionMatchEvaluator
     {
         public DefinitionMatchEvaluatorOptions Options { get; init; } = new();
 
-        public virtual DefinitionMatch? Match(Definition Definition, ImmutableDictionary<string, ISegmentMatcher> StringSegmentCache, ImmutableArray<byte> Content, ImmutableArray<StringSegment> Strings)
+        public virtual DefinitionMatch? Match(Definition Definition, ImmutableDictionary<string, ISegmentMatcher> StringSegmentCache, ImmutableArray<byte> Content, ImmutableArray<StringSegment> ContentStrings)
         {
             var ret = default(DefinitionMatch?);
 
@@ -23,10 +23,10 @@ namespace FileDetection.Data.Engine
             var AllMatches = 0m;
             var GoodMatches = 0m;
 
-            var FrontSegmentMatches = new Dictionary<PrefixSegment, SegmentMatch>();
-            var AnySegmentMatches = new Dictionary<StringSegment, SegmentMatch>();
+            var PrefixSegmentMatches = new Dictionary<PrefixSegment, SegmentMatch>();
+            var StringSegmentMatches = new Dictionary<StringSegment, SegmentMatch>();
 
-            if (Valid && Options.Include_Segments_Beginning)
+            if (Valid && Options.Include_Segments_Prefix)
             {
 
                 foreach (var item in Definition.Signature.Prefix)
@@ -35,7 +35,7 @@ namespace FileDetection.Data.Engine
                     AllMatches += 1;
 
                     var Result = item.GetMatch(Content);
-                    FrontSegmentMatches[item] = Result;
+                    PrefixSegmentMatches[item] = Result;
 
                     if (Result == NoSegmentMatch.Instance)
                     {
@@ -52,7 +52,7 @@ namespace FileDetection.Data.Engine
                 }
             }
 
-            if (Valid && Options.Include_Segments_Middle)
+            if (Valid && Options.Include_Segments_Strings)
             {
                 foreach (var item in Definition.Signature.Strings)
                 {
@@ -64,14 +64,14 @@ namespace FileDetection.Data.Engine
 
                     AllMatches += 1;
 
-                    var Result = Strings
+                    var Result = ContentStrings
                         .Select(x => Matcher.Match(x.Pattern))
                         .Where(x => x != NoSegmentMatch.Instance)
                         .FirstOrDefault() 
                         ?? NoSegmentMatch.Instance
                         ;
 
-                    AnySegmentMatches[item] = Result;
+                    StringSegmentMatches[item] = Result;
 
                     if (Result == NoSegmentMatch.Instance)
                     {
@@ -101,13 +101,13 @@ namespace FileDetection.Data.Engine
                     : GoodMatches / AllMatches
                     ;
 
-                var Points = GetPoints(FrontSegmentMatches, AnySegmentMatches);
+                var Points = GetPoints(PrefixSegmentMatches, StringSegmentMatches);
 
                 ret = new DefinitionMatch(Definition)
                 {
                     Definition = Definition,
-                    FrontSegmentMatches = FrontSegmentMatches.ToImmutableDictionary(),
-                    AnySegmentMatches = AnySegmentMatches.ToImmutableDictionary(),
+                    PrefixSegmentMatches = PrefixSegmentMatches.ToImmutableDictionary(),
+                    StringSegmentMatches = StringSegmentMatches.ToImmutableDictionary(),
 
                     Percentage = Percentage,
                     Points = Points,
@@ -117,20 +117,20 @@ namespace FileDetection.Data.Engine
             return ret;
         }
 
-        protected virtual long GetPoints(IDictionary<PrefixSegment, SegmentMatch> FrontSegmentMatches, IDictionary<StringSegment, SegmentMatch> AnySegmentMatches)
+        protected virtual long GetPoints(IDictionary<PrefixSegment, SegmentMatch> PrefixSegmentMatches, IDictionary<StringSegment, SegmentMatch> StringSegmentMatches)
         {
             var ret = 0;
             var MatchSet = new[]
             {
-                FrontSegmentMatches.Values,
-                AnySegmentMatches.Values
+                PrefixSegmentMatches.Values,
+                StringSegmentMatches.Values
             };
 
             var Matches = MatchSet.SelectMany(x => x);
 
-            var Multiplier_StartOfFile = 1000;
-            var Multiplier_BeginningOfFile = 5;
-            var Multiplier_Anywhere = 1;
+            var Multiplier_Prefix_StartOfFile = 1000;
+            var Multiplier_Prefix_BeginningOfFile = 5;
+            var Multiplier_String_Anywhere = 1;
 
 
             foreach (var Match in Matches)
@@ -143,15 +143,15 @@ namespace FileDetection.Data.Engine
                 } else if (Match is PrefixSegmentMatch V2)
                 {
                     var Multiplier = V2.Segment.Start == 0
-                        ? Multiplier_StartOfFile
-                        : Multiplier_BeginningOfFile
+                        ? Multiplier_Prefix_StartOfFile
+                        : Multiplier_Prefix_BeginningOfFile
                         ;
                     
                     PointsToAdd = Multiplier * V2.Segment.Pattern.Length;
 
                 } else if (Match is StringSegmentMatch V3)
                 {
-                    var Multiplier = Multiplier_Anywhere;
+                    var Multiplier = Multiplier_String_Anywhere;
 
                     PointsToAdd = Multiplier * V3.Segment.Pattern.Length;
                 }

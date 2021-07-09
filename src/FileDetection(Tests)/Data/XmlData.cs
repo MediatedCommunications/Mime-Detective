@@ -1,4 +1,4 @@
-﻿using FileDetection.Data.Trid.v2;
+﻿using FileDetection.Storage.Trid.v2;
 using System;
 using System.Collections.Generic;
 using System.Linq;

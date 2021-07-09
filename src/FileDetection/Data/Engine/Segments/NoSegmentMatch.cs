@@ -1,9 +1,9 @@
-﻿namespace FileDetection.Data.Engine
+﻿namespace FileDetection.Engine
 {
     /// <summary>
     /// A singleton instance that indicates that a match was not successful.
     /// </summary>
-    internal record NoSegmentMatch : SegmentMatch
+    public record NoSegmentMatch : SegmentMatch
     {
         private NoSegmentMatch() { }
         public static NoSegmentMatch Instance { get; } = new();

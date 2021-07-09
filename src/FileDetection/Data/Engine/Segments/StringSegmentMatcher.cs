@@ -1,6 +1,7 @@
-﻿using FileDetection.Data.Engine;
+﻿
+using FileDetection.Storage;
 
-namespace FileDetection.Data.Engine
+namespace FileDetection.Engine
 {
 
     static internal class StringSegmentMatcher

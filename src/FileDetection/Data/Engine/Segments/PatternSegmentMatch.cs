@@ -1,6 +1,6 @@
 ﻿using System.Collections.Immutable;
 
-namespace FileDetection.Data.Engine
+namespace FileDetection.Engine
 {
     /// <summary>
     /// The base class representing a successful match.

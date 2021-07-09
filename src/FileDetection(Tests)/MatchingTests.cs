@@ -1,4 +1,4 @@
-﻿using FileDetection.Data.Engine;
+﻿using FileDetection.Engine;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Immutable;
 using System.Linq;
@@ -85,13 +85,6 @@ namespace FileDetection.Tests
                 GetEngine_Result = new FileDetectionEngine()
                 {
                     Definitions = Defintions,
-                    MatchEvaluator = new()
-                    {
-                        Options = new()
-                        {
-                            //Include_Segments_Middle = false,
-                        }
-                    }
                 };
 
                 GetEngine_Result.WarmUp();
@@ -103,7 +96,7 @@ namespace FileDetection.Tests
         private static ImmutableArray<ExtensionMatch> Test_Extension(string FileName, string Extension) {
             var ret = ImmutableArray<ExtensionMatch>.Empty;
 
-            for (var i = 0; i < 10; i++)
+            for (var i = 0; i < 50; i++)
             {
                 ret = Test_Extension_Internal(FileName, Extension);
             }

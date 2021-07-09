@@ -1,5 +1,6 @@
 using FileDetection.Data;
-using FileDetection.Data.Engine;
+using FileDetection.Engine;
+using FileDetection.Storage;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -21,11 +22,11 @@ namespace FileDetection.Data
             {
                 var Id = System.IO.Path.GetFileNameWithoutExtension(FileName);
 
-                var Item = FileDetection.Data.Trid.v2.TridSerializer.FromXmlFile(FileName)
+                var Item = FileDetection.Storage.Trid.v2.TridSerializer.FromXmlFile(FileName)
                     ?? throw new NullReferenceException()
                     ;
 
-                var Modern = FileDetection.Data.Trid.v2.DefinitionExtensions.Modernize(Item);
+                var Modern = FileDetection.Storage.Trid.v2.DefinitionExtensions.Modernize(Item);
                 Modern = Modern with
                 {
                     Meta = (Modern.Meta ?? new()) with
@@ -104,8 +105,8 @@ namespace FileDetection.Data
             var Json = $@"{Root}\FileDetection.Data.Small\Data\data.json";
             var Bin = $@"{Root}\FileDetection.Data.Small\Data\data.bin";
 
-            Data.Engine.DefinitionJsonSerializer.ToJsonFile(Json, I3);
-            Data.Engine.DefinitionBinarySerializer.ToBinaryFile(Bin, I3);
+            DefinitionJsonSerializer.ToJsonFile(Json, I3);
+            DefinitionBinarySerializer.ToBinaryFile(Bin, I3);
         }
 
         private static void WriteLarge(string Root, IEnumerable<Definition> AllItems) {
@@ -117,8 +118,8 @@ namespace FileDetection.Data
             var Json = $@"{Root}\FileDetection.Data.Large\Data\data.json";
             var Bin = $@"{Root}\FileDetection.Data.Large\Data\data.bin";
 
-            Data.Engine.DefinitionJsonSerializer.ToJsonFile(Json, Items);
-            Data.Engine.DefinitionBinarySerializer.ToBinaryFile(Bin, Items);
+            DefinitionJsonSerializer.ToJsonFile(Json, Items);
+            DefinitionBinarySerializer.ToBinaryFile(Bin, Items);
         }
 
 
@@ -139,7 +140,7 @@ namespace FileDetection.Data
                 ).ToList();
 
             var Bin = $@"{Root}\FileDetection.Data.Trimmed\Data\data.bin";
-            Data.Engine.DefinitionBinarySerializer.ToBinaryFile(Bin, NewItems);
+            DefinitionBinarySerializer.ToBinaryFile(Bin, NewItems);
         }
 
     }

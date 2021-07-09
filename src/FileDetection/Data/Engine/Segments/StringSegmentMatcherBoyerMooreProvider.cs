@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FileDetection.Data.Engine
+namespace FileDetection.Engine
 {
     internal sealed class StringSegmentMatcherBoyerMooreProvider
     {

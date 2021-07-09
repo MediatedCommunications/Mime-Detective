@@ -1,4 +1,4 @@
-﻿using FileDetection.Data.Engine;
+﻿using FileDetection.Storage;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
@@ -13,7 +13,7 @@ namespace FileDetection.Data
         public static ImmutableArray<Definition> Definitions()
         {
             var raw = FileDetection.Data.Resources.data;
-            var ret = FileDetection.Data.Engine.DefinitionBinarySerializer
+            var ret = FileDetection.Storage.DefinitionBinarySerializer
                 .FromBinary(raw)
                 .ToImmutableArray()
                 ;

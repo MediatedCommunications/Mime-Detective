@@ -1,6 +1,7 @@
-﻿using System.Collections.Immutable;
+﻿using FileDetection.Storage;
+using System.Collections.Immutable;
 
-namespace FileDetection.Data.Engine
+namespace FileDetection.Engine
 {
     static internal class SegmentExtensions
     {

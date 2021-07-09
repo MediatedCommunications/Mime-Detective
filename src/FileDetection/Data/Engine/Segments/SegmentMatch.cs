@@ -1,6 +1,6 @@
-﻿using FileDetection.Data.Diagnostics;
+﻿using FileDetection.Diagnostics;
 
-namespace FileDetection.Data.Engine
+namespace FileDetection.Engine
 {
     public abstract record SegmentMatch : DisplayRecord
     {

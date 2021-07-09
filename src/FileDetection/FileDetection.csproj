@@ -9,4 +9,8 @@
 	<PackageReleaseNotes>Quickly detect file types based on their signatures.  This library requires either the MC.FileDetection.Data.Large or MC.FileDetection.Data.Small repositories.</PackageReleaseNotes>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\Engine\Serialization\" />
+  </ItemGroup>
+
 </Project>

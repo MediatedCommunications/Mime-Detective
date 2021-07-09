@@ -1,5 +1,5 @@
 ﻿using FileDetection.Data;
-using FileDetection.Data.Engine;
+using FileDetection.Storage;
 
 namespace FileDetection.Tests
 {
@@ -8,7 +8,7 @@ namespace FileDetection.Tests
         public static Definition Example()
         {
             var v1 = XmlData.Example();
-            var v2 = FileDetection.Data.Trid.v2.DefinitionExtensions.Modernize(v1);
+            var v2 = FileDetection.Storage.Trid.v2.DefinitionExtensions.Modernize(v1);
 
             return v2; 
         }

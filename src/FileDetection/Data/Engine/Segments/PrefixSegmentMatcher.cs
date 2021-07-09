@@ -1,8 +1,8 @@
-﻿using FileDetection.Data.Engine;
+﻿using FileDetection.Storage;
 using System.Collections.Immutable;
 using System.Linq;
 
-namespace FileDetection.Data.Engine
+namespace FileDetection.Engine
 {
 
     /// <summary>
