@@ -84,26 +84,26 @@ namespace FileDetection.Data.Trid.v2
         {
             var ret = new Engine.Signature()
             {
-                Middle = V1.GlobalStrings.Select(x => ConvertGlobalString(x)).ToImmutableArray(),
-                Beginning = V1.FrontBlock.Select(x => ConvertPattern(x)).ToImmutableArray()
+                Strings = V1.GlobalStrings.Select(x => ConvertGlobalString(x)).ToImmutableArray(),
+                Prefix = V1.FrontBlock.Select(x => ConvertPattern(x)).ToImmutableArray()
             };
 
             return ret;
         }
 
-        private static Engine.MiddleSegment ConvertGlobalString(string V1)
+        private static Engine.StringSegment ConvertGlobalString(string V1)
         {
             var Converted = V1.Replace("'", "\0");
             var Bytes = System.Text.Encoding.UTF8.GetBytes(Converted);
 
-            var ret = new Engine.MiddleSegment()
+            var ret = new Engine.StringSegment()
             {
                 Pattern = Bytes.ToImmutableArray(),
             };
             return ret;
         }
 
-        private static Engine.BeginningSegment ConvertPattern(Pattern V1)
+        private static Engine.PrefixSegment ConvertPattern(Pattern V1)
         {
             var Position = V1.Position;
 
@@ -115,7 +115,7 @@ namespace FileDetection.Data.Trid.v2
 
             var Content = System.Convert.FromHexString(Bytes).ToImmutableArray();
 
-            var ret = new Engine.BeginningSegment()
+            var ret = new Engine.PrefixSegment()
             {
                 Start = Position,
                 Pattern = Content,

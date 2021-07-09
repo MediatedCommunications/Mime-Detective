@@ -10,9 +10,10 @@ namespace FileDetection.Data.Engine
     public abstract class ByteToHexStringConverter<T> : JsonConverter<T>
        where T : IEnumerable<byte>
     {
-        protected byte[] ReadBytes(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        protected static byte[] ReadBytes(ref Utf8JsonReader reader, JsonSerializerOptions options)
         {
             var Data = JsonSerializer.Deserialize<string>(ref reader, options)
+                ?? string.Empty
                 .Replace(" ", "")
                 ;
 
@@ -20,7 +21,7 @@ namespace FileDetection.Data.Engine
 
         }
 
-        protected void WriteBytes(Utf8JsonWriter writer, IEnumerable<byte> value, JsonSerializerOptions options)
+        protected static void WriteBytes(Utf8JsonWriter writer, IEnumerable<byte> value, JsonSerializerOptions options)
         {
             var Data = BitConverter.ToString(value.ToArray()).Replace("-", " ");
             JsonSerializer.Serialize(writer, Data, options);

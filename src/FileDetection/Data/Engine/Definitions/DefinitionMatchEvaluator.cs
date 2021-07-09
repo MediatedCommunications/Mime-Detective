@@ -1,7 +1,9 @@
 ﻿using FileDetection.Data.Engine;
+using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
+using System.Threading;
 
 namespace FileDetection.Data.Engine
 {
@@ -13,8 +15,7 @@ namespace FileDetection.Data.Engine
     {
         public DefinitionMatchEvaluatorOptions Options { get; init; } = new();
 
-
-        public virtual DefinitionMatch? Match(Definition Definition, ImmutableArray<byte> Content, ImmutableArray<byte> UpperContent)
+        public virtual DefinitionMatch? Match(Definition Definition, ImmutableDictionary<string, ISegmentMatcher> StringSegmentCache, ImmutableArray<byte> Content, ImmutableArray<StringSegment> Strings)
         {
             var ret = default(DefinitionMatch?);
 
@@ -22,14 +23,15 @@ namespace FileDetection.Data.Engine
             var AllMatches = 0m;
             var GoodMatches = 0m;
 
-            var FrontSegmentMatches = new Dictionary<BeginningSegment, SegmentMatch>();
-            var AnySegmentMatches = new Dictionary<MiddleSegment, SegmentMatch>();
+            var FrontSegmentMatches = new Dictionary<PrefixSegment, SegmentMatch>();
+            var AnySegmentMatches = new Dictionary<StringSegment, SegmentMatch>();
 
             if (Valid && Options.Include_Segments_Beginning)
             {
 
-                foreach (var item in Definition.Signature.Beginning)
+                foreach (var item in Definition.Signature.Prefix)
                 {
+
                     AllMatches += 1;
 
                     var Result = item.GetMatch(Content);
@@ -37,12 +39,13 @@ namespace FileDetection.Data.Engine
 
                     if (Result == NoSegmentMatch.Instance)
                     {
-                        if(Options.Include_Matches_Partial == false && Options.Include_Matches_Failed == false)
+                        if (Options.Include_Matches_Partial == false && Options.Include_Matches_Failed == false)
                         {
                             Valid = false;
                             break;
                         }
-                    } else {
+                    } else
+                    {
                         GoodMatches += 1;
                     }
 
@@ -51,11 +54,23 @@ namespace FileDetection.Data.Engine
 
             if (Valid && Options.Include_Segments_Middle)
             {
-                foreach (var item in Definition.Signature.Middle)
+                foreach (var item in Definition.Signature.Strings)
                 {
+                    var Key = Convert.ToBase64String(item.Pattern.ToArray());
+                    if(!StringSegmentCache.TryGetValue(Key, out var Matcher))
+                    {
+                        Matcher = StringSegmentMatcher.Create(item);
+                    }
+
                     AllMatches += 1;
 
-                    var Result = item.GetMatch(UpperContent);
+                    var Result = Strings
+                        .Select(x => Matcher.Match(x.Pattern))
+                        .Where(x => x != NoSegmentMatch.Instance)
+                        .FirstOrDefault() 
+                        ?? NoSegmentMatch.Instance
+                        ;
+
                     AnySegmentMatches[item] = Result;
 
                     if (Result == NoSegmentMatch.Instance)
@@ -65,8 +80,7 @@ namespace FileDetection.Data.Engine
                             Valid = false;
                             break;
                         }
-                    }
-                    else
+                    } else
                     {
                         GoodMatches += 1;
                     }
@@ -74,7 +88,7 @@ namespace FileDetection.Data.Engine
                 }
             }
 
-            if(GoodMatches == 0 && !Options.Include_Matches_Failed)
+            if (GoodMatches == 0 && !Options.Include_Matches_Failed)
             {
                 Valid = false;
             }
@@ -103,7 +117,7 @@ namespace FileDetection.Data.Engine
             return ret;
         }
 
-        protected virtual long GetPoints(IDictionary<BeginningSegment, SegmentMatch> FrontSegmentMatches, IDictionary<MiddleSegment, SegmentMatch> AnySegmentMatches)
+        protected virtual long GetPoints(IDictionary<PrefixSegment, SegmentMatch> FrontSegmentMatches, IDictionary<StringSegment, SegmentMatch> AnySegmentMatches)
         {
             var ret = 0;
             var MatchSet = new[]
@@ -126,7 +140,7 @@ namespace FileDetection.Data.Engine
                 if(Match is NoSegmentMatch V1)
                 {
 
-                } else if (Match is BeginningSegmentMatch V2)
+                } else if (Match is PrefixSegmentMatch V2)
                 {
                     var Multiplier = V2.Segment.Start == 0
                         ? Multiplier_StartOfFile
@@ -135,7 +149,7 @@ namespace FileDetection.Data.Engine
                     
                     PointsToAdd = Multiplier * V2.Segment.Pattern.Length;
 
-                } else if (Match is MiddleSegmentMatch V3)
+                } else if (Match is StringSegmentMatch V3)
                 {
                     var Multiplier = Multiplier_Anywhere;
 

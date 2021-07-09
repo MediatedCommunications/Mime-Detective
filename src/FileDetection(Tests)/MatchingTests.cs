@@ -8,6 +8,11 @@ namespace FileDetection.Tests
     [TestClass]
     public class MatchingTests
     {
+        static MatchingTests()
+        {
+            GetEngine();
+        }
+
         [TestMethod]
         public void Engine_Test_Exe()
         {
@@ -69,19 +74,53 @@ namespace FileDetection.Tests
             Test_Extension($@"C:\Windows\System32\ComputerToastIcon.png", "PNG");
         }
 
-        private ImmutableArray<ExtensionMatch> Test_Extension(string FileName, string Extension)
-        {
-            var Defintions = Data.Large.Definitions();
 
-            var Engine = new FileDetectionEngine()
+        private static FileDetectionEngine? GetEngine_Result;
+        private static FileDetectionEngine GetEngine()
+        {
+            if(GetEngine_Result == default)
             {
-                Definitions = Defintions
-            };
+                var Defintions = Data.Large.Definitions();
+
+                GetEngine_Result = new FileDetectionEngine()
+                {
+                    Definitions = Defintions,
+                    MatchEvaluator = new()
+                    {
+                        Options = new()
+                        {
+                            //Include_Segments_Middle = false,
+                        }
+                    }
+                };
+
+                GetEngine_Result.WarmUp();
+            }
+
+            return GetEngine_Result;
+        }
+
+        private static ImmutableArray<ExtensionMatch> Test_Extension(string FileName, string Extension) {
+            var ret = ImmutableArray<ExtensionMatch>.Empty;
+
+            for (var i = 0; i < 10; i++)
+            {
+                ret = Test_Extension_Internal(FileName, Extension);
+            }
+
+
+            return ret;
+        }
+
+
+        private static ImmutableArray<ExtensionMatch> Test_Extension_Internal(string FileName, string Extension)
+        {
 
             var Content = System.IO.File.ReadAllBytes(FileName);
 
+            var Engine = GetEngine();
             var Results = Engine.Detect(Content).ByExtension();
-
+            
             Assert.AreEqual(Extension, Results.First().Extension);
 
             return Results;

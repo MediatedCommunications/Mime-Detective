@@ -9,7 +9,7 @@ namespace FileDetection.Data.Engine
 
         public override ImmutableArray<byte> Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
-            var ret = ReadBytes(ref reader, typeToConvert, options).ToImmutableArray();
+            var ret = ReadBytes(ref reader, options).ToImmutableArray();
             return ret;
         }
 

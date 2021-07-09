@@ -2,17 +2,17 @@
 
 namespace FileDetection.Data.Engine
 {
-    public static class SegmentExtensions
+    static internal class SegmentExtensions
     {
         /// <summary>
-        /// Match a <see cref="BeginningSegment"/> against byte content.
+        /// Match a <see cref="PrefixSegment"/> against byte content.
         /// </summary>
         /// <param name="This"></param>
         /// <param name="Content"></param>
         /// <returns></returns>
-        public static SegmentMatch GetMatch(this BeginningSegment This, ImmutableArray<byte> Content)
+        public static SegmentMatch GetMatch(this PrefixSegment This, ImmutableArray<byte> Content)
         {
-            var Matcher = new BeginningSegmentMatcher()
+            var Matcher = new PrefixSegmentMatcher()
             {
                 Segment = This,
             };
@@ -23,18 +23,15 @@ namespace FileDetection.Data.Engine
         }
 
         /// <summary>
-        /// Match a <see cref="MiddleSegment"/> against byte content.
+        /// Match a <see cref="StringSegment"/> against byte content.
         /// </summary>
         /// <param name="This"></param>
         /// <param name="Content"></param>
         /// <returns></returns>
-        public static SegmentMatch GetMatch(this MiddleSegment This, ImmutableArray<byte> Content)
+        public static SegmentMatch GetMatch(this StringSegment This, ImmutableArray<byte> Content)
         {
-            var Matcher = new MiddleSegmentMatcher()
-            {
-                Segment = This,
-            };
-
+            var Matcher = StringSegmentMatcher.Create(This);
+            
             var ret = Matcher.Match(Content);
 
             return ret;

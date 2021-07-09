@@ -9,11 +9,13 @@ Install MC.FileDetection:
 install-package MC.FileDetection
 ```
 Then install one of two definition files:
+```install-package MC.FileDetection.Data.Small```
+The most common file signatures (list below)
 
-| Definition                                        | Description
-|---------------------------------------------------|---------
-| ```install-package MC.FileDetection.Data.Small``` | The most common file signatures (list below)
-| ```install-package MC.FileDetection.Data.Large``` | The exhaustive list of 14,000+ file signatures (commercial license required)
+or
+
+```install-package MC.FileDetection.Data.Large```
+The exhaustive list of 14,000+ file signatures (commercial license required)
 
 ## Getting Started
 ```
@@ -28,6 +30,7 @@ var Content = System.IO.File.ReadAllBytes(FileName);
 
 var Extension = Engine.Detect(Content).ByExtension();
 var MimeType = Engine.Detect(Content).ByMimeType();
+```
 
 # MC.FileDetection.Data.Small
 This library is licensed to you for free and can detect most common types of files:

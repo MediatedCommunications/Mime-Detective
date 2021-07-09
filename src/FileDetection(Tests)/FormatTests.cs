@@ -60,7 +60,7 @@ namespace FileDetection.Tests
             Assert.AreEqual(Data1.General.Time.Min, Data2?.Meta?.Created?.At?.Minute);
             Assert.AreEqual(Data1.General.Time.Sec, Data2?.Meta?.Created?.At?.Second);
 
-            Assert.AreEqual(Data1.FrontBlock.Count, Data2?.Signature.Beginning.Length);
+            Assert.AreEqual(Data1.FrontBlock.Count, Data2?.Signature.Prefix.Length);
             
 
         }

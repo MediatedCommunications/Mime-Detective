@@ -45,7 +45,7 @@ namespace FileDetection.Data
             return This.Select(x => x.TrimExtensions(Extensions));
         }
 
-        public static Definition TrimExtensions(this Definition This, ImmutableHashSet<String> Extensions)
+        public static Definition TrimExtensions(this Definition This, ImmutableHashSet<string> Extensions)
         {
             return This with
             {
@@ -67,10 +67,10 @@ namespace FileDetection.Data
             {
                 Any = false;
 
-                for (int i = Input.Count - 1; i >= 1; i--)
+                for (var i = Input.Count - 1; i >= 1; i--)
                 {
 
-                    for (int j = i - 1; j >= 0; j--)
+                    for (var j = i - 1; j >= 0; j--)
                     {
 
                         var v = Intersection(Input[i], Input[j]);
@@ -130,22 +130,22 @@ namespace FileDetection.Data
         {
             var ret = default(Signature);
 
-            var Any = Intersection(A.Middle, B.Middle);
-            var Front = Intersection(A.Beginning, B.Beginning);
+            var Any = Intersection(A.Strings, B.Strings);
+            var Front = Intersection(A.Prefix, B.Prefix);
 
             if(Any.Length > 0 || Front.Length > 0)
             {
                 ret = new Signature()
                 {
-                    Middle = Any,
-                    Beginning = Front,
+                    Strings = Any,
+                    Prefix = Front,
                 };
             }
 
             return ret;
         }
 
-        public static ImmutableArray<BeginningSegment> Intersection(ImmutableArray<BeginningSegment> A, ImmutableArray<BeginningSegment> B)
+        public static ImmutableArray<PrefixSegment> Intersection(ImmutableArray<PrefixSegment> A, ImmutableArray<PrefixSegment> B)
         {
             var Values = (
                 from x in A
@@ -157,9 +157,9 @@ namespace FileDetection.Data
             return Values;
         }
 
-        public static ImmutableArray<BeginningSegment> Intersection(BeginningSegment A, BeginningSegment B)
+        public static ImmutableArray<PrefixSegment> Intersection(PrefixSegment A, PrefixSegment B)
         {
-            var ret = new List<BeginningSegment>();
+            var ret = new List<PrefixSegment>();
 
             var Start1 = A.Start;
             var End1 = A.End();
@@ -173,7 +173,7 @@ namespace FileDetection.Data
 
             {
                 var Found = new List<byte>();
-                for (int Start = RangeStart; Start <= RangeEnd; Start++)
+                for (var Start = RangeStart; Start <= RangeEnd; Start++)
                 {
                     var Terminal = Start == RangeEnd;
                     var Yield = Terminal;
@@ -194,7 +194,7 @@ namespace FileDetection.Data
 
 
                     if(Yield && Found.Count > 0) {
-                        ret.Add(new BeginningSegment()
+                        ret.Add(new PrefixSegment()
                         {
                             Pattern = Found.ToImmutableArray(),
                             Start = Start - Found.Count,
@@ -214,7 +214,7 @@ namespace FileDetection.Data
         }
 
 
-        public static ImmutableArray<MiddleSegment> Intersection(ImmutableArray<MiddleSegment> A, ImmutableArray<MiddleSegment> B)
+        public static ImmutableArray<StringSegment> Intersection(ImmutableArray<StringSegment> A, ImmutableArray<StringSegment> B)
         {
             var Values = (
                 from x in A
@@ -227,9 +227,9 @@ namespace FileDetection.Data
             return Values;
         }
 
-        private static MiddleSegment? Intersection(MiddleSegment A, MiddleSegment B)
+        private static StringSegment? Intersection(StringSegment A, StringSegment B)
         {
-            var ret = default(MiddleSegment?);
+            var ret = default(StringSegment?);
 
             if (A.Pattern.SequenceEqual(B.Pattern))
             {

@@ -26,8 +26,8 @@ namespace FileDetection.Data.Engine
         public decimal Percentage { get; init; }
 
         public Definition Definition { get; init; }
-        public ImmutableDictionary<BeginningSegment, SegmentMatch> FrontSegmentMatches { get; init; } = ImmutableDictionary<BeginningSegment, SegmentMatch>.Empty;
-        public ImmutableDictionary<MiddleSegment, SegmentMatch> AnySegmentMatches { get; init; } = ImmutableDictionary<MiddleSegment, SegmentMatch>.Empty;
+        public ImmutableDictionary<PrefixSegment, SegmentMatch> FrontSegmentMatches { get; init; } = ImmutableDictionary<PrefixSegment, SegmentMatch>.Empty;
+        public ImmutableDictionary<StringSegment, SegmentMatch> AnySegmentMatches { get; init; } = ImmutableDictionary<StringSegment, SegmentMatch>.Empty;
 
         public override string? GetDebuggerDisplay()
         {

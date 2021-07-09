@@ -14,6 +14,30 @@ namespace FileDetection
         public DefinitionMatchEvaluator MatchEvaluator { get; init; } = new();
         public ImmutableArray<Definition> Definitions { get; init; } = ImmutableArray<Definition>.Empty;
 
+        private ImmutableDictionary<string, ISegmentMatcher>? __StringSegmentCache;
+
+        private ImmutableDictionary<string, ISegmentMatcher> StringSegmentCache
+        {
+            get
+            {
+                if(__StringSegmentCache == default)
+                {
+                    __StringSegmentCache = (
+                        from x in Definitions
+                        from y in x.Signature.Strings
+                        let Key = Convert.ToBase64String(y.Pattern.AsSpan())
+                        group y by Key
+                        ).ToImmutableDictionary(x => x.Key, x => StringSegmentMatcher.Create(x.First()));
+                }
+
+                return __StringSegmentCache;
+            }
+        }
+
+        public void WarmUp()
+        {
+            _ = StringSegmentCache;
+        }
 
         public ImmutableArray<DefinitionMatch> Detect(IEnumerable<byte> Content)
         {
@@ -22,29 +46,31 @@ namespace FileDetection
 
         public ImmutableArray<DefinitionMatch> Detect(ImmutableArray<byte> Content)
         {
-            var OriginalContent = Content;
 
-            var First = (byte)'a';
-            var Last = (byte)'z';
-            var NewFirst = (byte)'A';
-            var Delta = First - NewFirst;
+            var SW1 = System.Diagnostics.Stopwatch.StartNew();
+            var ret = Detect_v1(Content, Definitions);
+            SW1.Stop();
 
-            var UpperContent = (
-                from x in Content
-                let v = x >= First && x <= Last ? x - Delta : x
-                select (byte)v
-                ).ToImmutableArray();
+            return ret;
+        }
 
+        
+        protected ImmutableArray<DefinitionMatch> Detect_v1(ImmutableArray<byte> Content, ImmutableArray<Definition> Definitions)
+        {
+            var StringSegmentCache = this.StringSegmentCache;
+
+            var ContentStrings = StringSegmentExtrator.ExtractStrings(Content);
 
             IEnumerable<Definition> Source = Definitions.Length > 5000
                 ? Definitions.AsParallel()
                 : Definitions
                 ;
 
+            
 
             var ret = (
                 from x in Source
-                let Match = MatchEvaluator.Match(x, Content, UpperContent)
+                let Match = MatchEvaluator.Match(x, StringSegmentCache, Content, ContentStrings)
                 where Match is { }
                 orderby Match.Points descending
                 select Match

@@ -16,13 +16,13 @@ namespace FileDetection.Data
         [TestMethod]
         public void Minify()
         {
-            var A = new BeginningSegment()
+            var A = new PrefixSegment()
             {
                 Start = 1,
                 Pattern = new byte[] { 2, 3, 4, 5, 6, 7, 8, 9, 10 }.ToImmutableArray()
             };
 
-            var B = new BeginningSegment()
+            var B = new PrefixSegment()
             {
                 Start = 2,
                 Pattern = new byte[] { 3, 4, 0, 0, 7, 8, 9 }.ToImmutableArray()

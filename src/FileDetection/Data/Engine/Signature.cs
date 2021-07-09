@@ -8,12 +8,12 @@ namespace FileDetection.Data.Engine
 {
     public record Signature : DisplayRecord
     {
-        public ImmutableArray<BeginningSegment> Beginning { get; init; } = ImmutableArray<BeginningSegment>.Empty;
-        public ImmutableArray<MiddleSegment> Middle { get; init; } = ImmutableArray<MiddleSegment>.Empty;
+        public ImmutableArray<PrefixSegment> Prefix { get; init; } = ImmutableArray<PrefixSegment>.Empty;
+        public ImmutableArray<StringSegment> Strings { get; init; } = ImmutableArray<StringSegment>.Empty;
 
         public override string? GetDebuggerDisplay()
         {
-            return $@"{Beginning.Length} Front /// {Middle.Length} Any";
+            return $@"{Prefix.Length} Prefixes /// {Strings.Length} Strings";
         }
     }
 
