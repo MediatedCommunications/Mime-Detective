@@ -84,8 +84,19 @@ namespace FileDetection.Storage.Trid.v2
         {
             var ret = new Storage.Signature()
             {
-                Strings = V1.GlobalStrings.Select(x => ConvertGlobalString(x)).ToImmutableArray(),
-                Prefix = V1.FrontBlock.Select(x => ConvertPattern(x)).ToImmutableArray()
+                Strings = V1
+                    .GlobalStrings
+                    .Select(x => ConvertGlobalString(x))
+                    .OrderByDescending(x => x.Pattern.Length)
+                    .ToImmutableArray()
+                    ,
+
+                Prefix = V1
+                    .FrontBlock
+                    .Select(x => ConvertPattern(x))
+                    .OrderBy(x => x.Start)
+                    .ToImmutableArray()
+                    ,
             };
 
             return ret;

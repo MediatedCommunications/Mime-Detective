@@ -7,7 +7,7 @@ namespace FileDetection.Storage
     /// <summary>
     /// Represents <see cref="Segment.Content"/> that occurs near the beginning of a file.
     /// </summary>
-    public record PrefixSegment : PatternSegment
+    public class PrefixSegment : PatternSegment
     {
         public static PrefixSegment None { get; } = new();
 
@@ -19,6 +19,10 @@ namespace FileDetection.Storage
         public override string? GetDebuggerDisplay()
         {
             return $@"@{Start}: {base.GetDebuggerDisplay()}";
+        }
+
+        protected override int GetHashCodeInternal() {
+            return Start + base.GetHashCodeInternal();
         }
     }
 }

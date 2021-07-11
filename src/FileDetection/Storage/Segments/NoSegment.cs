@@ -4,7 +4,7 @@
     /// <summary>
     /// A singleton instance that represents a null segment.
     /// </summary>
-    internal record NoSegment : Segment
+    internal class NoSegment : Segment
     {
         private NoSegment() { }
 

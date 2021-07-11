@@ -15,7 +15,9 @@ namespace FileDetection.Data
 
         private static List<Definition> SourceData()
         {
-            var Folder = $@"C:\Users\Faster Law\Downloads\triddefs_xml";
+            var Profile = System.Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+
+            var Folder = $@"{Profile}\Downloads\triddefs_xml";
 
             var Items = new List<Definition>();
             foreach (var FileName in System.IO.Directory.EnumerateFiles(Folder, "*.xml", System.IO.SearchOption.AllDirectories))

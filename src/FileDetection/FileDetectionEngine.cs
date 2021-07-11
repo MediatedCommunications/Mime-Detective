@@ -4,40 +4,88 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace FileDetection
 {
 
+    internal class DefinitionMatcherCache {
+
+        public DefinitionMatcherCache(Definition Definition) {
+            this.Definition = Definition;
+        }
+
+        public Definition Definition { get; }
+        public ImmutableArray<PrefixSegmentMatcher> Prefixes { get; init; } = ImmutableArray<PrefixSegmentMatcher>.Empty;
+        public ImmutableArray<StringSegmentMatcher> Strings { get; init; } = ImmutableArray<StringSegmentMatcher>.Empty;
+
+    }
+
     public class FileDetectionEngine
     {
         public DefinitionMatchEvaluatorOptions MatchEvaluatorOptions { get; init; } = new();
         public ImmutableArray<Definition> Definitions { get; init; } = ImmutableArray<Definition>.Empty;
 
-        private ImmutableDictionary<string, ISegmentMatcher>? __StringSegmentCache;
+        private ImmutableArray<DefinitionMatcherCache>? MatcherCaches_Values;
 
-        private ImmutableDictionary<string, ISegmentMatcher> StringSegmentCache
+        private ImmutableArray<DefinitionMatcherCache> MatcherCaches
         {
             get
             {
-                if(__StringSegmentCache == default)
+
+                if (MatcherCaches_Values == default)
                 {
-                    __StringSegmentCache = (
+                    var PrefixCache = (
+                        from x in Definitions
+                        from y in x.Signature.Prefix
+                        select y
+                        ).Distinct(PrefixSegmentEqualityComparer.Instance)
+                        .ToImmutableDictionary(
+                        x => x, 
+                        x => PrefixSegmentMatcher.Create(x),
+                        PrefixSegmentEqualityComparer.Instance
+                        );
+
+                    var StringCache = (
                         from x in Definitions
                         from y in x.Signature.Strings
-                        let Key = Convert.ToBase64String(y.Pattern.AsSpan())
-                        group y by Key
-                        ).ToImmutableDictionary(x => x.Key, x => StringSegmentMatcher.Create(x.First()));
+                        select y
+                        )
+                        .Distinct(StringSegmentEqualityComparer.Instance)
+                        .ToImmutableDictionary(
+                        x => x, 
+                        x => StringSegmentMatcher.Create(x),
+                        StringSegmentEqualityComparer.Instance
+                        );
+
+                    MatcherCaches_Values = (
+                        from Definition in Definitions
+                        let Prefixes = (
+                            from y in Definition.Signature.Prefix
+                            select PrefixCache[y]
+                        ).ToImmutableArray()
+                        let Strings = (
+                        from y in Definition.Signature.Strings
+                        select StringCache[y]
+                        ).ToImmutableArray()
+                        select new DefinitionMatcherCache(Definition) {
+                            Prefixes = Prefixes,
+                            Strings = Strings,
+                        }).ToImmutableArray();
+               
                 }
 
-                return __StringSegmentCache;
+                var ret = MatcherCaches_Values ?? ImmutableArray<DefinitionMatcherCache>.Empty;
+
+                return ret;
             }
         }
 
         public void WarmUp()
         {
-            _ = StringSegmentCache;
+            _ = MatcherCaches;
         }
 
         public ImmutableArray<DefinitionMatch> Detect(IEnumerable<byte> Content)
@@ -58,7 +106,6 @@ namespace FileDetection
         
         protected ImmutableArray<DefinitionMatch> Detect_v1(ImmutableArray<byte> Content, ImmutableArray<Definition> Definitions)
         {
-            var StringSegmentCache = this.StringSegmentCache;
 
             var NoContentStrings = ImmutableArray<StringSegment>.Empty;
 
@@ -73,34 +120,40 @@ namespace FileDetection
                 }
             };
 
-            var ret = (
-                from x in Source1
+            var MatcherCaches = this.MatcherCaches;
+
+
+            var tret = (
+                from MatcherCache in MatcherCaches
+                .AsParallel()
+                .WithExecutionMode(ParallelExecutionMode.ForceParallelism)
+                .WithMergeOptions(ParallelMergeOptions.FullyBuffered)
+
                 let Match = MatchEvaluator1.Match(
-                    x, 
-                    StringSegmentCache, 
+                    MatcherCache, 
                     Content, 
                     NoContentStrings
                     )
                 where Match is { }
                 orderby Match.Points descending
-                select Match
+                select new {
+                    Match,
+                    MatcherCache
+                }
                 ).ToImmutableArray();
 
 
             if (MatchEvaluatorOptions.Include_Segments_Strings) {
 
-                var Source2 = (
-                    from x in ret
-                    select x.Definition
-                    ).ToImmutableArray();
+                var Source2 = tret;
 
-                var NeedingStrings = (
+                var NeedsStrings = (
                     from x in Source2
-                    where x.Signature.Strings.Length > 0
+                    where x.MatcherCache.Strings.Length > 0
                     select x
-                    ).ToImmutableArray();
-
-                if(Source2.Length >= 2 && NeedingStrings.Length >= 1)
+                    ).Any()
+                    ;
+                if(Source2.Length >= 2 && NeedsStrings)
                 {
                     var MatchEvaluator2 = new DefinitionMatchEvaluator()
                     {
@@ -109,20 +162,23 @@ namespace FileDetection
 
                     var ContentStrings = StringSegmentExtrator.ExtractStrings(Content);
 
-                    ret = (
+
+                    tret = (
                         from x in Source2
                         .AsParallel()
                         .WithExecutionMode(ParallelExecutionMode.ForceParallelism)
-                        //.WithMergeOptions(ParallelMergeOptions.NotBuffered)
+                        .WithMergeOptions(ParallelMergeOptions.FullyBuffered)
                         let Match = MatchEvaluator2.Match(
-                            x,
-                            StringSegmentCache,
+                            x.MatcherCache,
                             Content,
                             ContentStrings
                             )
                         where Match is { }
                         orderby Match.Points descending
-                        select Match
+                        select new {
+                            Match = Match,
+                            MatcherCache = x.MatcherCache,
+                        }
                         ).ToImmutableArray();
 
                 } else
@@ -131,6 +187,11 @@ namespace FileDetection
                 }
 
             }
+
+            var ret = (
+                from x in tret
+                select x.Match
+                ).ToImmutableArray();
 
             return ret;
         }

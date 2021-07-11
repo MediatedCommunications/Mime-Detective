@@ -40,7 +40,7 @@ namespace FileDetection.Tests
         [TestMethod]
         public void Engine_Test_Bmp()
         {
-            Test_Extension($@"C:\Windows\System32\oobe\info\surface.bmp", "BMP");
+            Test_Extension($@"C:\ProgramData\Microsoft\User Account Pictures\guest.bmp", "BMP");
         }
 
         [TestMethod]
@@ -96,9 +96,11 @@ namespace FileDetection.Tests
         private static ImmutableArray<ExtensionMatch> Test_Extension(string FileName, string Extension) {
             var ret = ImmutableArray<ExtensionMatch>.Empty;
 
-            for (var i = 0; i < 50; i++)
+            var Content = System.IO.File.ReadAllBytes(FileName);
+
+            for (var i = 0; i < 200; i++)
             {
-                ret = Test_Extension_Internal(FileName, Extension);
+                ret = Test_Extension_Internal(Content, Extension);
             }
 
 
@@ -106,10 +108,10 @@ namespace FileDetection.Tests
         }
 
 
-        private static ImmutableArray<ExtensionMatch> Test_Extension_Internal(string FileName, string Extension)
+        private static ImmutableArray<ExtensionMatch> Test_Extension_Internal(byte[] Content, string Extension)
         {
 
-            var Content = System.IO.File.ReadAllBytes(FileName);
+            
 
             var Engine = GetEngine();
             var Results = Engine.Detect(Content).ByExtension();
