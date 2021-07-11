@@ -2,12 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-	<Nullable>enable</Nullable>
-	<PackageTags>magic numbers, magic words, file headers, file type detection, file signatures, detect extension,</PackageTags>
-	<PackageLicenseExpression>MIT</PackageLicenseExpression>
-	<RepositoryUrl>https://github.com/MediatedCommunications/FileDetection.Public</RepositoryUrl>
-	<PackageReleaseNotes>Quickly detect file types based on their signatures.  This library requires either the MC.FileDetection.Data.Large or MC.FileDetection.Data.Small repositories.</PackageReleaseNotes>
+		<Nullable>enable</Nullable>
   </PropertyGroup>
-
+  
+  <PropertyGroup>
+    <PackageId>FileDetection</PackageId>
+    <Description>Quickly detect the type of a file or stream using a library of 14,000+ signatures based on the header signature (also known as magic number) rather than file extension.</Description>
+    <PackageReleaseNotes>Requires either the MC.FileDetection.Data.Large or MC.FileDetection.Data.Small repositories.</PackageReleaseNotes>
+  </PropertyGroup>
 
 </Project>

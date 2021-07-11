@@ -1,8 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\__Shared\Shared.targets" Label="Shared" />
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-	  <Nullable>enable</Nullable>
+    <PackageId>FileDetection.Data.Large</PackageId>
+    <Description>An exhaustive library of over 14,000 file signatures for use by the "FileDetection" package.</Description>
+    <PackageReleaseNotes>For use with the "FileDetection" package.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,5 +26,8 @@
       <CustomToolNamespace>FileDetection.Data</CustomToolNamespace>
     </EmbeddedResource>
   </ItemGroup>
+
+
+
 
 </Project>

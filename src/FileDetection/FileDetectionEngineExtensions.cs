@@ -12,7 +12,7 @@ namespace FileDetection
         /// </summary>
         /// <param name="This"></param>
         /// <returns></returns>
-        public static ImmutableArray<ExtensionMatch> ByExtension(this ImmutableArray<DefinitionMatch> This)
+        public static ImmutableArray<FileExtensionMatch> ByFileExtension(this ImmutableArray<DefinitionMatch> This)
         {
             var ret = (
                 from x in This
@@ -21,7 +21,7 @@ namespace FileDetection
                 let Extension = G.Key
                 let Matches = G.ToImmutableArray()
                 let Points = Matches.Sum(x => x.Points)
-                let v = new ExtensionMatch()
+                let v = new FileExtensionMatch()
                 {
                     Extension = Extension,
                     Matches = Matches,

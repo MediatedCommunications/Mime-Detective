@@ -3,7 +3,7 @@ using System.Collections.Immutable;
 
 namespace FileDetection.Engine
 {
-    public record ExtensionMatch : DisplayRecord
+    public record FileExtensionMatch : DisplayRecord
     {
         public string Extension { get; init; } = string.Empty;
         public long Points { get; init; }

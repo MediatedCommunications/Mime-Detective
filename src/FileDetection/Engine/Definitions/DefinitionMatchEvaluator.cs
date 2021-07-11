@@ -16,7 +16,7 @@ namespace FileDetection.Engine
         public DefinitionMatchEvaluatorOptions Options { get; init; } = new();
 
         public virtual DefinitionMatch? Match(
-            DefinitionMatcherCache DefinitionMatcherCache, ImmutableArray<byte> Content, ImmutableArray<StringSegment> ContentStrings)
+            FileDetectionEngineCache DefinitionMatcherCache, ImmutableArray<byte> Content, ImmutableArray<StringSegment> ContentStrings)
         {
             var ret = default(DefinitionMatch?);
 

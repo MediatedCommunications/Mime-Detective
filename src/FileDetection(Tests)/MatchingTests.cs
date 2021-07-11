@@ -93,8 +93,8 @@ namespace FileDetection.Tests
             return GetEngine_Result;
         }
 
-        private static ImmutableArray<ExtensionMatch> Test_Extension(string FileName, string Extension) {
-            var ret = ImmutableArray<ExtensionMatch>.Empty;
+        private static ImmutableArray<FileExtensionMatch> Test_Extension(string FileName, string Extension) {
+            var ret = ImmutableArray<FileExtensionMatch>.Empty;
 
             var Content = System.IO.File.ReadAllBytes(FileName);
 
@@ -108,13 +108,13 @@ namespace FileDetection.Tests
         }
 
 
-        private static ImmutableArray<ExtensionMatch> Test_Extension_Internal(byte[] Content, string Extension)
+        private static ImmutableArray<FileExtensionMatch> Test_Extension_Internal(byte[] Content, string Extension)
         {
 
             
 
             var Engine = GetEngine();
-            var Results = Engine.Detect(Content).ByExtension();
+            var Results = Engine.Detect(Content).ByFileExtension();
             
             Assert.AreEqual(Extension, Results.First().Extension);
 

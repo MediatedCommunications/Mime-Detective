@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <DebugType>full</DebugType>
+    <LangVersion>latest</LangVersion>
+    <nullable>enable</nullable>
+ </PropertyGroup>
+
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageTags>Magic Numbers Words File Header Signature Type Detection Extension Mime Type</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/MediatedCommunications/FileDetection.Public</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/MediatedCommunications/FileDetection.Public</PackageProjectUrl>
+    <Authors>TonyValenti</Authors>
+    <Company />
+    <Product />
+    <AssemblyVersion>22.07.19.0</AssemblyVersion>
+    <FileVersion>22.07.19.0</FileVersion>
+    <Version>22.07.19</Version>
+    <PackageIcon>noun_data search_4033516.png</PackageIcon>
+    <PackageIconUrl />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\__Shared\noun_data search_4033516.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
+

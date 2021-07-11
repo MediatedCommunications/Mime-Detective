@@ -1,8 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\__Shared\Shared.targets" Label="Shared" />
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-	  <Nullable>enable</Nullable>
+    <PackageId>FileDetection.Data.Small</PackageId>
+    <Description>A condensed library of +100 common file signatures for use by the "FileDetection" package.</Description>
+    <PackageReleaseNotes>For use with the "FileDetection" package.</PackageReleaseNotes>
   </PropertyGroup>
 
 	<ItemGroup>

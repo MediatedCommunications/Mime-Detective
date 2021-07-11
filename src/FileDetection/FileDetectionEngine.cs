@@ -1,6 +1,5 @@
 ﻿using FileDetection.Engine;
 using FileDetection.Storage;
-using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
@@ -8,29 +7,16 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FileDetection
-{
-
-    internal class DefinitionMatcherCache {
-
-        public DefinitionMatcherCache(Definition Definition) {
-            this.Definition = Definition;
-        }
-
-        public Definition Definition { get; }
-        public ImmutableArray<PrefixSegmentMatcher> Prefixes { get; init; } = ImmutableArray<PrefixSegmentMatcher>.Empty;
-        public ImmutableArray<StringSegmentMatcher> Strings { get; init; } = ImmutableArray<StringSegmentMatcher>.Empty;
-
-    }
+namespace FileDetection {
 
     public class FileDetectionEngine
     {
         public DefinitionMatchEvaluatorOptions MatchEvaluatorOptions { get; init; } = new();
         public ImmutableArray<Definition> Definitions { get; init; } = ImmutableArray<Definition>.Empty;
 
-        private ImmutableArray<DefinitionMatcherCache>? MatcherCaches_Values;
+        private ImmutableArray<FileDetectionEngineCache>? MatcherCaches_Values;
 
-        private ImmutableArray<DefinitionMatcherCache> MatcherCaches
+        private ImmutableArray<FileDetectionEngineCache> MatcherCaches
         {
             get
             {
@@ -70,14 +56,14 @@ namespace FileDetection
                         from y in Definition.Signature.Strings
                         select StringCache[y]
                         ).ToImmutableArray()
-                        select new DefinitionMatcherCache(Definition) {
+                        select new FileDetectionEngineCache(Definition) {
                             Prefixes = Prefixes,
                             Strings = Strings,
                         }).ToImmutableArray();
                
                 }
 
-                var ret = MatcherCaches_Values ?? ImmutableArray<DefinitionMatcherCache>.Empty;
+                var ret = MatcherCaches_Values ?? ImmutableArray<FileDetectionEngineCache>.Empty;
 
                 return ret;
             }
@@ -96,9 +82,9 @@ namespace FileDetection
         public ImmutableArray<DefinitionMatch> Detect(ImmutableArray<byte> Content)
         {
 
-            var SW1 = System.Diagnostics.Stopwatch.StartNew();
+            LicenseValidator.ThrowIfUnlicensed(this);
+
             var ret = Detect_v1(Content, Definitions);
-            SW1.Stop();
 
             return ret;
         }
