@@ -23,7 +23,7 @@ namespace FileDetection.Storage
 
         protected static void WriteBytes(Utf8JsonWriter writer, IEnumerable<byte> value, JsonSerializerOptions options)
         {
-            var Data = BitConverter.ToString(value.ToArray()).Replace("-", " ");
+            var Data = Convert.ToHexString(value.ToArray());
             JsonSerializer.Serialize(writer, Data, options);
         }
 

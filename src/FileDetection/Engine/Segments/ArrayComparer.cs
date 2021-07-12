@@ -32,7 +32,7 @@ namespace FileDetection.Engine {
             return ret;
         }
 
-        public int GetHashCode([DisallowNull] IEnumerable<T> obj) {
+        public int GetHashCode(IEnumerable<T> obj) {
             var ret = 17;
             foreach (var element in obj) {
 

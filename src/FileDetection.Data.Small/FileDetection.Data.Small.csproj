@@ -7,10 +7,13 @@
     <PackageReleaseNotes>For use with the "FileDetection" package.</PackageReleaseNotes>
   </PropertyGroup>
 
-	<ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="System.Collections.Immutable" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
 		<ProjectReference Include="..\FileDetection\FileDetection.csproj" />
 	</ItemGroup>
-
 
 	<ItemGroup>
     <Compile Update="Resources.Designer.cs">

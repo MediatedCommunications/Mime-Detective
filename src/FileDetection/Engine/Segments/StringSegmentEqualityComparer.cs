@@ -11,7 +11,7 @@ namespace FileDetection.Engine {
             return ArrayComparer<byte>.Instance.Equals(x?.Pattern, y?.Pattern);
         }
 
-        public int GetHashCode([DisallowNull] StringSegment obj) {
+        public int GetHashCode(StringSegment obj) {
             return obj.GetHashCode();
         }
     }

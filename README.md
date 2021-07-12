@@ -16,10 +16,10 @@ Then install one of two definition files below.
 using FileDetection;
 
 //Create a new engine and use the Small set.
-var Engine = new FileDetectionEngine()
+var Engine = new FileDetectionEngineArgs()
 {
     Definitions = Data.Small.Definitons()
-};
+}.Create();
 
 
 //Read content from a file.

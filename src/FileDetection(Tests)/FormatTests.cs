@@ -34,15 +34,25 @@ namespace FileDetection.Tests
         }
 
         [TestMethod]
-        public void TestXmlSchema()
+        public void TestXmlSchema_FromMemory()
         {
             var Data = XmlData.Example();
-            var xml1 = FileDetection.Storage.Trid.v2.TridSerializer.ToXml(Data);
+            var xml = FileDetection.Storage.Xml.v2.XmlSerializer.ToXml(Data);
+            Assert.IsNotNull(xml);
+        }
 
-            var xml2 = FileDetection.Storage.Trid.v2.TridSerializer.FromXmlFile($@"C:\Users\Faster Law\Downloads\triddefs_xml\defs\0\{{sa}}proj.trid.xml");
+        [TestMethod]
+        public void TestXmlSchema_FromFiles() {
+            var Folder = $@"{SourceDefinitions.DefinitionRoot()}\defs\0\";
 
-            Assert.IsNotNull(xml1);
-            Assert.IsNotNull(xml2);
+            var Files = System.IO.Directory.GetFiles(Folder, "*.xml");
+
+            foreach (var File in Files) {
+
+                var xml = FileDetection.Storage.Xml.v2.XmlSerializer.FromXmlFile(File);
+                Assert.IsNotNull(xml);
+
+            }
 
         }
 

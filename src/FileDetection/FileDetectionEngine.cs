@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FileDetection {
 
-    public class FileDetectionEngine
+    internal class FileDetectionEngine : IFileDetectionEngine
     {
         public DefinitionMatchEvaluatorOptions MatchEvaluatorOptions { get; init; } = new();
         public ImmutableArray<Definition> Definitions { get; init; } = ImmutableArray<Definition>.Empty;
@@ -72,11 +72,6 @@ namespace FileDetection {
         public void WarmUp()
         {
             _ = MatcherCaches;
-        }
-
-        public ImmutableArray<DefinitionMatch> Detect(IEnumerable<byte> Content)
-        {
-            return Detect(Content.ToImmutableArray());
         }
 
         public ImmutableArray<DefinitionMatch> Detect(ImmutableArray<byte> Content)

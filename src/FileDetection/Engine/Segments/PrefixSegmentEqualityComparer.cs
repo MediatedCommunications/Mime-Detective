@@ -14,7 +14,7 @@ namespace FileDetection.Engine {
                 ;
         }
 
-        public int GetHashCode([DisallowNull] PrefixSegment obj) {
+        public int GetHashCode(PrefixSegment obj) {
             return obj.GetHashCode();
         }
     }

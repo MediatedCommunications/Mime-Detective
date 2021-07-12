@@ -25,10 +25,4 @@ namespace FileDetection.Data
 
     }
 
-    internal class LicenseJson
-    {
-        public string Owner { get; init; } = string.Empty;
-        public DateTimeOffset Valid_From { get; init; }
-        public DateTimeOffset Valid_Till { get; init; }
-    }
 }

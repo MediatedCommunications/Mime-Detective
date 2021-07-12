@@ -75,17 +75,17 @@ namespace FileDetection.Tests
         }
 
 
-        private static FileDetectionEngine? GetEngine_Result;
-        private static FileDetectionEngine GetEngine()
+        private static IFileDetectionEngine? GetEngine_Result;
+        private static IFileDetectionEngine GetEngine()
         {
             if(GetEngine_Result == default)
             {
                 var Defintions = Data.Large.Definitions();
 
-                GetEngine_Result = new FileDetectionEngine()
+                GetEngine_Result = new FileDetectionEngineArgs()
                 {
                     Definitions = Defintions,
-                };
+                }.Create();
 
                 GetEngine_Result.WarmUp();
             }

@@ -25,7 +25,7 @@ namespace FileDetection.Storage
         }
 
         private int? GetHashCode_Value;
-        public sealed override int GetHashCode() {
+        public override sealed int GetHashCode() {
             
             if (! (GetHashCode_Value is { } V1)) {
                 V1 = GetHashCodeInternal();

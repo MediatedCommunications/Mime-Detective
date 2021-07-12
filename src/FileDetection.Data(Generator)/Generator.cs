@@ -15,20 +15,19 @@ namespace FileDetection.Data
 
         private static List<Definition> SourceData()
         {
-            var Profile = System.Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
-
-            var Folder = $@"{Profile}\Downloads\triddefs_xml";
+            
+            var Folder = SourceDefinitions.DefinitionRoot();
 
             var Items = new List<Definition>();
             foreach (var FileName in System.IO.Directory.EnumerateFiles(Folder, "*.xml", System.IO.SearchOption.AllDirectories))
             {
                 var Id = System.IO.Path.GetFileNameWithoutExtension(FileName);
 
-                var Item = FileDetection.Storage.Trid.v2.TridSerializer.FromXmlFile(FileName)
+                var Item = FileDetection.Storage.Xml.v2.XmlSerializer.FromXmlFile(FileName)
                     ?? throw new NullReferenceException()
                     ;
 
-                var Modern = FileDetection.Storage.Trid.v2.DefinitionExtensions.Modernize(Item);
+                var Modern = FileDetection.Storage.Xml.v2.DefinitionExtensions.Modernize(Item);
                 Modern = Modern with
                 {
                     Meta = (Modern.Meta ?? new()) with
