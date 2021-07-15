@@ -30,6 +30,8 @@ namespace FileDetection.Data
 
             var Data = DefinitionExtensions.Intersection(A, B);
 
+            Data.Equals(Data);
+
         }
 
     }

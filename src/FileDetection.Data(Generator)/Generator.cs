@@ -66,7 +66,7 @@ namespace FileDetection.Data
             //List from:
             //https://www.computerhope.com/issues/ch001789.htm
 
-            var ExtensionList = new[]
+            var Extensions = new[]
             {
                 "aif", "cda","mid", "midi","mp3", "mpa", "ogg","wav","wma", "wpl",
                 "7z", "arj", "deb","pkg","rar","rpm","tar.gz","z","zip",
@@ -81,10 +81,8 @@ namespace FileDetection.Data
                 "cab", "cur", "icns", "ico", "lnk",
                 "3g2","3gp","avi", "flv", "h264","m4v", "mkv", "mov","mp4","mpg", "mpeg", "rm", "swf", "vob","wmv",
                 "doc","docx","odt","pdf","rtf","tex","wpd",
-            };
+            }.ToImmutableHashSet(StringComparer.InvariantCultureIgnoreCase);
 
-
-            var Extensions = ExtensionList.ToImmutableHashSet(StringComparer.InvariantCultureIgnoreCase);
 
             var I1 = (
                 from x in AllItems
@@ -124,27 +122,6 @@ namespace FileDetection.Data
 
             DefinitionJsonSerializer.ToJsonFile(Json, Items);
             DefinitionBinarySerializer.ToBinaryFile(Bin, Items);
-        }
-
-
-        private static void WriteTrimmed(string Root, IEnumerable<Definition> Items)
-        {
-            var NewItems = (
-                from x in Items
-                let v = x with
-                {
-                    Meta = default,
-                    File = x.File with
-                    {
-                        Description = default,
-                        MimeType = default,
-                    },
-                }
-                select v
-                ).ToList();
-
-            var Bin = $@"{Root}\FileDetection.Data.Trimmed\Data\data.bin";
-            DefinitionBinarySerializer.ToBinaryFile(Bin, NewItems);
         }
 
     }

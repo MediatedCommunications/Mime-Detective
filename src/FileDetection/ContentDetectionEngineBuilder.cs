@@ -1,5 +1,6 @@
 ﻿using FileDetection.Engine;
 using FileDetection.Storage;
+using System.Collections.Generic;
 using System.Collections.Immutable;
 
 namespace FileDetection {
@@ -12,22 +13,19 @@ namespace FileDetection {
         /// <summary>
         /// The definitions that will be run against input data.
         /// </summary>
-        public ImmutableArray<Definition> Definitions { get; set; } = ImmutableArray<Definition>.Empty;
+        public IList<Definition> Definitions { get; set; } = new List<Definition>();
 
         /// <summary>
-        /// Perform initial caching so that the initial <see cref="IFileDetectionEngine.Detect(ImmutableArray{byte})"/> will run at maximum performance.
+        /// Whether multiple definitions should be evaluated concurrently.  If you have thousands of definitions, set this to true, otherwise, set this to false.
         /// </summary>
-        public bool WarmUp { get; set; } = true;
+        public bool Parallel { get; set; } = true;
 
         public IContentDetectionEngine Build() {
-            var ret = new ContentDetectionEngine() {
-                Definitions = Definitions,
-                MatchEvaluatorOptions = MatchEvaluatorOptions,
-            };
 
-            if (WarmUp) {
-                ret.WarmUp();
-            }
+            var Options = MatchEvaluatorOptions;
+            var Defs = Definitions.ToImmutableArray();
+
+            var ret = new ContentDetectionEngine(Defs, Options, Parallel);
 
             return ret;
         }

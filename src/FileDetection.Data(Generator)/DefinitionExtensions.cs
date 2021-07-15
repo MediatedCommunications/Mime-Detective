@@ -9,55 +9,9 @@ namespace FileDetection.Data
 {
     public static class DefinitionExtensions
     {
-        public static IEnumerable<Definition> TrimMeta(this IEnumerable<Definition> This)
-        {
-            return This.Select(x => x.TrimMeta());
-        }
 
-        public static Definition TrimMeta(this Definition This)
-        {
 
-            var ret = This with
-            {
-                Meta = default,
-            };
 
-            return ret;
-        }
-
-        public static IEnumerable<Definition> TrimDescription(this IEnumerable<Definition> This)
-        {
-            return This.Select(x => x.TrimDescription());
-        }
-
-        public static Definition TrimDescription (this Definition This)
-        {
-            return This with
-            {
-                File = This.File with
-                {
-                    Description = default,
-                }
-            };
-        }
-
-        public static IEnumerable<Definition> TrimExtensions(this IEnumerable<Definition> This, ImmutableHashSet<string> Extensions)
-        {
-            return This.Select(x => x.TrimExtensions(Extensions));
-        }
-
-        public static Definition TrimExtensions(this Definition This, ImmutableHashSet<string> Extensions)
-        {
-            return This with
-            {
-                File = This.File with
-                {
-                    Extensions = Extensions
-                        .Intersect(This.File.Extensions)
-                        .ToImmutableArray()
-                }
-            };
-        }
 
         public static IEnumerable<Definition> Minify(this IEnumerable<Definition> Values)
         {

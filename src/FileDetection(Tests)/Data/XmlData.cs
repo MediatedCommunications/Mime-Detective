@@ -13,14 +13,14 @@ namespace FileDetection.Tests
         
         public static string ExampleVersion => "1.20";
 
-        public static string Pattern1_ASCII = "12345678";
-        public static string Pattern1_Bytes = "AAFFCCDD";
-        public static int Pattern1_Position = 11;
+        public static string Pattern1_ASCII => "12345678";
+        public static string Pattern1_Bytes => "AAFFCCDD";
+        public static int Pattern1_Position => 11;
 
 
-        public static string Pattern2_ASCII = "87654321";
-        public static string Pattern2_Bytes = "DDFFEECC";
-        public static int Pattern2_Position = 99;
+        public static string Pattern2_ASCII => "87654321";
+        public static string Pattern2_Bytes => "DDFFEECC";
+        public static int Pattern2_Position => 99;
 
         public static string GlobalString1 => "Global 1";
         public static string GlobalString2 => "Global 2";
