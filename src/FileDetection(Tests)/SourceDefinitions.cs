@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FileDetection {
+namespace FileDetection.Tests {
     public static class SourceDefinitions {
     
         public static string DefinitionRoot() {

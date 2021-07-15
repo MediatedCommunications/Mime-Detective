@@ -1,6 +1,7 @@
 using FileDetection.Data;
 using FileDetection.Engine;
 using FileDetection.Storage;
+using FileDetection.Tests;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,9 @@ namespace FileDetection.Data
     public class Generator
     {
 
-        private static List<Definition> SourceData()
+
+
+        private static List<Definition> MacroSourceData()
         {
             
             var Folder = SourceDefinitions.DefinitionRoot();
@@ -49,7 +52,7 @@ namespace FileDetection.Data
             
             var Root = System.IO.Path.GetFullPath(@"..\..\..\..\");
 
-            var Items = SourceData();
+            var Items = MacroSourceData();
 
 
             WriteSmall(Root, Items);

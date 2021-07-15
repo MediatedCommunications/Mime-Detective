@@ -5,10 +5,10 @@ using System.Linq;
 
 namespace FileDetection
 {
-    public static class IFileDetectionEngineExtensions
+    public static class IContentDetectionEngineExtensions
     {
 
-        public static ImmutableArray<DefinitionMatch> Detect(this IFileDetectionEngine This, IEnumerable<byte> Content) {
+        public static ImmutableArray<DefinitionMatch> Detect(this IContentDetectionEngine This, IEnumerable<byte> Content) {
             return This.Detect(Content.ToImmutableArray());
         }
 

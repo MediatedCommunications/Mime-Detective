@@ -3,9 +3,9 @@ using FileDetection.Storage;
 using System.Collections.Immutable;
 
 namespace FileDetection {
-    internal class FileDetectionEngineCache {
+    internal class ContentDetectionEngineCache {
 
-        public FileDetectionEngineCache(Definition Definition) {
+        public ContentDetectionEngineCache(Definition Definition) {
             this.Definition = Definition;
         }
 

@@ -20,11 +20,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileDetection.Data.Micro", "FileDetection.Data.Micro\FileDetection.Data.Micro.csproj", "{DB6151D8-812D-489A-8DF9-6F12A8D72DB8}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		__Shared\Shared.targets*{328a73d1-a204-406e-acbc-6809d9c7bb85}*SharedItemsImports = 5
 		__Shared\Shared.targets*{7822eccb-0e46-49a0-9086-0ece5cabdc14}*SharedItemsImports = 5
 		__Shared\Shared.targets*{d545f898-cfea-40c8-a35b-fa502aece26c}*SharedItemsImports = 5
+		__Shared\Shared.targets*{db6151d8-812d-489a-8df9-6f12a8d72db8}*SharedItemsImports = 5
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +54,10 @@ Global
 		{328A73D1-A204-406E-ACBC-6809D9C7BB85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{328A73D1-A204-406E-ACBC-6809D9C7BB85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{328A73D1-A204-406E-ACBC-6809D9C7BB85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB6151D8-812D-489A-8DF9-6F12A8D72DB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB6151D8-812D-489A-8DF9-6F12A8D72DB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB6151D8-812D-489A-8DF9-6F12A8D72DB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB6151D8-812D-489A-8DF9-6F12A8D72DB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

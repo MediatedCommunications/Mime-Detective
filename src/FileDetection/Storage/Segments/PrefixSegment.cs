@@ -22,7 +22,7 @@ namespace FileDetection.Storage
         }
 
         protected override int GetHashCodeInternal() {
-            return Start + base.GetHashCodeInternal();
+            return Start ^ base.GetHashCodeInternal();
         }
     }
 }

@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace FileDetection {
 
-    internal class FileDetectionEngine : IFileDetectionEngine
+    internal class ContentDetectionEngine : IContentDetectionEngine
     {
         public DefinitionMatchEvaluatorOptions MatchEvaluatorOptions { get; init; } = new();
         public ImmutableArray<Definition> Definitions { get; init; } = ImmutableArray<Definition>.Empty;
 
-        private ImmutableArray<FileDetectionEngineCache>? MatcherCaches_Values;
+        private ImmutableArray<ContentDetectionEngineCache>? MatcherCaches_Values;
 
-        private ImmutableArray<FileDetectionEngineCache> MatcherCaches
+        private ImmutableArray<ContentDetectionEngineCache> MatcherCaches
         {
             get
             {
@@ -56,14 +56,14 @@ namespace FileDetection {
                         from y in Definition.Signature.Strings
                         select StringCache[y]
                         ).ToImmutableArray()
-                        select new FileDetectionEngineCache(Definition) {
+                        select new ContentDetectionEngineCache(Definition) {
                             Prefixes = Prefixes,
                             Strings = Strings,
                         }).ToImmutableArray();
                
                 }
 
-                var ret = MatcherCaches_Values ?? ImmutableArray<FileDetectionEngineCache>.Empty;
+                var ret = MatcherCaches_Values ?? ImmutableArray<ContentDetectionEngineCache>.Empty;
 
                 return ret;
             }
@@ -76,9 +76,6 @@ namespace FileDetection {
 
         public ImmutableArray<DefinitionMatch> Detect(ImmutableArray<byte> Content)
         {
-
-            LicenseValidator.ThrowIfUnlicensed(this);
-
             var ret = Detect_v1(Content, Definitions);
 
             return ret;

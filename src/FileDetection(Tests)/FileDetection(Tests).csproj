@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FileDetection.Data.Large\FileDetection.Data.Large.csproj" />
+    <ProjectReference Include="..\FileDetection.Data.Micro\FileDetection.Data.Micro.csproj" />
     <ProjectReference Include="..\FileDetection.Data.Small\FileDetection.Data.Small.csproj" />
     <ProjectReference Include="..\FileDetection\FileDetection.csproj" />
   </ItemGroup>

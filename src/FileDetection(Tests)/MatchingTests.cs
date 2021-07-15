@@ -75,19 +75,21 @@ namespace FileDetection.Tests
         }
 
 
-        private static IFileDetectionEngine? GetEngine_Result;
-        private static IFileDetectionEngine GetEngine()
+        private static IContentDetectionEngine? GetEngine_Result;
+        private static IContentDetectionEngine GetEngine()
         {
             if(GetEngine_Result == default)
             {
-                var Defintions = Data.Large.Definitions();
+                var Defintions = new Data.LargeBuilder() { 
+                    UsageType = Data.Licensing.UsageType.CommercialPaid
+                }.Build();
 
-                GetEngine_Result = new FileDetectionEngineArgs()
+                GetEngine_Result = new ContentDetectionEngineBuilder()
                 {
                     Definitions = Defintions,
-                }.Create();
-
-                GetEngine_Result.WarmUp();
+                    WarmUp = true,
+                }.Build();
+;
             }
 
             return GetEngine_Result;

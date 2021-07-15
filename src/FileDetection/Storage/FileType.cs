@@ -1,5 +1,6 @@
 ﻿using FileDetection.Diagnostics;
 using System.Collections.Immutable;
+using System.Linq;
 
 namespace FileDetection.Storage
 {
@@ -11,7 +12,7 @@ namespace FileDetection.Storage
 
         public override string? GetDebuggerDisplay()
         {
-            var Extension = string.Join(@"/", Extensions);
+            var Extension = string.Join(@"/", Extensions.Select(x => x.ToUpper()));
 
             return $@"{Extension} ({MimeType} /// {Description})";
         }

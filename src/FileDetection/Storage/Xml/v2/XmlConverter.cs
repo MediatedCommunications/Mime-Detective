@@ -28,7 +28,7 @@ namespace FileDetection.Storage.Xml.v2
         {
             var Extensions = $@"{V1.Info?.FileExtension}"
                 .Split(new[] { @"/" }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(x => x.Trim())
+                .Select(x => x.Trim().ToLower())
                 .Where(x => !string.IsNullOrWhiteSpace(x))
                 .ToImmutableArray()
                 ;
@@ -106,14 +106,7 @@ namespace FileDetection.Storage.Xml.v2
 
         private static Storage.StringSegment ConvertGlobalString(string V1)
         {
-            var Converted = V1.Replace("'", "\0");
-            var Bytes = System.Text.Encoding.UTF8.GetBytes(Converted);
-
-            var ret = new Storage.StringSegment()
-            {
-                Pattern = Bytes.ToImmutableArray(),
-            };
-            return ret;
+            return StringSegment.Create(V1, true);
         }
 
         private static Storage.PrefixSegment ConvertPattern(Pattern V1)
