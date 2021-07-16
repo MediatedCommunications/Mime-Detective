@@ -12,13 +12,8 @@ namespace FileDetection.Storage
         public static StringSegment None { get; } = new();
 
         public static StringSegment Create(string Text, bool ApostropheIsNull = true) {
-            if (ApostropheIsNull) {
-                Text = Text.Replace("'", "\0");
-            }
-            var Bytes = System.Text.Encoding.UTF8.GetBytes(Text);
-
             var ret = new Storage.StringSegment() {
-                Pattern = Bytes.ToImmutableArray(),
+                Pattern = BytesFromText(Text, ApostropheIsNull),
             };
             return ret;
 

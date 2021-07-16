@@ -16,8 +16,10 @@ namespace FileDetection.Data {
                         GZ(),
                         RAR(),
                         SevenZip(),
+                        TAR_ARK(),
                         TAR_ZH(),
                         TAR_ZV(),
+                        
                         ZIP_Archive(),
                         ZIP_Empty(),
                     }.ToImmutableArray();
@@ -25,6 +27,7 @@ namespace FileDetection.Data {
 
                 public static ImmutableArray<Definition> TAR() {
                     return new List<Definition>() {
+                        TAR_ARK(),
                         TAR_ZH(),
                         TAR_ZV(),
                     }.ToImmutableArray();
@@ -44,15 +47,9 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"bz2","tar","tbz2","tb2"}.ToImmutableArray(),
                                 MimeType = "application/x-bzip2",
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x42, 0x5A, 0x68
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[]{
+                                PrefixSegment.Create(0, "42 5A 68")
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -64,15 +61,9 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"gz", "tgz"}.ToImmutableArray(),
                                 MimeType = "application/x-gz",
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x1F, 0x8B, 0x08
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[]{
+                                            PrefixSegment.Create(0, "1F 8B 08"),
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -82,17 +73,11 @@ namespace FileDetection.Data {
                         new() {
                             File = new() {
                                 Extensions = new[]{"rar"}.ToImmutableArray(),
-                                MimeType = "application/x-compressed",
+                                MimeType = ApplicationXCompressed,
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x52, 0x61, 0x72, 0x21
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[]{
+                                PrefixSegment.Create(0, "52 61 72 21"),
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -102,17 +87,25 @@ namespace FileDetection.Data {
                         new() {
                             File = new() {
                                 Extensions = new[]{"7z"}.ToImmutableArray(),
-                                MimeType = "application/x-compressed",
+                                MimeType = ApplicationXCompressed,
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x37, 0x7A, 0xBC, 0xAF, 0x27, 0x1C
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
+                            Signature = new Segment[]{ 
+                                PrefixSegment.Create(0, "37 7A BC AF 27 1C")
+                            }.ToSignature(),
+                        },
+                    }.ToImmutableArray();
+                }
+
+                public static ImmutableArray<Definition> TAR_ARK() {
+                    return new List<Definition>() {
+                        new() {
+                            File = new() {
+                                Extensions = new[]{"tar"}.ToImmutableArray(),
+                                MimeType = ApplicationXTar,
                             },
+                            Signature = new Segment[] {
+                                PrefixSegment.Create(257, "75 73 74 61 72")
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -121,18 +114,12 @@ namespace FileDetection.Data {
                     return new List<Definition>() {
                         new() {
                             File = new() {
-                                Extensions = new[]{"tar.z"}.ToImmutableArray(),
-                                MimeType = "application/x-tar",
+                                Extensions = new[]{"tar"}.ToImmutableArray(),
+                                MimeType = ApplicationXTar,
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x1F, 0xA0
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[]{
+                                PrefixSegment.Create(0, "1F A0")
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -141,18 +128,12 @@ namespace FileDetection.Data {
                     return new List<Definition>() {
                         new() {
                             File = new() {
-                                Extensions = new[]{"tar.z"}.ToImmutableArray(),
-                                MimeType = "application/x-tar",
+                                Extensions = new[]{"tar"}.ToImmutableArray(),
+                                MimeType = ApplicationXTar,
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x1F, 0x9D
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[] {
+                                PrefixSegment.Create(0, "1F 9D")
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -162,17 +143,11 @@ namespace FileDetection.Data {
                         new() {
                             File = new() {
                                 Extensions = new[]{"zip"}.ToImmutableArray(),
-                                MimeType = "application/x-compressed",
+                                MimeType = ApplicationXCompressed,
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                             0x50, 0x4B, 0x03, 0x04
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[] {
+                                PrefixSegment.Create(0, "50 4B 03 04")
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -182,17 +157,11 @@ namespace FileDetection.Data {
                         new() {
                             File = new() {
                                 Extensions = new[]{"zip"}.ToImmutableArray(),
-                                MimeType = "application/x-compressed",
+                                MimeType = ApplicationXCompressed,
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x50, 0x4B, 0x05, 0x06
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[]{
+                                PrefixSegment.Create(0, "50 4B 05 06")
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }

@@ -33,15 +33,9 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"aes"}.ToImmutableArray(),
                                 MimeType = ApplicationOctetStream,
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x41, 0x45, 0x53
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[] {
+                                PrefixSegment.Create(0, "41 45 53")
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -53,15 +47,9 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"pkr"}.ToImmutableArray(),
                                 MimeType = ApplicationOctetStream,
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x99, 0x01
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[] {
+                                PrefixSegment.Create(0, "99 01")
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -73,15 +61,9 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"skr"}.ToImmutableArray(),
                                 MimeType = ApplicationOctetStream,
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x95, 0x00
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[] {
+                                PrefixSegment.Create(0, "95 00") 
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -93,15 +75,9 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"skr"}.ToImmutableArray(),
                                 MimeType = ApplicationOctetStream,
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x95, 0x01
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[] {
+                                PrefixSegment.Create(0, "95 01") 
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }

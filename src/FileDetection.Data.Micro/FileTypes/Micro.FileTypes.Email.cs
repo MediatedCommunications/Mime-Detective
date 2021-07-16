@@ -23,37 +23,25 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"eml"}.ToImmutableArray(),
                                 MimeType = "message/rfc822",
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x46, 0x72, 0x6F, 0x6D
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[] {
+                                PrefixSegment.Create(0, "46 72 6F 6D") 
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
 
                 public static ImmutableArray<Definition> PST() {
                     return new List<Definition>() {
-                new() {
-                    File = new() {
-                        Extensions = new[]{"pst"}.ToImmutableArray(),
-                        MimeType = ApplicationOctetStream,
-                    },
-                    Signature = new() {
-                        Prefix = new[] {
-                            new PrefixSegment() {
-                                Pattern = new byte[] {
-                                    0x21, 0x42, 0x44, 0x4E
-                                }.ToImmutableArray()
-                            }
-                        }.ToImmutableArray()
-                    },
-                },
-            }.ToImmutableArray();
+                        new() {
+                            File = new() {
+                                Extensions = new[]{"pst"}.ToImmutableArray(),
+                                MimeType = ApplicationOctetStream,
+                            },
+                            Signature = new Segment[] {
+                                    PrefixSegment.Create(0, "21 42 44 4E")
+                            }.ToSignature(),
+                        },
+                    }.ToImmutableArray();
                 }
             }
         }

@@ -7,7 +7,7 @@ namespace FileDetection.Storage
     public record FileType : DisplayRecord
     {
         public string? Description { get; init; }
-        public ImmutableArray<string> Extensions { get; init; }
+        public ImmutableArray<string> Extensions { get; init; } = ImmutableArray<string>.Empty;
         public string? MimeType { get; init; }
 
         public override string? GetDebuggerDisplay()

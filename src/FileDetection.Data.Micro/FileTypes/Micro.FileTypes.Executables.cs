@@ -24,15 +24,9 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"dll", "exe"}.ToImmutableArray(),
                                 MimeType = ApplicationOctetStream,
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x4D, 0x5A
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[] {
+                                PrefixSegment.Create(0, "4D 5A")
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -43,15 +37,9 @@ namespace FileDetection.Data {
                             File = new() {
                                 MimeType = ApplicationOctetStream,
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x7F, 0x45, 0x4C, 0x46
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[] {
+                                PrefixSegment.Create(0, "7F 45 4C 46")
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -63,15 +51,9 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"lib"}.ToImmutableArray(),
                                 MimeType = ApplicationOctetStream,
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x21, 0x3C, 0x61, 0x72, 0x63, 0x68, 0x3E, 0x0A
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[] {
+                                PrefixSegment.Create(0, "21 3C 61 72 63 68 3E 0A")
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }

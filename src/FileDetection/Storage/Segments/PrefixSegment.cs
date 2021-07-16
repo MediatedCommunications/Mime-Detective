@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 
 namespace FileDetection.Storage
@@ -15,6 +16,18 @@ namespace FileDetection.Storage
         /// The offset of where <see cref="Segment.Content"/> is located, relative to the start of the file.
         /// </summary>
         public int Start { get; init; }
+
+        public static PrefixSegment Create(int Start, IEnumerable<byte> Bytes) {
+            return new PrefixSegment() {
+                Start = Start,
+                Pattern = Bytes.ToImmutableArray(),
+            };
+        }
+
+        public static PrefixSegment Create(int Start, string HexString) {
+            return Create(Start, BytesFromHex(HexString));
+        }
+
 
         public override string? GetDebuggerDisplay()
         {

@@ -17,6 +17,9 @@ namespace FileDetection.Data {
                         PPT(),
                         PPTX(),
                         RTF(),
+                        ODT(),
+                        ODP(),
+                        ODS(),
                         XLS(),
                         XLSX(),
                     }.ToImmutableArray();
@@ -33,6 +36,13 @@ namespace FileDetection.Data {
                     }.ToImmutableArray();
                 }
 
+                public static ImmutableArray<Definition> OpenOffice() {
+                    return new List<Definition>() {
+                        ODT(),
+                        ODP(),
+                        ODS(),
+                    }.ToImmutableArray();
+                }
 
                 public static ImmutableArray<Definition> DOC() {
                     return new List<Definition>() {
@@ -41,16 +51,10 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"doc"}.ToImmutableArray(),
                                 MimeType = "application/msword",
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Start = 512,
-                                        Pattern = new byte[] {
-                                            0xEC, 0xA5, 0xC1, 0x00
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[] {
+                                PrefixSegment.Create(0, "D0 CF 11 E0 A1 B1 1A E1"),
+                                StringSegment.Create("W'O'R'D'D'O'C'U'M'E'N'T"),
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -62,22 +66,14 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"docx"}.ToImmutableArray(),
                                 MimeType = "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x50, 0x4B, 0x03, 0x04,
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray(),
-                                Strings = new[] {
-                                    StringSegment.Create("_RELS"),
-                                    StringSegment.Create("CONTENT_TYPES"),
-                                    StringSegment.Create("XML.REL"),
-                                    
-                                    StringSegment.Create("WORD"),
-                                }.ToImmutableArray(),
-                            },
+                            Signature = new Segment[] {                                
+                                PrefixSegment.Create(0, "50 4B 03 04"),
+                                
+                                StringSegment.Create("_RELS"),
+                                StringSegment.Create("CONTENT_TYPES"),
+                                StringSegment.Create("XML.REL"),            
+                                StringSegment.Create("WORD"),
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -89,15 +85,9 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"dwg"}.ToImmutableArray(),
                                 MimeType = "application/acad",
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x41, 0x43, 0x31, 0x30
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[]{
+                                PrefixSegment.Create(0, "41 43 31 30")
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -109,16 +99,55 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"pdf"}.ToImmutableArray(),
                                 MimeType = "application/pdf",
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x25, 0x50, 0x44, 0x46
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[] {
+                                PrefixSegment.Create(0, "25 50 44 46")
+                            }.ToSignature(),
                         }
+                    }.ToImmutableArray();
+                }
+
+                public static ImmutableArray<Definition> ODT() {
+                    return new List<Definition>() {
+                        new() {
+                            File = new() {
+                                Extensions = new[]{"odt"}.ToImmutableArray(),
+                                MimeType = "application/vnd.oasis.opendocument.text",
+                            },
+                            Signature = new Segment[] {
+                                PrefixSegment.Create(0, "50 4B 03 04"),
+                                StringSegment.Create("VND.OASIS.OPENDOCUMENT.TEXTPK"),
+                            }.ToSignature(),
+                        },
+                    }.ToImmutableArray();
+                }
+
+                public static ImmutableArray<Definition> ODP() {
+                    return new List<Definition>() {
+                        new() {
+                            File = new() {
+                                Extensions = new[]{"odp"}.ToImmutableArray(),
+                                MimeType = "application/vnd.oasis.opendocument.text",
+                            },
+                            Signature = new Segment[] {
+                                PrefixSegment.Create(0, "50 4B 03 04"),
+                                StringSegment.Create("VND.OASIS.OPENDOCUMENT.PRESENTATIONPK"),
+                            }.ToSignature(),
+                        },
+                    }.ToImmutableArray();
+                }
+
+                public static ImmutableArray<Definition> ODS() {
+                    return new List<Definition>() {
+                        new() {
+                            File = new() {
+                                Extensions = new[]{"ods"}.ToImmutableArray(),
+                                MimeType = "application/vnd.oasis.opendocument.text",
+                            },
+                            Signature = new Segment[] {
+                                PrefixSegment.Create(0, "50 4B 03 04"),
+                                StringSegment.Create("VND.OASIS.OPENDOCUMENT.SPREADSHEETPK"),
+                            }.ToSignature(),
+                        },
                     }.ToImmutableArray();
                 }
 
@@ -129,16 +158,10 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"ppt"}.ToImmutableArray(),
                                 MimeType = "application/mspowerpoint",
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Start = 512,
-                                        Pattern = new byte[] {
-                                            0xA0, 0x46, 0x1D, 0xF0
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[] {
+                                PrefixSegment.Create(0, "D0 CF 11 E0 A1 B1 1A E1"),
+                                StringSegment.Create("POWERPOINT"),
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -150,22 +173,15 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"pptx"}.ToImmutableArray(),
                                 MimeType = "application/vnd.openxmlformats-officedocument.presentationml.presentation",
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x50, 0x4B, 0x03, 0x04,
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray(),
-                                Strings = new[] {
-                                    StringSegment.Create("_RELS"),
-                                    StringSegment.Create("CONTENT_TYPES"),
-                                    StringSegment.Create("XML.RELS"),
-                                    
-                                    StringSegment.Create("SLIDES"),
-                                }.ToImmutableArray(),
-                            },
+                            Signature = new Segment[]{
+                                PrefixSegment.Create(0, "50 4B 03 04"),
+
+                                StringSegment.Create("_RELS"),
+                                StringSegment.Create("CONTENT_TYPES"),
+                                StringSegment.Create("XML.RELS"),
+
+                                StringSegment.Create("SLIDES"),
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -177,15 +193,9 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"rtf"}.ToImmutableArray(),
                                 MimeType = "application/rtf",
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x7B, 0x5C, 0x72, 0x74, 0x66, 0x31
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[]{ 
+                                PrefixSegment.Create(0, "7B 5C 72 74 66 31")
+                            }.ToSignature()
                         },
                     }.ToImmutableArray();
                 }
@@ -197,16 +207,10 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"xls"}.ToImmutableArray(),
                                 MimeType = "application/excel",
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Start = 512,
-                                        Pattern = new byte[] {
-                                            0x09, 0x08, 0x10, 0x00, 0x00, 0x06, 0x05, 0x00
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[] {
+                                PrefixSegment.Create(0, "D0 CF 11 E0 A1 B1 1A E1"),
+                                StringSegment.Create("EXCEL"),
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -218,23 +222,16 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"xlsx"}.ToImmutableArray(),
                                 MimeType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x50, 0x4B, 0x03, 0x04,
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray(),
-                                Strings = new[] {
-                                    StringSegment.Create("_RELS"),
-                                    StringSegment.Create("CONTENT_TYPES"),
-                                    StringSegment.Create("XML.REL"),
+                            Signature = new Segment[]{
+                                PrefixSegment.Create(0, "50 4B 03 04"),
+                    
+                                StringSegment.Create("_RELS"),
+                                StringSegment.Create("CONTENT_TYPES"),
+                                StringSegment.Create("XML.REL"),
 
-                                    StringSegment.Create("WORKBOOK"),
-                                }.ToImmutableArray(),
-                            },
-                        },
+                                StringSegment.Create("WORKBOOK"),
+                            }.ToSignature(),
+                        }
                     }.ToImmutableArray();
                 }
 

@@ -44,15 +44,9 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"bmp"}.ToImmutableArray(),
                                 MimeType = "image/bmp",
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x42, 0x4D
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[]{
+                                PrefixSegment.Create(0, "42 4D")
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -64,21 +58,10 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"gif"}.ToImmutableArray(),
                                 MimeType = "image/gif",
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x47, 0x49, 0x46, 0x38,
-                                        }.ToImmutableArray()
-                                    },
-                                    new PrefixSegment() {
-                                        Start = 5,
-                                        Pattern = new byte[] {
-                                            0x61,
-                                        }.ToImmutableArray(),
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[]{
+                                PrefixSegment.Create(0, "47 49 46 38"),
+                                PrefixSegment.Create(5, "61")
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -90,15 +73,9 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"ico"}.ToImmutableArray(),
                                 MimeType = "image/x-icon",
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x00, 0x00, 0x01, 0x00
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[]{
+                                PrefixSegment.Create(0, "00 00 01 00")
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -110,15 +87,9 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"jpg", "jpeg"}.ToImmutableArray(),
                                 MimeType = "image/jpeg",
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0xFF, 0xD8, 0xFF
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[]{
+                                PrefixSegment.Create(0, "FF D8 FF") 
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -130,15 +101,9 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"png"}.ToImmutableArray(),
                                 MimeType = "image/png",
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[]{
+                                PrefixSegment.Create(0, "89 50 4E 47 0D 0A 1A 0A")
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -150,15 +115,9 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"psd"}.ToImmutableArray(),
                                 MimeType = ApplicationOctetStream,
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x38, 0x42, 0x50, 0x53
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[]{
+                                PrefixSegment.Create(0, "38 42 50 53")
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -170,15 +129,9 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"tif", "tiff"}.ToImmutableArray(),
                                 MimeType = "image/tiff",
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x4D, 0x4D, 0, 0x2A
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[]{
+                                PrefixSegment.Create(0, "4D 4D 00 2A")
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -190,15 +143,9 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"tif", "tiff"}.ToImmutableArray(),
                                 MimeType = "image/tiff",
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x4D, 0x4D, 0, 0x2B
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[]{
+                                PrefixSegment.Create(0, "4D 4D 00 2B")
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -210,15 +157,9 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"tif", "tiff"}.ToImmutableArray(),
                                 MimeType = "image/tiff",
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x49, 0x49, 0x2A, 0
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[]{
+                                PrefixSegment.Create(0, "49 49 2A 00")
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -230,15 +171,9 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"tif", "tiff"}.ToImmutableArray(),
                                 MimeType = "image/tiff",
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x49, 0x20, 0x49
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[]{
+                                PrefixSegment.Create(0, "49 20 49")
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }

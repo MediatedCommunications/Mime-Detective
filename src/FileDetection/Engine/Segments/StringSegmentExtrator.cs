@@ -42,11 +42,13 @@ namespace FileDetection.Engine {
             var delta = (byte)('a' - 'A');
 
             var SegmentLength = 0;
-            var LastBreaker = 0;
 
             var tret = new List<byte>(Content.Length) {
                 Separator
             };
+
+            var SegmentStart = tret.Count;
+
 
             for (var i = 0; i < Content.Length; i++) {
                 var V1 = Content[i];
@@ -64,9 +66,10 @@ namespace FileDetection.Engine {
 
                     if (SegmentLength >= MinSegmentLength) {
                         tret.Add(Separator);
-                        LastBreaker = tret.Count;
+                        SegmentStart = tret.Count;
                     } else {
-                        tret.RemoveRange(LastBreaker, tret.Count - LastBreaker);
+                        var AmountToRemove = tret.Count - SegmentStart;
+                        tret.RemoveRange(SegmentStart, AmountToRemove);
                     }
 
                     SegmentLength = 0;
@@ -77,11 +80,12 @@ namespace FileDetection.Engine {
             if(SegmentLength >= MinSegmentLength) {
                 tret.Add(Separator);
             } else {
-                tret.RemoveRange(LastBreaker, tret.Count - LastBreaker);
+                var AmountToRemove = tret.Count - SegmentStart;
+                tret.RemoveRange(SegmentStart, AmountToRemove);
             }
 
             //Must be > because it contains a | at the start
-            if(tret.Count > MinSegmentLength) {
+            if (tret.Count > MinSegmentLength) {
                 ret = tret.ToArray();
             }
 

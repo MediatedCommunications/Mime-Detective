@@ -1,7 +1,9 @@
 ﻿using FileDetection.Engine;
 using System;
+using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
+using System.Text;
 
 namespace FileDetection.Storage
 {
@@ -14,6 +16,43 @@ namespace FileDetection.Storage
         /// The <see cref="Pattern"/> that must exist in the target file.
         /// </summary>
         public ImmutableArray<byte> Pattern { get; init; } = ImmutableArray<byte>.Empty;
+
+        protected static ImmutableArray<byte> BytesFromHex(string HexString) {
+            var ValidCharacters = "0123456789ABCDEF";
+            var Trimmed = new StringBuilder();
+
+            HexString = HexString
+                .ToUpper()
+                .Replace("0X", "")
+                ;
+
+            for (var i = 0; i < HexString.Length; i++) {
+                var Char = HexString[i..(i + 1)];
+                
+                if (ValidCharacters.Contains(Char)) {
+                    Trimmed.Append(Char);
+                }
+            }
+
+            var ret = Convert
+                .FromHexString(Trimmed.ToString())
+                .ToImmutableArray()
+                ;
+
+            return ret;
+        }
+
+        protected static ImmutableArray<byte> BytesFromText(string Text, bool ApostropheIsNull = true) {
+            if (ApostropheIsNull) {
+                Text = Text.Replace("'", "\0");
+            }
+            var ret = System.Text.Encoding.UTF8
+                .GetBytes(Text)
+                .ToImmutableArray()
+                ;
+
+            return ret;
+        }
 
         public override string? GetDebuggerDisplay()
         {

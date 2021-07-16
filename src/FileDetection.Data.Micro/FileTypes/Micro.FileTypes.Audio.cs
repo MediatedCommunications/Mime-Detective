@@ -15,11 +15,20 @@ namespace FileDetection.Data {
                         FLAC(),
                         M4A(),
                         MIDI(),
-                        MP3(),
+                        MP3_ID3v1(),
+                        MP3_ID3v2(),
                         OGG(),
                         WAV(),
                     }.ToImmutableArray();
                 }
+
+                public static ImmutableArray<Definition> MP3() {
+                    return new List<Definition>() {
+                        MP3_ID3v1(),
+                        MP3_ID3v2(),
+                    }.ToImmutableArray();
+                }
+
 
                 public static ImmutableArray<Definition> FLAC() {
                     return new List<Definition>() {
@@ -28,15 +37,9 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"flac"}.ToImmutableArray(),
                                 MimeType = "audio/x-flac",
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x66, 0x4C, 0x61, 0x43
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[] {
+                                PrefixSegment.Create(0,"66 4C 61 43")
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -48,16 +51,9 @@ namespace FileDetection.Data {
                             Extensions = new[]{"m4a", "mp4a"}.ToImmutableArray(),
                             MimeType = "audio/mp4",
                         },
-                        Signature = new() {
-                            Prefix = new[] {
-                                new PrefixSegment() {
-                                    Start = 4,
-                                    Pattern = new byte[] {
-                                        0x66, 0x74, 0x79, 0x70, 0x4D, 0x34, 0x41, 0x20
-                                    }.ToImmutableArray()
-                                }
-                            }.ToImmutableArray()
-                        },
+                        Signature = new Segment[] {
+                            PrefixSegment.Create(4, "66 74 79 70 4D 34 41 20")
+                        }.ToSignature(),
                     },
                 }.ToImmutableArray();
 
@@ -70,39 +66,42 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"midi", "mid"}.ToImmutableArray(),
                                 MimeType = "audio/midi",
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x4D, 0x54, 0x68, 0x64
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[] {
+                                PrefixSegment.Create(0, "4D 54 68 64")
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
 
-                public static ImmutableArray<Definition> MP3() {
+                public static ImmutableArray<Definition> MP3_ID3v1() {
                     return new List<Definition>() {
                         new() {
                             File = new() {
                                 Extensions = new[]{"mp3"}.ToImmutableArray(),
-                                MimeType = "audio/mpeg",
+                                MimeType = "audio/mpeg3",
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x49, 0x44, 0x33
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[] {
+                                PrefixSegment.Create(0, "FF"),
+                                StringSegment.Create("TAG"),
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
-                
+
+                public static ImmutableArray<Definition> MP3_ID3v2() {
+                    return new List<Definition>() {
+                        new() {
+                            File = new() {
+                                Extensions = new[]{"mp3"}.ToImmutableArray(),
+                                MimeType = "audio/mpeg3",
+                            },
+                            Signature = new Segment[] {
+                                PrefixSegment.Create(0, "49 44 33"),
+                            }.ToSignature(),
+                        },
+                    }.ToImmutableArray();
+                }
+
                 public static ImmutableArray<Definition> OGG() {
                     return new List<Definition>() {
                         new() {
@@ -110,15 +109,9 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"ogg", "oga", "ogv", "ogx",}.ToImmutableArray(),
                                 MimeType = "application/ogg",
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x4F, 0x67, 0x67, 0x53
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[] {
+                                PrefixSegment.Create(0, "4F 67 67 53")
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -130,22 +123,10 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"wav"}.ToImmutableArray(),
                                 MimeType = "audio/wav",
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Start = 0,
-                                        Pattern = new byte[] {
-                                             0x52, 0x49, 0x46, 0x46,
-                                        }.ToImmutableArray()
-                                    },
-                                    new PrefixSegment() {
-                                        Start = 8,
-                                        Pattern = new byte[] {
-                                              0x57, 0x41, 0x56, 0x45, 0x66, 0x6D, 0x74, 0x20
-                                        }.ToImmutableArray()
-                                    },
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[] {
+                                PrefixSegment.Create(0, "52 49 46 46"),
+                                PrefixSegment.Create(8, "57 41 56 45 66 6D 74 20")
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }

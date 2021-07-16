@@ -6,9 +6,9 @@ using System.Linq;
 namespace FileDetection.Tests
 {
     [TestClass]
-    public class MatchingTests
+    public class PerformanceTests
     {
-        static MatchingTests()
+        static PerformanceTests()
         {
             GetEngine();
         }

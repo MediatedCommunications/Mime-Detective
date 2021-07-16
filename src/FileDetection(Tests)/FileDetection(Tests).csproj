@@ -24,5 +24,11 @@
     <ProjectReference Include="..\FileDetection.Data.Small\FileDetection.Data.Small.csproj" />
     <ProjectReference Include="..\FileDetection\FileDetection.csproj" />
   </ItemGroup>
+  
+  <ItemGroup>
+	  <None Update="MicroTests\Data\**\*">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+  </ItemGroup>
 
 </Project>

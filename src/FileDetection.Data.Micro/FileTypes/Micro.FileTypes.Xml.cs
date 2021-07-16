@@ -28,15 +28,9 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"xml"}.ToImmutableArray(),
                                 MimeType = "application/xml",
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x3C, 0x3F, 0x78, 0x6D, 0x6C, 0x20
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[]{
+                                PrefixSegment.Create(0, "3C 3F 78 6D 6C 20")
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -48,15 +42,9 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"xml"}.ToImmutableArray(),
                                 MimeType = "application/xml",
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x0EF, 0xBB, 0xBF, 0x3C, 0x3F, 0x78, 0x6D, 0x6C, 0x20
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[]{
+                                PrefixSegment.Create(0, "EF BB BF 3C 3F 78 6D 6C 20"),
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -68,15 +56,9 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"xml"}.ToImmutableArray(),
                                 MimeType = "application/xml",
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x0FF, 0xFE, 0x3C, 0x00, 0x3F, 0x00, 0x78, 0x00, 0x6D, 0x00, 0x6C, 0x00, 0x20, 0x00
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[]{
+                                PrefixSegment.Create(0,"FF FE 3C 00 3F 00 78 00 6D 00 6C 00 20 00"),
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
@@ -88,15 +70,9 @@ namespace FileDetection.Data {
                                 Extensions = new[]{"xml"}.ToImmutableArray(),
                                 MimeType = "application/xml",
                             },
-                            Signature = new() {
-                                Prefix = new[] {
-                                    new PrefixSegment() {
-                                        Pattern = new byte[] {
-                                            0x0FE, 0xFF, 0x00, 0x3C, 0x00, 0x3F, 0x00, 0x78, 0x00, 0x6D, 0x00, 0x6C, 0x00, 0x20
-                                        }.ToImmutableArray()
-                                    }
-                                }.ToImmutableArray()
-                            },
+                            Signature = new Segment[]{
+                                PrefixSegment.Create(0, "FE FF 00 3C 00 3F 00 78 00 6D 00 6C 00 20")
+                            }.ToSignature(),
                         },
                     }.ToImmutableArray();
                 }
