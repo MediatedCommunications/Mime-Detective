@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\__Shared\Shared.targets" Label="Shared" />
+
+  <PropertyGroup>
+    <PackageId>Mime-Detective.Definitions.Exhaustive</PackageId>
+    <Description>An exhaustive library of over 14,000 file signatures for use by the "FileDetection" package.</Description>
+    <PackageReleaseNotes>For use with the "FileDetection" package.</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="System.Collections.Immutable" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MimeDetective\MimeDetective.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>MimeDetective.Definitions</CustomToolNamespace>
+    </EmbeddedResource>
+  </ItemGroup>
+
+
+
+
+</Project>

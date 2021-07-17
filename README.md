@@ -1,22 +1,22 @@
-# MC.FileDetection
-MC.FileDetection is a blazing-fast, low-memory file type detector for .NET.
+# Mime-Detective
+Mime-Detective is a blazing-fast, low-memory file type detector for .NET.
 It uses Magic-Number and Magic-Word signatures to accurately identify over
 14,000 different file variants by analyzing a raw stream or array of bytes.
 
 ## Installing from Nuget
 ```
-install-package MC.FileDetection
+install-package Mime-Detective
 ```
-Then install one of the definition packs below.
-
+Mime-Detective includes a default set of definitions and can be expanded using 
+one of the definition packs below.
 
 ## Getting Started
 
 Create a new engine and use the Micro definition pack:
 ```
-using FileDetection;
+using MimeDetective;
 var Engine = new ContentDetectionEngineBuilder() {
-    Definitions = Data.Micro.All
+    Definitions = Definitions.Default.All()
 }.Build();
 ```
 
@@ -24,8 +24,8 @@ var Engine = new ContentDetectionEngineBuilder() {
 Alternatively, use the Large definition pack:
 ```
 var Engine = new ContentDetectionEngineBuilder() {
-    Definitions = new Data.LargeBuilder() {
-        UsageType = Data.Licensing.UsageType.PersonalNonCommercial
+    Definitions = new Definitions.ExhaustiveBuilder() {
+        UsageType = Definitions.Licensing.UsageType.PersonalNonCommercial
     }.Build()
 }.Build();
 ```
@@ -57,14 +57,11 @@ Definition packs make it easy to expand or limit the number of definitions that 
 engine will use.  You can use one of the provided definition packs, create a limited
 subset of a definition pack, or create entirely new definition packs from scratch.
 
-## MC.FileDetection.Data.Micro
-```
-install-package MC.FileDetection.Data.Micro
-```
+## Default Definitions
 
-This is a small library of definitions.
-\
-\
+The default definitions are included with the Mime-Detective nuget pack
+and are located in the ```MimeDetective.Definitions.Default``` static class.
+
 It can be used by anyone for any purpose and requires no additional licensing.
 
 | Type          | Extensions
@@ -81,9 +78,9 @@ It can be used by anyone for any purpose and requires no additional licensing.
 |Video          | ```3gp flv mov mp4```
 |Xml            | ```xml```
 
-## MC.FileDetection.Data.Small
+## Mime-Detective.Definitions.Common
 ```
-install-package MC.FileDetection.Data.Small
+install-package Mime-Detective.Definitions.Common
 ```
 
 This is a condensed library containing the most common file signatures.
@@ -106,9 +103,9 @@ which may be used for personal/non-commercial use (free) or with a paid commerci
 |Spreadsheets   | ```ods xls xlsm xlsx```
 |Documents      | ```doc docx odt pdf rtf tex wpd```
 
-## MC.FileDetection.Data.Large
+## Mime-Detective.Definitions.Exhaustive
 ```
-install-package MC.FileDetection.Data.Small
+install-package Mime-Detective.Definitions.Exhaustive
 ```
 
 This library contains the exhaustive set of 14,000+ file signatures.
@@ -117,7 +114,7 @@ This library contains the exhaustive set of 14,000+ file signatures.
 It is derived from the publicly available [TrID file signatures](https://mark0.net/soft-tridnet-e.html)
 which may be used for personal/non-commercial use (free) or with a paid commercial license.
 
-# Optimizing for Performance
+# Optimizing/Balancing Performance and Memmory Utilization
 The ```ContentDetectionEngine``` is designed to be a fast, high-speed utility.  In order to achieve
 maximum performance and lowest memory usage, there are a few things you want to do.
 
@@ -127,8 +124,8 @@ If you are positive that a file is going to be one of a few different types, cre
 set that only contains those definitions and trims out unnecessary fields.
 
 ```
-var AllDefintions = new Data.LargeBuilder() { 
-    UsageType = Data.Licensing.UsageType.CommercialPaid
+var AllDefintions = new Definitions.ExhaustiveBuilder() { 
+    UsageType = Data.Licensing.UsageType.PersonalNonCommercial
 }.Build();
 
 var Extensions = new[]{
@@ -152,3 +149,11 @@ var Engine = new ContentDetectionEngineBuilder() {
 When the ```ContentDetectionEngine``` is first built, it will perform optimizations to ensure fastest execution.
 This is a tax best paid only once.  If you  have a list of files to analyze, build the engine once and reuse it. \
 **Do not create a new engine every time you need to detect a single file.**
+
+## 3.  Parallel = True/False
+The ```ContentDetectionEngineBuilder.Parallel``` option controlls whether multiple threads will be used
+to perform detections.  If you have lots of definitions or want to make optimal usage of your CPU, this should be set to ```true```.
+If you have a low number of definitions or you want more balanced CPU usage, set this to ```false```.
+
+
+

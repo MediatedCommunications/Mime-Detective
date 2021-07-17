@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extensions", "Extensions", "{C9C39197-405F-40E1-86C2-10BBDEF58132}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ED5ED47B-B980-434E-AC3E-1DCDD244C53D}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE.txt = LICENSE.txt
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MimeDetective", "MimeDetective\MimeDetective.csproj", "{51483A4A-129F-4044-BCF5-DDF8C6FC5D3F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MimeDetective.Definitions.Common", "MimeDetective.Definitions.Common\MimeDetective.Definitions.Common.csproj", "{8C1FFAFD-E205-4D76-816F-95CE01AF0679}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MimeDetective.Definitions.Exhaustive", "MimeDetective.Definitions.Exhaustive\MimeDetective.Definitions.Exhaustive.csproj", "{6F804F01-F29D-453E-B716-5460F26F3923}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MimeDetective(Tests)", "MimeDetective(Tests)\MimeDetective(Tests).csproj", "{848CA710-A03A-4854-A505-561620EB16BB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MimeDetective.Definitions(Generator)", "MimeDetective.Definitions(Generator)\MimeDetective.Definitions(Generator).csproj", "{74B1E462-3221-4E8E-9229-159D38173514}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		__Shared\Shared.targets*{51483a4a-129f-4044-bcf5-ddf8c6fc5d3f}*SharedItemsImports = 5
+		__Shared\Shared.targets*{6f804f01-f29d-453e-b716-5460f26f3923}*SharedItemsImports = 5
+		__Shared\Shared.targets*{8c1ffafd-e205-4d76-816f-95ce01af0679}*SharedItemsImports = 5
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51483A4A-129F-4044-BCF5-DDF8C6FC5D3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51483A4A-129F-4044-BCF5-DDF8C6FC5D3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51483A4A-129F-4044-BCF5-DDF8C6FC5D3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51483A4A-129F-4044-BCF5-DDF8C6FC5D3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C1FFAFD-E205-4D76-816F-95CE01AF0679}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C1FFAFD-E205-4D76-816F-95CE01AF0679}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C1FFAFD-E205-4D76-816F-95CE01AF0679}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C1FFAFD-E205-4D76-816F-95CE01AF0679}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F804F01-F29D-453E-B716-5460F26F3923}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F804F01-F29D-453E-B716-5460F26F3923}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F804F01-F29D-453E-B716-5460F26F3923}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F804F01-F29D-453E-B716-5460F26F3923}.Release|Any CPU.Build.0 = Release|Any CPU
+		{848CA710-A03A-4854-A505-561620EB16BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{848CA710-A03A-4854-A505-561620EB16BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{848CA710-A03A-4854-A505-561620EB16BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{848CA710-A03A-4854-A505-561620EB16BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74B1E462-3221-4E8E-9229-159D38173514}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74B1E462-3221-4E8E-9229-159D38173514}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74B1E462-3221-4E8E-9229-159D38173514}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74B1E462-3221-4E8E-9229-159D38173514}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {86F67FD2-3EBD-45B2-A4BB-60F4AC2779C4}
+	EndGlobalSection
+EndGlobal
