@@ -16,7 +16,7 @@ namespace MimeDetective.Engine
         public DefinitionMatchEvaluatorOptions Options { get; init; } = new();
 
         public virtual DefinitionMatch? Match(
-            ContentDetectionEngineCache DefinitionMatcherCache, ImmutableArray<byte> Content, ImmutableArray<StringSegment> ContentStrings)
+            DefinitionMatcher DefinitionMatcherCache, ImmutableArray<byte> Content, ImmutableArray<StringSegment> ContentStrings)
         {
             var ret = default(DefinitionMatch?);
 
@@ -116,6 +116,8 @@ namespace MimeDetective.Engine
 
         protected virtual long GetPoints(IDictionary<PrefixSegment, SegmentMatch> PrefixSegmentMatches, IDictionary<StringSegment, SegmentMatch> StringSegmentMatches)
         {
+            var PrefixSegmentStart = 0;
+
             var ret = 0;
             var MatchSet = new[]
             {
@@ -139,10 +141,11 @@ namespace MimeDetective.Engine
 
                 } else if (Match is PrefixSegmentMatch V2)
                 {
-                    var Multiplier = V2.Segment.Start == 0
-                        ? Multiplier_Prefix_StartOfFile
-                        : Multiplier_Prefix_BeginningOfFile
-                        ;
+                    var Multiplier = Multiplier_Prefix_BeginningOfFile;
+                    if(V2.Segment.Start == PrefixSegmentStart) {
+                        Multiplier = Multiplier_Prefix_StartOfFile;
+                        PrefixSegmentStart = V2.Segment.End();
+                    }
                     
                     PointsToAdd = Multiplier * V2.Segment.Pattern.Length;
 

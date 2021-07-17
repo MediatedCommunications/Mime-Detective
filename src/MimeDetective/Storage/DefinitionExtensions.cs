@@ -1,8 +1,10 @@
-﻿using MimeDetective.Storage;
+﻿using MimeDetective.Engine;
+using MimeDetective.Storage;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace MimeDetective.Storage {
@@ -143,6 +145,133 @@ namespace MimeDetective.Storage {
             return ret;
         }
 
+        public static DefinitionDeduplicateResults Deduplicate(this IEnumerable<Definition> This) {
+            var Definitions = This.ToList();
+
+            var ExtensionCache = (
+                from x in Definitions
+                from y in x.File.Extensions
+                select y.ToLower()
+                )
+                .Distinct(StringComparer.InvariantCultureIgnoreCase)
+                .ToImmutableDictionary(x => x, x => x, StringComparer.InvariantCultureIgnoreCase);
+
+            var MimeTypeCache = (
+                from x in Definitions
+                let v = x.File.MimeType?.ToLower()
+                where v is { }
+                select v
+                )
+                .Distinct(StringComparer.InvariantCultureIgnoreCase)
+                .ToImmutableDictionary(x => x, x => x, StringComparer.InvariantCultureIgnoreCase);
+
+            var DescriptionCache = (
+                from x in Definitions
+                let v = x.File.Description
+                where v is { }
+                select v
+                )
+                .Distinct(StringComparer.InvariantCultureIgnoreCase)
+                .ToImmutableDictionary(
+                x => x,
+                x => x,
+                StringComparer.InvariantCultureIgnoreCase
+                );
+
+            var PrefixCache = (
+                from x in Definitions
+                from y in x.Signature.Prefix
+                select y
+                )
+                .Distinct(PrefixSegmentEqualityComparer.Instance)
+                .ToImmutableDictionary(
+                x => x,
+                x => x,
+                PrefixSegmentEqualityComparer.Instance
+                );
+
+            var SingularizedPrefixCache = (
+                from x in PrefixCache.Keys
+                from y in x.Singularize()
+                select y
+                )
+                .Distinct(PrefixSegmentEqualityComparer.Instance)
+                .ToImmutableDictionary(
+                x => x,
+                x => x,
+                PrefixSegmentEqualityComparer.Instance
+                );
+
+            var PrefixCacheLookup =
+                PrefixCache.Keys
+                .ToImmutableDictionary(
+                x => x,
+                x => x.Singularize().Select(y => SingularizedPrefixCache[y]).ToImmutableArray(),
+                PrefixSegmentEqualityComparer.Instance
+                );
+            
+            var StringCache = (
+                 from x in Definitions
+                 from y in x.Signature.Strings
+                 select y
+                )
+                .Distinct(StringSegmentEqualityComparer.Instance)
+                .ToImmutableDictionary(
+                x => x,
+                x => x,
+                StringSegmentEqualityComparer.Instance
+                );
+
+
+            var NewDefinitions = (
+               from Definition in Definitions
+
+               let Description = Definition.File.Description is { } V1 ? DescriptionCache[V1] : default
+
+               let Extensions = (
+                   from y in Definition.File.Extensions
+                   select ExtensionCache[y]
+               ).ToImmutableArray()
+
+               let MimeType = Definition.File.MimeType is { } V1 ? MimeTypeCache[V1] : default
+
+               let Prefixes = (
+                   from y in Definition.Signature.Prefix
+                   from z in PrefixCacheLookup[y]
+                   select z
+                   ).ToImmutableArray()
+
+               let Strings = (
+                   from y in Definition.Signature.Strings
+                   select StringCache[y]
+                   ).ToImmutableArray()
+
+               let NewDef = new Definition() {
+                   File = new FileType() {
+                       Description = Description,
+                       Extensions = Extensions,
+                       MimeType = MimeType,
+                   },
+                   Meta = Definition.Meta,
+                   Signature = new Signature() {
+                       Prefix = Prefixes,
+                       Strings = Strings,
+                   }
+               }
+               select NewDef
+            ).ToImmutableArray();
+
+            var ret = new DefinitionDeduplicateResults() {
+                Definitions = NewDefinitions,
+                Extensions = ExtensionCache,
+                MimeTypes = MimeTypeCache,
+                Descriptions = DescriptionCache,
+                Prefixes = SingularizedPrefixCache,
+                Strings = StringCache,
+            };
+
+            return ret;
+        }
 
     }
 }

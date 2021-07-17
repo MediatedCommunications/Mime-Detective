@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net5.0</TargetFrameworks>
-    <RootNamespace>Mime-Detective.Tests</RootNamespace>
+    <RootNamespace>MimeDetective.Tests</RootNamespace>
 	  <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
     <IsPackable>false</IsPackable>

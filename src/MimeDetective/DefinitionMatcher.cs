@@ -3,9 +3,9 @@ using MimeDetective.Storage;
 using System.Collections.Immutable;
 
 namespace MimeDetective {
-    internal class ContentDetectionEngineCache {
+    internal class DefinitionMatcher {
 
-        public ContentDetectionEngineCache(Definition Definition) {
+        public DefinitionMatcher(Definition Definition) {
             this.Definition = Definition;
         }
 

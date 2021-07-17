@@ -17,14 +17,14 @@ namespace MimeDetective.Engine
 
         public static StringSegmentMatcher Create(StringSegment Segment)
         {
-            return CreateAdvanced(Segment);
+            return CreateHighSpeed(Segment);
         }
 
-        public static StringSegmentMatcher CreateBasic(StringSegment Segment) {
+        public static StringSegmentMatcher CreateLowMemory(StringSegment Segment) {
             return new StringSegmentMatcherBrute(Segment);
         }
 
-        public static StringSegmentMatcher CreateAdvanced(StringSegment Segment) {
+        public static StringSegmentMatcher CreateHighSpeed(StringSegment Segment) {
             return new StringSegmentMatcherBoyerMoore(Segment);
         }
 

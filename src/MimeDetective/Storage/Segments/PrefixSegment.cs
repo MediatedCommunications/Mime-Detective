@@ -17,6 +17,10 @@ namespace MimeDetective.Storage
         /// </summary>
         public int Start { get; init; }
 
+        public static PrefixSegment Create(int Start, params byte[] Bytes) {
+            return Create(Start, Bytes.AsEnumerable());
+        }
+
         public static PrefixSegment Create(int Start, IEnumerable<byte> Bytes) {
             return new PrefixSegment() {
                 Start = Start,

@@ -4,7 +4,13 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 
 namespace MimeDetective {
+
     public class ContentDetectionEngineBuilder {
+
+        public PrefixSegmentOptionsBuilder PrefixSegmentOptions { get; set; } = new();
+        public StringSegmentOptionsBuilder StringSegmentOptions { get; set; } = new();
+        
+
         /// <summary>
         /// Options that control how deep the definitions are analyzed.
         /// </summary>
@@ -25,7 +31,19 @@ namespace MimeDetective {
             var Options = MatchEvaluatorOptions;
             var Defs = Definitions.ToImmutableArray();
 
-            var ret = new ContentDetectionEngine(Defs, Options, Parallel);
+            PrefixSegmentFilterProvider PrefixFilter = PrefixSegmentOptions.OptimizeFor switch {
+                PrefixSegmentResourceOptimization.HighSpeed => new PrefixSegmentFilterProviderHighSpeed(),
+                PrefixSegmentResourceOptimization.LowMemory => new PrefixSegmentFilterProviderLowMemory(),
+                _ => new PrefixSegmentFilterProviderHighSpeed(),
+            };
+
+            StringSegmentMatcherProvider StringSegmentIndex = StringSegmentOptions.OptimizeFor switch {
+                StringSegmentResourceOptimization.HighSpeed => new StringSegmentMatcherProviderHighSpeed(),
+                StringSegmentResourceOptimization.LowMemory => new StringSegmentMatcherProviderLowMemory(),
+                _ => new StringSegmentMatcherProviderHighSpeed()
+            };
+
+            var ret = new ContentDetectionEngine(Defs, Options, PrefixFilter, StringSegmentIndex, Parallel);
 
             return ret;
         }
