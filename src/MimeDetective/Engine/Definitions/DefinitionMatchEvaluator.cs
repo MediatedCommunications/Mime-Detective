@@ -144,7 +144,7 @@ namespace MimeDetective.Engine
                     var Multiplier = Multiplier_Prefix_BeginningOfFile;
                     if(V2.Segment.Start == PrefixSegmentStart) {
                         Multiplier = Multiplier_Prefix_StartOfFile;
-                        PrefixSegmentStart = V2.Segment.End();
+                        PrefixSegmentStart = V2.Segment.ExclusiveEnd();
                     }
                     
                     PointsToAdd = Multiplier * V2.Segment.Pattern.Length;

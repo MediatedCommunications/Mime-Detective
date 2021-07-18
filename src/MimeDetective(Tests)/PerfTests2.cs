@@ -26,7 +26,7 @@ namespace MimeDetective.Tests
                 from x in Data
                 let Values = x.Signature.Prefix.OrderBy(x => x.Start).ToList()
                 let ItemStart = Values.FirstOrDefault()?.Start ?? 0
-                let ItemEnd = Values.LastOrDefault()?.End() ?? 0
+                let ItemEnd = Values.LastOrDefault()?.ExclusiveEnd() ?? 0
                 let v = new {
                     Signature = x,
                     Start = ItemStart,
@@ -91,20 +91,20 @@ namespace MimeDetective.Tests
 
         }
 
-        private static byte?[] GetRange(byte[] Content, int StartIndex, int Length) {
-            var ret = new byte?[Length];
+        private static byte[] GetRange(byte[] Content, int StartIndex, int Length) {
+            var ret = new List<byte>();
             var End = StartIndex + Length;
 
             for (int i = 0; i < Length; i++) {
                 var Position = StartIndex + i;
 
                 if(Position >= 0 && Position < Content.Length) {
-                    ret[i] = Content[Position];
+                    ret.Add(Content[Position]);
                 }
             }
 
 
-            return ret;
+            return ret.ToArray();
         }
 
         [TestMethod]
@@ -120,14 +120,15 @@ namespace MimeDetective.Tests
             Tree.Add(new byte?[] { 1, 1, 0 }, 6);
             Tree.Add(new byte?[] { 1, 1, 1 }, 7);
 
-            {
-                var Test = Tree.Find();
-                Assert.AreEqual(8, Test.Count);
-            }
+            Tree.Add(new byte?[] { 4, 5, 6 }, 456);
+            Tree.Add(new byte?[] { 4, 5, null }, 450);
+            Tree.Add(new byte?[] { 4, null, 6 }, 406);
+            Tree.Add(new byte?[] { 4, null, null }, 400);
+
 
             {
-                var Test = Tree.Find(new byte?[] { null, null, null });
-                Assert.AreEqual(8, Test.Count);
+                var Test = Tree.Find();
+                Assert.AreEqual(12, Test.Count);
             }
 
             {
@@ -144,19 +145,25 @@ namespace MimeDetective.Tests
             }
 
             {
-                var Test = Tree.Find(0, 0, null);
-                Assert.AreEqual(2, Test.Count);
-                Assert.IsTrue(Test.Contains(0));
-                Assert.IsTrue(Test.Contains(1));
+                var Test = Tree.Find(4, 5, 6);
+                Assert.AreEqual(4, Test.Count);
+                Assert.IsTrue(Test.Contains(456));
+                Assert.IsTrue(Test.Contains(450));
+                Assert.IsTrue(Test.Contains(406));
+                Assert.IsTrue(Test.Contains(400));
             }
 
             {
-                var Test = Tree.Find(null, 0, null);
-                Assert.AreEqual(4, Test.Count);
-                Assert.IsTrue(Test.Contains(0));
-                Assert.IsTrue(Test.Contains(1));
-                Assert.IsTrue(Test.Contains(4));
-                Assert.IsTrue(Test.Contains(5));
+                var Test = Tree.Find(4, 6, 6);
+                Assert.AreEqual(2, Test.Count);
+                Assert.IsTrue(Test.Contains(406));
+                Assert.IsTrue(Test.Contains(400));
+            }
+
+            {
+                var Test = Tree.Find(4, 9, 9);
+                Assert.AreEqual(1, Test.Count);
+                Assert.IsTrue(Test.Contains(400));
             }
 
         }

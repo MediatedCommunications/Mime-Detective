@@ -222,7 +222,6 @@ namespace MimeDetective.Storage {
                 StringSegmentEqualityComparer.Instance
                 );
 
-
             var NewDefinitions = (
                from Definition in Definitions
 

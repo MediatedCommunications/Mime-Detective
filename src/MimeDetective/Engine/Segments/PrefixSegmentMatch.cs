@@ -8,6 +8,10 @@ namespace MimeDetective.Engine
     /// </summary>
     public record PrefixSegmentMatch : PatternSegmentMatch
     {
+        public override string? GetDebuggerDisplay() {
+            return Segment.GetDebuggerDisplay();
+        }
+
         /// <summary>
         /// The <see cref="PrefixSegment"/> that was matched
         /// </summary>

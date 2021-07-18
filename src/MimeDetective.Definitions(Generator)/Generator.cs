@@ -104,11 +104,11 @@ namespace MimeDetective.Definitions
                 .ToList()
                 ;
 
-            var Json = $@"{Root}\FileDetection.Data.Small\Data\data.json";
-            var Bin = $@"{Root}\FileDetection.Data.Small\Data\data.bin";
+            var Json = $@"{Root}\MimeDetective.Definitions.Common\Data\data.json";
+            var Binn = $@"{Root}\MimeDetective.Definitions.Common\Data\data.bin";
 
             DefinitionJsonSerializer.ToJsonFile(Json, I3);
-            DefinitionBinarySerializer.ToBinaryFile(Bin, I3);
+            DefinitionBinarySerializer.ToBinaryFile(Binn, I3);
         }
 
         private static void WriteLarge(string Root, IEnumerable<Definition> AllItems) {
@@ -117,11 +117,11 @@ namespace MimeDetective.Definitions
                 .OrderBy(x => x.File.Extensions.FirstOrDefault())
                 ;
 
-            var Json = $@"{Root}\FileDetection.Data.Large\Data\data.json";
-            var Bin = $@"{Root}\FileDetection.Data.Large\Data\data.bin";
+            var Json = $@"{Root}\MimeDetective.Definitions.Exhaustive\Data\data.json";
+            var Binn = $@"{Root}\MimeDetective.Definitions.Exhaustive\Data\data.bin";
 
             DefinitionJsonSerializer.ToJsonFile(Json, Items);
-            DefinitionBinarySerializer.ToBinaryFile(Bin, Items);
+            DefinitionBinarySerializer.ToBinaryFile(Binn, Items);
         }
 
     }

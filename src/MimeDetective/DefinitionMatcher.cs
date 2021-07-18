@@ -1,9 +1,14 @@
-﻿using MimeDetective.Engine;
+﻿using MimeDetective.Diagnostics;
+using MimeDetective.Engine;
 using MimeDetective.Storage;
 using System.Collections.Immutable;
 
 namespace MimeDetective {
-    internal class DefinitionMatcher {
+    internal class DefinitionMatcher : DisplayClass {
+
+        public override string? GetDebuggerDisplay() {
+            return Definition.GetDebuggerDisplay();
+        }
 
         public DefinitionMatcher(Definition Definition) {
             this.Definition = Definition;

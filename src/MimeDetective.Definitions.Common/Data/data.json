@@ -2,7 +2,7 @@
   {
     "File": {
       "Extensions": [
-        "3G2"
+        "3g2"
       ],
       "MimeType": "Video/3gpp2"
     },
@@ -90,7 +90,7 @@
   {
     "File": {
       "Extensions": [
-        "3G2"
+        "3g2"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -114,7 +114,7 @@
   {
     "File": {
       "Extensions": [
-        "3GP"
+        "3gp"
       ],
       "MimeType": "Video/3gpp"
     },
@@ -134,7 +134,7 @@
   {
     "File": {
       "Extensions": [
-        "3GP"
+        "3gp"
       ],
       "MimeType": "Video/3gpp"
     },
@@ -185,7 +185,7 @@
   {
     "File": {
       "Extensions": [
-        "7Z"
+        "7z"
       ],
       "MimeType": "application/x-7z-compressed"
     },
@@ -201,7 +201,7 @@
   {
     "File": {
       "Extensions": [
-        "7Z"
+        "7z"
       ],
       "MimeType": "application/x-7z-compressed"
     },
@@ -217,7 +217,7 @@
   {
     "File": {
       "Extensions": [
-        "AI"
+        "ai"
       ],
       "MimeType": "application/vnd.adobe.illustrator"
     },
@@ -273,7 +273,7 @@
   {
     "File": {
       "Extensions": [
-        "AI"
+        "ai"
       ],
       "MimeType": ""
     },
@@ -293,7 +293,7 @@
   {
     "File": {
       "Extensions": [
-        "AIF"
+        "aif"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -309,7 +309,7 @@
   {
     "File": {
       "Extensions": [
-        "AIF"
+        "aif"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -325,7 +325,7 @@
   {
     "File": {
       "Extensions": [
-        "AIF"
+        "aif"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -417,7 +417,7 @@
   {
     "File": {
       "Extensions": [
-        "AIF"
+        "aif"
       ],
       "MimeType": "audio/aiff"
     },
@@ -437,7 +437,7 @@
   {
     "File": {
       "Extensions": [
-        "APK"
+        "apk"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -453,7 +453,7 @@
   {
     "File": {
       "Extensions": [
-        "APK"
+        "apk"
       ],
       "MimeType": "application/vnd.android.package-archive"
     },
@@ -497,7 +497,7 @@
   {
     "File": {
       "Extensions": [
-        "ARJ"
+        "arj"
       ],
       "MimeType": ""
     },
@@ -513,7 +513,7 @@
   {
     "File": {
       "Extensions": [
-        "AVI"
+        "avi"
       ],
       "MimeType": "video/avi"
     },
@@ -545,7 +545,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -561,7 +561,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -577,7 +577,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -677,7 +677,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -693,7 +693,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -709,7 +709,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -789,7 +789,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": ""
     },
@@ -809,7 +809,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -825,7 +825,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -841,7 +841,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -861,7 +861,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -877,7 +877,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -893,7 +893,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": ""
     },
@@ -986,7 +986,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1021,7 +1021,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1045,7 +1045,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1069,7 +1069,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1089,7 +1089,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": ""
     },
@@ -1114,7 +1114,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": ""
     },
@@ -1138,7 +1138,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1154,7 +1154,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1182,7 +1182,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1198,7 +1198,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1214,7 +1214,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1230,7 +1230,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1250,7 +1250,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1266,7 +1266,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1282,7 +1282,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1298,7 +1298,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1314,7 +1314,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1330,7 +1330,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1346,7 +1346,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1362,7 +1362,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1378,7 +1378,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1394,7 +1394,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1410,7 +1410,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1426,7 +1426,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1442,7 +1442,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1458,7 +1458,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1478,7 +1478,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1502,7 +1502,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1530,7 +1530,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1554,7 +1554,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1574,7 +1574,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1590,7 +1590,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1606,7 +1606,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1622,7 +1622,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1653,7 +1653,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1731,7 +1731,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1769,7 +1769,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-tplink-bin"
     },
@@ -1797,7 +1797,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-tplink-bin"
     },
@@ -1833,7 +1833,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-tplink-bin"
     },
@@ -1865,7 +1865,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1881,7 +1881,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1897,7 +1897,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1913,7 +1913,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": ""
     },
@@ -1957,7 +1957,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -1988,7 +1988,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -2021,7 +2021,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": ""
     },
@@ -2037,7 +2037,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -2066,7 +2066,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -2103,7 +2103,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": ""
     },
@@ -2140,7 +2140,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -2175,7 +2175,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -2195,7 +2195,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": ""
     },
@@ -2219,7 +2219,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -2235,7 +2235,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2259,7 +2259,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2283,7 +2283,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2307,7 +2307,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2331,7 +2331,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2355,7 +2355,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2379,7 +2379,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2403,7 +2403,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2427,7 +2427,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2451,7 +2451,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2475,7 +2475,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2499,7 +2499,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2523,7 +2523,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2547,7 +2547,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2571,7 +2571,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2595,7 +2595,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2619,7 +2619,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2643,7 +2643,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2667,7 +2667,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2691,7 +2691,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2715,7 +2715,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2739,7 +2739,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2763,7 +2763,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2787,7 +2787,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2811,7 +2811,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2835,7 +2835,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2859,7 +2859,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2883,7 +2883,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2903,7 +2903,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2927,7 +2927,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2951,7 +2951,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2975,7 +2975,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -2999,7 +2999,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3023,7 +3023,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3047,7 +3047,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3071,7 +3071,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3111,7 +3111,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3147,7 +3147,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3171,7 +3171,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3195,7 +3195,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3219,7 +3219,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3243,7 +3243,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3267,7 +3267,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3291,7 +3291,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3315,7 +3315,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3339,7 +3339,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3359,7 +3359,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3383,7 +3383,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3407,7 +3407,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3431,7 +3431,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3455,7 +3455,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3479,7 +3479,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3503,7 +3503,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3527,7 +3527,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3551,7 +3551,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3575,7 +3575,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3599,7 +3599,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3623,7 +3623,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3647,7 +3647,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3671,7 +3671,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3695,7 +3695,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3719,7 +3719,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3743,7 +3743,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3763,7 +3763,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3783,7 +3783,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3803,7 +3803,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3827,7 +3827,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3847,7 +3847,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3871,7 +3871,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3895,7 +3895,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3919,7 +3919,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3943,7 +3943,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3967,7 +3967,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -3991,7 +3991,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4015,7 +4015,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4039,7 +4039,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4059,7 +4059,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4083,7 +4083,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4107,7 +4107,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4131,7 +4131,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4151,7 +4151,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4175,7 +4175,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4199,7 +4199,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4223,7 +4223,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4247,7 +4247,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4267,7 +4267,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4291,7 +4291,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4315,7 +4315,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4339,7 +4339,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4363,7 +4363,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4387,7 +4387,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4411,7 +4411,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4435,7 +4435,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4459,7 +4459,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4483,7 +4483,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4507,7 +4507,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4531,7 +4531,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4555,7 +4555,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4579,7 +4579,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4603,7 +4603,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4627,7 +4627,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4651,7 +4651,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4675,7 +4675,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4699,7 +4699,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4723,7 +4723,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4747,7 +4747,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4771,7 +4771,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4795,7 +4795,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4819,7 +4819,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4843,7 +4843,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4867,7 +4867,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4891,7 +4891,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4915,7 +4915,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4939,7 +4939,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4963,7 +4963,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -4987,7 +4987,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -5011,7 +5011,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -5031,7 +5031,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -5055,7 +5055,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -5079,7 +5079,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -5103,7 +5103,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -5127,7 +5127,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -5151,7 +5151,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -5175,7 +5175,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -5199,7 +5199,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -5223,7 +5223,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -5255,7 +5255,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -5291,7 +5291,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/x-macbinary"
     },
@@ -5331,7 +5331,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -5347,7 +5347,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -5371,7 +5371,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -5391,7 +5391,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -5411,7 +5411,7 @@
   {
     "File": {
       "Extensions": [
-        "BIN"
+        "bin"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -5431,7 +5431,7 @@
   {
     "File": {
       "Extensions": [
-        "BMP"
+        "bmp"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -5447,7 +5447,7 @@
   {
     "File": {
       "Extensions": [
-        "BMP"
+        "bmp"
       ],
       "MimeType": "image/x-award-bioslogo2"
     },
@@ -5463,7 +5463,7 @@
   {
     "File": {
       "Extensions": [
-        "BMP"
+        "bmp"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -5483,7 +5483,7 @@
   {
     "File": {
       "Extensions": [
-        "BMP"
+        "bmp"
       ],
       "MimeType": "image/bmp"
     },
@@ -5503,7 +5503,7 @@
   {
     "File": {
       "Extensions": [
-        "BMP"
+        "bmp"
       ],
       "MimeType": "image/bmp"
     },
@@ -5523,7 +5523,7 @@
   {
     "File": {
       "Extensions": [
-        "BMP"
+        "bmp"
       ],
       "MimeType": "image/bmp"
     },
@@ -5543,7 +5543,7 @@
   {
     "File": {
       "Extensions": [
-        "BMP"
+        "bmp"
       ],
       "MimeType": "image/bmp"
     },
@@ -5563,7 +5563,7 @@
   {
     "File": {
       "Extensions": [
-        "BMP"
+        "bmp"
       ],
       "MimeType": "image/bmp"
     },
@@ -5583,7 +5583,7 @@
   {
     "File": {
       "Extensions": [
-        "BMP"
+        "bmp"
       ],
       "MimeType": "image/bmp"
     },
@@ -5603,7 +5603,7 @@
   {
     "File": {
       "Extensions": [
-        "BMP"
+        "bmp"
       ],
       "MimeType": "image/bmp"
     },
@@ -5623,7 +5623,7 @@
   {
     "File": {
       "Extensions": [
-        "BMP"
+        "bmp"
       ],
       "MimeType": "image/bmp"
     },
@@ -5643,7 +5643,7 @@
   {
     "File": {
       "Extensions": [
-        "BMP"
+        "bmp"
       ],
       "MimeType": "image/bmp"
     },
@@ -5659,7 +5659,7 @@
   {
     "File": {
       "Extensions": [
-        "BMP"
+        "bmp"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -5679,7 +5679,7 @@
   {
     "File": {
       "Extensions": [
-        "BMP"
+        "bmp"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -5695,7 +5695,7 @@
   {
     "File": {
       "Extensions": [
-        "CAB"
+        "cab"
       ],
       "MimeType": ""
     },
@@ -5711,7 +5711,7 @@
   {
     "File": {
       "Extensions": [
-        "CAB"
+        "cab"
       ],
       "MimeType": "application/vnd.ms-cab-compressed"
     },
@@ -5739,7 +5739,7 @@
   {
     "File": {
       "Extensions": [
-        "CAB"
+        "cab"
       ],
       "MimeType": "application/vnd.ms-cab-compressed"
     },
@@ -5755,7 +5755,7 @@
   {
     "File": {
       "Extensions": [
-        "CDA"
+        "cda"
       ],
       "MimeType": ""
     },
@@ -5771,7 +5771,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": ""
     },
@@ -5795,7 +5795,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -5815,7 +5815,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -5871,7 +5871,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -5887,7 +5887,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -5903,7 +5903,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -6128,7 +6128,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -6213,7 +6213,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": ""
     },
@@ -6261,7 +6261,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -6281,7 +6281,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -6304,7 +6304,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -6320,7 +6320,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -6350,7 +6350,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -6397,7 +6397,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -6417,7 +6417,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -6467,7 +6467,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -6495,7 +6495,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -6527,7 +6527,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -6551,7 +6551,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -6567,7 +6567,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -6587,7 +6587,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -6614,7 +6614,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -6655,7 +6655,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -6671,7 +6671,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -6691,7 +6691,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -6748,7 +6748,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -6852,7 +6852,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -6872,7 +6872,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -6892,7 +6892,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -6916,7 +6916,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -6936,7 +6936,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -6968,7 +6968,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -6998,7 +6998,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7026,7 +7026,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7058,7 +7058,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7090,7 +7090,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7147,7 +7147,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7179,7 +7179,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7205,7 +7205,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7221,7 +7221,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7251,7 +7251,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7285,7 +7285,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7309,7 +7309,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7333,7 +7333,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7360,7 +7360,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7376,7 +7376,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7392,7 +7392,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7419,7 +7419,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7435,7 +7435,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7459,7 +7459,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7486,7 +7486,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": ""
     },
@@ -7514,7 +7514,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7534,7 +7534,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7566,7 +7566,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7594,7 +7594,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": ""
     },
@@ -7630,7 +7630,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7646,7 +7646,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7670,7 +7670,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7702,7 +7702,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7725,7 +7725,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7745,7 +7745,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7769,7 +7769,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7801,7 +7801,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7825,7 +7825,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": ""
     },
@@ -7889,7 +7889,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7913,7 +7913,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7941,7 +7941,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7957,7 +7957,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -7981,7 +7981,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -8009,7 +8009,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -8037,7 +8037,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -8072,7 +8072,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -8089,7 +8089,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -8106,7 +8106,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -8169,7 +8169,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -8189,7 +8189,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -8225,7 +8225,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -8261,7 +8261,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -8297,7 +8297,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -8317,7 +8317,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -8369,7 +8369,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -8413,7 +8413,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -8470,7 +8470,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -8490,7 +8490,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": ""
     },
@@ -8510,7 +8510,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -8539,7 +8539,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -8563,7 +8563,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -8608,7 +8608,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -8636,7 +8636,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -8680,7 +8680,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -8700,7 +8700,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -8716,7 +8716,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -8748,7 +8748,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -8768,7 +8768,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -8784,7 +8784,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -8800,7 +8800,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -8833,7 +8833,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -8849,7 +8849,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -8865,7 +8865,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -8893,7 +8893,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -8989,7 +8989,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -9025,7 +9025,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -9048,7 +9048,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -9076,7 +9076,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -9106,7 +9106,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -9132,7 +9132,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -9163,7 +9163,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -9187,7 +9187,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -9211,7 +9211,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -9235,7 +9235,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -9255,7 +9255,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -9303,7 +9303,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -9327,7 +9327,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -9401,7 +9401,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -9421,7 +9421,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/x-dosexec"
     },
@@ -9453,7 +9453,7 @@
   {
     "File": {
       "Extensions": [
-        "COM"
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -9469,7 +9469,7 @@
   {
     "File": {
       "Extensions": [
-        "CUR"
+        "cur"
       ],
       "MimeType": ""
     },
@@ -9561,7 +9561,7 @@
   {
     "File": {
       "Extensions": [
-        "DEB"
+        "deb"
       ],
       "MimeType": "application/vnd.debian.binary-package"
     },
@@ -9577,7 +9577,7 @@
   {
     "File": {
       "Extensions": [
-        "DMG"
+        "dmg"
       ],
       "MimeType": "application/x-apple-diskimage"
     },
@@ -9593,7 +9593,7 @@
   {
     "File": {
       "Extensions": [
-        "DMG"
+        "dmg"
       ],
       "MimeType": "application/x-apple-diskimage"
     },
@@ -9609,7 +9609,7 @@
   {
     "File": {
       "Extensions": [
-        "DMG"
+        "dmg"
       ],
       "MimeType": "application/x-apple-diskimage"
     },
@@ -9686,7 +9686,7 @@
   {
     "File": {
       "Extensions": [
-        "DMG"
+        "dmg"
       ],
       "MimeType": "application/x-apple-diskimage"
     },
@@ -9752,7 +9752,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": ""
     },
@@ -9768,7 +9768,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -9784,7 +9784,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -9804,7 +9804,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -9832,7 +9832,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -9891,7 +9891,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -9907,7 +9907,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -9923,7 +9923,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -9939,7 +9939,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -9955,7 +9955,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -9994,7 +9994,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -10010,7 +10010,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -10026,7 +10026,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": ""
     },
@@ -10103,7 +10103,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -10132,7 +10132,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -10148,7 +10148,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -10172,7 +10172,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -10188,7 +10188,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -10204,7 +10204,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": ""
     },
@@ -10227,7 +10227,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/msword"
     },
@@ -10250,7 +10250,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -10266,7 +10266,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -10286,7 +10286,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": ""
     },
@@ -10321,7 +10321,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -10337,7 +10337,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -10358,7 +10358,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -10378,7 +10378,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -10394,7 +10394,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -10410,7 +10410,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -10426,7 +10426,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -10447,7 +10447,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -10463,7 +10463,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": ""
     },
@@ -10495,7 +10495,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/msword"
     },
@@ -10511,7 +10511,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -10527,7 +10527,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -10553,7 +10553,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -10579,7 +10579,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -10611,7 +10611,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -10637,7 +10637,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -10658,7 +10658,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -10674,7 +10674,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -10690,7 +10690,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -10706,7 +10706,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -10726,7 +10726,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -10742,7 +10742,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -10758,7 +10758,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -10774,7 +10774,7 @@
   {
     "File": {
       "Extensions": [
-        "DOC"
+        "doc"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -10790,7 +10790,7 @@
   {
     "File": {
       "Extensions": [
-        "DOCX"
+        "docx"
       ],
       "MimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
     },
@@ -10819,7 +10819,7 @@
   {
     "File": {
       "Extensions": [
-        "EML"
+        "eml"
       ],
       "MimeType": "message/rfc822"
     },
@@ -10849,7 +10849,7 @@
   {
     "File": {
       "Extensions": [
-        "EML"
+        "eml"
       ],
       "MimeType": "message/rfc822"
     },
@@ -10923,7 +10923,7 @@
   {
     "File": {
       "Extensions": [
-        "EML"
+        "eml"
       ],
       "MimeType": "message/rfc822"
     },
@@ -10961,7 +10961,7 @@
   {
     "File": {
       "Extensions": [
-        "EML"
+        "eml"
       ],
       "MimeType": "message/rfc822"
     },
@@ -11006,7 +11006,7 @@
   {
     "File": {
       "Extensions": [
-        "EML"
+        "eml"
       ],
       "MimeType": "message/rfc822"
     },
@@ -11029,7 +11029,7 @@
   {
     "File": {
       "Extensions": [
-        "EML"
+        "eml"
       ],
       "MimeType": "message/rfc822"
     },
@@ -11067,7 +11067,7 @@
   {
     "File": {
       "Extensions": [
-        "EML"
+        "eml"
       ],
       "MimeType": "message/rfc822"
     },
@@ -11090,7 +11090,7 @@
   {
     "File": {
       "Extensions": [
-        "EML"
+        "eml"
       ],
       "MimeType": "message/rfc822"
     },
@@ -11116,7 +11116,7 @@
   {
     "File": {
       "Extensions": [
-        "EML"
+        "eml"
       ],
       "MimeType": "message/rfc822"
     },
@@ -11160,7 +11160,7 @@
   {
     "File": {
       "Extensions": [
-        "EML"
+        "eml"
       ],
       "MimeType": "message/rfc822"
     },
@@ -11176,7 +11176,7 @@
   {
     "File": {
       "Extensions": [
-        "EML"
+        "eml"
       ],
       "MimeType": "message/rfc822"
     },
@@ -11192,7 +11192,7 @@
   {
     "File": {
       "Extensions": [
-        "EML"
+        "eml"
       ],
       "MimeType": "message/rfc822"
     },
@@ -11208,7 +11208,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": ""
     },
@@ -11426,7 +11426,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": ""
     },
@@ -11450,7 +11450,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": ""
     },
@@ -11687,7 +11687,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": ""
     },
@@ -11726,7 +11726,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -11892,7 +11892,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": ""
     },
@@ -12311,7 +12311,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -12546,7 +12546,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -12574,7 +12574,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -12620,7 +12620,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -12676,7 +12676,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -12980,7 +12980,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -13118,7 +13118,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -13314,7 +13314,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -13350,7 +13350,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -13398,7 +13398,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -13932,7 +13932,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -13956,7 +13956,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -13988,7 +13988,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -14027,7 +14027,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -14070,7 +14070,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -14677,7 +14677,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -15261,7 +15261,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -15304,7 +15304,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -15381,7 +15381,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -15430,7 +15430,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -15472,7 +15472,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -15495,7 +15495,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -15629,7 +15629,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -15769,7 +15769,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -15837,7 +15837,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -15881,7 +15881,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -15941,7 +15941,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -16050,7 +16050,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -16082,7 +16082,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -16135,7 +16135,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -16176,7 +16176,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -16216,7 +16216,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -16248,7 +16248,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -16280,7 +16280,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -16330,7 +16330,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -16410,7 +16410,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -16447,7 +16447,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -16483,7 +16483,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -16651,7 +16651,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -16723,7 +16723,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -16768,7 +16768,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -17109,7 +17109,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -17213,7 +17213,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -17449,7 +17449,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -17770,7 +17770,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -18026,7 +18026,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -18381,7 +18381,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -18397,7 +18397,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -18441,7 +18441,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -18489,7 +18489,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -18505,7 +18505,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -18576,7 +18576,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -18621,7 +18621,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -18655,7 +18655,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -18675,7 +18675,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -18703,7 +18703,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -18775,7 +18775,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -18834,7 +18834,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -18902,7 +18902,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -18941,7 +18941,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -18993,7 +18993,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -19061,7 +19061,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -19077,7 +19077,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -19105,7 +19105,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -19129,7 +19129,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -19145,7 +19145,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -19161,7 +19161,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -19238,7 +19238,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -19390,7 +19390,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -19594,7 +19594,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -19626,7 +19626,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -19668,7 +19668,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -19697,7 +19697,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -19743,7 +19743,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -19793,7 +19793,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -20104,7 +20104,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -20140,7 +20140,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -20156,7 +20156,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -20196,7 +20196,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -20236,7 +20236,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -20492,7 +20492,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -20525,7 +20525,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -20553,7 +20553,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -20823,7 +20823,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -21117,7 +21117,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -21279,7 +21279,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -21575,7 +21575,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -22052,7 +22052,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -22652,7 +22652,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -22842,7 +22842,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -22902,7 +22902,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -22959,7 +22959,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -22983,7 +22983,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -23085,7 +23085,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "text/plain"
     },
@@ -23101,7 +23101,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -23830,7 +23830,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -23867,7 +23867,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -23986,7 +23986,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -24018,7 +24018,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -24141,7 +24141,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": ""
     },
@@ -24167,7 +24167,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -24235,7 +24235,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -24263,7 +24263,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -24291,7 +24291,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -24318,7 +24318,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -24374,7 +24374,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -24406,7 +24406,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -24469,7 +24469,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -24514,7 +24514,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -24638,7 +24638,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -24772,7 +24772,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -25087,7 +25087,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -25343,7 +25343,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -25615,7 +25615,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -25888,7 +25888,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -26126,7 +26126,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -26271,7 +26271,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -26423,7 +26423,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -26740,7 +26740,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -27010,7 +27010,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -27109,7 +27109,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -27525,7 +27525,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -27757,7 +27757,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -28029,7 +28029,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -28381,7 +28381,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -28457,7 +28457,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -28510,7 +28510,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -28610,7 +28610,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -28626,7 +28626,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -28669,7 +28669,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -29089,7 +29089,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -29138,7 +29138,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -29291,7 +29291,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -29362,7 +29362,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -29510,7 +29510,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -29632,7 +29632,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -29696,7 +29696,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -29953,7 +29953,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -30497,7 +30497,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -31087,7 +31087,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -31352,7 +31352,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -31632,7 +31632,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -31981,7 +31981,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -32321,7 +32321,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -32731,7 +32731,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -32895,7 +32895,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -33169,7 +33169,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -33336,7 +33336,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -33542,7 +33542,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -33955,7 +33955,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -34077,7 +34077,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -34168,7 +34168,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -34244,7 +34244,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -34317,7 +34317,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -34408,7 +34408,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -34511,7 +34511,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -34546,7 +34546,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -34577,7 +34577,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -34608,7 +34608,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -34644,7 +34644,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -34724,7 +34724,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -34755,7 +34755,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -34869,7 +34869,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -35469,7 +35469,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -35485,7 +35485,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -35712,7 +35712,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -35773,7 +35773,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -35834,7 +35834,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -35894,7 +35894,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -36216,7 +36216,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -36275,7 +36275,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -36577,7 +36577,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -36873,7 +36873,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -36890,7 +36890,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -36928,7 +36928,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "text/plain"
     },
@@ -36944,7 +36944,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -37016,7 +37016,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -37145,7 +37145,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -37655,7 +37655,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -37697,7 +37697,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -37733,7 +37733,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -37769,7 +37769,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -37801,7 +37801,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -37886,7 +37886,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -37926,7 +37926,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -37962,7 +37962,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -38045,8 +38045,8 @@
   {
     "File": {
       "Extensions": [
-        "EXE",
-        "COM"
+        "exe",
+        "com"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -38075,7 +38075,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -38102,7 +38102,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -38128,7 +38128,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -38264,7 +38264,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -38300,7 +38300,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -38461,7 +38461,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -38546,7 +38546,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -39023,7 +39023,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -39053,7 +39053,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -39079,7 +39079,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -39218,7 +39218,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -39288,7 +39288,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -39417,7 +39417,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -39565,7 +39565,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -39885,7 +39885,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -39997,7 +39997,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -40129,7 +40129,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -40161,7 +40161,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -40216,7 +40216,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -40258,7 +40258,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -40297,7 +40297,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -40328,7 +40328,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -40473,7 +40473,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -40807,7 +40807,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -40852,7 +40852,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -41180,7 +41180,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -41477,7 +41477,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -41973,7 +41973,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -42027,7 +42027,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -42063,7 +42063,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -42127,7 +42127,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -42200,7 +42200,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -42398,7 +42398,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -42581,7 +42581,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -42833,7 +42833,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -42865,7 +42865,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -43095,7 +43095,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -43298,7 +43298,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -43314,7 +43314,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -43360,7 +43360,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -43421,7 +43421,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -43519,7 +43519,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -43599,7 +43599,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": ""
     },
@@ -43736,7 +43736,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": ""
     },
@@ -43810,7 +43810,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": ""
     },
@@ -43886,7 +43886,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": ""
     },
@@ -44273,7 +44273,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": ""
     },
@@ -44992,7 +44992,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -45060,7 +45060,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": ""
     },
@@ -45154,7 +45154,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -45221,7 +45221,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -45290,7 +45290,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": ""
     },
@@ -45338,7 +45338,7 @@
   {
     "File": {
       "Extensions": [
-        "EXE"
+        "exe"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -45398,7 +45398,7 @@
   {
     "File": {
       "Extensions": [
-        "FLV"
+        "flv"
       ],
       "MimeType": ""
     },
@@ -45414,7 +45414,7 @@
   {
     "File": {
       "Extensions": [
-        "FNT"
+        "fnt"
       ],
       "MimeType": ""
     },
@@ -45430,7 +45430,7 @@
   {
     "File": {
       "Extensions": [
-        "FNT"
+        "fnt"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -45446,7 +45446,7 @@
   {
     "File": {
       "Extensions": [
-        "FNT"
+        "fnt"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -45462,7 +45462,7 @@
   {
     "File": {
       "Extensions": [
-        "FNT"
+        "fnt"
       ],
       "MimeType": "text/xml"
     },
@@ -45569,7 +45569,7 @@
   {
     "File": {
       "Extensions": [
-        "FNT"
+        "fnt"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -45585,7 +45585,7 @@
   {
     "File": {
       "Extensions": [
-        "FNT"
+        "fnt"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -45616,7 +45616,7 @@
   {
     "File": {
       "Extensions": [
-        "FNT"
+        "fnt"
       ],
       "MimeType": "text/plain"
     },
@@ -45675,7 +45675,7 @@
   {
     "File": {
       "Extensions": [
-        "FNT"
+        "fnt"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -45691,7 +45691,7 @@
   {
     "File": {
       "Extensions": [
-        "FNT"
+        "fnt"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -45707,7 +45707,7 @@
   {
     "File": {
       "Extensions": [
-        "FNT"
+        "fnt"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -45723,7 +45723,7 @@
   {
     "File": {
       "Extensions": [
-        "FNT"
+        "fnt"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -45739,7 +45739,7 @@
   {
     "File": {
       "Extensions": [
-        "FNT"
+        "fnt"
       ],
       "MimeType": ""
     },
@@ -45755,7 +45755,7 @@
   {
     "File": {
       "Extensions": [
-        "FNT"
+        "fnt"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -45876,7 +45876,7 @@
   {
     "File": {
       "Extensions": [
-        "FNT"
+        "fnt"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -45892,7 +45892,7 @@
   {
     "File": {
       "Extensions": [
-        "FNT"
+        "fnt"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -45908,7 +45908,7 @@
   {
     "File": {
       "Extensions": [
-        "FNT"
+        "fnt"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -45948,7 +45948,7 @@
   {
     "File": {
       "Extensions": [
-        "FNT"
+        "fnt"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -45964,7 +45964,7 @@
   {
     "File": {
       "Extensions": [
-        "FNT"
+        "fnt"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -45984,7 +45984,7 @@
   {
     "File": {
       "Extensions": [
-        "FNT"
+        "fnt"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -46017,7 +46017,7 @@
   {
     "File": {
       "Extensions": [
-        "FNT"
+        "fnt"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -46033,7 +46033,7 @@
   {
     "File": {
       "Extensions": [
-        "FNT"
+        "fnt"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -46049,7 +46049,7 @@
   {
     "File": {
       "Extensions": [
-        "FNT"
+        "fnt"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -46065,7 +46065,7 @@
   {
     "File": {
       "Extensions": [
-        "FNT"
+        "fnt"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -46081,7 +46081,7 @@
   {
     "File": {
       "Extensions": [
-        "FNT"
+        "fnt"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -46097,7 +46097,7 @@
   {
     "File": {
       "Extensions": [
-        "FNT"
+        "fnt"
       ],
       "MimeType": "font/x-ms-fnt"
     },
@@ -46173,7 +46173,7 @@
   {
     "File": {
       "Extensions": [
-        "FNT"
+        "fnt"
       ],
       "MimeType": "font/x-ms-fnt"
     },
@@ -46249,7 +46249,7 @@
   {
     "File": {
       "Extensions": [
-        "FNT"
+        "fnt"
       ],
       "MimeType": "font/x-ms-fnt"
     },
@@ -46333,7 +46333,7 @@
   {
     "File": {
       "Extensions": [
-        "FNT"
+        "fnt"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -46350,7 +46350,7 @@
   {
     "File": {
       "Extensions": [
-        "FNT"
+        "fnt"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -46367,7 +46367,7 @@
   {
     "File": {
       "Extensions": [
-        "FNT"
+        "fnt"
       ],
       "MimeType": ""
     },
@@ -46395,7 +46395,7 @@
   {
     "File": {
       "Extensions": [
-        "FON"
+        "fon"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -46411,7 +46411,7 @@
   {
     "File": {
       "Extensions": [
-        "FON"
+        "fon"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -46451,7 +46451,7 @@
   {
     "File": {
       "Extensions": [
-        "FON"
+        "fon"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -46471,7 +46471,7 @@
   {
     "File": {
       "Extensions": [
-        "FON"
+        "fon"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -46487,7 +46487,7 @@
   {
     "File": {
       "Extensions": [
-        "FON"
+        "fon"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -46511,7 +46511,7 @@
   {
     "File": {
       "Extensions": [
-        "FON"
+        "fon"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -46535,7 +46535,7 @@
   {
     "File": {
       "Extensions": [
-        "FON"
+        "fon"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -46551,7 +46551,7 @@
   {
     "File": {
       "Extensions": [
-        "FON"
+        "fon"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -46567,7 +46567,7 @@
   {
     "File": {
       "Extensions": [
-        "FON"
+        "fon"
       ],
       "MimeType": "font/x-fon"
     },
@@ -46619,7 +46619,7 @@
   {
     "File": {
       "Extensions": [
-        "GIF"
+        "gif"
       ],
       "MimeType": "image/gif"
     },
@@ -46642,7 +46642,7 @@
   {
     "File": {
       "Extensions": [
-        "GIF"
+        "gif"
       ],
       "MimeType": ""
     },
@@ -46658,7 +46658,7 @@
   {
     "File": {
       "Extensions": [
-        "GIF"
+        "gif"
       ],
       "MimeType": "image/gif"
     },
@@ -46674,7 +46674,7 @@
   {
     "File": {
       "Extensions": [
-        "GIF"
+        "gif"
       ],
       "MimeType": "image/gif"
     },
@@ -46690,7 +46690,7 @@
   {
     "File": {
       "Extensions": [
-        "H264"
+        "h264"
       ],
       "MimeType": "video/H264"
     },
@@ -46717,7 +46717,7 @@
   {
     "File": {
       "Extensions": [
-        "ICNS"
+        "icns"
       ],
       "MimeType": "image/x-icns"
     },
@@ -46733,7 +46733,7 @@
   {
     "File": {
       "Extensions": [
-        "ICO"
+        "ico"
       ],
       "MimeType": "image/x-icon"
     },
@@ -46761,7 +46761,7 @@
   {
     "File": {
       "Extensions": [
-        "ICO"
+        "ico"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -46781,7 +46781,7 @@
   {
     "File": {
       "Extensions": [
-        "ICO"
+        "ico"
       ],
       "MimeType": "image/x-icon"
     },
@@ -46813,7 +46813,7 @@
   {
     "File": {
       "Extensions": [
-        "ISO"
+        "iso"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -46829,7 +46829,7 @@
   {
     "File": {
       "Extensions": [
-        "ISO"
+        "iso"
       ],
       "MimeType": "application/x-iso9660-image"
     },
@@ -47085,7 +47085,7 @@
   {
     "File": {
       "Extensions": [
-        "ISO"
+        "iso"
       ],
       "MimeType": ""
     },
@@ -47105,7 +47105,7 @@
   {
     "File": {
       "Extensions": [
-        "ISO"
+        "iso"
       ],
       "MimeType": ""
     },
@@ -47128,7 +47128,7 @@
   {
     "File": {
       "Extensions": [
-        "JAR"
+        "jar"
       ],
       "MimeType": ""
     },
@@ -47144,7 +47144,7 @@
   {
     "File": {
       "Extensions": [
-        "JAR"
+        "jar"
       ],
       "MimeType": "application/java-archive"
     },
@@ -47167,7 +47167,7 @@
   {
     "File": {
       "Extensions": [
-        "JAR"
+        "jar"
       ],
       "MimeType": ""
     },
@@ -47320,7 +47320,7 @@
   {
     "File": {
       "Extensions": [
-        "JAR"
+        "jar"
       ],
       "MimeType": ""
     },
@@ -47496,8 +47496,8 @@
   {
     "File": {
       "Extensions": [
-        "JPG",
-        "JPEG"
+        "jpeg",
+        "jpg"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -47517,24 +47517,8 @@
   {
     "File": {
       "Extensions": [
-        "JPG"
-      ],
-      "MimeType": "application/octet-stream"
-    },
-    "Signature": {
-      "Prefix": [
-        {
-          "Pattern": "68736931"
-        }
-      ],
-      "Strings": []
-    }
-  },
-  {
-    "File": {
-      "Extensions": [
-        "JPG",
-        "JPEG"
+        "jpeg",
+        "jpg"
       ],
       "MimeType": "image/jpeg"
     },
@@ -47554,8 +47538,8 @@
   {
     "File": {
       "Extensions": [
-        "JPG",
-        "JPEG"
+        "jpeg",
+        "jpg"
       ],
       "MimeType": "image/jpeg"
     },
@@ -47579,8 +47563,8 @@
   {
     "File": {
       "Extensions": [
-        "JPG",
-        "JPEG"
+        "jpeg",
+        "jpg"
       ],
       "MimeType": "image/jpeg"
     },
@@ -47596,8 +47580,8 @@
   {
     "File": {
       "Extensions": [
-        "JPG",
-        "JPEG"
+        "jpeg",
+        "jpg"
       ],
       "MimeType": "image/jpeg"
     },
@@ -47629,7 +47613,23 @@
   {
     "File": {
       "Extensions": [
-        "KEY"
+        "jpg"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "68736931"
+        }
+      ],
+      "Strings": []
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "key"
       ],
       "MimeType": ""
     },
@@ -47645,7 +47645,7 @@
   {
     "File": {
       "Extensions": [
-        "KEY"
+        "key"
       ],
       "MimeType": "text/plain"
     },
@@ -47661,7 +47661,7 @@
   {
     "File": {
       "Extensions": [
-        "KEY"
+        "key"
       ],
       "MimeType": ""
     },
@@ -47677,7 +47677,7 @@
   {
     "File": {
       "Extensions": [
-        "KEY"
+        "key"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -47693,7 +47693,7 @@
   {
     "File": {
       "Extensions": [
-        "KEY"
+        "key"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -47713,7 +47713,7 @@
   {
     "File": {
       "Extensions": [
-        "KEY"
+        "key"
       ],
       "MimeType": ""
     },
@@ -47740,7 +47740,7 @@
   {
     "File": {
       "Extensions": [
-        "KEY"
+        "key"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -47775,7 +47775,7 @@
   {
     "File": {
       "Extensions": [
-        "KEY"
+        "key"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -47791,7 +47791,7 @@
   {
     "File": {
       "Extensions": [
-        "KEY"
+        "key"
       ],
       "MimeType": "text/plain"
     },
@@ -47807,7 +47807,7 @@
   {
     "File": {
       "Extensions": [
-        "KEY"
+        "key"
       ],
       "MimeType": "text/plain"
     },
@@ -47827,7 +47827,7 @@
   {
     "File": {
       "Extensions": [
-        "KEY"
+        "key"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -47843,7 +47843,7 @@
   {
     "File": {
       "Extensions": [
-        "KEY"
+        "key"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -47859,7 +47859,7 @@
   {
     "File": {
       "Extensions": [
-        "KEY"
+        "key"
       ],
       "MimeType": ""
     },
@@ -47875,7 +47875,7 @@
   {
     "File": {
       "Extensions": [
-        "LNK"
+        "lnk"
       ],
       "MimeType": ""
     },
@@ -47891,7 +47891,7 @@
   {
     "File": {
       "Extensions": [
-        "M4V"
+        "m4v"
       ],
       "MimeType": "video/x-m4v"
     },
@@ -47996,7 +47996,7 @@
   {
     "File": {
       "Extensions": [
-        "M4V"
+        "m4v"
       ],
       "MimeType": "video/x-m4v"
     },
@@ -48116,7 +48116,7 @@
   {
     "File": {
       "Extensions": [
-        "M4V"
+        "m4v"
       ],
       "MimeType": "video/x-m4v"
     },
@@ -48218,7 +48218,7 @@
   {
     "File": {
       "Extensions": [
-        "MDB"
+        "mdb"
       ],
       "MimeType": ""
     },
@@ -48234,7 +48234,7 @@
   {
     "File": {
       "Extensions": [
-        "MDB"
+        "mdb"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -48393,7 +48393,7 @@
   {
     "File": {
       "Extensions": [
-        "MID"
+        "mid"
       ],
       "MimeType": ""
     },
@@ -48420,7 +48420,7 @@
   {
     "File": {
       "Extensions": [
-        "MID"
+        "mid"
       ],
       "MimeType": "audio/midi"
     },
@@ -48444,7 +48444,7 @@
   {
     "File": {
       "Extensions": [
-        "MID"
+        "mid"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -48460,7 +48460,7 @@
   {
     "File": {
       "Extensions": [
-        "MKV"
+        "mkv"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -48476,7 +48476,7 @@
   {
     "File": {
       "Extensions": [
-        "MKV"
+        "mkv"
       ],
       "MimeType": "video/x-matroska"
     },
@@ -48496,7 +48496,7 @@
   {
     "File": {
       "Extensions": [
-        "MOV"
+        "mov"
       ],
       "MimeType": "video/quicktime"
     },
@@ -48520,7 +48520,7 @@
   {
     "File": {
       "Extensions": [
-        "MOV"
+        "mov"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -48536,7 +48536,7 @@
   {
     "File": {
       "Extensions": [
-        "MOV"
+        "mov"
       ],
       "MimeType": "video/quicktime"
     },
@@ -48560,7 +48560,7 @@
   {
     "File": {
       "Extensions": [
-        "MOV"
+        "mov"
       ],
       "MimeType": "video/quicktime"
     },
@@ -48596,7 +48596,7 @@
   {
     "File": {
       "Extensions": [
-        "MP3"
+        "mp3"
       ],
       "MimeType": ""
     },
@@ -48616,7 +48616,7 @@
   {
     "File": {
       "Extensions": [
-        "MP3"
+        "mp3"
       ],
       "MimeType": ""
     },
@@ -48644,7 +48644,7 @@
   {
     "File": {
       "Extensions": [
-        "MP3"
+        "mp3"
       ],
       "MimeType": "audio/mpeg3"
     },
@@ -48691,7 +48691,7 @@
   {
     "File": {
       "Extensions": [
-        "MP3"
+        "mp3"
       ],
       "MimeType": "audio/mpeg3"
     },
@@ -48741,7 +48741,7 @@
   {
     "File": {
       "Extensions": [
-        "MP3"
+        "mp3"
       ],
       "MimeType": "audio/mpeg3"
     },
@@ -48768,7 +48768,7 @@
   {
     "File": {
       "Extensions": [
-        "MP3"
+        "mp3"
       ],
       "MimeType": "audio/mpeg3"
     },
@@ -48788,7 +48788,7 @@
   {
     "File": {
       "Extensions": [
-        "MP3"
+        "mp3"
       ],
       "MimeType": "audio/mpeg3"
     },
@@ -48811,7 +48811,7 @@
   {
     "File": {
       "Extensions": [
-        "MP3"
+        "mp3"
       ],
       "MimeType": "audio/mpeg3"
     },
@@ -48831,7 +48831,7 @@
   {
     "File": {
       "Extensions": [
-        "MP3"
+        "mp3"
       ],
       "MimeType": "audio/mpeg3"
     },
@@ -48847,7 +48847,7 @@
   {
     "File": {
       "Extensions": [
-        "MP3"
+        "mp3"
       ],
       "MimeType": "audio/mpeg3"
     },
@@ -48871,7 +48871,7 @@
   {
     "File": {
       "Extensions": [
-        "MP3"
+        "mp3"
       ],
       "MimeType": "audio/mpeg3"
     },
@@ -48915,7 +48915,7 @@
   {
     "File": {
       "Extensions": [
-        "MP3"
+        "mp3"
       ],
       "MimeType": "audio/mpeg3"
     },
@@ -48951,7 +48951,7 @@
   {
     "File": {
       "Extensions": [
-        "MP3"
+        "mp3"
       ],
       "MimeType": "audio/mpeg3"
     },
@@ -48967,7 +48967,7 @@
   {
     "File": {
       "Extensions": [
-        "MP3"
+        "mp3"
       ],
       "MimeType": "audio/mpeg3"
     },
@@ -49017,7 +49017,7 @@
   {
     "File": {
       "Extensions": [
-        "MP4"
+        "mp4"
       ],
       "MimeType": "audio/mp4"
     },
@@ -49037,7 +49037,7 @@
   {
     "File": {
       "Extensions": [
-        "MP4"
+        "mp4"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -49235,7 +49235,7 @@
   {
     "File": {
       "Extensions": [
-        "MP4"
+        "mp4"
       ],
       "MimeType": "video/mp4"
     },
@@ -49255,7 +49255,7 @@
   {
     "File": {
       "Extensions": [
-        "MP4"
+        "mp4"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -49271,7 +49271,7 @@
   {
     "File": {
       "Extensions": [
-        "MP4"
+        "mp4"
       ],
       "MimeType": "video/mp4"
     },
@@ -49287,7 +49287,7 @@
   {
     "File": {
       "Extensions": [
-        "MP4"
+        "mp4"
       ],
       "MimeType": "video/mp4"
     },
@@ -49303,7 +49303,7 @@
   {
     "File": {
       "Extensions": [
-        "MP4"
+        "mp4"
       ],
       "MimeType": "video/mp4"
     },
@@ -49319,7 +49319,7 @@
   {
     "File": {
       "Extensions": [
-        "MP4"
+        "mp4"
       ],
       "MimeType": "video/mp4"
     },
@@ -49335,7 +49335,7 @@
   {
     "File": {
       "Extensions": [
-        "MP4"
+        "mp4"
       ],
       "MimeType": "video/mp4"
     },
@@ -49351,7 +49351,7 @@
   {
     "File": {
       "Extensions": [
-        "MPA"
+        "mpa"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -49371,24 +49371,7 @@
   {
     "File": {
       "Extensions": [
-        "MPEG",
-        "MPG"
-      ],
-      "MimeType": "video/mpeg"
-    },
-    "Signature": {
-      "Prefix": [
-        {
-          "Pattern": "000001BA"
-        }
-      ],
-      "Strings": []
-    }
-  },
-  {
-    "File": {
-      "Extensions": [
-        "MPG"
+        "mpg"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -49404,7 +49387,24 @@
   {
     "File": {
       "Extensions": [
-        "MPG"
+        "mpg",
+        "mpeg"
+      ],
+      "MimeType": "video/mpeg"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "000001BA"
+        }
+      ],
+      "Strings": []
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "mpg"
       ],
       "MimeType": ""
     },
@@ -49424,7 +49424,7 @@
   {
     "File": {
       "Extensions": [
-        "MSG"
+        "msg"
       ],
       "MimeType": "text/plain"
     },
@@ -49440,7 +49440,7 @@
   {
     "File": {
       "Extensions": [
-        "MSG"
+        "msg"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -49463,7 +49463,7 @@
   {
     "File": {
       "Extensions": [
-        "MSG"
+        "msg"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -49479,7 +49479,7 @@
   {
     "File": {
       "Extensions": [
-        "MSG"
+        "msg"
       ],
       "MimeType": "application/x-innosetup-msg"
     },
@@ -49499,7 +49499,7 @@
   {
     "File": {
       "Extensions": [
-        "MSG"
+        "msg"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -49515,7 +49515,7 @@
   {
     "File": {
       "Extensions": [
-        "MSG"
+        "msg"
       ],
       "MimeType": "application/x-norton-msg"
     },
@@ -49592,7 +49592,7 @@
   {
     "File": {
       "Extensions": [
-        "MSG"
+        "msg"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -49616,7 +49616,7 @@
   {
     "File": {
       "Extensions": [
-        "MSG"
+        "msg"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -49632,7 +49632,7 @@
   {
     "File": {
       "Extensions": [
-        "MSG"
+        "msg"
       ],
       "MimeType": "application/x-os2-msg"
     },
@@ -49652,7 +49652,7 @@
   {
     "File": {
       "Extensions": [
-        "MSG"
+        "msg"
       ],
       "MimeType": "application/x-os2-msg"
     },
@@ -49672,7 +49672,7 @@
   {
     "File": {
       "Extensions": [
-        "MSG"
+        "msg"
       ],
       "MimeType": "application/x-os2-msg"
     },
@@ -49688,7 +49688,7 @@
   {
     "File": {
       "Extensions": [
-        "MSG"
+        "msg"
       ],
       "MimeType": ""
     },
@@ -49717,7 +49717,7 @@
   {
     "File": {
       "Extensions": [
-        "MSG"
+        "msg"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -49733,7 +49733,7 @@
   {
     "File": {
       "Extensions": [
-        "MSG"
+        "msg"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -49749,7 +49749,7 @@
   {
     "File": {
       "Extensions": [
-        "MSG"
+        "msg"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -49765,7 +49765,7 @@
   {
     "File": {
       "Extensions": [
-        "MSI"
+        "msi"
       ],
       "MimeType": ""
     },
@@ -49809,7 +49809,7 @@
   {
     "File": {
       "Extensions": [
-        "MSI"
+        "msi"
       ],
       "MimeType": "application/x-msi"
     },
@@ -50336,7 +50336,7 @@
   {
     "File": {
       "Extensions": [
-        "ODP"
+        "odp"
       ],
       "MimeType": ""
     },
@@ -50384,7 +50384,7 @@
   {
     "File": {
       "Extensions": [
-        "ODS"
+        "ods"
       ],
       "MimeType": ""
     },
@@ -50429,7 +50429,7 @@
   {
     "File": {
       "Extensions": [
-        "ODT"
+        "odt"
       ],
       "MimeType": ""
     },
@@ -50449,7 +50449,7 @@
   {
     "File": {
       "Extensions": [
-        "ODT"
+        "odt"
       ],
       "MimeType": "application/vnd.oasis.opendocument.text"
     },
@@ -50491,7 +50491,7 @@
   {
     "File": {
       "Extensions": [
-        "OFT"
+        "oft"
       ],
       "MimeType": ""
     },
@@ -50511,7 +50511,7 @@
   {
     "File": {
       "Extensions": [
-        "OGG"
+        "ogg"
       ],
       "MimeType": "audio/ogg"
     },
@@ -50535,7 +50535,7 @@
   {
     "File": {
       "Extensions": [
-        "OGG"
+        "ogg"
       ],
       "MimeType": ""
     },
@@ -50551,7 +50551,7 @@
   {
     "File": {
       "Extensions": [
-        "OGG"
+        "ogg"
       ],
       "MimeType": "video/ogg"
     },
@@ -50575,7 +50575,7 @@
   {
     "File": {
       "Extensions": [
-        "OGG"
+        "ogg"
       ],
       "MimeType": ""
     },
@@ -50595,7 +50595,7 @@
   {
     "File": {
       "Extensions": [
-        "OST"
+        "ost"
       ],
       "MimeType": ""
     },
@@ -50615,7 +50615,7 @@
   {
     "File": {
       "Extensions": [
-        "OTF"
+        "otf"
       ],
       "MimeType": "font/otf"
     },
@@ -50647,7 +50647,7 @@
   {
     "File": {
       "Extensions": [
-        "PDF"
+        "pdf"
       ],
       "MimeType": "application/pdf"
     },
@@ -50663,7 +50663,7 @@
   {
     "File": {
       "Extensions": [
-        "PDF"
+        "pdf"
       ],
       "MimeType": "application/pdf"
     },
@@ -50679,7 +50679,7 @@
   {
     "File": {
       "Extensions": [
-        "PDF"
+        "pdf"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -50695,7 +50695,7 @@
   {
     "File": {
       "Extensions": [
-        "PDF"
+        "pdf"
       ],
       "MimeType": ""
     },
@@ -50711,7 +50711,7 @@
   {
     "File": {
       "Extensions": [
-        "PDF"
+        "pdf"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -50727,7 +50727,7 @@
   {
     "File": {
       "Extensions": [
-        "PDF"
+        "pdf"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -50751,7 +50751,7 @@
   {
     "File": {
       "Extensions": [
-        "PDF"
+        "pdf"
       ],
       "MimeType": "application/x-pdf"
     },
@@ -50967,7 +50967,7 @@
   {
     "File": {
       "Extensions": [
-        "PKG"
+        "pkg"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -50987,7 +50987,7 @@
   {
     "File": {
       "Extensions": [
-        "PKG"
+        "pkg"
       ],
       "MimeType": "application/x-xar"
     },
@@ -51007,7 +51007,7 @@
   {
     "File": {
       "Extensions": [
-        "PKG"
+        "pkg"
       ],
       "MimeType": ""
     },
@@ -51035,7 +51035,7 @@
   {
     "File": {
       "Extensions": [
-        "PKG"
+        "pkg"
       ],
       "MimeType": "text/xml"
     },
@@ -51265,7 +51265,7 @@
   {
     "File": {
       "Extensions": [
-        "PKG"
+        "pkg"
       ],
       "MimeType": ""
     },
@@ -51388,7 +51388,7 @@
   {
     "File": {
       "Extensions": [
-        "PKG"
+        "pkg"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -51404,7 +51404,7 @@
   {
     "File": {
       "Extensions": [
-        "PKG"
+        "pkg"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -51443,7 +51443,7 @@
   {
     "File": {
       "Extensions": [
-        "PKG"
+        "pkg"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -51459,7 +51459,7 @@
   {
     "File": {
       "Extensions": [
-        "PKG"
+        "pkg"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -51475,7 +51475,7 @@
   {
     "File": {
       "Extensions": [
-        "PKG"
+        "pkg"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -51491,7 +51491,7 @@
   {
     "File": {
       "Extensions": [
-        "PKG"
+        "pkg"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -51511,7 +51511,7 @@
   {
     "File": {
       "Extensions": [
-        "PKG"
+        "pkg"
       ],
       "MimeType": ""
     },
@@ -51535,7 +51535,7 @@
   {
     "File": {
       "Extensions": [
-        "PKG"
+        "pkg"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -51551,7 +51551,7 @@
   {
     "File": {
       "Extensions": [
-        "PKG"
+        "pkg"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -51567,7 +51567,7 @@
   {
     "File": {
       "Extensions": [
-        "PKG"
+        "pkg"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -51583,7 +51583,7 @@
   {
     "File": {
       "Extensions": [
-        "PKG"
+        "pkg"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -51603,7 +51603,7 @@
   {
     "File": {
       "Extensions": [
-        "PKG"
+        "pkg"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -51619,7 +51619,7 @@
   {
     "File": {
       "Extensions": [
-        "PKG"
+        "pkg"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -51635,7 +51635,7 @@
   {
     "File": {
       "Extensions": [
-        "PKG"
+        "pkg"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -51651,7 +51651,7 @@
   {
     "File": {
       "Extensions": [
-        "PKG"
+        "pkg"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -51667,7 +51667,7 @@
   {
     "File": {
       "Extensions": [
-        "PKG"
+        "pkg"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -51683,7 +51683,7 @@
   {
     "File": {
       "Extensions": [
-        "PKG"
+        "pkg"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -51706,7 +51706,7 @@
   {
     "File": {
       "Extensions": [
-        "PKG"
+        "pkg"
       ],
       "MimeType": ""
     },
@@ -51722,7 +51722,7 @@
   {
     "File": {
       "Extensions": [
-        "PNG"
+        "png"
       ],
       "MimeType": ""
     },
@@ -51742,7 +51742,7 @@
   {
     "File": {
       "Extensions": [
-        "PNG"
+        "png"
       ],
       "MimeType": "image/png"
     },
@@ -51762,7 +51762,7 @@
   {
     "File": {
       "Extensions": [
-        "PNG"
+        "png"
       ],
       "MimeType": ""
     },
@@ -51786,7 +51786,7 @@
   {
     "File": {
       "Extensions": [
-        "PNG"
+        "png"
       ],
       "MimeType": "image/png"
     },
@@ -51802,7 +51802,7 @@
   {
     "File": {
       "Extensions": [
-        "PNG"
+        "png"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -51822,7 +51822,7 @@
   {
     "File": {
       "Extensions": [
-        "PPT"
+        "ppt"
       ],
       "MimeType": "application/vnd.ms-powerpoint"
     },
@@ -51838,7 +51838,7 @@
   {
     "File": {
       "Extensions": [
-        "PPT"
+        "ppt"
       ],
       "MimeType": "application/vnd.ms-powerpoint"
     },
@@ -51854,7 +51854,7 @@
   {
     "File": {
       "Extensions": [
-        "PPT"
+        "ppt"
       ],
       "MimeType": ""
     },
@@ -51870,8 +51870,8 @@
   {
     "File": {
       "Extensions": [
-        "PPT",
-        "PPS"
+        "ppt",
+        "pps"
       ],
       "MimeType": ""
     },
@@ -51894,7 +51894,7 @@
   {
     "File": {
       "Extensions": [
-        "PPTX"
+        "pptx"
       ],
       "MimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation"
     },
@@ -51962,7 +51962,7 @@
   {
     "File": {
       "Extensions": [
-        "PS"
+        "ps"
       ],
       "MimeType": "application/postscript"
     },
@@ -51978,7 +51978,7 @@
   {
     "File": {
       "Extensions": [
-        "PSD"
+        "psd"
       ],
       "MimeType": "image/vnd.adobe.photoshop"
     },
@@ -51994,7 +51994,7 @@
   {
     "File": {
       "Extensions": [
-        "PST"
+        "pst"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -52045,7 +52045,7 @@
   {
     "File": {
       "Extensions": [
-        "PST"
+        "pst"
       ],
       "MimeType": ""
     },
@@ -52069,7 +52069,7 @@
   {
     "File": {
       "Extensions": [
-        "PST"
+        "pst"
       ],
       "MimeType": ""
     },
@@ -52165,7 +52165,7 @@
   {
     "File": {
       "Extensions": [
-        "PST"
+        "pst"
       ],
       "MimeType": ""
     },
@@ -52185,7 +52185,7 @@
   {
     "File": {
       "Extensions": [
-        "RAR"
+        "rar"
       ],
       "MimeType": "application/vnd.rar"
     },
@@ -52201,7 +52201,7 @@
   {
     "File": {
       "Extensions": [
-        "RAR"
+        "rar"
       ],
       "MimeType": "application/vnd.rar"
     },
@@ -52217,7 +52217,7 @@
   {
     "File": {
       "Extensions": [
-        "RAR"
+        "rar"
       ],
       "MimeType": "application/vnd.rar"
     },
@@ -52233,7 +52233,7 @@
   {
     "File": {
       "Extensions": [
-        "RAR"
+        "rar"
       ],
       "MimeType": "application/vnd.rar"
     },
@@ -52249,7 +52249,7 @@
   {
     "File": {
       "Extensions": [
-        "RAR"
+        "rar"
       ],
       "MimeType": ""
     },
@@ -52392,7 +52392,7 @@
   {
     "File": {
       "Extensions": [
-        "RM"
+        "rm"
       ],
       "MimeType": ""
     },
@@ -52580,7 +52580,7 @@
   {
     "File": {
       "Extensions": [
-        "RM"
+        "rm"
       ],
       "MimeType": "audio/x-pn-realaudio"
     },
@@ -52604,7 +52604,7 @@
   {
     "File": {
       "Extensions": [
-        "RPM"
+        "rpm"
       ],
       "MimeType": "application/x-rpm"
     },
@@ -52620,7 +52620,7 @@
   {
     "File": {
       "Extensions": [
-        "RPM"
+        "rpm"
       ],
       "MimeType": ""
     },
@@ -52650,7 +52650,7 @@
   {
     "File": {
       "Extensions": [
-        "RTF"
+        "rtf"
       ],
       "MimeType": "text/rtf"
     },
@@ -52666,7 +52666,7 @@
   {
     "File": {
       "Extensions": [
-        "SVG"
+        "svg"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -52682,7 +52682,7 @@
   {
     "File": {
       "Extensions": [
-        "SVG"
+        "svg"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -52698,7 +52698,7 @@
   {
     "File": {
       "Extensions": [
-        "SVG"
+        "svg"
       ],
       "MimeType": "image/svg\u002Bxml"
     },
@@ -52714,7 +52714,7 @@
   {
     "File": {
       "Extensions": [
-        "SVG"
+        "svg"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -52780,7 +52780,7 @@
   {
     "File": {
       "Extensions": [
-        "SVG"
+        "svg"
       ],
       "MimeType": "image/svg\u002Bxml"
     },
@@ -52806,7 +52806,7 @@
   {
     "File": {
       "Extensions": [
-        "SVG"
+        "svg"
       ],
       "MimeType": "image/svg\u002Bxml"
     },
@@ -52822,7 +52822,7 @@
   {
     "File": {
       "Extensions": [
-        "SWF"
+        "swf"
       ],
       "MimeType": ""
     },
@@ -52838,7 +52838,7 @@
   {
     "File": {
       "Extensions": [
-        "SWF"
+        "swf"
       ],
       "MimeType": ""
     },
@@ -52858,7 +52858,7 @@
   {
     "File": {
       "Extensions": [
-        "TEX"
+        "tex"
       ],
       "MimeType": ""
     },
@@ -52882,7 +52882,7 @@
   {
     "File": {
       "Extensions": [
-        "TEX"
+        "tex"
       ],
       "MimeType": ""
     },
@@ -52898,7 +52898,7 @@
   {
     "File": {
       "Extensions": [
-        "TEX"
+        "tex"
       ],
       "MimeType": "application/x-tex"
     },
@@ -52921,7 +52921,7 @@
   {
     "File": {
       "Extensions": [
-        "TEX"
+        "tex"
       ],
       "MimeType": "application/x-tex"
     },
@@ -52947,7 +52947,7 @@
   {
     "File": {
       "Extensions": [
-        "TEX"
+        "tex"
       ],
       "MimeType": ""
     },
@@ -52967,7 +52967,7 @@
   {
     "File": {
       "Extensions": [
-        "TEX"
+        "tex"
       ],
       "MimeType": ""
     },
@@ -53007,7 +53007,7 @@
   {
     "File": {
       "Extensions": [
-        "TIF"
+        "tif"
       ],
       "MimeType": ""
     },
@@ -53039,8 +53039,8 @@
   {
     "File": {
       "Extensions": [
-        "TIFF",
-        "TIF"
+        "tiff",
+        "tif"
       ],
       "MimeType": ""
     },
@@ -53056,8 +53056,8 @@
   {
     "File": {
       "Extensions": [
-        "TIFF",
-        "TIF"
+        "tiff",
+        "tif"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -53194,8 +53194,8 @@
   {
     "File": {
       "Extensions": [
-        "TIFF",
-        "TIF"
+        "tiff",
+        "tif"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -53332,8 +53332,8 @@
   {
     "File": {
       "Extensions": [
-        "TIFF",
-        "TIF"
+        "tiff",
+        "tif"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -53357,8 +53357,8 @@
   {
     "File": {
       "Extensions": [
-        "TIFF",
-        "TIF"
+        "tiff",
+        "tif"
       ],
       "MimeType": "image/tiff"
     },
@@ -53374,8 +53374,8 @@
   {
     "File": {
       "Extensions": [
-        "TIFF",
-        "TIF"
+        "tiff",
+        "tif"
       ],
       "MimeType": "image/tiff"
     },
@@ -53391,7 +53391,7 @@
   {
     "File": {
       "Extensions": [
-        "TOAST"
+        "toast"
       ],
       "MimeType": "application/x-roxio-toast"
     },
@@ -53411,7 +53411,7 @@
   {
     "File": {
       "Extensions": [
-        "TTF"
+        "ttf"
       ],
       "MimeType": "application/font-sfnt"
     },
@@ -53603,7 +53603,7 @@
   {
     "File": {
       "Extensions": [
-        "TTF"
+        "ttf"
       ],
       "MimeType": "font/ttf"
     },
@@ -53671,7 +53671,7 @@
   {
     "File": {
       "Extensions": [
-        "VCD"
+        "vcd"
       ],
       "MimeType": "text/plain"
     },
@@ -53721,7 +53721,7 @@
   {
     "File": {
       "Extensions": [
-        "VCD"
+        "vcd"
       ],
       "MimeType": "text/plain"
     },
@@ -53753,7 +53753,7 @@
   {
     "File": {
       "Extensions": [
-        "VCF"
+        "vcf"
       ],
       "MimeType": "text/vcard"
     },
@@ -53779,7 +53779,7 @@
   {
     "File": {
       "Extensions": [
-        "VCF"
+        "vcf"
       ],
       "MimeType": "text/vcard"
     },
@@ -53805,7 +53805,7 @@
   {
     "File": {
       "Extensions": [
-        "VCF"
+        "vcf"
       ],
       "MimeType": "text/vcard"
     },
@@ -53831,7 +53831,7 @@
   {
     "File": {
       "Extensions": [
-        "VCF"
+        "vcf"
       ],
       "MimeType": "text/plain"
     },
@@ -53847,7 +53847,7 @@
   {
     "File": {
       "Extensions": [
-        "VCF"
+        "vcf"
       ],
       "MimeType": "text/vcard"
     },
@@ -53870,7 +53870,7 @@
   {
     "File": {
       "Extensions": [
-        "VOB"
+        "vob"
       ],
       "MimeType": ""
     },
@@ -53890,7 +53890,7 @@
   {
     "File": {
       "Extensions": [
-        "VOB"
+        "vob"
       ],
       "MimeType": ""
     },
@@ -53974,7 +53974,7 @@
   {
     "File": {
       "Extensions": [
-        "WAV"
+        "wav"
       ],
       "MimeType": "audio/x-wav"
     },
@@ -54001,7 +54001,7 @@
   {
     "File": {
       "Extensions": [
-        "WAV"
+        "wav"
       ],
       "MimeType": ""
     },
@@ -54029,7 +54029,7 @@
   {
     "File": {
       "Extensions": [
-        "WAV"
+        "wav"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -54045,7 +54045,7 @@
   {
     "File": {
       "Extensions": [
-        "WAV"
+        "wav"
       ],
       "MimeType": "audio/wav"
     },
@@ -54083,7 +54083,7 @@
   {
     "File": {
       "Extensions": [
-        "WAV"
+        "wav"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -54110,7 +54110,7 @@
   {
     "File": {
       "Extensions": [
-        "WAV"
+        "wav"
       ],
       "MimeType": ""
     },
@@ -54149,7 +54149,7 @@
   {
     "File": {
       "Extensions": [
-        "WAV"
+        "wav"
       ],
       "MimeType": "audio/wav"
     },
@@ -54169,7 +54169,7 @@
   {
     "File": {
       "Extensions": [
-        "WAV"
+        "wav"
       ],
       "MimeType": ""
     },
@@ -54185,7 +54185,7 @@
   {
     "File": {
       "Extensions": [
-        "WAV"
+        "wav"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -54216,8 +54216,8 @@
   {
     "File": {
       "Extensions": [
-        "WMA",
-        "WMV"
+        "wma",
+        "wmv"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -54253,7 +54253,7 @@
   {
     "File": {
       "Extensions": [
-        "WPD"
+        "wpd"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -54289,7 +54289,7 @@
   {
     "File": {
       "Extensions": [
-        "WPD"
+        "wpd"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -54333,7 +54333,7 @@
   {
     "File": {
       "Extensions": [
-        "WPD"
+        "wpd"
       ],
       "MimeType": "application/vnd.wordperfect"
     },
@@ -54353,7 +54353,7 @@
   {
     "File": {
       "Extensions": [
-        "WPD"
+        "wpd"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -54374,7 +54374,7 @@
   {
     "File": {
       "Extensions": [
-        "WPL"
+        "wpl"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -54395,7 +54395,7 @@
   {
     "File": {
       "Extensions": [
-        "WPL"
+        "wpl"
       ],
       "MimeType": ""
     },
@@ -54436,7 +54436,7 @@
   {
     "File": {
       "Extensions": [
-        "XLS"
+        "xls"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -54456,7 +54456,7 @@
   {
     "File": {
       "Extensions": [
-        "XLS"
+        "xls"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -54508,7 +54508,7 @@
   {
     "File": {
       "Extensions": [
-        "XLS"
+        "xls"
       ],
       "MimeType": "application/vnd.ms-excel"
     },
@@ -54540,7 +54540,7 @@
   {
     "File": {
       "Extensions": [
-        "XLS"
+        "xls"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -54921,7 +54921,7 @@
   {
     "File": {
       "Extensions": [
-        "XLS"
+        "xls"
       ],
       "MimeType": "application/vnd.ms-excel"
     },
@@ -54937,7 +54937,7 @@
   {
     "File": {
       "Extensions": [
-        "XLS"
+        "xls"
       ],
       "MimeType": "application/vnd.ms-excel"
     },
@@ -54953,7 +54953,7 @@
   {
     "File": {
       "Extensions": [
-        "XLS"
+        "xls"
       ],
       "MimeType": "application/vnd.ms-excel"
     },
@@ -54969,7 +54969,7 @@
   {
     "File": {
       "Extensions": [
-        "XLS"
+        "xls"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -55007,7 +55007,7 @@
   {
     "File": {
       "Extensions": [
-        "XLS"
+        "xls"
       ],
       "MimeType": "application/vnd.ms-excel"
     },
@@ -55030,7 +55030,7 @@
   {
     "File": {
       "Extensions": [
-        "XLS"
+        "xls"
       ],
       "MimeType": "application/vnd.ms-excel"
     },
@@ -55059,7 +55059,70 @@
   {
     "File": {
       "Extensions": [
-        "XLS"
+        "xls",
+        "xml"
+      ],
+      "MimeType": "application/vnd.ms-excel"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "3C3F786D6C2076657273696F6E3D22312E3022"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "534348454D41532D4D4943524F534F46542D434F4D"
+        },
+        {
+          "Pattern": "574F524B424F4F4B20584D4C4E53"
+        },
+        {
+          "Pattern": "574F524B5348454554205353"
+        },
+        {
+          "Pattern": "5350524541445348454554"
+        },
+        {
+          "Pattern": "584D4C2056455253494F4E"
+        },
+        {
+          "Pattern": "5245432D48544D4C3430"
+        },
+        {
+          "Pattern": "5757572E57332E4F5247"
+        },
+        {
+          "Pattern": "5441424C45205353"
+        },
+        {
+          "Pattern": "434F4C554D4E"
+        },
+        {
+          "Pattern": "4E554D424552"
+        },
+        {
+          "Pattern": "4F4646494345"
+        },
+        {
+          "Pattern": "455843454C"
+        },
+        {
+          "Pattern": "43454C4C"
+        },
+        {
+          "Pattern": "48545450"
+        },
+        {
+          "Pattern": "4E414D45"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "xls"
       ],
       "MimeType": "application/vnd.ms-excel"
     },
@@ -55085,7 +55148,7 @@
   {
     "File": {
       "Extensions": [
-        "XLSM"
+        "xlsm"
       ],
       "MimeType": "application/vnd.ms-excel.sheet.macroEnabled.12"
     },
@@ -55138,7 +55201,7 @@
   {
     "File": {
       "Extensions": [
-        "XLSX"
+        "xlsx"
       ],
       "MimeType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     },
@@ -55176,7 +55239,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -55241,7 +55304,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "application/akn\u002Bxml"
     },
@@ -55345,7 +55408,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -55410,7 +55473,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -55496,7 +55559,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -55582,7 +55645,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -55738,7 +55801,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -55812,7 +55875,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -55886,7 +55949,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "application/docbook\u002Bxml"
     },
@@ -55930,7 +55993,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "application/docbook\u002Bxml"
     },
@@ -55965,7 +56028,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "application/docbook\u002Bxml"
     },
@@ -55991,7 +56054,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -56050,7 +56113,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -56097,7 +56160,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -56144,7 +56207,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -56221,7 +56284,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -56280,7 +56343,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -56414,7 +56477,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -56542,7 +56605,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -56589,7 +56652,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -56633,7 +56696,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -56677,7 +56740,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -56844,7 +56907,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -56942,7 +57005,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -57028,7 +57091,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -57099,7 +57162,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -57143,7 +57206,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "application/marc"
     },
@@ -57196,7 +57259,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -57288,7 +57351,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -57431,7 +57494,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -57574,7 +57637,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -57634,7 +57697,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -57738,7 +57801,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -57974,7 +58037,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -58084,7 +58147,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -58140,7 +58203,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -58244,7 +58307,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -58480,7 +58543,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -58626,7 +58689,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -58682,7 +58745,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -58774,7 +58837,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -58863,7 +58926,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -58907,7 +58970,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -58942,7 +59005,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -59010,7 +59073,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -59051,7 +59114,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -59110,7 +59173,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/x-opml"
     },
@@ -59144,7 +59207,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -59458,7 +59521,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -59721,7 +59784,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -59789,7 +59852,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -59833,7 +59896,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -60093,7 +60156,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -60143,7 +60206,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -60193,7 +60256,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -60270,7 +60333,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -60335,7 +60398,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -60391,7 +60454,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -60429,7 +60492,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -60518,7 +60581,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -60534,7 +60597,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -60614,7 +60677,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -60673,7 +60736,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -60732,7 +60795,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -60758,7 +60821,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -60904,70 +60967,7 @@
   {
     "File": {
       "Extensions": [
-        "XML",
-        "XLS"
-      ],
-      "MimeType": "application/vnd.ms-excel"
-    },
-    "Signature": {
-      "Prefix": [
-        {
-          "Pattern": "3C3F786D6C2076657273696F6E3D22312E3022"
-        }
-      ],
-      "Strings": [
-        {
-          "Pattern": "534348454D41532D4D4943524F534F46542D434F4D"
-        },
-        {
-          "Pattern": "574F524B424F4F4B20584D4C4E53"
-        },
-        {
-          "Pattern": "574F524B5348454554205353"
-        },
-        {
-          "Pattern": "5350524541445348454554"
-        },
-        {
-          "Pattern": "584D4C2056455253494F4E"
-        },
-        {
-          "Pattern": "5245432D48544D4C3430"
-        },
-        {
-          "Pattern": "5757572E57332E4F5247"
-        },
-        {
-          "Pattern": "5441424C45205353"
-        },
-        {
-          "Pattern": "434F4C554D4E"
-        },
-        {
-          "Pattern": "4E554D424552"
-        },
-        {
-          "Pattern": "4F4646494345"
-        },
-        {
-          "Pattern": "455843454C"
-        },
-        {
-          "Pattern": "43454C4C"
-        },
-        {
-          "Pattern": "48545450"
-        },
-        {
-          "Pattern": "4E414D45"
-        }
-      ]
-    }
-  },
-  {
-    "File": {
-      "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -61056,7 +61056,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -61097,7 +61097,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -61222,7 +61222,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/plain"
     },
@@ -61294,7 +61294,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -61341,7 +61341,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -61724,7 +61724,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -61756,7 +61756,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -61809,7 +61809,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -61880,7 +61880,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -61924,7 +61924,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -61971,7 +61971,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -62057,7 +62057,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -62137,7 +62137,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -62196,7 +62196,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "application/xml"
     },
@@ -62294,7 +62294,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -62326,7 +62326,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -62724,7 +62724,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -62740,7 +62740,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -62766,7 +62766,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -63104,7 +63104,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -63193,7 +63193,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -63264,7 +63264,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -63485,7 +63485,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -63568,7 +63568,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -63714,7 +63714,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -63848,7 +63848,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -63925,7 +63925,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/plain"
     },
@@ -64221,7 +64221,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -64298,7 +64298,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/plain"
     },
@@ -64357,7 +64357,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -64491,7 +64491,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -64643,7 +64643,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -64684,7 +64684,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -64704,7 +64704,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -64829,7 +64829,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -64912,7 +64912,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -64995,7 +64995,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -65087,7 +65087,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -65215,7 +65215,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -65385,7 +65385,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -65441,7 +65441,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -65497,7 +65497,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -65763,7 +65763,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -65810,7 +65810,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -65830,7 +65830,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "application/xml"
     },
@@ -65970,7 +65970,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -66002,7 +66002,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -66049,7 +66049,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -66171,7 +66171,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -66233,7 +66233,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -66328,7 +66328,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -66465,7 +66465,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -66521,7 +66521,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -66577,7 +66577,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -66675,7 +66675,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -66773,7 +66773,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -66862,7 +66862,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -66951,7 +66951,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -67025,7 +67025,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -67102,7 +67102,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -67131,7 +67131,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -67200,7 +67200,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -67904,7 +67904,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -67966,7 +67966,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -68010,7 +68010,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -68090,7 +68090,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -68140,7 +68140,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -68565,7 +68565,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -68606,7 +68606,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -68638,7 +68638,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -68997,7 +68997,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -69056,7 +69056,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -69142,7 +69142,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -69201,7 +69201,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -69263,7 +69263,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -69322,7 +69322,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -69351,7 +69351,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -69419,7 +69419,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -69532,7 +69532,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -69633,7 +69633,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -69848,7 +69848,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -70018,7 +70018,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -70113,7 +70113,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -70346,7 +70346,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -70393,7 +70393,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -70434,7 +70434,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -70499,7 +70499,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -70564,7 +70564,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -70644,7 +70644,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "application/vnd.mlt\u002Bxml"
     },
@@ -70673,7 +70673,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -70888,7 +70888,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -70986,7 +70986,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -71261,7 +71261,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -71536,7 +71536,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -71565,7 +71565,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/vnd.iptc.nitf"
     },
@@ -71636,7 +71636,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -71722,7 +71722,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -71742,7 +71742,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -71801,7 +71801,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -71914,7 +71914,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -72030,7 +72030,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -72302,7 +72302,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -72325,7 +72325,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -72390,7 +72390,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -72470,7 +72470,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -72538,7 +72538,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -72633,7 +72633,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -72707,7 +72707,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -72814,7 +72814,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -72930,7 +72930,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -72980,7 +72980,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -73129,7 +73129,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -73233,7 +73233,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -73271,7 +73271,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -73315,7 +73315,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -73440,7 +73440,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -73502,7 +73502,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -73606,7 +73606,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -73638,7 +73638,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -73865,7 +73865,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -73996,7 +73996,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -74127,7 +74127,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "application/tei\u002Bxml"
     },
@@ -74168,7 +74168,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "application/tei\u002Bxml"
     },
@@ -74209,7 +74209,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -74301,7 +74301,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -74354,7 +74354,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -74482,7 +74482,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -74498,7 +74498,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -74514,7 +74514,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -74573,7 +74573,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -74806,7 +74806,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -74892,7 +74892,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -75053,7 +75053,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -75097,7 +75097,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -75141,7 +75141,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -75206,7 +75206,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -75271,7 +75271,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -75318,7 +75318,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -75334,7 +75334,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": "text/xml"
     },
@@ -75420,7 +75420,7 @@
   {
     "File": {
       "Extensions": [
-        "XML"
+        "xml"
       ],
       "MimeType": ""
     },
@@ -75467,7 +75467,7 @@
   {
     "File": {
       "Extensions": [
-        "Z"
+        "z"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -75483,7 +75483,7 @@
   {
     "File": {
       "Extensions": [
-        "Z"
+        "z"
       ],
       "MimeType": "application/x-compress"
     },
@@ -75499,7 +75499,7 @@
   {
     "File": {
       "Extensions": [
-        "Z"
+        "z"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -75515,7 +75515,7 @@
   {
     "File": {
       "Extensions": [
-        "Z"
+        "z"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -75531,7 +75531,7 @@
   {
     "File": {
       "Extensions": [
-        "Z"
+        "z"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -75547,7 +75547,7 @@
   {
     "File": {
       "Extensions": [
-        "Z"
+        "z"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -75563,7 +75563,7 @@
   {
     "File": {
       "Extensions": [
-        "Z"
+        "z"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -75579,7 +75579,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": ""
     },
@@ -75608,7 +75608,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -75628,7 +75628,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": "application/zip"
     },
@@ -75644,7 +75644,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": "application/zip"
     },
@@ -75660,7 +75660,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": "application/zip"
     },
@@ -75676,7 +75676,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -75702,7 +75702,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -75728,7 +75728,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -75763,7 +75763,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -75954,7 +75954,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": "application/x-maff"
     },
@@ -75977,7 +75977,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -76006,7 +76006,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": ""
     },
@@ -76029,7 +76029,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": ""
     },
@@ -76052,7 +76052,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": ""
     },
@@ -76249,7 +76249,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": ""
     },
@@ -76317,7 +76317,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": ""
     },
@@ -76364,7 +76364,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": ""
     },
@@ -76396,7 +76396,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": ""
     },
@@ -76440,7 +76440,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -76496,7 +76496,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -76522,7 +76522,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -76557,7 +76557,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -76601,7 +76601,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -76624,7 +76624,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -76647,7 +76647,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -76670,7 +76670,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -76720,7 +76720,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -76761,7 +76761,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -76784,7 +76784,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -76816,7 +76816,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -76863,7 +76863,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -76886,7 +76886,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -76927,7 +76927,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": ""
     },
@@ -76959,7 +76959,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": ""
     },
@@ -76997,7 +76997,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": ""
     },
@@ -77047,7 +77047,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": ""
     },
@@ -77073,7 +77073,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -77102,7 +77102,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": ""
     },
@@ -77140,7 +77140,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -77169,7 +77169,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -77198,7 +77198,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": "application/octet-stream"
     },
@@ -77221,7 +77221,7 @@
   {
     "File": {
       "Extensions": [
-        "ZIP"
+        "zip"
       ],
       "MimeType": ""
     },

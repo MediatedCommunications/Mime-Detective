@@ -1,11 +1,16 @@
 ﻿
+using MimeDetective.Diagnostics;
 using MimeDetective.Storage;
 using System.Collections.Immutable;
 
 namespace MimeDetective.Engine
 {
 
-    public abstract class StringSegmentMatcher : ISegmentMatcher {
+    public abstract class StringSegmentMatcher : DisplayClass, ISegmentMatcher {
+        public override string? GetDebuggerDisplay() {
+            return Segment.GetDebuggerDisplay();
+        }
+
         public StringSegment Segment { get; }
 
         public StringSegmentMatcher(StringSegment Segment) {

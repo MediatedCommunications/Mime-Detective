@@ -86,6 +86,13 @@ namespace MimeDetective.Storage.Xml.v2
         {
             var ret = new Storage.Signature()
             {
+                Prefix = V1
+                    .FrontBlock
+                    .Select(x => ConvertPattern(x))
+                    .OrderBy(x => x.Start)
+                    .ToImmutableArray()
+                    ,
+
                 Strings = V1
                     .GlobalStrings
                     .Select(x => ConvertGlobalString(x))
@@ -93,12 +100,6 @@ namespace MimeDetective.Storage.Xml.v2
                     .ToImmutableArray()
                     ,
 
-                Prefix = V1
-                    .FrontBlock
-                    .Select(x => ConvertPattern(x))
-                    .OrderBy(x => x.Start)
-                    .ToImmutableArray()
-                    ,
             };
 
             return ret;

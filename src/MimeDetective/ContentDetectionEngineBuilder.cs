@@ -7,7 +7,6 @@ namespace MimeDetective {
 
     public class ContentDetectionEngineBuilder {
 
-        public PrefixSegmentOptionsBuilder PrefixSegmentOptions { get; set; } = new();
         public StringSegmentOptionsBuilder StringSegmentOptions { get; set; } = new();
         
 
@@ -31,19 +30,14 @@ namespace MimeDetective {
             var Options = MatchEvaluatorOptions;
             var Defs = Definitions.ToImmutableArray();
 
-            PrefixSegmentFilterProvider PrefixFilter = PrefixSegmentOptions.OptimizeFor switch {
-                PrefixSegmentResourceOptimization.HighSpeed => new PrefixSegmentFilterProviderHighSpeed(),
-                PrefixSegmentResourceOptimization.LowMemory => new PrefixSegmentFilterProviderLowMemory(),
-                _ => new PrefixSegmentFilterProviderHighSpeed(),
-            };
-
             StringSegmentMatcherProvider StringSegmentIndex = StringSegmentOptions.OptimizeFor switch {
                 StringSegmentResourceOptimization.HighSpeed => new StringSegmentMatcherProviderHighSpeed(),
                 StringSegmentResourceOptimization.LowMemory => new StringSegmentMatcherProviderLowMemory(),
                 _ => new StringSegmentMatcherProviderHighSpeed()
+                //_ => new StringSegmentMatcherProviderLowMemory()
             };
 
-            var ret = new ContentDetectionEngine(Defs, Options, PrefixFilter, StringSegmentIndex, Parallel);
+            var ret = new ContentDetectionEngine(Defs, Options, StringSegmentIndex, Parallel);
 
             return ret;
         }

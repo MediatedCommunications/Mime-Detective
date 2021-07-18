@@ -12,7 +12,7 @@ namespace MimeDetective.Storage {
         /// </summary>
         /// <param name="This"></param>
         /// <returns></returns>
-        public static int End(this PrefixSegment This)
+        public static int ExclusiveEnd(this PrefixSegment This)
         {
             return This.Start + This.Pattern.Length;
         }
@@ -25,7 +25,7 @@ namespace MimeDetective.Storage {
             for (var i = 0; i < Length; i++) {
                 var ByteIndex = Index + i;
 
-                while (SegmentIndex < Segments.Length && (Segments[SegmentIndex].Start > ByteIndex || Segments[SegmentIndex].End() < ByteIndex)) {
+                while (SegmentIndex < Segments.Length && (ByteIndex < Segments[SegmentIndex].Start || ByteIndex >= Segments[SegmentIndex].ExclusiveEnd())) {
                     SegmentIndex += 1;
                 }
 
@@ -54,7 +54,7 @@ namespace MimeDetective.Storage {
 
             Value = default;
 
-            if (This is { } && Index >= This.Start && Index < This.End()) {
+            if (This is { } && Index >= This.Start && Index < This.ExclusiveEnd()) {
                 Value = This.GetPatternAt(Index);
                 ret = true;
             }

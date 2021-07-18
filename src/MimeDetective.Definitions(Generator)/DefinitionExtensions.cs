@@ -117,10 +117,10 @@ namespace MimeDetective.Definitions
             var ret = new List<PrefixSegment>();
 
             var Start1 = A.Start;
-            var End1 = A.End();
+            var End1 = A.ExclusiveEnd();
 
             var Start2 = B.Start;
-            var End2 = B.End();
+            var End2 = B.ExclusiveEnd();
 
             var RangeStart = Math.Max(Start1, Start2);
             var RangeEnd = Math.Min(End1, End2);

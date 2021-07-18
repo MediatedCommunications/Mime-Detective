@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace MimeDetective.Engine {
     /// <summary>
@@ -8,25 +9,8 @@ namespace MimeDetective.Engine {
     internal class ByteTree<T> {
         public ByteTreeNode<T> Root { get; } = new();
 
-        public List<T> Find(params byte?[] Key) {
-            var Current = Root;
-            var ret = Root.ChildValues;
-
-            for (int i = 0; i < Key.Length; i++) {
-                var KeyValue = Key[i] ?? ByteTreeNode<T>.Null;
-                var NextNode = Current.ChildNodes[KeyValue] ?? Current.ChildNodes[ByteTreeNode<T>.Null];
-                if (NextNode == default) {
-                    break;
-                }
-
-                Current = NextNode;
-
-                ret = NextNode.ChildValues;
-
-            }
-
-
-            return ret;
+        public List<T> Find(params byte[] Key) {
+            return Root.Find(Key, 0).ToList();
         }
 
         public void Add(byte?[] Key, T Value) {

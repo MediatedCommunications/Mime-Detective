@@ -18,18 +18,17 @@ namespace MimeDetective {
         public ContentDetectionEngine(
             ImmutableArray<Definition> Definitions, 
             DefinitionMatchEvaluatorOptions MatchEvaluatorOptions,
-            PrefixSegmentFilterProvider PrefixFilterProvider,
             StringSegmentMatcherProvider StringSegmentIndex,
             bool Parallel
             ) {
+
             this.StringSegmentIndex = StringSegmentIndex;
             this.MatchEvaluatorOptions = MatchEvaluatorOptions;
             this.Parallel = Parallel;
             this.DefinitionMatchers = GenerateDefinitionMatchers(StringSegmentIndex, Definitions);
-
         }
 
-        protected StringSegmentMatcherProvider StringSegmentIndex { get; set; }
+        protected StringSegmentMatcherProvider StringSegmentIndex { get; }
 
         protected DefinitionMatchEvaluatorOptions MatchEvaluatorOptions { get; }
         protected ImmutableArray<DefinitionMatcher> DefinitionMatchers { get; }
@@ -37,16 +36,17 @@ namespace MimeDetective {
 
         private static ImmutableArray<DefinitionMatcher> GenerateDefinitionMatchers(StringSegmentMatcherProvider StringSegmentIndex, ImmutableArray<Definition> Definitions) {
 
-            var Deduplicate = Definitions.Deduplicate();
+            var Prefixes = (from x in Definitions from y in x.Signature.Prefix select y).Distinct(PrefixSegmentEqualityComparer.Instance).ToList();
+            var Strings = (from x in Definitions from y in x.Signature.Strings select y).Distinct(StringSegmentEqualityComparer.Instance).ToList();
 
-            var PrefixMatcherCache = Deduplicate.Prefixes.Keys
+            var PrefixMatcherCache = Prefixes
                 .ToImmutableDictionary(
                 x => x,
                 x => PrefixSegmentMatcher.Create(x),
                 PrefixSegmentEqualityComparer.Instance
                 );
 
-            var StringMatcherCache = Deduplicate.Strings.Keys
+            var StringMatcherCache = Strings
                 .ToImmutableDictionary(
                 x => x,
                 x => StringSegmentIndex.CreateMatcher(x),
@@ -54,7 +54,7 @@ namespace MimeDetective {
                 );
 
             var ret = (
-                from Definition in Deduplicate.Definitions
+                from Definition in Definitions
 
                 let PrefixMatchers = (
                     from y in Definition.Signature.Prefix
@@ -97,14 +97,12 @@ namespace MimeDetective {
                 }
             };
 
-            var MatcherCaches = this.DefinitionMatchers;
-
 
             var tret = (
-                from MatcherCache in MatcherCaches.AsParallel(Parallel)
+                from DefinitionMatcher in DefinitionMatchers.AsParallel(Parallel)
 
                 let Match = MatchEvaluator1.Match(
-                    MatcherCache, 
+                    DefinitionMatcher, 
                     Content, 
                     NoContentStrings
                     )
@@ -112,7 +110,7 @@ namespace MimeDetective {
                 orderby Match.Points descending
                 select new {
                     Match,
-                    MatcherCache
+                    DefinitionMatcher
                 }
                 ).ToImmutableArray();
 
@@ -123,11 +121,11 @@ namespace MimeDetective {
 
                 var NeedsStrings = (
                     from x in Source2
-                    where x.MatcherCache.Strings.Length > 0
+                    where x.DefinitionMatcher.Strings.Length > 0
                     select x
                     ).Any()
                     ;
-                if(Source2.Length >= 2 && NeedsStrings)
+                if(NeedsStrings)
                 {
                     var MatchEvaluator2 = new DefinitionMatchEvaluator()
                     {
@@ -140,7 +138,7 @@ namespace MimeDetective {
                     tret = (
                         from x in Source2.AsParallel(Parallel)
                         let Match = MatchEvaluator2.Match(
-                            x.MatcherCache,
+                            x.DefinitionMatcher,
                             Content,
                             ContentStrings
                             )
@@ -148,7 +146,7 @@ namespace MimeDetective {
                         orderby Match.Points descending
                         select new {
                             Match,
-                            x.MatcherCache,
+                            x.DefinitionMatcher,
                         }
                         ).ToImmutableArray();
 
