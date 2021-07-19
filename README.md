@@ -15,7 +15,7 @@ one of the definition packs below.
 Create a new Inspector and use the Micro definition pack:
 ```
 using MimeDetective;
-var Inspector = new ContentDetectionInspectorBuilder() {
+var Inspector = new ContentInspectorBuilder() {
     Definitions = Definitions.Default.All()
 }.Build();
 ```
@@ -114,7 +114,7 @@ This library contains the exhaustive set of 14,000+ file signatures.
 It is derived from the publicly available [TrID file signatures](https://mark0.net/soft-tridnet-e.html)
 which may be used for personal/non-commercial use (free) or with a [paid commercial license](https://mark0.net/tridInspector-commercial-license-promo-for-companyx.html).
 
-# Optimizing/Balancing Performance and Memmory Utilization
+# Optimizing/Balancing Performance and Memory
 The ```ContentDetectionInspector``` is designed to be a fast, high-speed utility.  In order to achieve
 maximum performance and lowest memory usage, there are a few things you want to do.
 
@@ -154,6 +154,4 @@ This is a tax best paid only once.  If you  have a list of files to analyze, bui
 The ```ContentDetectionInspectorBuilder.Parallel``` option controlls whether multiple threads will be used
 to perform detections.  If you have lots of definitions or want to make optimal usage of your CPU, this should be set to ```true```.
 If you have a low number of definitions or you want more balanced CPU usage, set this to ```false```.
-
-
 
