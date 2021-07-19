@@ -13,6 +13,8 @@ namespace MimeDetective.Tests
             GetEngine();
         }
 
+        private const int Iterations_Per_Test = 1;
+
         [TestMethod]
         public void Engine_Test_Exe()
         {
@@ -75,8 +77,8 @@ namespace MimeDetective.Tests
         }
 
 
-        private static IContentDetectionEngine? GetEngine_Result;
-        private static IContentDetectionEngine GetEngine()
+        private static ContentInspector? GetEngine_Result;
+        private static ContentInspector GetEngine()
         {
             if(GetEngine_Result == default)
             {
@@ -84,7 +86,7 @@ namespace MimeDetective.Tests
                     UsageType = Definitions.Licensing.UsageType.CommercialPaid
                 }.Build();
 
-                GetEngine_Result = new ContentDetectionEngineBuilder()
+                GetEngine_Result = new ContentInspectorBuilder()
                 {
                     Definitions = Defintions,
                 }.Build();
@@ -99,7 +101,7 @@ namespace MimeDetective.Tests
 
             var Content = System.IO.File.ReadAllBytes(FileName);
 
-            for (var i = 0; i < 200; i++)
+            for (var i = 0; i < Iterations_Per_Test; i++)
             {
                 ret = Test_Extension_Internal(Content, Extension);
             }

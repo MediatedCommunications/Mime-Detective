@@ -43,6 +43,10 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"flv"}.ToImmutableArray(),
                                 MimeType = "application/unknown",
+                                Categories = new[]{
+                                    Category.Vector,
+                                    Category.Video,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(0, "46 4C 56 01")
@@ -60,6 +64,10 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"mov", }.ToImmutableArray(),
                                 MimeType = "video/quicktime",
+                                Categories = new[]{
+                                    Category.Compressed,
+                                    Category.Video,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(4, "66 74 79 70 71 74 20 20") 
@@ -75,6 +83,10 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"mp4", }.ToImmutableArray(),
                                 MimeType = "video/mp4",
+                                Categories = new[]{
+                                    Category.Compressed,
+                                    Category.Video,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(4, "66 74 79 70 33 67 70 35")
@@ -90,6 +102,10 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"mp4", "m4v", "m4a", "mp4a", "mov"}.ToImmutableArray(),
                                 MimeType = "video/mp4",
+                                Categories = new[]{
+                                    Category.Compressed,
+                                    Category.Video,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(4, "66 74 79 70")
@@ -105,6 +121,10 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"mp4", }.ToImmutableArray(),
                                 MimeType = "video/mp4",
+                                Categories = new[]{
+                                    Category.Compressed,
+                                    Category.Video,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(4, "66 74 79 70 69 73 6F 6D")
@@ -119,6 +139,10 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"m4v", }.ToImmutableArray(),
                                 MimeType = "video/x-m4v",
+                                Categories = new[]{
+                                    Category.Compressed,
+                                    Category.Video,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(4, "66 74 79 70 6D 70 34 32")
@@ -134,6 +158,10 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"mp4", }.ToImmutableArray(),
                                 MimeType = "video/mp4",
+                                Categories = new[]{
+                                    Category.Compressed,
+                                    Category.Video,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(4, "66 74 79 70 4D 53 4E 56"),
@@ -149,6 +177,10 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"3gp"}.ToImmutableArray(),
                                 MimeType = "video/3gp",
+                                Categories = new[]{
+                                    Category.Compressed,
+                                    Category.Video,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(4, "66 74 79 70 33 67 70"),

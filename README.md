@@ -12,10 +12,10 @@ one of the definition packs below.
 
 ## Getting Started
 
-Create a new engine and use the Micro definition pack:
+Create a new Inspector and use the Micro definition pack:
 ```
 using MimeDetective;
-var Engine = new ContentDetectionEngineBuilder() {
+var Inspector = new ContentDetectionInspectorBuilder() {
     Definitions = Definitions.Default.All()
 }.Build();
 ```
@@ -23,7 +23,7 @@ var Engine = new ContentDetectionEngineBuilder() {
 
 Alternatively, use the Large definition pack:
 ```
-var Engine = new ContentDetectionEngineBuilder() {
+var Inspector = new ContentInspectorBuilder() {
     Definitions = new Definitions.ExhaustiveBuilder() {
         UsageType = Definitions.Licensing.UsageType.PersonalNonCommercial
     }.Build()
@@ -40,7 +40,7 @@ var Content = ContentReader.Default.ReadFromFile(FileName);
 
 Analyze the content and get results.
 ```
-var Results = Engine.Detect(Content);
+var Results = Inspector.Inspect(Content);
 ```
 
 Group the results by file extension:
@@ -54,7 +54,7 @@ var ResultsByMimeType = Results.ByMimeType();
 ```
 # Definition Packs
 Definition packs make it easy to expand or limit the number of definitions that the 
-engine will use.  You can use one of the provided definition packs, create a limited
+Inspector will use.  You can use one of the provided definition packs, create a limited
 subset of a definition pack, or create entirely new definition packs from scratch.
 
 ## Default Definitions
@@ -87,7 +87,7 @@ This is a condensed library containing the most common file signatures.
 \
 \
 It is derived from the publicly available [TrID file signatures](https://mark0.net/soft-tridnet-e.html)
-which may be used for personal/non-commercial use (free) or with a paid commercial license.
+which may be used for personal/non-commercial use (free) or with a [paid commercial license](https://mark0.net/tridInspector-commercial-license-promo-for-companyx.html).
 
 | Type          | Extensions
 |---------------|-----------
@@ -112,16 +112,16 @@ This library contains the exhaustive set of 14,000+ file signatures.
 \
 \
 It is derived from the publicly available [TrID file signatures](https://mark0.net/soft-tridnet-e.html)
-which may be used for personal/non-commercial use (free) or with a paid commercial license.
+which may be used for personal/non-commercial use (free) or with a [paid commercial license](https://mark0.net/tridInspector-commercial-license-promo-for-companyx.html).
 
 # Optimizing/Balancing Performance and Memmory Utilization
-The ```ContentDetectionEngine``` is designed to be a fast, high-speed utility.  In order to achieve
+The ```ContentDetectionInspector``` is designed to be a fast, high-speed utility.  In order to achieve
 maximum performance and lowest memory usage, there are a few things you want to do.
 
 ## 1.  Trim the Data You Don't Need
 
 If you are positive that a file is going to be one of a few different types, create a definition
-set that only contains those definitions and trims out unnecessary fields.
+set that only contains those definitions and trim out unnecessary fields.
 
 ```
 var AllDefintions = new Definitions.ExhaustiveBuilder() { 
@@ -140,18 +140,18 @@ var ScopedDefinitions = AllDefinitions
     .ToImmutableArray()
     ;
 
-var Engine = new ContentDetectionEngineBuilder() {
+var Inspector = new ContentDetectionInspectorBuilder() {
     Definitions = ScopedDefinitions,
 }.Build();
 ```
 
 ## 2.  Slow Initialization = Fast Execution
-When the ```ContentDetectionEngine``` is first built, it will perform optimizations to ensure fastest execution.
-This is a tax best paid only once.  If you  have a list of files to analyze, build the engine once and reuse it. \
-**Do not create a new engine every time you need to detect a single file.**
+When the ```ContentDetectionInspector``` is first built, it will perform optimizations to ensure fastest execution.
+This is a tax best paid only once.  If you  have a list of files to analyze, build the Inspector once and reuse it. \
+**Do not create a new Inspector every time you need to detect a single file.**
 
 ## 3.  Parallel = True/False
-The ```ContentDetectionEngineBuilder.Parallel``` option controlls whether multiple threads will be used
+The ```ContentDetectionInspectorBuilder.Parallel``` option controlls whether multiple threads will be used
 to perform detections.  If you have lots of definitions or want to make optimal usage of your CPU, this should be set to ```true```.
 If you have a low number of definitions or you want more balanced CPU usage, set this to ```false```.
 

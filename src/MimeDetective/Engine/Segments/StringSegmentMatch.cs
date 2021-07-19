@@ -18,6 +18,6 @@ namespace MimeDetective.Engine
         /// <summary>
         /// The location in <see cref="PatternSegmentMatch.Content"/> that the <see cref="Segment"/> was found at.
         /// </summary>
-        public Range Location { get; init; }
+        public int Index { get; init; }
     }
 }

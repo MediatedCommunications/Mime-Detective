@@ -43,6 +43,11 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"bmp"}.ToImmutableArray(),
                                 MimeType = "image/bmp",
+                                Categories = new[]{
+                                    Category.Bitmap,
+                                    Category.Lossless,
+                                    Category.Image,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[]{
                                 PrefixSegment.Create(0, "42 4D")
@@ -57,6 +62,12 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"gif"}.ToImmutableArray(),
                                 MimeType = "image/gif",
+                                Categories = new[]{
+                                    Category.Image,
+                                    Category.Compressed,
+                                    Category.Lossless,
+                                    Category.Bitmap,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[]{
                                 PrefixSegment.Create(0, "47 49 46 38"),
@@ -72,6 +83,11 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"ico"}.ToImmutableArray(),
                                 MimeType = "image/x-icon",
+                                Categories = new[]{
+                                    Category.Lossless,
+                                    Category.Image,
+                                    Category.Bitmap,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[]{
                                 PrefixSegment.Create(0, "00 00 01 00")
@@ -86,6 +102,12 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"jpg", "jpeg"}.ToImmutableArray(),
                                 MimeType = "image/jpeg",
+                                Categories = new[]{
+                                    Category.Compressed,
+                                    Category.Lossy,
+                                    Category.Image,
+                                    Category.Bitmap,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[]{
                                 PrefixSegment.Create(0, "FF D8 FF") 
@@ -100,6 +122,12 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"png"}.ToImmutableArray(),
                                 MimeType = "image/png",
+                                Categories = new[]{
+                                    Category.Compressed,
+                                    Category.Lossless,
+                                    Category.Image,
+                                    Category.Bitmap,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[]{
                                 PrefixSegment.Create(0, "89 50 4E 47 0D 0A 1A 0A")
@@ -114,6 +142,10 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"psd"}.ToImmutableArray(),
                                 MimeType = ApplicationOctetStream,
+                                Categories = new[]{
+                                    Category.Vector,
+                                    Category.Image,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[]{
                                 PrefixSegment.Create(0, "38 42 50 53")
@@ -128,6 +160,11 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"tif", "tiff"}.ToImmutableArray(),
                                 MimeType = "image/tiff",
+                                Categories = new[]{
+                                    Category.Image,
+                                    Category.Document,
+                                    Category.BigEndian,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[]{
                                 PrefixSegment.Create(0, "4D 4D 00 2A")
@@ -142,6 +179,11 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"tif", "tiff"}.ToImmutableArray(),
                                 MimeType = "image/tiff",
+                                Categories = new[]{
+                                    Category.Image,
+                                    Category.Document,
+                                    Category.BigEndian,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[]{
                                 PrefixSegment.Create(0, "4D 4D 00 2B")
@@ -156,6 +198,11 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"tif", "tiff"}.ToImmutableArray(),
                                 MimeType = "image/tiff",
+                                Categories = new[]{
+                                    Category.Image,
+                                    Category.Document,
+                                    Category.LittleEndian,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[]{
                                 PrefixSegment.Create(0, "49 49 2A 00")
@@ -170,6 +217,10 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"tif", "tiff"}.ToImmutableArray(),
                                 MimeType = "image/tiff",
+                                Categories = new[]{
+                                    Category.Image,
+                                    Category.Document,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[]{
                                 PrefixSegment.Create(0, "49 20 49")

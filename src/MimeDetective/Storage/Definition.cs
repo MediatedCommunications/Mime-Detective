@@ -18,7 +18,7 @@ namespace MimeDetective.Storage
 
         public override string? GetDebuggerDisplay()
         {
-            return $@"[{Meta?.Id}] {File.GetDebuggerDisplay()}: {Signature.GetDebuggerDisplay()}";
+            return $@"{File.GetDebuggerDisplay()}: {Signature.GetDebuggerDisplay()} [{Meta?.Id}]";
         }
 
     }

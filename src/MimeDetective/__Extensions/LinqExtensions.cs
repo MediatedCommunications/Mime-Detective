@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace System.Linq {
-    internal static class LinqExtensions {
+    static internal class LinqExtensions {
         public static ParallelQuery<T> AsParallel<T>(this IEnumerable<T> Source, bool Parallel) {
             var ret = Source.AsParallel();
 

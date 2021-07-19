@@ -69,13 +69,13 @@ namespace MimeDetective.Tests
             var TestCount = 10000;
 
             var SW1 = System.Diagnostics.Stopwatch.StartNew();
-            for (int i = 0; i < TestCount; i++) {
+            for (var i = 0; i < TestCount; i++) {
                 var Matches = Tree.Find(Content);
             }
             SW1.Stop();
 
 
-            var Searcher = new MimeDetective.ContentDetectionEngineBuilder() {
+            var Searcher = new MimeDetective.ContentInspectorBuilder() {
                 Definitions = Data,
                 MatchEvaluatorOptions = new() {
                     Include_Segments_Strings = false
@@ -84,7 +84,7 @@ namespace MimeDetective.Tests
 
             var SW2 = System.Diagnostics.Stopwatch.StartNew();
 
-            for (int i = 0; i < TestCount; i++) {
+            for (var i = 0; i < TestCount; i++) {
                 var Matches = Searcher.Detect(EXE);
             }
             SW2.Stop();
@@ -93,9 +93,8 @@ namespace MimeDetective.Tests
 
         private static byte[] GetRange(byte[] Content, int StartIndex, int Length) {
             var ret = new List<byte>();
-            var End = StartIndex + Length;
 
-            for (int i = 0; i < Length; i++) {
+            for (var i = 0; i < Length; i++) {
                 var Position = StartIndex + i;
 
                 if(Position >= 0 && Position < Content.Length) {

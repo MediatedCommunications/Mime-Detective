@@ -36,6 +36,11 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"flac"}.ToImmutableArray(),
                                 MimeType = "audio/x-flac",
+                                Categories = new[]{
+                                    Category.Compressed,
+                                    Category.Lossless,
+                                    Category.Audio,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(0,"66 4C 61 43")
@@ -46,10 +51,14 @@ namespace MimeDetective.Definitions {
 
                 public static ImmutableArray<Definition> M4A() {
                     return new List<Definition>() {
-                    new() {
-                        File = new() {
-                            Extensions = new[]{"m4a", "mp4a"}.ToImmutableArray(),
-                            MimeType = "audio/mp4",
+                        new() {
+                            File = new() {
+                                Extensions = new[]{"m4a", "mp4a"}.ToImmutableArray(),
+                                MimeType = "audio/mp4",
+                                Categories = new[]{
+                                    Category.Compressed,
+                                    Category.Audio
+                                }.ToImmutableHashSet(),
                         },
                         Signature = new Segment[] {
                             PrefixSegment.Create(4, "66 74 79 70 4D 34 41 20")
@@ -65,6 +74,9 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"midi", "mid"}.ToImmutableArray(),
                                 MimeType = "audio/midi",
+                                Categories = new[]{
+                                    Category.Audio
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(0, "4D 54 68 64")
@@ -79,6 +91,11 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"mp3"}.ToImmutableArray(),
                                 MimeType = "audio/mpeg3",
+                                Categories = new[]{
+                                    Category.Compressed,
+                                    Category.Lossy,
+                                    Category.Audio,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(0, "FF"),
@@ -94,6 +111,11 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"mp3"}.ToImmutableArray(),
                                 MimeType = "audio/mpeg3",
+                                Categories = new[]{
+                                    Category.Compressed,
+                                    Category.Lossy,
+                                    Category.Audio,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(0, "49 44 33"),
@@ -108,6 +130,11 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"ogg", "oga", "ogv", "ogx",}.ToImmutableArray(),
                                 MimeType = "application/ogg",
+                                Categories = new[]{
+                                    Category.Compressed,
+                                    Category.Lossy,
+                                    Category.Audio,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(0, "4F 67 67 53")
@@ -122,6 +149,10 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"wav"}.ToImmutableArray(),
                                 MimeType = "audio/wav",
+                                Categories = new[]{
+                                    Category.Lossless,
+                                    Category.Audio,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(0, "52 49 46 46"),

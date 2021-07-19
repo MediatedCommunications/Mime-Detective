@@ -24,7 +24,7 @@ namespace MimeDetective.Engine
                     ret = new StringSegmentMatch()
                     {
                         Segment = Segment,
-                        Location = i..(i + Segment.Pattern.Length)
+                        Index = i
                     };
                     break;
                 }

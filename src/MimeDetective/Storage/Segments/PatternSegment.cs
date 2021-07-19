@@ -75,7 +75,7 @@ namespace MimeDetective.Storage
         }
 
         protected virtual int GetHashCodeInternal() {
-            return ArrayComparer<byte>.Instance.GetHashCode(Pattern);
+            return EnumerableComparer<byte>.Instance.GetHashCode(Pattern);
         }
 
     }

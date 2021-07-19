@@ -23,6 +23,9 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"dll", "exe"}.ToImmutableArray(),
                                 MimeType = ApplicationOctetStream,
+                                Categories = new[]{
+                                    Category.Executable,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(0, "4D 5A")
@@ -36,6 +39,9 @@ namespace MimeDetective.Definitions {
                         new() {
                             File = new() {
                                 MimeType = ApplicationOctetStream,
+                                Categories = new[]{
+                                    Category.Executable,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(0, "7F 45 4C 46")
@@ -50,6 +56,9 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"lib"}.ToImmutableArray(),
                                 MimeType = ApplicationOctetStream,
+                                Categories = new[]{
+                                    Category.Executable,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(0, "21 3C 61 72 63 68 3E 0A")

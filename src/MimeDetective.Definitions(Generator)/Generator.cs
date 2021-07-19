@@ -54,6 +54,16 @@ namespace MimeDetective.Definitions
 
             var Items = MacroSourceData();
 
+            var NoNames = (
+                from x in Items 
+                where x.File.Categories.IsEmpty 
+                from y in (x.File.Description ?? "").Split(" ", StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries)
+                select y.ToLower()
+                ).GroupBy(x => x)
+                .ToDictionary(x => x, x => x.Count())
+                .OrderByDescending(X => X.Value)
+                .ToList();
+
 
             WriteSmall(Root, Items);
             WriteLarge(Root, Items);

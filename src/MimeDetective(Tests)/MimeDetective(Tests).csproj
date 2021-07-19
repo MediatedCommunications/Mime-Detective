@@ -1,5 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
+  <Import Project="..\__Shared\Shared.targets" Label="Shared" />
+  
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net5.0</TargetFrameworks>
     <RootNamespace>MimeDetective.Tests</RootNamespace>

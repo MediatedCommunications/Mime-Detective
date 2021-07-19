@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace System {
-    internal static class Convert {
+    static internal class Convert {
 
         public static string ToHexString(byte[] Input) {
             return ByteArrayToHexString(Input);
@@ -18,7 +18,7 @@ namespace System {
             var Result = new StringBuilder(Bytes.Length * 2);
             var HexAlphabet = "0123456789ABCDEF";
 
-            foreach (byte B in Bytes) {
+            foreach (var B in Bytes) {
                 Result.Append(HexAlphabet[B >> 4]);
                 Result.Append(HexAlphabet[B & 0xF]);
             }

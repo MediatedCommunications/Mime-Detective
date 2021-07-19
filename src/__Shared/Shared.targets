@@ -6,24 +6,32 @@
     <DebugType>full</DebugType>
     <LangVersion>latest</LangVersion>
     <nullable>enable</nullable>
+    <NoWarn>IDE1006</NoWarn>
  </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-    <NoWarn>CS0436</NoWarn>
+    <NoWarn>CS0436;CS1685</NoWarn>
   </PropertyGroup>
 
   <PropertyGroup>
+    <!--
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    -->
     <PackageTags>Magic Numbers Words File Header Signature Type Detection Extension Mime Type</PackageTags>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <RepositoryUrl>https://github.com/MediatedCommunications/FileDetection.Public</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/MediatedCommunications/FileDetection.Public</PackageProjectUrl>
-    <Authors>TonyValenti</Authors>
+    <PackageLicenseExpression>MIT-BASED</PackageLicenseExpression>
+
+    <PackageProjectUrl>https://github.com/TonyValenti/Mime-Detective</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/TonyValenti/Mime-Detective/blob/master/LICENSE</PackageLicenseUrl>
+    
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/TonyValenti/Mime-Detective.git</RepositoryUrl>
+    
+    <Authors>Tony Valenti, Joshua Clark, Max Vasilyev, Neil Harvey</Authors>
     <Company />
     <Product />
-    <AssemblyVersion>22.07.19.0</AssemblyVersion>
-    <FileVersion>22.07.19.0</FileVersion>
-    <Version>22.07.19</Version>
+    <AssemblyVersion>22.07.22.0</AssemblyVersion>
+    <FileVersion>22.07.22.0</FileVersion>
+    <Version>22.07.22</Version>
     <PackageIcon>noun_data search_4033516.png</PackageIcon>
     <PackageIconUrl />
   </PropertyGroup>

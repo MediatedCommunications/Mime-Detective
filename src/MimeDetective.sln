@@ -7,8 +7,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extensions", "Extensions", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ED5ED47B-B980-434E-AC3E-1DCDD244C53D}"
 	ProjectSection(SolutionItems) = preProject
-		LICENSE.txt = LICENSE.txt
+		..\Build.ps1 = ..\Build.ps1
+		..\LICENSE.txt = ..\LICENSE.txt
+		NegativeOptimizations.md = NegativeOptimizations.md
 		..\README.md = ..\README.md
+		__Shared\Shared.targets = __Shared\Shared.targets
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MimeDetective", "MimeDetective\MimeDetective.csproj", "{51483A4A-129F-4044-BCF5-DDF8C6FC5D3F}"
@@ -25,6 +28,7 @@ Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		__Shared\Shared.targets*{51483a4a-129f-4044-bcf5-ddf8c6fc5d3f}*SharedItemsImports = 5
 		__Shared\Shared.targets*{6f804f01-f29d-453e-b716-5460f26f3923}*SharedItemsImports = 5
+		__Shared\Shared.targets*{848ca710-a03a-4854-a505-561620eb16bb}*SharedItemsImports = 5
 		__Shared\Shared.targets*{8c1ffafd-e205-4d76-816f-95ce01af0679}*SharedItemsImports = 5
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

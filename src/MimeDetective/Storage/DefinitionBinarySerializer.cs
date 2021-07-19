@@ -15,7 +15,7 @@ namespace MimeDetective.Storage
     public static partial class DefinitionBinarySerializer
     {
 
-        private static JsonSerializerOptions BinaryOptions()
+        private static JsonSerializerOptions SerializerOptions()
         {
             var ret = new JsonSerializerOptions()
             {
@@ -36,7 +36,7 @@ namespace MimeDetective.Storage
             using var TR = new StreamReader(CS);
             var Content = TR.ReadToEnd();
 
-            var ret = DefinitionJsonSerializer.FromJson(BinaryOptions(), Content);
+            var ret = DefinitionJsonSerializer.FromJson(SerializerOptions(), Content);
 
             return ret;
         }
@@ -57,7 +57,7 @@ namespace MimeDetective.Storage
 
         public static byte[] ToBinary(IEnumerable<Definition> Values)
         {
-            var Content = DefinitionJsonSerializer.ToJson(BinaryOptions(), Values);
+            var Content = DefinitionJsonSerializer.ToJson(SerializerOptions(), Values);
 
             using var MS = new MemoryStream();
             using var CS = new System.IO.Compression.GZipStream(MS, System.IO.Compression.CompressionLevel.Optimal);

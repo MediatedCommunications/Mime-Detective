@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace MimeDetective.Storage
 {
@@ -11,7 +12,7 @@ namespace MimeDetective.Storage
     /// </summary>
     public static partial class DefinitionJsonSerializer
     {
-        private static JsonSerializerOptions JsonOptions()
+        private static JsonSerializerOptions SerializerOptions()
         {
             var ret = new JsonSerializerOptions()
             {
@@ -22,6 +23,7 @@ namespace MimeDetective.Storage
                 Converters =
                 {
                     new ImmutableByteArrayToHexStringConverter(),
+                    new JsonStringEnumConverter(),
                 }
             };
 
@@ -35,7 +37,7 @@ namespace MimeDetective.Storage
 
         public static Definition[] FromJson(JsonSerializerOptions? Options, string Content)
         {
-            var MyOptions = Options ?? JsonOptions();
+            var MyOptions = Options ?? SerializerOptions();
             var ret = System.Text.Json.JsonSerializer.Deserialize<Definition[]>(Content, MyOptions)
                 ?? Array.Empty<Definition>()
                 ;
@@ -75,7 +77,7 @@ namespace MimeDetective.Storage
 
         public static string ToJson(JsonSerializerOptions? Options, IEnumerable<Definition> Values)
         {
-            var MyOptions = Options ?? JsonOptions();
+            var MyOptions = Options ?? SerializerOptions();
 
             var ret = System.Text.Json.JsonSerializer.Serialize(Values, MyOptions);
 

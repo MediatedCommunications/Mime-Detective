@@ -50,6 +50,9 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"doc"}.ToImmutableArray(),
                                 MimeType = "application/msword",
+                                Categories = new[]{
+                                    Category.Document,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(0, "D0 CF 11 E0 A1 B1 1A E1"),
@@ -65,6 +68,11 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"docx"}.ToImmutableArray(),
                                 MimeType = "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                                Categories = new[]{
+                                    Category.Compressed,
+                                    Category.Document,
+                                    Category.Archive,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {                                
                                 PrefixSegment.Create(0, "50 4B 03 04"),
@@ -84,6 +92,10 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"dwg"}.ToImmutableArray(),
                                 MimeType = "application/acad",
+                                Categories = new[]{
+                                    Category.Document,
+                                    Category.Vector,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[]{
                                 PrefixSegment.Create(0, "41 43 31 30")
@@ -98,6 +110,11 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"pdf"}.ToImmutableArray(),
                                 MimeType = "application/pdf",
+                                Categories = new[]{
+                                    Category.Bitmap,
+                                    Category.Document,
+                                    Category.Image,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(0, "25 50 44 46")
@@ -112,6 +129,10 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"odt"}.ToImmutableArray(),
                                 MimeType = "application/vnd.oasis.opendocument.text",
+                                Categories = new[]{
+                                    Category.Compressed,
+                                    Category.Document,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(0, "50 4B 03 04"),
@@ -126,7 +147,11 @@ namespace MimeDetective.Definitions {
                         new() {
                             File = new() {
                                 Extensions = new[]{"odp"}.ToImmutableArray(),
-                                MimeType = "application/vnd.oasis.opendocument.text",
+                                MimeType = "application/vnd.oasis.opendocument.presentation",
+                                Categories = new[]{
+                                    Category.Presentation,
+                                    Category.Compressed,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(0, "50 4B 03 04"),
@@ -141,7 +166,11 @@ namespace MimeDetective.Definitions {
                         new() {
                             File = new() {
                                 Extensions = new[]{"ods"}.ToImmutableArray(),
-                                MimeType = "application/vnd.oasis.opendocument.text",
+                                MimeType = "application/vnd.oasis.opendocument.spreadsheet",
+                                Categories = new[]{
+                                    Category.Spreadsheet,
+                                    Category.Compressed,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(0, "50 4B 03 04"),
@@ -157,6 +186,9 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"ppt"}.ToImmutableArray(),
                                 MimeType = "application/mspowerpoint",
+                                Categories = new[]{
+                                    Category.Presentation,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(0, "D0 CF 11 E0 A1 B1 1A E1"),
@@ -172,6 +204,11 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"pptx"}.ToImmutableArray(),
                                 MimeType = "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+                                Categories = new[]{
+                                    Category.Compressed,
+                                    Category.Archive,
+                                    Category.Presentation,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[]{
                                 PrefixSegment.Create(0, "50 4B 03 04"),
@@ -192,6 +229,9 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"rtf"}.ToImmutableArray(),
                                 MimeType = "application/rtf",
+                                Categories = new[]{
+                                    Category.Document,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[]{ 
                                 PrefixSegment.Create(0, "7B 5C 72 74 66 31")
@@ -206,6 +246,9 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"xls"}.ToImmutableArray(),
                                 MimeType = "application/excel",
+                                Categories = new[]{
+                                    Category.Spreadsheet,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(0, "D0 CF 11 E0 A1 B1 1A E1"),
@@ -221,6 +264,11 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"xlsx"}.ToImmutableArray(),
                                 MimeType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                                Categories = new[]{
+                                    Category.Compressed,
+                                    Category.Archive,
+                                    Category.Spreadsheet,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[]{
                                 PrefixSegment.Create(0, "50 4B 03 04"),

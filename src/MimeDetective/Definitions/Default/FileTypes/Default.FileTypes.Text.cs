@@ -24,6 +24,9 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"txt"}.ToImmutableArray(),
                                 MimeType = "text/plain",
+                                Categories = new[]{
+                                    Category.Document,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(0, "EF BB BF")
@@ -38,6 +41,10 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"txt"}.ToImmutableArray(),
                                 MimeType = "text/plain",
+                                Categories = new[]{
+                                    Category.Document,
+                                    Category.BigEndian,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(0, "FE FF")
@@ -52,6 +59,10 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"txt"}.ToImmutableArray(),
                                 MimeType = "text/plain",
+                                Categories = new[]{
+                                    Category.Document,
+                                    Category.LittleEndian,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(0, "FF FE")
@@ -66,6 +77,10 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"txt"}.ToImmutableArray(),
                                 MimeType = "text/plain",
+                                Categories = new[]{
+                                    Category.Document,
+                                    Category.BigEndian,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(0, "00 00 FE FF")
@@ -80,6 +95,10 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"txt"}.ToImmutableArray(),
                                 MimeType = "text/plain",
+                                Categories = new[]{
+                                    Category.Document,
+                                    Category.LittleEndian,
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(0, "FF FE 00 00")

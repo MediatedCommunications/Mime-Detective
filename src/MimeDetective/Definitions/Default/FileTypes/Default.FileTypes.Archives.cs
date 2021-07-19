@@ -46,6 +46,10 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"bz2","tar","tbz2","tb2"}.ToImmutableArray(),
                                 MimeType = "application/x-bzip2",
+                                Categories = new[]{
+                                    Category.Compressed, 
+                                    Category.Archive
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[]{
                                 PrefixSegment.Create(0, "42 5A 68")
@@ -60,9 +64,13 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"gz", "tgz"}.ToImmutableArray(),
                                 MimeType = "application/x-gz",
+                                Categories = new[]{
+                                    Category.Compressed,
+                                    Category.Archive
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[]{
-                                            PrefixSegment.Create(0, "1F 8B 08"),
+                                PrefixSegment.Create(0, "1F 8B 08"),
                             }.ToSignature(),
                         },
                     }.ToImmutableArray();
@@ -74,6 +82,10 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"rar"}.ToImmutableArray(),
                                 MimeType = ApplicationXCompressed,
+                                Categories = new[]{
+                                    Category.Compressed,
+                                    Category.Archive
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[]{
                                 PrefixSegment.Create(0, "52 61 72 21"),
@@ -88,6 +100,10 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"7z"}.ToImmutableArray(),
                                 MimeType = ApplicationXCompressed,
+                                Categories = new[]{
+                                    Category.Compressed,
+                                    Category.Archive
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[]{ 
                                 PrefixSegment.Create(0, "37 7A BC AF 27 1C")
@@ -102,6 +118,10 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"tar"}.ToImmutableArray(),
                                 MimeType = ApplicationXTar,
+                                Categories = new[]{
+                                    Category.Compressed,
+                                    Category.Archive
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(257, "75 73 74 61 72")
@@ -116,6 +136,10 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"tar"}.ToImmutableArray(),
                                 MimeType = ApplicationXTar,
+                                Categories = new[]{
+                                    Category.Compressed,
+                                    Category.Archive
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[]{
                                 PrefixSegment.Create(0, "1F A0")
@@ -130,6 +154,10 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"tar"}.ToImmutableArray(),
                                 MimeType = ApplicationXTar,
+                                Categories = new[]{
+                                    Category.Compressed,
+                                    Category.Archive
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(0, "1F 9D")
@@ -144,6 +172,10 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"zip"}.ToImmutableArray(),
                                 MimeType = ApplicationXCompressed,
+                                Categories = new[]{
+                                    Category.Compressed,
+                                    Category.Archive
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
                                 PrefixSegment.Create(0, "50 4B 03 04")
@@ -158,6 +190,10 @@ namespace MimeDetective.Definitions {
                             File = new() {
                                 Extensions = new[]{"zip"}.ToImmutableArray(),
                                 MimeType = ApplicationXCompressed,
+                                Categories = new[]{
+                                    Category.Compressed,
+                                    Category.Archive
+                                }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[]{
                                 PrefixSegment.Create(0, "50 4B 05 06")
@@ -165,10 +201,6 @@ namespace MimeDetective.Definitions {
                         },
                     }.ToImmutableArray();
                 }
-
-                
-
-                
 
             }
         }

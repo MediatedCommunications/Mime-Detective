@@ -7,12 +7,12 @@ using System.Text;
 namespace MimeDetective.Tests {
     [TestClass]
     public abstract class MicroTests {
-        private static IContentDetectionEngine? GetEngine_Result;
-        protected static IContentDetectionEngine GetEngine() {
+        private static ContentInspector? GetEngine_Result;
+        protected static ContentInspector GetEngine() {
             if (GetEngine_Result == default) {
                 var Defintions = Definitions.Default.All();
 
-                GetEngine_Result = new ContentDetectionEngineBuilder() {
+                GetEngine_Result = new ContentInspectorBuilder() {
                     Definitions = Defintions,
                 }.Build();
                 ;
@@ -22,7 +22,7 @@ namespace MimeDetective.Tests {
         }
 
         [TestMethod]
-        public void __GenerateTests() {
+        public void A_GenerateTests() {
             Console.WriteLine(GenerateTests());
         }
 
@@ -79,8 +79,9 @@ public void {Name}(){{
 
         }
 
-        protected virtual string RelativeRoot() => @".\MicroTests\Data\";
-
+        protected virtual string RelativeRoot() {
+            return @".\MicroTests\Data\";
+        }
     }
 
 }

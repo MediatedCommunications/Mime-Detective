@@ -35,6 +35,32 @@ namespace MimeDetective.Storage {
         }
 
         /// <summary>
+        /// Returns a copy of <paramref name="This"/> with no <see cref="FileType.Categories"/>
+        /// </summary>
+        /// <param name="This"></param>
+        /// <returns></returns>
+        public static IEnumerable<Definition> TrimCategories(this IEnumerable<Definition> This) {
+            return This.Select(x => x.TrimCategories());
+        }
+
+
+        /// <summary>
+        /// Returns a copy of <paramref name="This"/> with no <see cref="FileType.Categories"/>
+        /// </summary>
+        /// <param name="This"></param>
+        /// <returns></returns>
+        public static Definition TrimCategories(this Definition This) {
+
+            var ret = This with {
+                File = This.File with {
+                    Categories = ImmutableHashSet<Category>.Empty,
+                }
+            };
+
+            return ret;
+        }
+
+        /// <summary>
         /// Returns a copy of <paramref name="This"/> with no <see cref="FileType.Description"/>
         /// </summary>
         /// <param name="This"></param>
@@ -77,7 +103,6 @@ namespace MimeDetective.Storage {
                 }
             };
         }
-
 
         /// <summary>
         /// Returns a copy of the <see cref="Definition"/>s whose <see cref="FileType.Extensions"/> are intersected with the provided <paramref name="Extensions"/>.  If a <see cref="Definition"/> would contain no <see cref="FileType.Extensions"/>, it is still returned.
@@ -222,34 +247,49 @@ namespace MimeDetective.Storage {
                 StringSegmentEqualityComparer.Instance
                 );
 
+
+            var CategoryCache = (
+                from x in Definitions
+                select x.File.Categories
+                ).Distinct(SequenceComparer<ImmutableHashSet<Category>, Category>.Instance)
+                .ToImmutableDictionary(
+                x => x,
+                x => x,
+                SequenceComparer<ImmutableHashSet<Category>, Category>.Instance
+                );
+
+
             var NewDefinitions = (
-               from Definition in Definitions
+                from Definition in Definitions
 
-               let Description = Definition.File.Description is { } V1 ? DescriptionCache[V1] : default
+                let Description = Definition.File.Description is { } V1 ? DescriptionCache[V1] : default
 
-               let Extensions = (
-                   from y in Definition.File.Extensions
-                   select ExtensionCache[y]
-               ).ToImmutableArray()
+                let Extensions = (
+                    from y in Definition.File.Extensions
+                    select ExtensionCache[y]
+                ).ToImmutableArray()
 
-               let MimeType = Definition.File.MimeType is { } V1 ? MimeTypeCache[V1] : default
+                let MimeType = Definition.File.MimeType is { } V1 ? MimeTypeCache[V1] : default
 
-               let Prefixes = (
-                   from y in Definition.Signature.Prefix
-                   from z in PrefixCacheLookup[y]
-                   select z
-                   ).ToImmutableArray()
+                let Categories = CategoryCache[Definition.File.Categories]
 
-               let Strings = (
-                   from y in Definition.Signature.Strings
-                   select StringCache[y]
-                   ).ToImmutableArray()
+                let Prefixes = (
+                    from y in Definition.Signature.Prefix
+                    from z in PrefixCacheLookup[y]
+                    select z
+                    ).ToImmutableArray()
 
-               let NewDef = new Definition() {
+                let Strings = (
+                    from y in Definition.Signature.Strings
+                    select StringCache[y]
+                    ).ToImmutableArray()
+
+                let NewDef = new Definition() {
                    File = new FileType() {
                        Description = Description,
                        Extensions = Extensions,
                        MimeType = MimeType,
+                       Categories = Categories,
                    },
                    Meta = Definition.Meta,
                    Signature = new Signature() {
@@ -267,6 +307,7 @@ namespace MimeDetective.Storage {
                 Descriptions = DescriptionCache,
                 Prefixes = SingularizedPrefixCache,
                 Strings = StringCache,
+                Categories = CategoryCache,
             };
 
             return ret;

@@ -15,9 +15,10 @@
   <ItemGroup Condition="'$(TargetFramework)' != 'netstandard2.0'">
     <Compile Remove="__Compatibility\Array.cs" />
     <Compile Remove="__Compatibility\Convert.cs" />
+    <Compile Remove="__Compatibility\Index.cs" />
     <Compile Remove="__Compatibility\IsExternalInit.cs" />
     <Compile Remove="__Compatibility\Range.cs" />
-    
+    <Compile Remove="__Compatibility\RuntimeHelpers.cs" />
   </ItemGroup>
 
   
