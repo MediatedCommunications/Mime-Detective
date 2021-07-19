@@ -3,8 +3,8 @@
   
   <PropertyGroup>
     <PackageId>Mime-Detective</PackageId>
-    <Description>Quickly detect the type of a file or stream using a library of 14,000+ signatures based on the header signature (also known as magic number) rather than file extension.</Description>
-    <PackageReleaseNotes>Requires either the MC.FileDetection.Data.Large or MC.FileDetection.Data.Small repositories.</PackageReleaseNotes>
+    <Description>Quickly detect the extension/mime-type of a file or stream using a library of up to 14,000+ signatures using magic numbers (also known as file headers) and magic words.</Description>
+    <PackageReleaseNotes>A default signature pack is included.  Mime-Detective.Definitions.Exhaustive is required to leverage the full set of 14,000+ signatures.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">

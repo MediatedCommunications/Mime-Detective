@@ -20,11 +20,11 @@
     <PackageTags>Magic Numbers Words File Header Signature Type Detection Extension Mime Type</PackageTags>
     <PackageLicenseExpression>MIT-BASED</PackageLicenseExpression>
 
-    <PackageProjectUrl>https://github.com/TonyValenti/Mime-Detective</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/TonyValenti/Mime-Detective/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/MediatedCommunications/Mime-Detective</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/MediatedCommunications/Mime-Detective/blob/master/LICENSE.txt</PackageLicenseUrl>
     
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/TonyValenti/Mime-Detective.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/MediatedCommunications/Mime-Detective.git</RepositoryUrl>
     
     <Authors>Tony Valenti, Joshua Clark, Max Vasilyev, Neil Harvey</Authors>
     <Company />
