@@ -12,7 +12,7 @@ namespace MimeDetective {
     public static class ContentInspectorExtensions
     {
 
-        public static ImmutableArray<DefinitionMatch> Detect(this ContentInspector This, IEnumerable<byte> Content) {
+        public static ImmutableArray<DefinitionMatch> Inspect(this ContentInspector This, IEnumerable<byte> Content) {
             return This.Inspect(Content.ToImmutableArray());
         }
 

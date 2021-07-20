@@ -56,7 +56,7 @@ public void {Name}(){{
 
             var Engine = GetEngine();
 
-            var AllResults = Engine.Detect(Content).ByFileExtension();
+            var AllResults = Engine.Inspect(Content).ByFileExtension();
 
             var Results = new HashSet<string>(StringComparer.InvariantCultureIgnoreCase);
 

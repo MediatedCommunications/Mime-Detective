@@ -18,10 +18,9 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     -->
     <PackageTags>Magic Numbers Words File Header Signature Type Detection Map Convert Extension Mime Type</PackageTags>
-    <PackageLicenseExpression>MIT-BASED</PackageLicenseExpression>
 
     <PackageProjectUrl>https://github.com/MediatedCommunications/Mime-Detective</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/MediatedCommunications/Mime-Detective/blob/master/LICENSE.txt</PackageLicenseUrl>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/MediatedCommunications/Mime-Detective.git</RepositoryUrl>
@@ -29,15 +28,19 @@
     <Authors>Tony Valenti, Joshua Clark, Max Vasilyev, Neil Harvey</Authors>
     <Company />
     <Product />
-    <AssemblyVersion>22.07.22.0</AssemblyVersion>
-    <FileVersion>22.07.22.0</FileVersion>
-    <Version>22.07.22</Version>
+    <AssemblyVersion>22.07.16.0</AssemblyVersion>
+    <FileVersion>22.07.16.0</FileVersion>
+    <Version>22.07.16</Version>
     <PackageIcon>noun_data search_4033516.png</PackageIcon>
     <PackageIconUrl />
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="..\__Shared\noun_data search_4033516.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\..\LICENSE.txt">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>

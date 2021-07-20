@@ -97,7 +97,7 @@ namespace MimeDetective.Tests {
             
 
             var Engine = ContentInspectors.Exhaustive.ContentInspector;
-            var Results = Engine.Detect(Content).ByFileExtension();
+            var Results = Engine.Inspect(Content).ByFileExtension();
             
             Assert.AreEqual(Extension, Results.First().Extension);
 

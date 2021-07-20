@@ -85,7 +85,7 @@ namespace MimeDetective.Tests
             var SW2 = System.Diagnostics.Stopwatch.StartNew();
 
             for (var i = 0; i < TestCount; i++) {
-                var Matches = Searcher.Detect(EXE);
+                var Matches = Searcher.Inspect(EXE);
             }
             SW2.Stop();
 
