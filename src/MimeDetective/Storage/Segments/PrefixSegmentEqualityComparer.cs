@@ -1,6 +1,4 @@
-﻿using MimeDetective.Storage;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections.Generic;
 
 namespace MimeDetective.Storage {
     public class PrefixSegmentEqualityComparer : IEqualityComparer<PrefixSegment> {

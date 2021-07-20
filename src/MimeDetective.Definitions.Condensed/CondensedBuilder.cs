@@ -9,18 +9,22 @@ using System.Threading.Tasks;
 
 namespace MimeDetective.Definitions
 {
-    public class CommonBuilder : IDefinitionBuilder
+    public class CondensedBuilder : IDefinitionBuilder
     {
         public UsageType UsageType { get; set; }
 
         public ImmutableArray<Definition> Build()
         {
-            var Allowed = true
-                && UsageType != UsageType.CommercialPaid
-                && UsageType != UsageType.PersonalNonCommercial
+            var AllowedUsage = new[] {
+                UsageType.CommercialPaid,
+                UsageType.PersonalNonCommercial
+            };
+
+            var Allowed = false
+                || AllowedUsage.Contains(UsageType)
                 ;
 
-            if (Allowed) {
+            if (!Allowed) {
                 var Error = "Please change your usage type or visit https://mark0.net/soft-tridnet-e.html to purchase a license.";
                 throw new UsageTypeNotAllowedException(UsageType, Error);
             }

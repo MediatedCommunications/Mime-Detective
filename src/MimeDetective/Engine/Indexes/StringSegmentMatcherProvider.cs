@@ -1,6 +1,4 @@
-﻿using MimeDetective.Engine;
-using MimeDetective.Storage;
-using System.Collections.Generic;
+﻿using MimeDetective.Storage;
 
 namespace MimeDetective.Engine {
     internal abstract class StringSegmentMatcherProvider {

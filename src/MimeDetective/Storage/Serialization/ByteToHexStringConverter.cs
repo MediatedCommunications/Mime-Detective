@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace MimeDetective.Storage
-{
+namespace MimeDetective.Storage {
     internal abstract class ByteToHexStringConverter<T> : JsonConverter<T>
        where T : IEnumerable<byte>
     {

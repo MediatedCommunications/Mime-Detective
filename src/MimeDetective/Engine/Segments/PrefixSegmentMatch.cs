@@ -1,8 +1,6 @@
 ﻿using MimeDetective.Storage;
-using System.Collections.Immutable;
 
-namespace MimeDetective.Engine
-{
+namespace MimeDetective.Engine {
     /// <summary>
     /// Represents a successful match against a <see cref="PrefixSegment"/>.
     /// </summary>

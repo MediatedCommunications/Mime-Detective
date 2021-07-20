@@ -5,6 +5,9 @@ using System.Collections.Immutable;
 
 namespace MimeDetective {
 
+    /// <summary>
+    /// Use this class to create a new <see cref="ContentInspector"/>.
+    /// </summary>
     public class ContentInspectorBuilder {
 
         public StringSegmentOptionsBuilder StringSegmentOptions { get; set; } = new();

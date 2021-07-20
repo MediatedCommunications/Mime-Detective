@@ -2,9 +2,9 @@
   <Import Project="..\__Shared\Shared.targets" Label="Shared" />
 
   <PropertyGroup>
-    <PackageId>Mime-Detective.Definitions.Common</PackageId>
-    <Description>A condensed library of +100 common file signatures for use by the "FileDetection" package.</Description>
-    <PackageReleaseNotes>For use with the "FileDetection" package.</PackageReleaseNotes>
+    <PackageId>Mime-Detective.Definitions.Condensed</PackageId>
+    <Description>A condensed library of +100 common file signatures for use by the "Mime-Detective" package.</Description>
+    <PackageReleaseNotes>For use with the "Mime-Detective" package.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">

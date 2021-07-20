@@ -1,11 +1,6 @@
 ﻿using MimeDetective.Diagnostics;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MimeDetective.Storage
-{
+namespace MimeDetective.Storage {
     /// <summary>
     /// Contains information used to identiy a file.
     /// </summary>

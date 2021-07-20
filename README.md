@@ -2,6 +2,7 @@
 Mime-Detective is a blazing-fast, low-memory file type detector for .NET.
 It uses Magic-Number and Magic-Word signatures to accurately identify over
 14,000 different file variants by analyzing a raw stream or array of bytes.
+It also allows you to easily convert between file extensions and mime types.
 
 ## Installing from Nuget
 ```
@@ -31,27 +32,24 @@ var Inspector = new ContentInspectorBuilder() {
 ```
 
 
-Read content from a file.
+Then read content from a file or stream:
 ```
-//You could also use System.IO.File.ReadAllBytes(FileName) but this is more efficient.
+
+//This is more efficient than using System.IO.File.ReadAllBytes(FileName).
+
 var Content = ContentReader.Default.ReadFromFile(FileName);
+var Content = ContentReader.Default.ReadFromStream(Stream);
 ```
 
 
-Analyze the content and get results.
+Analyze the content and group the results by either file extension or mime type:
 ```
 var Results = Inspector.Inspect(Content);
-```
 
-Group the results by file extension:
-```
-var ResultsByExtension = Results.ByFileExtension();
-```
-
-Or group the results by mime type:
-```
+var ResultsByFileExtension = Results.ByFileExtension();
 var ResultsByMimeType = Results.ByMimeType();
 ```
+
 # Definition Packs
 Definition packs make it easy to expand or limit the number of definitions that the 
 Inspector will use.  You can use one of the provided definition packs, create a limited
@@ -59,8 +57,10 @@ subset of a definition pack, or create entirely new definition packs from scratc
 
 ## Default Definitions
 
-The default definitions are included with the Mime-Detective nuget pack
+The default definitions are included with the Mime-Detective nuget package
 and are located in the ```MimeDetective.Definitions.Default``` static class.
+You can create a copy of all definitions by calling ```MimeDetective.Definitions.Default.All()```
+or just a limited subset by calling something like ```MimeDetective.Definitions.Default.FileTypes.Documents.All()```.
 
 It can be used by anyone for any purpose and requires no additional licensing.
 
@@ -78,16 +78,24 @@ It can be used by anyone for any purpose and requires no additional licensing.
 |Video          | ```3gp flv mov mp4```
 |Xml            | ```xml```
 
-## Mime-Detective.Definitions.Common
+## Mime-Detective.Definitions.Condensed
 ```
-install-package Mime-Detective.Definitions.Common
+install-package Mime-Detective.Definitions.Condensed
 ```
 
 This is a condensed library containing the most common file signatures.
 \
 \
 It is derived from the publicly available [TrID file signatures](https://mark0.net/soft-tridnet-e.html)
-which may be used for personal/non-commercial use (free) or with a [paid commercial license](https://mark0.net/tridInspector-commercial-license-promo-for-companyx.html).
+which may be used for personal/non-commercial use (free) or with a [paid commercial license](https://mark0.net) (usually around 300€).
+
+Create a copy of these definitions by using the following code:
+```
+var AllDefintions = new Definitions.CondensedBuilder() { 
+    UsageType = Data.Licensing.UsageType.PersonalNonCommercial //Change this to be your usage type
+}.Build();
+```
+
 
 | Type          | Extensions
 |---------------|-----------
@@ -112,10 +120,17 @@ This library contains the exhaustive set of 14,000+ file signatures.
 \
 \
 It is derived from the publicly available [TrID file signatures](https://mark0.net/soft-tridnet-e.html)
-which may be used for personal/non-commercial use (free) or with a [paid commercial license](https://mark0.net/tridInspector-commercial-license-promo-for-companyx.html).
+which may be used for personal/non-commercial use (free) or with a [paid commercial license](https://mark0.net) (usually around 300€).
+
+Create a copy of these definitions by using the following code:
+```
+var AllDefintions = new Definitions.ExhaustiveBuilder() { 
+    UsageType = Data.Licensing.UsageType.PersonalNonCommercial //Change this to be your usage type
+}.Build();
+```
 
 # Optimizing/Balancing Performance and Memory
-The ```ContentDetectionInspector``` is designed to be a fast, high-speed utility.  In order to achieve
+The ```ContentInspector``` is designed to be a fast, high-speed utility.  In order to achieve
 maximum performance and lowest memory usage, there are a few things you want to do.
 
 ## 1.  Trim the Data You Don't Need
@@ -140,18 +155,41 @@ var ScopedDefinitions = AllDefinitions
     .ToImmutableArray()
     ;
 
-var Inspector = new ContentDetectionInspectorBuilder() {
+var Inspector = new ContentInspectorBuilder() {
     Definitions = ScopedDefinitions,
 }.Build();
 ```
 
 ## 2.  Slow Initialization = Fast Execution
-When the ```ContentDetectionInspector``` is first built, it will perform optimizations to ensure fastest execution.
+When the ```ContentInspector``` is first built, it will perform optimizations to ensure fastest execution.
 This is a tax best paid only once.  If you  have a list of files to analyze, build the Inspector once and reuse it. \
 **Do not create a new Inspector every time you need to detect a single file.**
 
 ## 3.  Parallel = True/False
-The ```ContentDetectionInspectorBuilder.Parallel``` option controlls whether multiple threads will be used
+The ```ContentInspectorBuilder.Parallel``` option controlls whether multiple threads will be used
 to perform detections.  If you have lots of definitions or want to make optimal usage of your CPU, this should be set to ```true```.
 If you have a low number of definitions or you want more balanced CPU usage, set this to ```false```.
+
+## 4.  Read Definitions Once
+Materializing definitions causes a new instance of each definition to be created.  If you are going to use the 
+same definitions for multiple purposes, load them once and reuse them.
+```
+var AllDefintions = new Definitions.ExhaustiveBuilder() { 
+    UsageType = Data.Licensing.UsageType.PersonalNonCommercial
+}.Build();
+
+var Inspector = new ContentInspectorBuilder() {
+    Definitions = AllDefintions,
+}.Build();
+
+var MimeTypeToFileExtensions = new MimeTypeToFileExtensionLookupBuilder() {
+    Definitions = AllDefintions,
+}.Build();
+
+var FileExtensionToMimeTypes = new FileExtensionToMimeTypeLookupBuilder() {
+    Definitions = AllDefintions,
+}.Build();
+
+
+```
 

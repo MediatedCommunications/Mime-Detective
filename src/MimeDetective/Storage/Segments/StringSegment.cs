@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.Immutable;
 
-namespace MimeDetective.Storage
-{
+namespace MimeDetective.Storage {
     /// <summary>
     /// Represents a <see cref="Segment"/> that can occur anywhere in the content.
     /// </summary>

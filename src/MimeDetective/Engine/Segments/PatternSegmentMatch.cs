@@ -1,7 +1,4 @@
-﻿using System.Collections.Immutable;
-
-namespace MimeDetective.Engine
-{
+﻿namespace MimeDetective.Engine {
     /// <summary>
     /// The base class representing a successful match.
     /// </summary>

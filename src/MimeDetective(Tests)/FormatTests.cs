@@ -4,9 +4,7 @@ using System;
 using System.Collections.Immutable;
 using System.Linq;
 
-namespace MimeDetective.Tests
-{
-
+namespace MimeDetective.Tests {
 
     [TestClass]
     public class FormatTests

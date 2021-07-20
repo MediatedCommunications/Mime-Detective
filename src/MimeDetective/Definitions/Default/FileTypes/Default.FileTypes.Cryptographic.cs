@@ -1,7 +1,6 @@
 ﻿using MimeDetective.Storage;
 using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.Security.Cryptography.X509Certificates;
 
 namespace MimeDetective.Definitions {
     public static partial class Default

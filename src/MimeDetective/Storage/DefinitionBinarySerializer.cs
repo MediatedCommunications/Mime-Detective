@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
 
-namespace MimeDetective.Storage
-{
+namespace MimeDetective.Storage {
     /// <summary>
     /// Read and write <see cref="Definition"/>s in a compressed binary form.
     /// </summary>

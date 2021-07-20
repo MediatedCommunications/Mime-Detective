@@ -21,7 +21,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MimeDetective.Definitions.Exhaustive\MimeDetective.Definitions.Exhaustive.csproj" />
-    <ProjectReference Include="..\MimeDetective.Definitions.Common\MimeDetective.Definitions.Common.csproj" />
     <ProjectReference Include="..\MimeDetective\MimeDetective.csproj" />
   </ItemGroup>
   

@@ -114,8 +114,8 @@ namespace MimeDetective.Definitions
                 .ToList()
                 ;
 
-            var Json = $@"{Root}\MimeDetective.Definitions.Common\Data\data.json";
-            var Binn = $@"{Root}\MimeDetective.Definitions.Common\Data\data.bin";
+            var Json = $@"{Root}\MimeDetective.Definitions.Condensed\Data\data.json";
+            var Binn = $@"{Root}\MimeDetective.Definitions.Condensed\Data\data.bin";
 
             DefinitionJsonSerializer.ToJsonFile(Json, I3);
             DefinitionBinarySerializer.ToBinaryFile(Binn, I3);

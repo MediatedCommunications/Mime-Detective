@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 using System.Text;
-using MimeDetective.Storage.Xml.v2;
 
-namespace MimeDetective.Storage.Xml.v2
-{
+namespace MimeDetective.Storage.Xml.v2 {
 
     /// <summary>
     /// Convert XML definitions into <see cref="Engine.Definition"/>s.

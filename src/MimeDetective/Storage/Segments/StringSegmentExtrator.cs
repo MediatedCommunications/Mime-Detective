@@ -1,14 +1,7 @@
-﻿using MimeDetective.Storage;
-using System;
-using System.Buffers.Text;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MimeDetective.Storage {
     public static class StringSegmentExtrator {

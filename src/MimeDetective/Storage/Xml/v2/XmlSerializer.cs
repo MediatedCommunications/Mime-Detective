@@ -1,11 +1,6 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Threading.Tasks;
-using MimeDetective.Storage.Xml.v2;
+﻿using System.IO;
 
-namespace MimeDetective.Storage.Xml.v2
-{
+namespace MimeDetective.Storage.Xml.v2 {
 
     /// <summary>
     /// Read and write xml file definitions

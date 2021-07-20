@@ -1,10 +1,7 @@
 ﻿using MimeDetective.Diagnostics;
-using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.Linq;
 
-namespace MimeDetective.Storage
-{
+namespace MimeDetective.Storage {
     public record Signature : DisplayRecord
     {
         public ImmutableArray<PrefixSegment> Prefix { get; init; } = ImmutableArray<PrefixSegment>.Empty;

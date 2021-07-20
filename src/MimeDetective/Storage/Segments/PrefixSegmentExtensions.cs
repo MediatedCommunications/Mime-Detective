@@ -1,6 +1,4 @@
-﻿using MimeDetective.Storage;
-using System.Collections.Generic;
-using System.Collections.Immutable;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace MimeDetective.Storage {

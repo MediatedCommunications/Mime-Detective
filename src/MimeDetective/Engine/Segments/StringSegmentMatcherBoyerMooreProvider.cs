@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MimeDetective.Engine
-{
+namespace MimeDetective.Engine {
     internal sealed class StringSegmentMatcherBoyerMooreProvider
     {
         private readonly int[] SkipTable;

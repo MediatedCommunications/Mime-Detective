@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MimeDetective.Engine {
+﻿namespace MimeDetective.Engine {
     static internal class Array {
         static internal T[] Empty<T>() {
             return System.Array.Empty<T>();

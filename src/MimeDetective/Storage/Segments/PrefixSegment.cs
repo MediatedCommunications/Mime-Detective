@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 
-namespace MimeDetective.Storage
-{
+namespace MimeDetective.Storage {
     /// <summary>
     /// Represents <see cref="Segment.Content"/> that occurs near the beginning of a file.
     /// </summary>

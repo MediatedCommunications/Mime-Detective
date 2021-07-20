@@ -1,12 +1,9 @@
-﻿using MimeDetective.Engine;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Collections.Immutable;
 using System.Linq;
 using System.Text;
 
-namespace MimeDetective.Storage
-{
+namespace MimeDetective.Storage {
     /// <summary>
     /// The base class representing <see cref="Pattern"/> that exists in the target file.
     /// </summary>

@@ -1,5 +1,4 @@
-﻿using MimeDetective.Engine;
-using MimeDetective.Storage;
+﻿using MimeDetective.Storage;
 
 namespace MimeDetective.Engine {
     internal class StringSegmentMatcherProviderHighSpeed

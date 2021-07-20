@@ -1,11 +1,7 @@
-﻿using MimeDetective.Engine;
-using MimeDetective.Storage;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
 
 namespace MimeDetective.Storage {
     public static class DefinitionExtensions {

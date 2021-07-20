@@ -1,10 +1,8 @@
 ﻿using MimeDetective.Diagnostics;
 using MimeDetective.Storage;
 using System.Collections.Immutable;
-using System.Linq;
 
-namespace MimeDetective.Engine
-{
+namespace MimeDetective.Engine {
 
     /// <summary>
     /// An <see cref="ISegmentMatcher"/> that matches a <see cref="PrefixSegment"/> against content.

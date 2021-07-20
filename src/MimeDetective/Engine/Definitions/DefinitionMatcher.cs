@@ -1,5 +1,4 @@
 ﻿using MimeDetective.Diagnostics;
-using MimeDetective.Engine;
 using MimeDetective.Storage;
 using System.Collections.Immutable;
 

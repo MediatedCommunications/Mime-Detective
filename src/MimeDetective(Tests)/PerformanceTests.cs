@@ -3,14 +3,14 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Immutable;
 using System.Linq;
 
-namespace MimeDetective.Tests
-{
+namespace MimeDetective.Tests {
+
     [TestClass]
     public class PerformanceTests
     {
         static PerformanceTests()
         {
-            GetEngine();
+            _ = ContentInspectors.Exhaustive.ContentInspector;
         }
 
         private const int Iterations_Per_Test = 1;
@@ -76,26 +76,6 @@ namespace MimeDetective.Tests
             Test_Extension($@"C:\Windows\System32\ComputerToastIcon.png", "png");
         }
 
-
-        private static ContentInspector? GetEngine_Result;
-        private static ContentInspector GetEngine()
-        {
-            if(GetEngine_Result == default)
-            {
-                var Defintions = new Definitions.ExhaustiveBuilder() { 
-                    UsageType = Definitions.Licensing.UsageType.CommercialPaid
-                }.Build();
-
-                GetEngine_Result = new ContentInspectorBuilder()
-                {
-                    Definitions = Defintions,
-                }.Build();
-;
-            }
-
-            return GetEngine_Result;
-        }
-
         private static ImmutableArray<FileExtensionMatch> Test_Extension(string FileName, string Extension) {
             var ret = ImmutableArray<FileExtensionMatch>.Empty;
 
@@ -116,7 +96,7 @@ namespace MimeDetective.Tests
 
             
 
-            var Engine = GetEngine();
+            var Engine = ContentInspectors.Exhaustive.ContentInspector;
             var Results = Engine.Detect(Content).ByFileExtension();
             
             Assert.AreEqual(Extension, Results.First().Extension);

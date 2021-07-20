@@ -3,7 +3,7 @@
   
   <PropertyGroup>
     <PackageId>Mime-Detective</PackageId>
-    <Description>Quickly detect the extension/mime-type of a file or stream using a library of up to 14,000+ signatures using magic numbers (also known as file headers) and magic words.</Description>
+    <Description>The ultimate file-extension &amp; mime-type library.  Quickly detect the extension/mime-type of a file or stream using a library of up to 14,000+ signatures using magic numbers (also known as file headers) and magic words.  Also, easily convert between file extensions and mime types.</Description>
     <PackageReleaseNotes>A default signature pack is included.  Mime-Detective.Definitions.Exhaustive is required to leverage the full set of 14,000+ signatures.</PackageReleaseNotes>
   </PropertyGroup>
 

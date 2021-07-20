@@ -1,12 +1,9 @@
 ﻿using MimeDetective.Storage;
-using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
-using System.Threading;
 
-namespace MimeDetective.Engine
-{
+namespace MimeDetective.Engine {
 
     /// <summary>
     /// Handles evaluating a <see cref="Definition"/> against content and scoring it.
