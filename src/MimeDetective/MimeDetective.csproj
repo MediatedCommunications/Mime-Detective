@@ -3,13 +3,13 @@
   
   <PropertyGroup>
     <PackageId>Mime-Detective</PackageId>
-    <Description>The ultimate file-extension &amp; mime-type library.  Quickly detect the extension/mime-type of a file or stream using a library of up to 14,000+ signatures using magic numbers (also known as file headers) and magic words.  Also, easily convert between file extensions and mime types.</Description>
+    <Description>Over 14,000+ file extension &amp; mime type signatures!  Detect extensions &amp; mime types from a stream or byte array using magic numbers (file headers) and magic words.  Convert between file extensions and mime types too!</Description>
     <PackageReleaseNotes>A default signature pack is included.  Mime-Detective.Definitions.Exhaustive is required to leverage the full set of 14,000+ signatures.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
     <PackageReference Include="System.Collections.Immutable" Version="5.0.0" />
-    <PackageReference Include="System.Text.Json" Version="5.0.2" />
+    <PackageReference Include="System.Text.Json" Version="6.0.0-rc.2.21480.5" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' != 'netstandard2.0'">

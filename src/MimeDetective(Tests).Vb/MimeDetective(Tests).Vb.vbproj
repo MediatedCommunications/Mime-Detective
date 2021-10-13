@@ -1,11 +1,11 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="..\__Shared\Shared.targets" Label="Shared" />
-  
+
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net5.0</TargetFrameworks>
-    <RootNamespace>MimeDetective.Tests</RootNamespace>
-	  <Nullable>enable</Nullable>
-    <LangVersion>latest</LangVersion>
+    <TargetFrameworks>net461</TargetFrameworks>
+    <RootNamespace>MimeDetective.Tests.Vb</RootNamespace>
+    <Nullable>enable</Nullable>
+    <LangVersion>11.0</LangVersion>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
@@ -23,11 +23,6 @@
     <ProjectReference Include="..\MimeDetective.Definitions.Exhaustive\MimeDetective.Definitions.Exhaustive.csproj" />
     <ProjectReference Include="..\MimeDetective\MimeDetective.csproj" />
   </ItemGroup>
-  
-  <ItemGroup>
-	  <None Update="MicroTests\Data\**\*">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-  </ItemGroup>
+
 
 </Project>

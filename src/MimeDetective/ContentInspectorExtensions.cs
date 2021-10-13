@@ -1,14 +1,11 @@
 ﻿using MimeDetective.Engine;
 using MimeDetective.Storage;
-using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.ComponentModel.Design;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices.ComTypes;
 
-namespace MimeDetective {
+namespace MimeDetective
+{
     public static class ContentInspectorExtensions
     {
 
