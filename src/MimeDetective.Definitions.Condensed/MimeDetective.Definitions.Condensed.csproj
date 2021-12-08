@@ -1,10 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="..\__Shared\Shared.targets" Label="Shared" />
 
   <PropertyGroup>
     <PackageId>Mime-Detective.Definitions.Condensed</PackageId>
     <Description>A condensed library of +100 common file signatures for use by the "Mime-Detective" package.</Description>
     <PackageReleaseNotes>For use with the "Mime-Detective" package.</PackageReleaseNotes>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">

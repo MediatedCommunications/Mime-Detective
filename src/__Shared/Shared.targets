@@ -28,4 +28,10 @@
     <PackageIcon>noun_data search_4033516.png</PackageIcon>
     <PackageIconUrl />
   </PropertyGroup>
+
+    <ItemGroup>
+		<None Include="..\..\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)" Visible="false" />
+		<None Include="..\__Shared\noun_data search_4033516.png" Pack="true" PackagePath="$(PackageIcon)" Visible="false" />
+	</ItemGroup>
+
 </Project>
