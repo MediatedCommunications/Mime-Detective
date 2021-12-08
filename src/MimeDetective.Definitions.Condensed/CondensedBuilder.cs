@@ -9,25 +9,20 @@ using System.Threading.Tasks;
 
 namespace MimeDetective.Definitions
 {
-    public class CondensedBuilder : IDefinitionBuilder
+    public class CondensedBuilder : DefinitionBuilder
     {
         public UsageType UsageType { get; set; }
 
-        public ImmutableArray<Definition> Build()
+        public override ImmutableArray<Definition> Build()
         {
-            var AllowedUsage = new[] {
+            var AllowedUsageTypes = new[] {
                 UsageType.CommercialPaid,
                 UsageType.PersonalNonCommercial
             };
 
-            var Allowed = false
-                || AllowedUsage.Contains(UsageType)
-                ;
+            var Error = "Please change your usage type or visit https://mark0.net/soft-tridnet-e.html to purchase a license.";
 
-            if (!Allowed) {
-                var Error = "Please change your usage type or visit https://mark0.net/soft-tridnet-e.html to purchase a license.";
-                throw new UsageTypeNotAllowedException(UsageType, Error);
-            }
+            EnsureValidUsageType(UsageType, AllowedUsageTypes, Error);
 
             var raw = MimeDetective.Definitions.Resources.data;
             var ret = MimeDetective.Storage.DefinitionBinarySerializer

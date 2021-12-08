@@ -3,25 +3,14 @@
   
   <PropertyGroup>
     <PackageId>Mime-Detective</PackageId>
-    <Description>Over 14,000+ file extension &amp; mime type signatures!  Detect extensions &amp; mime types from a stream or byte array using magic numbers (file headers) and magic words.  Convert between file extensions and mime types too!</Description>
+    <Description>The ultimate file-extension &amp; mime-type library with over 14,000+ signatures.  Quickly detect extensions &amp; mime types from a stream or byte array using magic numbers (file headers) and magic words.  A default signature library is included and can be expanded using Mime-Detective.Definitions.Condensed (common signatures) or Mime-Detective.Definitions.Exhaustive (14,000+ signatures).</Description>
     <PackageReleaseNotes>A default signature pack is included.  Mime-Detective.Definitions.Exhaustive is required to leverage the full set of 14,000+ signatures.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
     <PackageReference Include="System.Collections.Immutable" Version="5.0.0" />
-    <PackageReference Include="System.Text.Json" Version="6.0.0-rc.2.21480.5" />
+    <PackageReference Include="System.Text.Json" Version="6.0.0" />
   </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' != 'netstandard2.0'">
-    <Compile Remove="__Compatibility\Array.cs" />
-    <Compile Remove="__Compatibility\Convert.cs" />
-    <Compile Remove="__Compatibility\Index.cs" />
-    <Compile Remove="__Compatibility\IsExternalInit.cs" />
-    <Compile Remove="__Compatibility\Range.cs" />
-    <Compile Remove="__Compatibility\RuntimeHelpers.cs" />
-  </ItemGroup>
-
-  
 
 
 </Project>
