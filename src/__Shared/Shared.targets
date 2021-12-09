@@ -22,9 +22,9 @@
     <Authors>Tony Valenti, Joshua Clark, Max Vasilyev, Neil Harvey</Authors>
     <Company />
     <Product />
-    <AssemblyVersion>22.07.18.0</AssemblyVersion>
-    <FileVersion>22.07.18.0</FileVersion>
-    <Version>22.07.18</Version>
+    <AssemblyVersion>22.07.19.0</AssemblyVersion>
+    <FileVersion>22.07.19.0</FileVersion>
+    <Version>22.07.19</Version>
     <PackageIcon>noun_data search_4033516.png</PackageIcon>
     <PackageIconUrl />
   </PropertyGroup>
