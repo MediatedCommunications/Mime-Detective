@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 
 namespace MimeDetective {
     public class ContentReader {
@@ -17,6 +18,14 @@ namespace MimeDetective {
                 ? FromStream_Reset_True(Input)
                 : FromStream_Reset_False(Input)
                 ;
+
+            return ret;
+        }
+
+        public byte[] ReadFromStream(Func<Stream> Input) {
+            using var Stream = Input();
+            
+            var ret = FromStream_Reset_False(Stream);
 
             return ret;
         }
