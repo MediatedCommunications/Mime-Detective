@@ -74,7 +74,7 @@ public void {Name}(){{
             var IsValid = Results.Contains(Expected);
 
             if (!IsValid) {
-                Assert.AreEqual(Expected, string.Join(",", Results));
+                Assert.AreNotEqual(Expected, string.Join(",", Results));
             }
 
         }

@@ -41,7 +41,7 @@ namespace MimeDetective.Tests {
 
         [TestMethod]
         public void TestXmlSchema_FromFiles() {
-            var Folder = $@"{SourceDefinitions.DefinitionRoot()}\defs\0\";
+            var Folder = $@"{SourceDefinitions.DefinitionRoot()}\0\";
 
             var Files = System.IO.Directory.GetFiles(Folder, "*.xml");
 

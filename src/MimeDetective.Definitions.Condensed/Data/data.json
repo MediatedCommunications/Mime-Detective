@@ -11379,40 +11379,6 @@
   {
     "File": {
       "Extensions": [
-        "com",
-        "exe"
-      ],
-      "Categories": [
-        "Database",
-        "Executable"
-      ],
-      "MimeType": "application/octet-stream"
-    },
-    "Signature": {
-      "Prefix": [
-        {
-          "Start": 6,
-          "Pattern": "00"
-        },
-        {
-          "Start": 12,
-          "Pattern": "000000"
-        },
-        {
-          "Start": 47,
-          "Pattern": "0053796D4578653130"
-        }
-      ],
-      "Strings": [
-        {
-          "Pattern": "53594D4558453130"
-        }
-      ]
-    }
-  },
-  {
-    "File": {
-      "Extensions": [
         "cur"
       ],
       "Categories": [
@@ -41606,6 +41572,40 @@
   {
     "File": {
       "Extensions": [
+        "exe",
+        "com"
+      ],
+      "Categories": [
+        "Database",
+        "Executable"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Start": 6,
+          "Pattern": "00"
+        },
+        {
+          "Start": 12,
+          "Pattern": "000000"
+        },
+        {
+          "Start": 47,
+          "Pattern": "0053796D4578653130"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "53594D4558453130"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
         "exe"
       ],
       "Categories": [
@@ -51619,8 +51619,8 @@
   {
     "File": {
       "Extensions": [
-        "jpg",
-        "jpeg"
+        "jpeg",
+        "jpg"
       ],
       "Categories": [
         "Image",
@@ -51644,28 +51644,8 @@
   {
     "File": {
       "Extensions": [
+        "jpeg",
         "jpg"
-      ],
-      "Categories": [
-        "Image",
-        "Bitmap"
-      ],
-      "MimeType": "application/octet-stream"
-    },
-    "Signature": {
-      "Prefix": [
-        {
-          "Pattern": "68736931"
-        }
-      ],
-      "Strings": []
-    }
-  },
-  {
-    "File": {
-      "Extensions": [
-        "jpg",
-        "jpeg"
       ],
       "Categories": [
         "Image",
@@ -51689,8 +51669,8 @@
   {
     "File": {
       "Extensions": [
-        "jpg",
-        "jpeg"
+        "jpeg",
+        "jpg"
       ],
       "Categories": [
         "Image",
@@ -51718,8 +51698,8 @@
   {
     "File": {
       "Extensions": [
-        "jpg",
-        "jpeg"
+        "jpeg",
+        "jpg"
       ],
       "Categories": [
         "Image",
@@ -51739,8 +51719,8 @@
   {
     "File": {
       "Extensions": [
-        "jpg",
-        "jpeg"
+        "jpeg",
+        "jpg"
       ],
       "Categories": [
         "Image",
@@ -51771,6 +51751,26 @@
           "Pattern": "4A504547"
         }
       ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "jpg"
+      ],
+      "Categories": [
+        "Image",
+        "Bitmap"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "68736931"
+        }
+      ],
+      "Strings": []
     }
   },
   {
@@ -57824,44 +57824,8 @@
   {
     "File": {
       "Extensions": [
-        "tif"
-      ],
-      "Categories": [
-        "Image",
-        "Bitmap"
-      ],
-      "MimeType": ""
-    },
-    "Signature": {
-      "Prefix": [
-        {
-          "Pattern": "00"
-        },
-        {
-          "Start": 65,
-          "Pattern": "54494646"
-        },
-        {
-          "Start": 74,
-          "Pattern": "00"
-        },
-        {
-          "Start": 82,
-          "Pattern": "00"
-        }
-      ],
-      "Strings": [
-        {
-          "Pattern": "54494646"
-        }
-      ]
-    }
-  },
-  {
-    "File": {
-      "Extensions": [
-        "tiff",
-        "tif"
+        "tif",
+        "tiff"
       ],
       "Categories": [
         "Image",
@@ -57881,8 +57845,8 @@
   {
     "File": {
       "Extensions": [
-        "tiff",
-        "tif"
+        "tif",
+        "tiff"
       ],
       "Categories": [
         "BigEndian",
@@ -58024,8 +57988,8 @@
   {
     "File": {
       "Extensions": [
-        "tiff",
-        "tif"
+        "tif",
+        "tiff"
       ],
       "Categories": [
         "Image",
@@ -58166,8 +58130,8 @@
   {
     "File": {
       "Extensions": [
-        "tiff",
-        "tif"
+        "tif",
+        "tiff"
       ],
       "Categories": [],
       "MimeType": "application/octet-stream"
@@ -58192,8 +58156,8 @@
   {
     "File": {
       "Extensions": [
-        "tiff",
-        "tif"
+        "tif",
+        "tiff"
       ],
       "Categories": [
         "BigEndian",
@@ -58214,8 +58178,8 @@
   {
     "File": {
       "Extensions": [
-        "tiff",
-        "tif"
+        "tif",
+        "tiff"
       ],
       "Categories": [
         "LittleEndian",
@@ -58231,6 +58195,42 @@
         }
       ],
       "Strings": []
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "tif"
+      ],
+      "Categories": [
+        "Image",
+        "Bitmap"
+      ],
+      "MimeType": ""
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "00"
+        },
+        {
+          "Start": 65,
+          "Pattern": "54494646"
+        },
+        {
+          "Start": 74,
+          "Pattern": "00"
+        },
+        {
+          "Start": 82,
+          "Pattern": "00"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "54494646"
+        }
+      ]
     }
   },
   {
@@ -59108,8 +59108,8 @@
   {
     "File": {
       "Extensions": [
-        "wmv",
-        "wma"
+        "wma",
+        "wmv"
       ],
       "Categories": [],
       "MimeType": "application/octet-stream"
@@ -60018,6 +60018,72 @@
         },
         {
           "Pattern": "574F524B534845455453"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "xls",
+        "xml"
+      ],
+      "Categories": [
+        "Spreadsheet"
+      ],
+      "MimeType": "application/vnd.ms-excel"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "3C3F786D6C2076657273696F6E3D22312E3022"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "534348454D41532D4D4943524F534F46542D434F4D"
+        },
+        {
+          "Pattern": "574F524B424F4F4B20584D4C4E53"
+        },
+        {
+          "Pattern": "574F524B5348454554205353"
+        },
+        {
+          "Pattern": "5350524541445348454554"
+        },
+        {
+          "Pattern": "584D4C2056455253494F4E"
+        },
+        {
+          "Pattern": "5245432D48544D4C3430"
+        },
+        {
+          "Pattern": "5757572E57332E4F5247"
+        },
+        {
+          "Pattern": "5441424C45205353"
+        },
+        {
+          "Pattern": "434F4C554D4E"
+        },
+        {
+          "Pattern": "4E554D424552"
+        },
+        {
+          "Pattern": "4F4646494345"
+        },
+        {
+          "Pattern": "455843454C"
+        },
+        {
+          "Pattern": "43454C4C"
+        },
+        {
+          "Pattern": "48545450"
+        },
+        {
+          "Pattern": "4E414D45"
         }
       ]
     }
@@ -66028,72 +66094,6 @@
         },
         {
           "Pattern": "55554944"
-        }
-      ]
-    }
-  },
-  {
-    "File": {
-      "Extensions": [
-        "xml",
-        "xls"
-      ],
-      "Categories": [
-        "Spreadsheet"
-      ],
-      "MimeType": "application/vnd.ms-excel"
-    },
-    "Signature": {
-      "Prefix": [
-        {
-          "Pattern": "3C3F786D6C2076657273696F6E3D22312E3022"
-        }
-      ],
-      "Strings": [
-        {
-          "Pattern": "534348454D41532D4D4943524F534F46542D434F4D"
-        },
-        {
-          "Pattern": "574F524B424F4F4B20584D4C4E53"
-        },
-        {
-          "Pattern": "574F524B5348454554205353"
-        },
-        {
-          "Pattern": "5350524541445348454554"
-        },
-        {
-          "Pattern": "584D4C2056455253494F4E"
-        },
-        {
-          "Pattern": "5245432D48544D4C3430"
-        },
-        {
-          "Pattern": "5757572E57332E4F5247"
-        },
-        {
-          "Pattern": "5441424C45205353"
-        },
-        {
-          "Pattern": "434F4C554D4E"
-        },
-        {
-          "Pattern": "4E554D424552"
-        },
-        {
-          "Pattern": "4F4646494345"
-        },
-        {
-          "Pattern": "455843454C"
-        },
-        {
-          "Pattern": "43454C4C"
-        },
-        {
-          "Pattern": "48545450"
-        },
-        {
-          "Pattern": "4E414D45"
         }
       ]
     }
