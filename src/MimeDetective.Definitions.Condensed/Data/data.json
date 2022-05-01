@@ -57824,8 +57824,44 @@
   {
     "File": {
       "Extensions": [
-        "tif",
-        "tiff"
+        "tif"
+      ],
+      "Categories": [
+        "Image",
+        "Bitmap"
+      ],
+      "MimeType": ""
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "00"
+        },
+        {
+          "Start": 65,
+          "Pattern": "54494646"
+        },
+        {
+          "Start": 74,
+          "Pattern": "00"
+        },
+        {
+          "Start": 82,
+          "Pattern": "00"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "54494646"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "tiff",
+        "tif"
       ],
       "Categories": [
         "Image",
@@ -57845,8 +57881,8 @@
   {
     "File": {
       "Extensions": [
-        "tif",
-        "tiff"
+        "tiff",
+        "tif"
       ],
       "Categories": [
         "BigEndian",
@@ -57988,8 +58024,8 @@
   {
     "File": {
       "Extensions": [
-        "tif",
-        "tiff"
+        "tiff",
+        "tif"
       ],
       "Categories": [
         "Image",
@@ -58130,8 +58166,8 @@
   {
     "File": {
       "Extensions": [
-        "tif",
-        "tiff"
+        "tiff",
+        "tif"
       ],
       "Categories": [],
       "MimeType": "application/octet-stream"
@@ -58156,8 +58192,8 @@
   {
     "File": {
       "Extensions": [
-        "tif",
-        "tiff"
+        "tiff",
+        "tif"
       ],
       "Categories": [
         "BigEndian",
@@ -58178,8 +58214,8 @@
   {
     "File": {
       "Extensions": [
-        "tif",
-        "tiff"
+        "tiff",
+        "tif"
       ],
       "Categories": [
         "LittleEndian",
@@ -58195,42 +58231,6 @@
         }
       ],
       "Strings": []
-    }
-  },
-  {
-    "File": {
-      "Extensions": [
-        "tif"
-      ],
-      "Categories": [
-        "Image",
-        "Bitmap"
-      ],
-      "MimeType": ""
-    },
-    "Signature": {
-      "Prefix": [
-        {
-          "Pattern": "00"
-        },
-        {
-          "Start": 65,
-          "Pattern": "54494646"
-        },
-        {
-          "Start": 74,
-          "Pattern": "00"
-        },
-        {
-          "Start": 82,
-          "Pattern": "00"
-        }
-      ],
-      "Strings": [
-        {
-          "Pattern": "54494646"
-        }
-      ]
     }
   },
   {

@@ -24,7 +24,7 @@ namespace MimeDetective.Tests
 
             var SortedData = (
                 from x in Data
-                let Values = x.Signature.Prefix.OrderBy(x => x.Start).ToList()
+                let Values = x.Signature.Prefix.OrderBy(p => p.Start).ToList()
                 let ItemStart = Values.FirstOrDefault()?.Start ?? 0
                 let ItemEnd = Values.LastOrDefault()?.ExclusiveEnd() ?? 0
                 let v = new {
