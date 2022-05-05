@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MimeDetective.Definitions.E
 EndProject
 Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "MimeDetective(Tests).Vb", "MimeDetective(Tests).Vb\MimeDetective(Tests).Vb.vbproj", "{43E99D1C-B71C-43D4-9F6F-26E96033CCDB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MimeDetective.Benchmark", "MimeDetective.Benchmark\MimeDetective.Benchmark.csproj", "{D9D56BBA-F75E-4EB5-8881-4DEFFAEE3586}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		__Shared\Shared.props*{43e99d1c-b71c-43d4-9f6f-26e96033ccdb}*SharedItemsImports = 5
@@ -62,6 +64,10 @@ Global
 		{43E99D1C-B71C-43D4-9F6F-26E96033CCDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43E99D1C-B71C-43D4-9F6F-26E96033CCDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43E99D1C-B71C-43D4-9F6F-26E96033CCDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9D56BBA-F75E-4EB5-8881-4DEFFAEE3586}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9D56BBA-F75E-4EB5-8881-4DEFFAEE3586}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9D56BBA-F75E-4EB5-8881-4DEFFAEE3586}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9D56BBA-F75E-4EB5-8881-4DEFFAEE3586}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
