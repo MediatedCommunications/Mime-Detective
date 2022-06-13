@@ -55,15 +55,15 @@ namespace MimeDetective.Storage {
         {
             var Content = DefinitionJsonSerializer.ToJson(SerializerOptions(), Values);
 
-            using var MS = new MemoryStream();
-            using var CS = new System.IO.Compression.GZipStream(MS, System.IO.Compression.CompressionLevel.Optimal);
+            using var ms = new MemoryStream();
+            using var CS = new System.IO.Compression.GZipStream(ms, System.IO.Compression.CompressionLevel.Optimal);
             using var TW = new StreamWriter(CS);
             TW.Write(Content);
             TW.Flush();
 
             var ret = Array.Empty<byte>();
 
-            if(MS.TryGetBuffer(out var Buffer))
+            if(ms.TryGetBuffer(out var Buffer))
             {
                 ret = Buffer.ToArray();
             }
