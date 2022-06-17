@@ -3,9 +3,29 @@ using System.IO;
 
 namespace MimeDetective {
     public class ContentReader {
-        public int MaxFileSize { get; init; } = 10 * 1024 * 1024;
 
-        public static ContentReader Default { get; } = new();
+        /// <summary>
+        /// The default <see cref="ContentReader"/> which will load up to 10MB from a stream.
+        /// </summary>
+        public static ContentReader Default { get; }
+
+        /// <summary>
+        /// An alternative <see cref="ContentReader"/>  which will load up to 2GB from a stream.
+        /// </summary>
+        public static ContentReader Max { get; }
+
+        static ContentReader() {
+            Default = new ContentReader() {
+                MaxFileSize = 10 * 1024 * 1024,
+            };
+
+            Max = new ContentReader() { 
+                MaxFileSize = int.MaxValue,
+            };
+
+        }
+
+        public int MaxFileSize { get; init; }
 
         public byte[] ReadFromFile(string FileName) {
             using var FS = System.IO.File.OpenRead(FileName);
@@ -13,7 +33,7 @@ namespace MimeDetective {
             return ReadFromStream(FS, false);
         }
 
-        public byte[] ReadFromStream(Stream Input, bool ResetPosition = true) {
+        public byte[] ReadFromStream(Stream Input, bool ResetPosition = false) {
             var ret = ResetPosition
                 ? FromStream_Reset_True(Input)
                 : FromStream_Reset_False(Input)

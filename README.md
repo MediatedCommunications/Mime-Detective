@@ -4,16 +4,34 @@ It uses Magic-Number and Magic-Word signatures to accurately identify over
 14,000 different file variants by analyzing a raw stream or array of bytes.
 It also allows you to easily convert between file extensions and mime types.
 
+# Overview
+There are three main ways you can use Mime-Detective.
+* The ```Default``` definition pack which includes a very small set of detection rules.
+* The ```Condensed``` definition pack which includes an expanded set of detection rules.
+* The ```Exhaustive``` definition pack which includes over 14,000 detection rules.
+
+More information on these definitions is included toward the end of this file.
+
 ## Installing from Nuget
+### Installing the ```Default``` (Small) Definition Pack
 ```
 install-package Mime-Detective
 ```
-Mime-Detective includes a default set of definitions and can be expanded using 
-one of the definition packs below.
 
-## Getting Started
+### Installing the ```Condensed``` (Medium) Definition Pack
+```
+install-package Mime-Detective
+install-package Mime-Detective.Definitions.Condensed
+```
 
-Create a new Inspector and use the Micro definition pack:
+### Installing the ```Exhaustive``` (Large) Definition Pack
+```
+install-package Mime-Detective
+install-package Mime-Detective.Definitions.Exhaustive
+```
+
+## Create the ```ContentInspector```
+### Create the ```Default``` ```ContentInspector```
 ```
 using MimeDetective;
 var Inspector = new ContentInspectorBuilder() {
@@ -21,9 +39,19 @@ var Inspector = new ContentInspectorBuilder() {
 }.Build();
 ```
 
-
-Alternatively, use the Large definition pack:
+### Create the ```Condensed``` ```ContentInspector```
 ```
+using MimeDetective;
+var Inspector = new ContentInspectorBuilder() {
+    Definitions = new Definitions.CondensedBuilder() {
+        UsageType = Definitions.Licensing.UsageType.PersonalNonCommercial
+    }.Build()
+}.Build();
+```
+
+### Create the ```Exhaustive``` ```ContentInspector```
+```
+using MimeDetective;
 var Inspector = new ContentInspectorBuilder() {
     Definitions = new Definitions.ExhaustiveBuilder() {
         UsageType = Definitions.Licensing.UsageType.PersonalNonCommercial
@@ -31,21 +59,17 @@ var Inspector = new ContentInspectorBuilder() {
 }.Build();
 ```
 
+## Inspect Content
+Once you have a ```ContentInspector``` you can use it to inspect a stream, file, or array of bytes:
 
-Then read content from a file or stream:
+```
+var Results = Inspector.Inspect(ContentByteArray);
+var Results = Inspector.Inspect(ContentStream);
+var Results = Inspector.Inspect(ContentFileName);
 ```
 
-//This is more efficient than using System.IO.File.ReadAllBytes(FileName).
-
-var Content = ContentReader.Default.ReadFromFile(FileName);
-var Content = ContentReader.Default.ReadFromStream(Stream);
+## Group Results by File Extension or Mime Type
 ```
-
-
-Analyze the content and group the results by either file extension or mime type:
-```
-var Results = Inspector.Inspect(Content);
-
 var ResultsByFileExtension = Results.ByFileExtension();
 var ResultsByMimeType = Results.ByMimeType();
 ```
@@ -55,7 +79,7 @@ Definition packs make it easy to expand or limit the number of definitions that 
 Inspector will use.  You can use one of the provided definition packs, create a limited
 subset of a definition pack, or create entirely new definition packs from scratch.
 
-## Default Definitions
+## ```Default``` Definitions
 
 The default definitions are included with the Mime-Detective nuget package
 and are located in the ```MimeDetective.Definitions.Default``` static class.

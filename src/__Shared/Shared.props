@@ -21,9 +21,9 @@
     <Authors>Tony Valenti, Joshua Clark, Max Vasilyev, Neil Harvey</Authors>
     <Company />
     <Product />
-    <AssemblyVersion>22.07.19.0</AssemblyVersion>
-    <FileVersion>22.07.19.0</FileVersion>
-    <Version>22.07.19</Version>
+    <AssemblyVersion>22.07.20.0</AssemblyVersion>
+    <FileVersion>22.07.20.0</FileVersion>
+    <Version>22.07.20</Version>
     <PackageIcon>noun_data search_4033516.png</PackageIcon>
     <PackageIconUrl />
   </PropertyGroup>
@@ -32,5 +32,5 @@
 		<None Include="..\..\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)" Visible="false" />
 		<None Include="..\__Shared\noun_data search_4033516.png" Pack="true" PackagePath="$(PackageIcon)" Visible="false" />
 	</ItemGroup>
-
+ 
 </Project>

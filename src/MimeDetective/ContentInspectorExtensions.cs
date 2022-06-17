@@ -2,15 +2,64 @@
 using MimeDetective.Storage;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.IO;
 using System.Linq;
 
 namespace MimeDetective
 {
     public static class ContentInspectorExtensions
     {
-
+        /// <summary>
+        /// <see cref="ContentInspector.Inspect(ImmutableArray{byte})"/> the provided <paramref name="Content"/> and and determine matching definitions. 
+        /// </summary>
+        /// <param name="This">The <see cref="ContentInspector"/> to use.</param>
+        /// <param name="Content">The binary content that should be inspected.</param>
+        /// <returns></returns>
         public static ImmutableArray<DefinitionMatch> Inspect(this ContentInspector This, IEnumerable<byte> Content) {
             return This.Inspect(Content.ToImmutableArray());
+        }
+
+        /// <summary>
+        /// <see cref="ContentInspector.Inspect(ImmutableArray{byte})"/> the provided <paramref name="Content"/> and and determine matching definitions. 
+        /// </summary>
+        /// <param name="This">The <see cref="ContentInspector"/> to use.</param>
+        /// <param name="Content">The <see cref="Stream"/> that should be inspected.  Bytes will be read from this stream and the position will NOT be reset.</param>
+        /// <param name="Reader">The <see cref="ContentReader"/> to use.  If not is specified, <see cref="ContentReader.Default"/> will be used.</param>
+        /// <returns></returns>
+        public static ImmutableArray<DefinitionMatch> Inspect(this ContentInspector This, Stream Content, ContentReader? Reader = default) {
+            return Inspect(This, Content, false, Reader);
+        }
+
+        /// <summary>
+        /// <see cref="ContentInspector.Inspect(ImmutableArray{byte})"/> the provided <paramref name="Content"/> and and determine matching definitions. 
+        /// </summary>
+        /// <param name="This">The <see cref="ContentInspector"/> to use.</param>
+        /// <param name="Content">The <see cref="Stream"/> that should be inspected.  Bytes will be read from this stream and the position will OPTIONALLY be reset.</param>
+        /// <param name="ResetPosition">Whether the position in the stream should be reset or not.</param>
+        /// <param name="Reader">The <see cref="ContentReader"/> to use.  If not is specified, <see cref="ContentReader.Default"/> will be used.</param>
+        /// <returns></returns>
+        public static ImmutableArray<DefinitionMatch> Inspect(this ContentInspector This, Stream Content, bool ResetPosition, ContentReader? Reader = default) {
+            var MyReader = Reader ?? ContentReader.Default;
+
+            var MyContent = MyReader.ReadFromStream(Content, ResetPosition);
+
+            return Inspect(This, MyContent);
+        }
+
+        /// <summary>
+        /// <see cref="ContentInspector.Inspect(ImmutableArray{byte})"/> the provided <paramref name="Content"/> and and determine matching definitions. 
+        /// </summary>
+        /// <param name="This">The <see cref="ContentInspector"/> to use.</param>
+        /// <param name="Content">The path to a file that should be inspected.</param>
+        /// <param name="ResetPosition">Whether the position in the stream should be reset or not.</param>
+        /// <param name="Reader">The <see cref="ContentReader"/> to use.  If not is specified, <see cref="ContentReader.Default"/> will be used.</param>
+        /// <returns></returns>
+        public static ImmutableArray<DefinitionMatch> Inspect(this ContentInspector This, string FileName, ContentReader? Reader = default) {
+            var MyReader = Reader ?? ContentReader.Default;
+
+            var MyContent = MyReader.ReadFromFile(FileName);
+
+            return Inspect(This, MyContent);
         }
 
         /// <summary>

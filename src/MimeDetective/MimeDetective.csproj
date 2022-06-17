@@ -14,5 +14,8 @@
 	<PackageReference Include="System.Text.Json" Version="6.0.5" />
   </ItemGroup>
 
+	<ItemGroup>
+		<None Include="..\..\README.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
 
 </Project>
