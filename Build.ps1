@@ -29,9 +29,7 @@ foreach ($src in ls src/*) {
 
 	echo "build: Packaging project in $src"
 
-    & dotnet build -c Release --version-suffix=$buildSuffix
-
-    if($suffix) {
+    if($suffix -ne "") {
         & dotnet pack -c Release --include-source --no-build -o ..\..\artifacts --version-suffix=$suffix
     } else {
         & dotnet pack -c Release --include-source --no-build -o ..\..\artifacts
