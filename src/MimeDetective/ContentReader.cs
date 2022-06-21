@@ -14,9 +14,18 @@ namespace MimeDetective {
         /// </summary>
         public static ContentReader Max { get; }
 
+        /// <summary>
+        /// An alternative <see cref="ContentReader"/>  which will load up to 1KB from a stream.
+        /// </summary>
+        public static ContentReader Min { get; }
+
         static ContentReader() {
             Default = new ContentReader() {
                 MaxFileSize = 10 * 1024 * 1024,
+            };
+
+            Min = new ContentReader() { 
+                MaxFileSize = 1024,
             };
 
             Max = new ContentReader() { 
