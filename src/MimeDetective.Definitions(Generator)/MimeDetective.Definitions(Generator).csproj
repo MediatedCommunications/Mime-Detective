@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net5.0</TargetFramework>
+		<TargetFramework>net6.0</TargetFramework>
 		<RootNamespace>MimeDetective.Definitions.Generator</RootNamespace>
 		<Nullable>enable</Nullable>
 		<IsPackable>false</IsPackable>
@@ -17,7 +17,7 @@
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="SharpCompress" Version="0.32.0" />
+		<PackageReference Include="SharpCompress" Version="0.32.1" />
 	</ItemGroup>
 
 	<ItemGroup>

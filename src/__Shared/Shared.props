@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net5.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
     <DebugType>full</DebugType>
     <LangVersion>latest</LangVersion>
     <nullable>enable</nullable>
@@ -21,9 +21,9 @@
     <Authors>Tony Valenti, Joshua Clark, Max Vasilyev, Neil Harvey</Authors>
     <Company />
     <Product />
-    <AssemblyVersion>22.07.20.0</AssemblyVersion>
-    <FileVersion>22.07.20.0</FileVersion>
-    <Version>22.07.20</Version>
+    <AssemblyVersion>22.07.21.0</AssemblyVersion>
+    <FileVersion>22.07.21.0</FileVersion>
+    <Version>22.07.21</Version>
     <PackageIcon>noun_data search_4033516.png</PackageIcon>
     <PackageIconUrl />
   </PropertyGroup>

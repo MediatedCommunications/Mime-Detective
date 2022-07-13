@@ -2053,6 +2053,25 @@
       "Extensions": [
         "bin"
       ],
+      "Categories": [
+        "Database"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "534353414F494E444558"
+        }
+      ],
+      "Strings": []
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "bin"
+      ],
       "Categories": [],
       "MimeType": "application/octet-stream"
     },
@@ -26220,24 +26239,18 @@
         },
         {
           "Start": 37,
-          "Pattern": "2E89163502B430CD218B2E02FFFF008B1E2C008EDAA392008C069000891EF01F8CFC2EA800E83D01C43E8AFEFFE4C78BD8B9FF7FFCF2AEE361432638FFE10575F680CD80F7D9890EE5B901FF1000D3E383C30883E3F8CB8E"
+          "Pattern": "2E8916"
         },
         {
-          "Start": 127,
-          "Pattern": "C3DA2BEA8B"
+          "Start": 41,
+          "Pattern": "02B430CD218B2E02FFFF008B1E2C008EDAA392008C069000891EF0"
         },
         {
-          "Start": 217,
-          "Pattern": "FF"
+          "Start": 69,
+          "Pattern": "8CFC2EA800E8"
         }
       ],
       "Strings": [
-        {
-          "Pattern": "414E4420432B2B"
-        },
-        {
-          "Pattern": "52494748542031"
-        },
         {
           "Pattern": "535441434B204F"
         },
@@ -26246,15 +26259,6 @@
         },
         {
           "Pattern": "2A4641422A"
-        },
-        {
-          "Pattern": "4449564944"
-        },
-        {
-          "Pattern": "5220415353"
-        },
-        {
-          "Pattern": "2B4E5428"
         },
         {
           "Pattern": "424F524C"
@@ -26266,10 +26270,7 @@
           "Pattern": "4752414D"
         },
         {
-          "Pattern": "4E554C4C"
-        },
-        {
-          "Pattern": "58504543"
+          "Pattern": "52494748"
         }
       ]
     }
@@ -54392,26 +54393,6 @@
   {
     "File": {
       "Extensions": [
-        "mpeg",
-        "mpg"
-      ],
-      "Categories": [
-        "Video"
-      ],
-      "MimeType": "video/mpeg"
-    },
-    "Signature": {
-      "Prefix": [
-        {
-          "Pattern": "000001BA"
-        }
-      ],
-      "Strings": []
-    }
-  },
-  {
-    "File": {
-      "Extensions": [
         "mpg"
       ],
       "Categories": [
@@ -54423,6 +54404,26 @@
       "Prefix": [
         {
           "Pattern": "546F6D6D79536F667477617265204D504720312E"
+        }
+      ],
+      "Strings": []
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "mpg",
+        "mpeg"
+      ],
+      "Categories": [
+        "Video"
+      ],
+      "MimeType": "video/mpeg"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "000001BA"
         }
       ],
       "Strings": []
@@ -60526,6 +60527,72 @@
   {
     "File": {
       "Extensions": [
+        "xls",
+        "xml"
+      ],
+      "Categories": [
+        "Spreadsheet"
+      ],
+      "MimeType": "application/vnd.ms-excel"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "3C3F786D6C2076657273696F6E3D22312E3022"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "534348454D41532D4D4943524F534F46542D434F4D"
+        },
+        {
+          "Pattern": "574F524B424F4F4B20584D4C4E53"
+        },
+        {
+          "Pattern": "574F524B5348454554205353"
+        },
+        {
+          "Pattern": "5350524541445348454554"
+        },
+        {
+          "Pattern": "584D4C2056455253494F4E"
+        },
+        {
+          "Pattern": "5245432D48544D4C3430"
+        },
+        {
+          "Pattern": "5757572E57332E4F5247"
+        },
+        {
+          "Pattern": "5441424C45205353"
+        },
+        {
+          "Pattern": "434F4C554D4E"
+        },
+        {
+          "Pattern": "4E554D424552"
+        },
+        {
+          "Pattern": "4F4646494345"
+        },
+        {
+          "Pattern": "455843454C"
+        },
+        {
+          "Pattern": "43454C4C"
+        },
+        {
+          "Pattern": "48545450"
+        },
+        {
+          "Pattern": "4E414D45"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
         "xls"
       ],
       "Categories": [],
@@ -66529,72 +66596,6 @@
         },
         {
           "Pattern": "55554944"
-        }
-      ]
-    }
-  },
-  {
-    "File": {
-      "Extensions": [
-        "xml",
-        "xls"
-      ],
-      "Categories": [
-        "Spreadsheet"
-      ],
-      "MimeType": "application/vnd.ms-excel"
-    },
-    "Signature": {
-      "Prefix": [
-        {
-          "Pattern": "3C3F786D6C2076657273696F6E3D22312E3022"
-        }
-      ],
-      "Strings": [
-        {
-          "Pattern": "534348454D41532D4D4943524F534F46542D434F4D"
-        },
-        {
-          "Pattern": "574F524B424F4F4B20584D4C4E53"
-        },
-        {
-          "Pattern": "574F524B5348454554205353"
-        },
-        {
-          "Pattern": "5350524541445348454554"
-        },
-        {
-          "Pattern": "584D4C2056455253494F4E"
-        },
-        {
-          "Pattern": "5245432D48544D4C3430"
-        },
-        {
-          "Pattern": "5757572E57332E4F5247"
-        },
-        {
-          "Pattern": "5441424C45205353"
-        },
-        {
-          "Pattern": "434F4C554D4E"
-        },
-        {
-          "Pattern": "4E554D424552"
-        },
-        {
-          "Pattern": "4F4646494345"
-        },
-        {
-          "Pattern": "455843454C"
-        },
-        {
-          "Pattern": "43454C4C"
-        },
-        {
-          "Pattern": "48545450"
-        },
-        {
-          "Pattern": "4E414D45"
         }
       ]
     }
