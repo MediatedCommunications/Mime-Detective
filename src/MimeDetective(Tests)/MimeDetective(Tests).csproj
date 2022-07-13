@@ -7,6 +7,8 @@
 	  <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
     <IsPackable>false</IsPackable>
+	<SignAssembly>True</SignAssembly>
+	<AssemblyOriginatorKeyFile>..\..\Mime-Detective.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>

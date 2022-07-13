@@ -11,6 +11,8 @@
     <Optimize>true</Optimize>
     <Configuration>Release</Configuration>
     <IsPackable>false</IsPackable>
+	<SignAssembly>True</SignAssembly>
+	<AssemblyOriginatorKeyFile>..\..\Mime-Detective.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>    
   <ItemGroup>
     <PackageReference Include="BenchmarkDotNet" Version="0.13.1" />

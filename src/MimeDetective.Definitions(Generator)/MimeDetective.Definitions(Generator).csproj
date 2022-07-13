@@ -5,6 +5,8 @@
 		<RootNamespace>MimeDetective.Definitions.Generator</RootNamespace>
 		<Nullable>enable</Nullable>
 		<IsPackable>false</IsPackable>
+		<SignAssembly>True</SignAssembly>
+		<AssemblyOriginatorKeyFile>..\..\Mime-Detective.snk</AssemblyOriginatorKeyFile>
 	</PropertyGroup>
 
 	<ItemGroup>

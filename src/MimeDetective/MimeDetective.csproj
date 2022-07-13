@@ -7,6 +7,8 @@
     <PackageReleaseNotes>A default signature pack is included.  Mime-Detective.Definitions.Exhaustive is required to leverage the full set of 14,000+ signatures.</PackageReleaseNotes>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+	<SignAssembly>True</SignAssembly>
+	<AssemblyOriginatorKeyFile>..\..\Mime-Detective.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
