@@ -6,6 +6,8 @@
 		<Description>An exhaustive library of over 14,000 file signatures for use by the "Mime-Detective" package.</Description>
 		<PackageReleaseNotes>For use with the "Mime-Detective" package.</PackageReleaseNotes>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<SignAssembly>True</SignAssembly>
+		<AssemblyOriginatorKeyFile>..\..\Mime-Detective.snk</AssemblyOriginatorKeyFile>
 	</PropertyGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
