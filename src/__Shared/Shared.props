@@ -21,9 +21,9 @@
     <Authors>Tony Valenti, Joshua Clark, Max Vasilyev, Neil Harvey</Authors>
     <Company />
     <Product />
-    <AssemblyVersion>22.12.14.0</AssemblyVersion>
-    <FileVersion>22.12.14.0</FileVersion>
-    <Version>22.12.14</Version>
+    <AssemblyVersion>23.06.01.0</AssemblyVersion>
+    <FileVersion>23.06.01.0</FileVersion>
+    <Version>23.06.01</Version>
     <PackageIcon>noun_data search_4033516.png</PackageIcon>
     <PackageIconUrl />
   </PropertyGroup>

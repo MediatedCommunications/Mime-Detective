@@ -549,15 +549,6 @@
         },
         {
           "Pattern": "41424C45"
-        },
-        {
-          "Pattern": "49444154"
-        },
-        {
-          "Pattern": "49454E44"
-        },
-        {
-          "Pattern": "49484452"
         }
       ]
     }
@@ -640,6 +631,38 @@
         }
       ],
       "Strings": []
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "arj"
+      ],
+      "Categories": [
+        "Archive",
+        "Compressed"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "60EA"
+        },
+        {
+          "Start": 5,
+          "Pattern": "33"
+        },
+        {
+          "Start": 10,
+          "Pattern": "02"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "2E41524A"
+        }
+      ]
     }
   },
   {
@@ -1619,6 +1642,31 @@
         "bin"
       ],
       "Categories": [
+        "Database",
+        "Executable"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Start": 64,
+          "Pattern": "4D4F5300"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "4D4F53"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "bin"
+      ],
+      "Categories": [
         "Archive"
       ],
       "MimeType": "application/octet-stream"
@@ -2407,6 +2455,33 @@
       "Extensions": [
         "bin"
       ],
+      "Categories": [
+        "Configuration"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "2000"
+        },
+        {
+          "Start": 3,
+          "Pattern": "004E434647312E30"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "4E434647312E30"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "bin"
+      ],
       "Categories": [],
       "MimeType": "application/octet-stream"
     },
@@ -2812,6 +2887,47 @@
         }
       ],
       "Strings": []
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "bin"
+      ],
+      "Categories": [
+        "Log"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "564F53544C"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "52454D41494E494E47204D55"
+        },
+        {
+          "Pattern": "4F524947494E414C204D55"
+        },
+        {
+          "Pattern": "50415449454E54204944"
+        },
+        {
+          "Pattern": "504C414E204E414D45"
+        },
+        {
+          "Pattern": "4245414D4E414D45"
+        },
+        {
+          "Pattern": "504C414E20554944"
+        },
+        {
+          "Pattern": "454E45524759"
+        }
+      ]
     }
   },
   {
@@ -7138,8 +7254,84 @@
           "Pattern": "424D"
         },
         {
+          "Start": 12,
+          "Pattern": "00"
+        },
+        {
+          "Start": 15,
+          "Pattern": "000000"
+        }
+      ],
+      "Strings": []
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "bmp"
+      ],
+      "Categories": [
+        "Image",
+        "Bitmap"
+      ],
+      "MimeType": "image/bmp"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "424D"
+        },
+        {
           "Start": 14,
           "Pattern": "0C000000"
+        }
+      ],
+      "Strings": []
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "bmp"
+      ],
+      "Categories": [
+        "Image",
+        "Bitmap"
+      ],
+      "MimeType": "image/bmp"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "424D"
+        },
+        {
+          "Start": 14,
+          "Pattern": "18000000"
+        }
+      ],
+      "Strings": []
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "bmp"
+      ],
+      "Categories": [
+        "Image",
+        "Bitmap"
+      ],
+      "MimeType": "image/bmp"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "424D"
+        },
+        {
+          "Start": 14,
+          "Pattern": "30000000"
         }
       ],
       "Strings": []
@@ -7322,12 +7514,16 @@
         "Image",
         "Bitmap"
       ],
-      "MimeType": "image/bmp"
+      "MimeType": "application/octet-stream"
     },
     "Signature": {
       "Prefix": [
         {
-          "Pattern": "424D"
+          "Pattern": "02000000"
+        },
+        {
+          "Start": 12,
+          "Pattern": "00000000"
         }
       ],
       "Strings": []
@@ -7342,16 +7538,109 @@
         "Image",
         "Bitmap"
       ],
-      "MimeType": "application/octet-stream"
+      "MimeType": "image/bmp"
     },
     "Signature": {
       "Prefix": [
         {
-          "Pattern": "02000000"
+          "Pattern": "424D"
+        },
+        {
+          "Start": 5,
+          "Pattern": "0000000000"
         },
         {
           "Start": 12,
+          "Pattern": "000028000000"
+        },
+        {
+          "Start": 20,
+          "Pattern": "0000"
+        },
+        {
+          "Start": 24,
+          "Pattern": "00000100"
+        },
+        {
+          "Start": 29,
+          "Pattern": "00"
+        },
+        {
+          "Start": 31,
+          "Pattern": "000000"
+        },
+        {
+          "Start": 37,
+          "Pattern": "00"
+        },
+        {
+          "Start": 52,
+          "Pattern": "0000"
+        },
+        {
+          "Start": 57,
+          "Pattern": "00"
+        },
+        {
+          "Start": 61,
+          "Pattern": "00"
+        },
+        {
+          "Start": 73,
+          "Pattern": "00"
+        },
+        {
+          "Start": 77,
+          "Pattern": "00"
+        },
+        {
+          "Start": 93,
+          "Pattern": "00"
+        },
+        {
+          "Start": 109,
+          "Pattern": "00"
+        }
+      ],
+      "Strings": []
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "bmp"
+      ],
+      "Categories": [
+        "Compressed",
+        "Image",
+        "Bitmap"
+      ],
+      "MimeType": "image/bmp"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "424D"
+        },
+        {
+          "Start": 6,
           "Pattern": "00000000"
+        },
+        {
+          "Start": 11,
+          "Pattern": "00000028000000"
+        },
+        {
+          "Start": 26,
+          "Pattern": "0100040002000000"
+        },
+        {
+          "Start": 47,
+          "Pattern": "000000"
+        },
+        {
+          "Start": 51,
+          "Pattern": "000000"
         }
       ],
       "Strings": []
@@ -7465,6 +7754,61 @@
         }
       ],
       "Strings": []
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "com"
+      ],
+      "Categories": [
+        "Archive"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Start": 2,
+          "Pattern": "2D706D732D"
+        },
+        {
+          "Start": 12,
+          "Pattern": "0D0A504D7366782056657273696F6E20322E303020666F722043502F4D0D0A"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "2420554E535550504F52544544204D4554484F442E2420444953504C4159494E47"
+        },
+        {
+          "Pattern": "2420434845434B494E4720242045585452414354494E4720244F4B"
+        },
+        {
+          "Pattern": "504D5346582056455253494F4E20322E303020464F52204350"
+        },
+        {
+          "Pattern": "435243204552524F522044455445435445442E"
+        },
+        {
+          "Pattern": "425920594F53484948494B4F204D494E4F2E"
+        },
+        {
+          "Pattern": "4845414445522049532042524F4B454E2E"
+        },
+        {
+          "Pattern": "4F5554204F46204D454D4F52592E"
+        },
+        {
+          "Pattern": "434F50595249474854284329"
+        },
+        {
+          "Pattern": "4449534B2046554C4C2E"
+        },
+        {
+          "Pattern": "592D504D532D53"
+        }
+      ]
     }
   },
   {
@@ -8576,6 +8920,162 @@
         "com"
       ],
       "Categories": [
+        "Executable"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "C3A55ABC5A000000000000000000000000D252B88355000001D312691200000000000000001101"
+        },
+        {
+          "Start": 739,
+          "Pattern": "000000000000000000000000000000004080C000000000000000000000A55B000000000000000000000000000000000000000000000000000102050328FA0000000000003AEB56FE1E3FD821F153CDA6047DB437C87EFE01D8060009C3AA04CD52047DB4CA4D047EB7C03E10C30008CD5804C3AA0421F15387856FD024C9FE61D8FE7BD0EE20C9FE41D8FE5BD0EE20C97ABCC07BBDC9AFDA3E200405C8772305C28004C9AF5779B0C872230BC3890434C023342BC9D55F160019D1C9E5CD98047EE1C987CD98047E23666FC97EFE20C023C3AF04FE20D8FE7F3FC9FE41D8FE5B3FC9FE30D8FE3A3FC90C0DC87E1213230DC2CF04C90C0DC81A7713230DC2DB04C90C0DC81A771B2B0DC2E704C9EB78B1C87E1213230BC3F104EB78B1C87E121B2B0BC3FD04CD7304D8EBC9CD7304D0EBC9B9D079C9B9D879C92A0D047DB4CA5805C36005CD360BDA08087BCD00083AE656FE0FD25805FE02C24B050E09CD2704DA58057DB4C260050E07CD2704DA58057DB4C260052A02047DB4CA8405E32B2B2B22EE562A040422EC5621E6567E360023773AEA56B7CC6208C322423E0FCD00083E01323401CDE21221AA0DE32B2B2BE53AE656CD4F08444DCD43132A04047DB4CAB005CDDE5201D753CD431301D353CD4313D1CD2F0BCDDB23CD6D13C3E2120F06170625062D063606440652066106DF07DF076B06790687069306DF079F06AB06B806C906DC06E506F4060307140724073407450751075F076D077C07870795079E07AF07C207CC07DF074E6F206572726FF24469736B20692F6F206572726FF2456E642066696CE54469736B2066756CEC46696C65206E6F7420666F756EE44475706C6963617465206E616DE5506172616D65746572206572726FF24C6F636B206572726FF252656164206F6E6C792066696CE552656164206F6E6C7920646973EB53656C656374206572726FF25265636C656E206572726FF253797374656D206572726FF246696C65206E6F74206F7065EE496E76616C69642066696C65206E616DE5496E76616C69642066696C65206E756D6265F246696C65206F7065EE57726F6E672066696C6520747970E54D656D6F7279206F766572666C6FF7496E73756666696369656E7420646174E14E756D65726963206F766572666C6FF7496E76616C696420617267756D656EF4417272617920696E646578206572726FF24E65787420772F6F20666FF2496E76616C6964207265747572EE537461636B206F766572666C6FF7446174612074797065206572726FF2436861696E206572726FF2446976696465206279207A6572EF4C6F67206572726FF253717561726520726F6F74206572726FF24E756D657269632072616E6765206572726FF24444494D206572726FF2557365722066756E6374696F6E206572726FF24572726FF23E06013E0A013E14013E04013E03013E07013E01013E22013E1806AF32E656B73FC9E1E13E18213E17213E22213E14213E06213E11213E02C32E0511E756C3240B11EC56C32B0B3AE756CD4F080E01230C7EB7F2330841EB2A00042B1AE67F772B1B0DC24008702BC3D30B21C305FE25DAA6043E25C3A60411EE56C32B0BCD6A08AF322E55C9AF322D542AD25622D4562A2C5A2B220004C92A020422E856C92AE856220204C9AFDA3EFF32EA56C9CD4204D83E07C398040E1D79CD92080604D479040DF29D08C3FF07D5CD550BD49208D1C9CDAD082323C3C108CDAD08DA58053600233600C9CDAD082323C3D508CDAD08DA5805732372C93E49BEDAFC073A1E04874F110000C3FC081100007EB7FAFC07D6413FD03C4F233EF0A60F"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "494E432E202D2052494348544F4E205041524B"
+        },
+        {
+          "Pattern": "494E56414C49442046494C45204E554D4245"
+        },
+        {
+          "Pattern": "4E554D455249432052414E4745204552524F"
+        },
+        {
+          "Pattern": "555345522046554E4354494F4E204552524F"
+        },
+        {
+          "Pattern": "415252415920494E444558204552524F"
+        },
+        {
+          "Pattern": "494E53554646494349454E5420444154"
+        },
+        {
+          "Pattern": "494E56414C49442046494C45204E414D"
+        },
+        {
+          "Pattern": "53515541524520524F4F54204552524F"
+        },
+        {
+          "Pattern": "322E30204F52204C41544552204350"
+        },
+        {
+          "Pattern": "494E56414C494420415247554D454E"
+        },
+        {
+          "Pattern": "4E554D45524943204F564552464C4F"
+        },
+        {
+          "Pattern": "444154412054595045204552524F"
+        },
+        {
+          "Pattern": "4D2049532052455155495245442E"
+        },
+        {
+          "Pattern": "4D454D4F5259204F564552464C4F"
+        },
+        {
+          "Pattern": "504152414D45544552204552524F"
+        },
+        {
+          "Pattern": "57524F4E472046494C4520545950"
+        },
+        {
+          "Pattern": "312E3131202D2053455249414C"
+        },
+        {
+          "Pattern": "434F5059524947485420284329"
+        },
+        {
+          "Pattern": "444956494445204259205A4552"
+        },
+        {
+          "Pattern": "4455504C4943415445204E414D"
+        },
+        {
+          "Pattern": "46494C45204E4F5420464F554E"
+        },
+        {
+          "Pattern": "494E56414C4944205245545552"
+        },
+        {
+          "Pattern": "52454144204F4E4C5920444953"
+        },
+        {
+          "Pattern": "52454144204F4E4C592046494C"
+        },
+        {
+          "Pattern": "535441434B204F564552464C4F"
+        },
+        {
+          "Pattern": "38332042592053595354454D"
+        },
+        {
+          "Pattern": "46494C45204E4F54204F5045"
+        },
+        {
+          "Pattern": "534F525259202D205245562E"
+        },
+        {
+          "Pattern": "5245434C454E204552524F"
+        },
+        {
+          "Pattern": "53454C454354204552524F"
+        },
+        {
+          "Pattern": "53595354454D204552524F"
+        },
+        {
+          "Pattern": "434841494E204552524F"
+        },
+        {
+          "Pattern": "4444494D204552524F"
+        },
+        {
+          "Pattern": "4C4F434B204552524F"
+        },
+        {
+          "Pattern": "4449534B2046554C"
+        },
+        {
+          "Pattern": "46494C45204F5045"
+        },
+        {
+          "Pattern": "4C4F47204552524F"
+        },
+        {
+          "Pattern": "454E442046494C"
+        },
+        {
+          "Pattern": "494E204C494E45"
+        },
+        {
+          "Pattern": "4E4F204552524F"
+        },
+        {
+          "Pattern": "4449534B2049"
+        },
+        {
+          "Pattern": "4E4558542057"
+        },
+        {
+          "Pattern": "545253255138"
+        },
+        {
+          "Pattern": "4241534943"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "com"
+      ],
+      "Categories": [
         "Database",
         "Executable"
       ],
@@ -8775,12 +9275,6 @@
         },
         {
           "Pattern": "46494C45"
-        },
-        {
-          "Pattern": "4F50454E"
-        },
-        {
-          "Pattern": "53494F4E"
         },
         {
           "Pattern": "53505150"
@@ -9679,6 +10173,51 @@
       "Extensions": [
         "com"
       ],
+      "Categories": [],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "BA9D01B409CD21BED602AD8BD603F0B409CD21AD50BA7802B409CD2156AC0AC07404CD29EBF7B409BA0902CD215E8BD6B80143B92000CD217252B8023DCD218BD85803F0AD8BD0AD8BC840742F5152B80042CD21AD8BC88BE9BA8602B43FCD21BF86028BCDF3A65A597526B80042CD218BD68BCDB440CD2103F5EBC8B409BA0C02CD21B43ECD21B8004CCD21BAFA01EB03BA2902B409CD21B8014CCD2144656D6F6E6C6F72642047656E6572696320506174636865722076312E30300D0A28432920446961626F6C6963616C20446576656C6F706D656E7420313939372C2039382E20416C6C207269676874732072657365727665642E0D0A2446696C65206E6F7420666F756E64210D0A2446696C652070617463686564207375636365737366756C6C79210D0A24427974657320746F207061746368206E6F7420666F756E642E2050726F6772616D206D696768742062652077726F6E672076657273696F6E206F7220616C726561647920706174636865642E0D0A244F70656E696E672066696C6520240000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "24425954455320544F205041544348204E4F5420464F554E442E2050524F4752414D204D494748542042452057524F4E472056455253494F4E204F5220414C524541445920504154434845442E"
+        },
+        {
+          "Pattern": "44454D4F4E4C4F52442047454E4552494320504154434845522056312E3030"
+        },
+        {
+          "Pattern": "2446494C452050415443484544205355434345535346554C4C59"
+        },
+        {
+          "Pattern": "28432920444941424F4C4943414C20444556454C4F504D454E54"
+        },
+        {
+          "Pattern": "414C4C205249474854532052455345525645442E"
+        },
+        {
+          "Pattern": "2446494C45204E4F5420464F554E44"
+        },
+        {
+          "Pattern": "244F50454E494E472046494C452024"
+        },
+        {
+          "Pattern": "435241434B"
+        },
+        {
+          "Pattern": "2E455845"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "com"
+      ],
       "Categories": [
         "Compressed"
       ],
@@ -10417,6 +10956,74 @@
       "Extensions": [
         "com"
       ],
+      "Categories": [],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "BA"
+        },
+        {
+          "Start": 3,
+          "Pattern": "E8"
+        },
+        {
+          "Start": 6,
+          "Pattern": "BA"
+        },
+        {
+          "Start": 9,
+          "Pattern": "E8"
+        },
+        {
+          "Start": 12,
+          "Pattern": "B9"
+        },
+        {
+          "Start": 14,
+          "Pattern": "00BA"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "244241442056455253494F4E204F5220414C524541445920504154434845442E"
+        },
+        {
+          "Pattern": "2446494C45204E4F5420464F554E442E"
+        },
+        {
+          "Pattern": "464143544F522050524553454E5453"
+        },
+        {
+          "Pattern": "435241434B4544204259"
+        },
+        {
+          "Pattern": "5041544348494E47"
+        },
+        {
+          "Pattern": "53204552524F522E"
+        },
+        {
+          "Pattern": "2446494C452052"
+        },
+        {
+          "Pattern": "464F58434F5245"
+        },
+        {
+          "Pattern": "24444F4E452E"
+        },
+        {
+          "Pattern": "57494E3935"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "com"
+      ],
       "Categories": [
         "Encrypted"
       ],
@@ -10564,10 +11171,7 @@
       "Extensions": [
         "com"
       ],
-      "Categories": [
-        "Database",
-        "Executable"
-      ],
+      "Categories": [],
       "MimeType": "application/octet-stream"
     },
     "Signature": {
@@ -10781,6 +11385,35 @@
         }
       ],
       "Strings": []
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "com"
+      ],
+      "Categories": [
+        "Database",
+        "Executable"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Start": 1021,
+          "Pattern": "534658206279204C44696666"
+        },
+        {
+          "Start": 1181,
+          "Pattern": "4C5A"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "534658204259204C44494646"
+        }
+      ]
     }
   },
   {
@@ -11084,9 +11717,6 @@
           "Pattern": "244D494C45532044455349474E20494E432E204D494449204D5553494320445249564552"
         },
         {
-          "Pattern": "52554E205345544D20544F20444546494E4520534F554E442048415244574152452E"
-        },
-        {
           "Pattern": "24554E41424C4520544F205245474953544552204D55534943204452495645522E"
         },
         {
@@ -11100,6 +11730,9 @@
         },
         {
           "Pattern": "5752495454454E204259204A4F484E20572E20524154434C494646"
+        },
+        {
+          "Pattern": "544F20444546494E4520534F554E442048415244574152452E"
         },
         {
           "Pattern": "24494E56414C494420434F4D4D414E44204C494E45"
@@ -11121,6 +11754,9 @@
         },
         {
           "Pattern": "494E204D454D4F5259"
+        },
+        {
+          "Pattern": "52554E205345544D"
         },
         {
           "Pattern": "4D4944494B52"
@@ -11216,6 +11852,97 @@
       "Strings": [
         {
           "Pattern": "5350584C4C"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "com"
+      ],
+      "Categories": [],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "F6062F01FF74"
+        },
+        {
+          "Start": 7,
+          "Pattern": "BA1501B409CD21B407BE2F01EB0852656164793A2024AC0AC074"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "50524F4752414D205741532050524F4455434544204259204E45545049432056455253494F4E"
+        },
+        {
+          "Pattern": "2D562020204B454550204752415048494320564944454F"
+        },
+        {
+          "Pattern": "534F555448204155535452414C49412035303439"
+        },
+        {
+          "Pattern": "414C4C20524947485453205245534552564544"
+        },
+        {
+          "Pattern": "4E455450494320495320434F50595249474854"
+        },
+        {
+          "Pattern": "4E4F5420454E4F554748204D454D4F525924"
+        },
+        {
+          "Pattern": "363335204252494748544F4E20524F4144"
+        },
+        {
+          "Pattern": "2D544E4E20444953504C4159"
+        },
+        {
+          "Pattern": "31305448205345434F4E4453"
+        },
+        {
+          "Pattern": "4A494D205455434B45522E"
+        },
+        {
+          "Pattern": "5051525354555657303030"
+        },
+        {
+          "Pattern": "2D4D2020204D4F4E4F"
+        },
+        {
+          "Pattern": "2D4F5054494F4E53"
+        },
+        {
+          "Pattern": "46494C454E414D45"
+        },
+        {
+          "Pattern": "534541434C494646"
+        },
+        {
+          "Pattern": "534F465457415245"
+        },
+        {
+          "Pattern": "4A5455434B4552"
+        },
+        {
+          "Pattern": "50484F4E45"
+        },
+        {
+          "Pattern": "5245414459"
+        },
+        {
+          "Pattern": "5320564741"
+        },
+        {
+          "Pattern": "5553414745"
+        },
+        {
+          "Pattern": "31393935"
+        },
+        {
+          "Pattern": "54484953"
         }
       ]
     }
@@ -11400,6 +12127,75 @@
         }
       ],
       "Strings": []
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "com"
+      ],
+      "Categories": [],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "EB0490706F6DBA"
+        },
+        {
+          "Start": 8,
+          "Pattern": "01B409CD21B8014333C9BA"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "57524F4E472E2050415443482041424F52544544202D204D415942452046414C53452046494C454E414D45202D2053484F554C44204245"
+        },
+        {
+          "Pattern": "46494C4520504154434845442E20454E4A4F592054484953204C494E455A4552302052454C45415345"
+        },
+        {
+          "Pattern": "435241434B4544204259204E4F5354524144414D5553"
+        },
+        {
+          "Pattern": "2E435241434B45442D4C5A30"
+        },
+        {
+          "Pattern": "534F4D455448494E47"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "com"
+      ],
+      "Categories": [],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "EB3D90"
+        },
+        {
+          "Start": 5,
+          "Pattern": "500000"
+        },
+        {
+          "Start": 9,
+          "Pattern": "50726F7E466F726D616E63652053637265656E2044657369676E20201A2020202020202020502D53637265656E2020436F6D200D0A"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "50524F7E464F524D414E43452053435245454E2044455349474E"
+        },
+        {
+          "Pattern": "502D53435245454E2020434F4D"
+        }
+      ]
     }
   },
   {
@@ -11707,11 +12503,72 @@
     "Signature": {
       "Prefix": [
         {
+          "Start": 2,
+          "Pattern": "2D706D732D"
+        },
+        {
+          "Start": 12,
+          "Pattern": "0D0A504D6578652056657273696F6E20322E303020666F722043502F4D0D0A"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "504D4558452056455253494F4E20322E303020464F52204350"
+        },
+        {
+          "Pattern": "435243204552524F522044455445435445442E"
+        },
+        {
+          "Pattern": "554E535550504F52544544204D4554484F442E"
+        },
+        {
+          "Pattern": "425920594F53484948494B4F204D494E4F2E"
+        },
+        {
+          "Pattern": "4845414445522049532042524F4B454E2E"
+        },
+        {
+          "Pattern": "4F5554204F46204D454D4F52592E"
+        },
+        {
+          "Pattern": "2420524553544F52494E472024"
+        },
+        {
+          "Pattern": "2420444953504C4159494E47"
+        },
+        {
+          "Pattern": "434F50595249474854284329"
+        },
+        {
+          "Pattern": "2D504D532D"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "com"
+      ],
+      "Categories": [
+        "Database",
+        "Executable",
+        "Compressed"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
           "Start": 5,
           "Pattern": "2D7063312D"
         }
       ],
-      "Strings": []
+      "Strings": [
+        {
+          "Pattern": "2D5043312D"
+        }
+      ]
     }
   },
   {
@@ -11776,6 +12633,40 @@
         },
         {
           "Pattern": "55435142"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "com"
+      ],
+      "Categories": [],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "B80300CD10"
+        },
+        {
+          "Start": 801,
+          "Pattern": "B409BA2804EB030A0D24CD21B409BA3404EB030A0D24CD21B409BA4004EB030A0D24CD21B409BA4C04EB030A0D24CD21B409BA5804EB030A0D24CD21B4"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "435241434B4544204259205245414E494D41544F52204F46204C415348"
+        },
+        {
+          "Pattern": "504154434820434F4D504C45544544"
+        },
+        {
+          "Pattern": "46494C45204E4F5420464F554E44"
+        },
+        {
+          "Pattern": "54595045"
         }
       ]
     }
@@ -12173,30 +13064,45 @@
     "Signature": {
       "Prefix": [
         {
-          "Pattern": "E9550230001FA0000053484F5756323020436F707928632972696768742C20313939322F313939332C2053696D706C6520536F66747761726520436F2E2C204E6577204F726C65616E732C204C612E2C203530342D3238382D36353530202020202020202020202020202053686F772054657874205574696C697479202D2062792047617279205261796D6F6E642C202835303429203238382D363535300D3C4573633E2028572972697465202847296F202843296F6C6F722F2853292028502972696E742C20284629696E642C20486F6D652C456E642C50675570446E2C41725570446E204C6E203D20202020200D204973204C696E65205072696E746572205245414459205B792F6E5D202D3E0D20456E7465722066696C656E616D6520746F20736176652061732020202D3E0D20456E7465722073656172636820737472696E6720746F2066696E64202D3E0D2053656172636820666F72207468697320616761696E205B792F6E5D202D3E0D204E6F204D6174636820466F756E64210D2020202020202020202020202020"
-        }
-      ],
-      "Strings": []
-    }
-  },
-  {
-    "File": {
-      "Extensions": [
-        "com"
-      ],
-      "Categories": [
-        "Database",
-        "Executable"
-      ],
-      "MimeType": "application/octet-stream"
-    },
-    "Signature": {
-      "Prefix": [
+          "Pattern": "E9"
+        },
         {
-          "Pattern": "E9570230001FA0000053484F5756323020436F707928632972696768742C20313939322F313939332C2053696D706C6520536F66747761726520436F2E2C204E6577204F726C65616E732C204C612E2C203530342D3238382D36353530202020202020202020202020202053686F772054657874205574696C697479202D2062792047617279205261796D6F6E642C202835303429203238382D363535300D3C4573633E2028572972697465202847296F202843296F6C6F722F2853292028502972696E742C20284629696E642C20486F6D652C456E642C50675570446E2C41725570446E204C6E203D20202020200D204973204C696E65205072696E746572205245414459205B792F6E5D202D3E0D20456E7465722066696C656E616D6520746F20736176652061732020202D3E0D20456E7465722073656172636820737472696E6720746F2066696E64202D3E0D2053656172636820666F72207468697320616761696E205B792F6E5D202D3E0D204E6F204D6174636820466F756E64210D2020202020202020202020202020202020"
+          "Start": 3,
+          "Pattern": "30001FA0000053484F57"
         }
       ],
-      "Strings": []
+      "Strings": [
+        {
+          "Pattern": "454E5445522046494C454E414D4520544F20534156452041532020202D"
+        },
+        {
+          "Pattern": "53484F572054455854205554494C495459202D204259"
+        },
+        {
+          "Pattern": "2835303429203238382D36353530"
+        },
+        {
+          "Pattern": "5052494E544552205245414459"
+        },
+        {
+          "Pattern": "3530342D3238382D36353530"
+        },
+        {
+          "Pattern": "434F50592843295249474854"
+        },
+        {
+          "Pattern": "4E4557204F524C45414E53"
+        },
+        {
+          "Pattern": "31393932"
+        },
+        {
+          "Pattern": "484F4D45"
+        },
+        {
+          "Pattern": "534F4654"
+        }
+      ]
     }
   },
   {
@@ -12558,14 +13464,354 @@
     "Signature": {
       "Prefix": [
         {
-          "Pattern": "EB3D9000"
+          "Pattern": "E93F0500020A4F0C0A"
+        },
+        {
+          "Start": 126,
+          "Pattern": "00000000B8514950484B4D474F4344012D2D20544558542046494C45204552524F522C2050726F6772616D2061626F727420210724017018191A1B011F2D5363726F6C6C20200170484F4D45011F2D476F20746F7020200170454E44011F2D476F20656E6420200170455343011F2D45786974202001704639011F2D5072696E74207061676520200170463130011F2D5072696E7420616C6C000A0A544558542046494C4520524541444552202056657273696F6E20"
+        },
+        {
+          "Start": 309,
+          "Pattern": "2E"
+        },
+        {
+          "Start": 311,
+          "Pattern": "300D0A436F70797269676874202863292C2054484520554C54494D4154452050524F4752414D4D494E472047524F55502C2020416C6C207269676874732072657365727665642E0D0A0A52656164696E6720746578742066696C653A20241D4C696E652023202401CF205052494E54494E4720011F20017045534301172D746F2061626F72740001CE205052494E544552204E4F54205245414459200117202D2D20017045534301172D746F20717569742C2001705B456E7465725D01172D746F20636F6E74696E75652000FCB80006E841052E8B3671012EC6066E0103B9130051E8500459E2F92EA06C01341D2CFA2EA2FE03C3AA03D6032104C3060207220742075507C707BE07C106558BEC9C1E0650515756FC2EA181018EC0C576062AE48A46058BF8D1E0D1E003F8B104D3E78BCFD1E12AE48A460403F8D1E7268A6501AC0AC074223C0174173C0A750A81C7A00081C1A000EBE93C0D75028BF9ABEBE0AC8AE00AC075D95E5F5958071F9D5DC206002E8B1E73012E3B1E6F01731F2E891E71012E891E7901E84C002E3B3E6F0172082E893E7901E82B00E82EFFC32E8B1E710183CB00741C2E891E79012E891E7301E810000BFF75082E893E7901E81600E807FFC31E07B9130051E87D0059E2F92E893E7101C31E07B9130051E8500059E2F92E893E7301C31E072E8B1E73012E3B1E6F0173382E891E7B012E891E7901E82C002E893E73012E8B1E71012E891E7901E81A002E893E7101B80106E8F2032EC6066E01152E8B367B01E80503C3FC2E8B0E6F012E8B3E79012BCF720BE309B00AF2AE2E893E7901C3FD2E8B3E79010BFF74164F8BCFB00AF2AE75080AC0F2AE750247472E893E7901C3BA0901B8003DCD217303E9BF002EA375018CC80510102EA377018ED82E8B1E7501B9FFFF2BD2B43FCD217231488BF88BC81E072E8B1E6A010BDB7415575141D1E986FB32FB2BFF8BF7AD2BC3ABE2FA595FFDB00AF2AE47472E893E6F012E8B1E7501B43ECD212E830E6F0100749C2E8B0E6F01FC2BF68BFE8BD7AC2E22066901AA3C0A751152BA0B082AFFB402CD105A428BC2E88503E2E25A0E1F2AE4BE2C03B9E9082BCEFCAC32E0E2FBB4015052B42CCD212E88367E01B42CCD212E2A367E017902F6DE80FE0272EEF8C3BA01172AFFB402CD10BA8E010E1FB409CD21F9C30E1FFC2EA181018EC02BFFB95000B8201FF3AB2E8A0E1801FEC1FEC1BF50002BF981E7FE002E8A260601F3AB5A5880F41D2E88266C0152BFA000B8D51FABB0CDB14EF3ABB0B8ABB215B0B3ABB020AB2E8A260501B14CF3ABB8201FABB0B3ABFECA75E6B0D4ABB0CDB14EF3ABB0BEABB8201FB150F3AB0EB8190150BA50002E2A161801D0EA52E835FDE822002E8E1E7701C39C065051572EA181018EC0B8201FB95000BF000FF3AB5F5958079DC3E8E1FF0EB8B30150B8021850E801FDC3E82402E85CFE720DE837FFB402BA0316CD10E82800B801062BC9BA4F18B707CD10B402BA00172AFFCD100E1FB8004CCD21AC0AC07406B40ECD10EBF5C32BDB2E891E71012E891E73012E891E790181C32C032E89267F012EFF172AE4CD168AC40E07BF8301B90B00F2AE75EEBB0A002BD9D1E3EBD92E8B267F01E873FFEBDB5BC31E072E8B1E71010BDB74332E891E7901E8ADFD2E893E71012E8B1E73012E891E7901E89BFD2E893E7301B80107E858012EC6066E01032E8B367101E86B00C32E803E6D014C73172E803E7D010177072EFE066D01EB052EFE0E7D01E8E2FBC32E803E6D010474072EFE0E6D01EB0D2E803E7D014D73082EFE067D01E8C2FBC32E830E710100740A2EC70673010000E856FCC32EA173012E3B066F01730B2EA16F012EA37101E86BFCC3FC2EA181018EC02AE42EA06E018BF8D1E0D1E003F8B104D3E72EA06D0103F8D1E7B14C2AC82E8A2E7D012E3B366F01771BAC3C0A74163C2072F00AC974ECFECD0AED75E6FEC5FEC9AA47EBDE2EFE066E01C32E8B0E6F012BF6EB0A2E8B0E73012E8B3671012BCEE321E81F00FCB020E84E00E84B00ACE847003C0D7508B020E83E00E83B00E2EEE83CFEC3E81CFE0EB89E0250B8021850E83CFBC3E80CFE500EB8BE0250B8021850E82BFBB8070ECD102AE4CD163C1B7503E990FE3C0D75F15850B401CD16740B2AE4CD163C1B7503E979FE582BD28AE2CD17F6C42975BDC3B90303BA4C152E8A3E0501CD102EA0950234012E38066C0174020E1FC3FECD1124303C3075122EC706810100B02EC606060170B80700EB03B80200CD10BA1802B409CD21FABE0901E8DDFDBA04082AFFB402CD10BA9602B409CD212AE4FCC30AE47911F7D04050535250B82D0EB30FCD1058EB03505352BBF6FFBAFFFF03C34272FBBB0A0003C39283C8007403E8E4FF8AC20430B40EB307CD105A5B58C3"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "54484520554C54494D4154452050524F4752414D4D494E472047524F5550"
+        },
+        {
+          "Pattern": "544558542046494C4520524541444552202056455253494F4E"
+        },
+        {
+          "Pattern": "414C4C205249474854532052455345525645442E"
+        },
+        {
+          "Pattern": "2D2D20544558542046494C45204552524F52"
+        },
+        {
+          "Pattern": "5052494E544552204E4F54205245414459"
+        },
+        {
+          "Pattern": "52454144494E4720544558542046494C45"
+        },
+        {
+          "Pattern": "434F5059524947485420284329"
+        },
+        {
+          "Pattern": "50524F4752414D2041424F5254"
+        },
+        {
+          "Pattern": "2D544F20434F4E54494E5545"
+        },
+        {
+          "Pattern": "2D5052494E542050414745"
+        },
+        {
+          "Pattern": "2D5052494E5420414C4C"
+        },
+        {
+          "Pattern": "514950484B4D474F4344"
+        },
+        {
+          "Pattern": "2D544F2041424F5254"
+        },
+        {
+          "Pattern": "2D544F2051554954"
+        },
+        {
+          "Pattern": "5052494E54494E47"
+        },
+        {
+          "Pattern": "2D474F20454E44"
+        },
+        {
+          "Pattern": "2D474F20544F50"
+        },
+        {
+          "Pattern": "2D5343524F4C4C"
+        },
+        {
+          "Pattern": "2D45584954"
+        },
+        {
+          "Pattern": "454E544552"
+        },
+        {
+          "Pattern": "50484F4D45"
+        },
+        {
+          "Pattern": "4C494E45"
+        },
+        {
+          "Pattern": "50454E44"
+        },
+        {
+          "Pattern": "50455343"
+        },
+        {
+          "Pattern": "50463130"
+        },
+        {
+          "Pattern": "5051572E"
+        },
+        {
+          "Pattern": "50515756"
+        },
+        {
+          "Pattern": "50535250"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "com"
+      ],
+      "Categories": [],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "EB3D90"
+        },
+        {
+          "Start": 6,
+          "Pattern": "00"
         },
         {
           "Start": 9,
-          "Pattern": "5468654472617720434F4D2066696C652053637265656E20536176651A556E737570706F7274656420566964656F204D6F64650D0A"
+          "Pattern": "5468654472617720434F4D2066696C652053637265656E20536176651A"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "5448454452415720434F4D2046494C452053435245454E2053415645"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "com"
+      ],
+      "Categories": [],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "EB1890"
+        },
+        {
+          "Start": 6,
+          "Pattern": "01"
+        },
+        {
+          "Start": 9,
+          "Pattern": "5468654472617720434F4D2066696C651A"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "5448454452415720434F4D2046494C45"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "com"
+      ],
+      "Categories": [],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "EB3D90"
+        },
+        {
+          "Start": 6,
+          "Pattern": "02"
+        },
+        {
+          "Start": 9,
+          "Pattern": "5468654472617720434F4D2066696C652053637265656E20536176651A"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "5448454452415720434F4D2046494C452053435245454E2053415645"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "com"
+      ],
+      "Categories": [],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "EB"
+        },
+        {
+          "Start": 2,
+          "Pattern": "90"
+        },
+        {
+          "Start": 9,
+          "Pattern": "5468654472617720434F4D2066696C65"
         }
       ],
       "Strings": []
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "com"
+      ],
+      "Categories": [
+        "Log"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "E8"
+        },
+        {
+          "Start": 3,
+          "Pattern": "8926"
+        },
+        {
+          "Start": 6,
+          "Pattern": "01E8"
+        },
+        {
+          "Start": 9,
+          "Pattern": "1DE8"
+        },
+        {
+          "Start": 12,
+          "Pattern": "13E8"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "3830383620494E54455250524554455220434F50595249474854202843292031393836204C4F434F4D4F5449564520534F465457415245204C5444"
+        },
+        {
+          "Pattern": "2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A2A"
+        },
+        {
+          "Pattern": "504F20424F58203339205354494C544F4E205045544552424F524F55474820504537203352"
+        },
+        {
+          "Pattern": "494E534552542054484520414456454E545552452047414D452044495343"
+        },
+        {
+          "Pattern": "5448454E2054595045204120535041434520544F20434F4E54494E55452E"
+        },
+        {
+          "Pattern": "2A20505245535320414E59204B455920544F20434F4E54494E5545202A"
+        },
+        {
+          "Pattern": "4641494C555245202D20504C454153452054525920414741494E"
+        },
+        {
+          "Pattern": "424144204D4553534147452054455854"
+        },
+        {
+          "Pattern": "46494C4520434C4F5345204552524F52"
+        },
+        {
+          "Pattern": "444953432052454144204552524F52"
+        },
+        {
+          "Pattern": "535441434B20554E444552464C4F57"
+        },
+        {
+          "Pattern": "535441434B204F564552464C4F57"
+        },
+        {
+          "Pattern": "425920544F504F4C4F47494B41"
+        },
+        {
+          "Pattern": "44594E414D49432052414E4745"
+        },
+        {
+          "Pattern": "434F50595249474854203139"
+        },
+        {
+          "Pattern": "5055424C4953484544203139"
+        },
+        {
+          "Pattern": "5354415449432052414E4745"
+        },
+        {
+          "Pattern": "3037333320323434363832"
+        },
+        {
+          "Pattern": "4D454D4F52592053495A45"
+        },
+        {
+          "Pattern": "4E4F2042554646455253"
+        },
+        {
+          "Pattern": "4154204F4646534554"
+        },
+        {
+          "Pattern": "4241442055574F5244"
+        },
+        {
+          "Pattern": "424144204D4F5645"
+        },
+        {
+          "Pattern": "46494E4953484544"
+        },
+        {
+          "Pattern": "494E20424C4F434B"
+        },
+        {
+          "Pattern": "4C584C56534D0046"
+        },
+        {
+          "Pattern": "383838515132"
+        },
+        {
+          "Pattern": "4631313434"
+        },
+        {
+          "Pattern": "464F554E44"
+        },
+        {
+          "Pattern": "544F4B454E"
+        },
+        {
+          "Pattern": "5752495445"
+        },
+        {
+          "Pattern": "4F50454E"
+        },
+        {
+          "Pattern": "53415645"
+        }
+      ]
     }
   },
   {
@@ -12791,6 +14037,66 @@
     "Signature": {
       "Prefix": [
         {
+          "Pattern": "8D267018E80103B8004CCD21CD2054585432434F4D20436F6E76657273696F6E207574696C6974792E205665727320322E31300D0A436F7079726967687420313938382C2031393933206279204B6569746820502E2047726168616D0D0A546869732066696C652063616E6E6F7420626520646973747269627574656420666F722053414C4520776974686F75740D0A65787072657373207772697474656E207065726D697373696F6E2066726F6D204B6569746820502E2047726168616D0D0A323338204765726D6F6E647320526F61642C20572E204E7961636B2C204E592031303939342C202839313429203632332D343136310D0A424253206E756D626572202839313429203632332D303033390D0A546F20766965772074686520636F6E74656E7473206F6620746869732066696C650D0A656E74657220746865206E616D65206F66207468652066696C652066726F6D2074686520444F532070726F6D70742E0D0A1A"
+        }
+      ],
+      "Strings": []
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "com"
+      ],
+      "Categories": [
+        "Database",
+        "Executable"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "E83A01CD2054585432434F4D20436F6E76657273696F6E207574696C6974792E205665727320322E320D0A436F707972696768742031393837206279204B6569746820502E2047726168616D0D0A546869732066696C652063616E6E6F7420626520646973747269627574656420666F722053414C4520776974686F75740D0A65787072657373207772697474656E207065726D697373696F6E2066726F6D204B6569746820502E2047726168616D0D0A323338204765726D6F6E647320526F61642C20572E204E7961636B2C204E592031303939342C202839313429203632332D343136310D0A546F20766965772074686520636F6E74656E7473206F6620746869732066696C650D0A656E74657220746865206E616D65206F66207468652066696C652066726F6D2074686520444F532070726F6D70742E0D0A1A"
+        }
+      ],
+      "Strings": []
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "com"
+      ],
+      "Categories": [
+        "Database",
+        "Executable"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "E83A01CD2054585432434F4D20436F6E76657273696F6E207574696C6974792E205665727320322E330D0A436F707972696768742031393837206279204B6569746820502E2047726168616D0D0A546869732066696C652063616E6E6F7420626520646973747269627574656420666F722053414C4520776974686F75740D0A65787072657373207772697474656E207065726D697373696F6E2066726F6D204B6569746820502E2047726168616D0D0A323338204765726D6F6E647320526F61642C20572E204E7961636B2C204E592031303939342C202839313429203632332D343136310D0A546F20766965772074686520636F6E74656E7473206F6620746869732066696C650D0A656E74657220746865206E616D65206F66207468652066696C652066726F6D2074686520444F532070726F6D70742E0D0A1A"
+        }
+      ],
+      "Strings": []
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "com"
+      ],
+      "Categories": [
+        "Database",
+        "Executable"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
           "Pattern": "E92F0154585432434F4D20436F6E76657273696F6E207574696C6974792E0D0A436F707972696768742031393837206279204B6569746820502E2047726168616D0D0A546869732066696C652063616E6E6F7420626520646973747269627574656420666F722053414C4520776974686F75740D0A65787072657373207772697474656E207065726D697373696F6E2066726F6D204B6569746820502E2047726168616D0D0A323338204765726D6F6E647320526F61642C20572E204E7961636B2C204E592031303939342C202839313429203632332D343136310D0A546F20766965772074686520636F6E74656E7473206F6620746869732066696C650D0A656E74657220746865206E616D65206F66207468652066696C652066726F6D2074686520444F532070726F6D70742E0D0A1A"
         }
       ],
@@ -12848,9 +14154,6 @@
         },
         {
           "Pattern": "4B4D474F"
-        },
-        {
-          "Pattern": "4C494E45"
         },
         {
           "Pattern": "51554954"
@@ -13317,6 +14620,262 @@
       "Extensions": [
         "com"
       ],
+      "Categories": [
+        "Executable"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "E9"
+        },
+        {
+          "Start": 2,
+          "Pattern": "00E9"
+        },
+        {
+          "Start": 5,
+          "Pattern": "01E9"
+        },
+        {
+          "Start": 8,
+          "Pattern": "0FE9"
+        },
+        {
+          "Start": 11,
+          "Pattern": "10E9"
+        },
+        {
+          "Start": 14,
+          "Pattern": "11000000000000000000000000E9"
+        },
+        {
+          "Start": 29,
+          "Pattern": "08E9"
+        },
+        {
+          "Start": 33,
+          "Pattern": "E9"
+        },
+        {
+          "Start": 36,
+          "Pattern": "E9"
+        },
+        {
+          "Start": 39,
+          "Pattern": "E9"
+        },
+        {
+          "Start": 42,
+          "Pattern": "E9"
+        },
+        {
+          "Start": 44,
+          "Pattern": "08E9"
+        },
+        {
+          "Start": 48,
+          "Pattern": "0000C3E9"
+        },
+        {
+          "Start": 54,
+          "Pattern": "0000C3E9"
+        },
+        {
+          "Start": 59,
+          "Pattern": "000000C3E9"
+        },
+        {
+          "Start": 65,
+          "Pattern": "000000C3E9"
+        },
+        {
+          "Start": 71,
+          "Pattern": "020000C3E9"
+        },
+        {
+          "Start": 78,
+          "Pattern": "0000C3E9"
+        },
+        {
+          "Start": 83,
+          "Pattern": "010000C3E9"
+        },
+        {
+          "Start": 89,
+          "Pattern": "060000C3E9"
+        },
+        {
+          "Start": 96,
+          "Pattern": "0000C3E9"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "4449564953494F4E204259205A45524F204552524F52"
+        },
+        {
+          "Pattern": "4C4F434B494E47204E4F5420535550504F52544544"
+        },
+        {
+          "Pattern": "2843294F4E54494E5545204F5220285329544F50"
+        },
+        {
+          "Pattern": "415252415920424F554E4453204552524F52"
+        },
+        {
+          "Pattern": "46494C4520414C5245414459204F50454E"
+        },
+        {
+          "Pattern": "4D454D4F525920414C4C4F434154494F4E"
+        },
+        {
+          "Pattern": "4241442046494C45204E554D424552"
+        },
+        {
+          "Pattern": "444F532046494C45204C494D4954"
+        },
+        {
+          "Pattern": "46494C45204E4F5420464F554E44"
+        },
+        {
+          "Pattern": "4241442046494C45204E414D45"
+        },
+        {
+          "Pattern": "44454E49454420414343455353"
+        },
+        {
+          "Pattern": "46494C45204E4F54204F50454E"
+        },
+        {
+          "Pattern": "454E44204F462046494C45"
+        },
+        {
+          "Pattern": "5752495445204F4E4C59"
+        },
+        {
+          "Pattern": "425245414B0020494E"
+        },
+        {
+          "Pattern": "4449534B2046554C4C"
+        },
+        {
+          "Pattern": "45474149424D564741"
+        },
+        {
+          "Pattern": "52454144204F4E4C59"
+        },
+        {
+          "Pattern": "5446525157565550"
+        },
+        {
+          "Pattern": "434F4D53504543"
+        },
+        {
+          "Pattern": "494E2046494C45"
+        },
+        {
+          "Pattern": "50535152565755"
+        },
+        {
+          "Pattern": "595A525155572E"
+        },
+        {
+          "Pattern": "42474D53587E"
+        },
+        {
+          "Pattern": "4552524F522E"
+        },
+        {
+          "Pattern": "554E4C4F434B"
+        },
+        {
+          "Pattern": "5A524A4A4A"
+        },
+        {
+          "Pattern": "252B3238"
+        },
+        {
+          "Pattern": "29005958"
+        },
+        {
+          "Pattern": "2A005953"
+        },
+        {
+          "Pattern": "2D00002E"
+        },
+        {
+          "Pattern": "434D5437"
+        },
+        {
+          "Pattern": "434D5442"
+        },
+        {
+          "Pattern": "444A5056"
+        },
+        {
+          "Pattern": "46004545"
+        },
+        {
+          "Pattern": "472E3947"
+        },
+        {
+          "Pattern": "4B4B4854"
+        },
+        {
+          "Pattern": "4B53502E"
+        },
+        {
+          "Pattern": "4F005536"
+        },
+        {
+          "Pattern": "50415448"
+        },
+        {
+          "Pattern": "5051552E"
+        },
+        {
+          "Pattern": "52325741"
+        },
+        {
+          "Pattern": "52445443"
+        },
+        {
+          "Pattern": "52465052"
+        },
+        {
+          "Pattern": "53415528"
+        },
+        {
+          "Pattern": "53515241"
+        },
+        {
+          "Pattern": "54005250"
+        },
+        {
+          "Pattern": "54495133"
+        },
+        {
+          "Pattern": "5546502D"
+        },
+        {
+          "Pattern": "5645552E"
+        },
+        {
+          "Pattern": "584A4855"
+        },
+        {
+          "Pattern": "5F595A52"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "com"
+      ],
       "Categories": [],
       "MimeType": "application/octet-stream"
     },
@@ -13383,40 +14942,6 @@
         }
       ],
       "Strings": []
-    }
-  },
-  {
-    "File": {
-      "Extensions": [
-        "com",
-        "exe"
-      ],
-      "Categories": [
-        "Database",
-        "Executable"
-      ],
-      "MimeType": "application/octet-stream"
-    },
-    "Signature": {
-      "Prefix": [
-        {
-          "Start": 6,
-          "Pattern": "00"
-        },
-        {
-          "Start": 12,
-          "Pattern": "000000"
-        },
-        {
-          "Start": 47,
-          "Pattern": "0053796D4578653130"
-        }
-      ],
-      "Strings": [
-        {
-          "Pattern": "53594D4558453130"
-        }
-      ]
     }
   },
   {
@@ -16598,6 +18123,47 @@
         },
         {
           "Pattern": "54484953"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "exe"
+      ],
+      "Categories": [],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "4D5A"
+        },
+        {
+          "Start": 3,
+          "Pattern": "000200000002000000FFFFF0FF000000000001F0FF1C00000000000000FCBD20018B6E008BA602008B9E0400B44ACD21A12C0089861A008B9E0000FFE327024301BD0153E800005B8BFE4F1E8A861E0050FF57FA2EFF57F85888861E001F5BC353E820000044554D4D59202020464342000000000044554D4D59202020464342000000005B1E0689A6020057568BF7468D3FB80329CD218D7F10B80329CD215E5F0E8D5710520E8D17520E572EA12C00508BDCB8004B8BD6CD21BD20012E8B6E008CCBFA8ED38BA60200FBFC071FB44DCD2188861E005BC3D30153E80700434F4D535045435BBA07008BF3FF57FA5BC3535157068E861A0033FF8BDE8BF38BCAF3A6741432C0B9FFFFF2AE26803D0075EB8BF7061FF9EB198BF7061FAC3C3D75FB803C0074EBAC0AC072043C2072F74EF8075F595BC38A14460AD27406B402CD21EBF3C3"
+        },
+        {
+          "Start": 340,
+          "Pattern": "080E93448A460604FF884644D7924400460000062F4320434C530D0020202020202020202020202020202020202020"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "44554D4D59202020464342000000000044554D4D59202020464342"
+        },
+        {
+          "Pattern": "53455249414C204E554D42455220544F205245474953544552"
+        },
+        {
+          "Pattern": "435241434B5249474854204259205752414954482058"
+        },
+        {
+          "Pattern": "434F4D53504543"
+        },
+        {
+          "Pattern": "4320434C53"
         }
       ]
     }
@@ -19859,6 +21425,310 @@
       "Extensions": [
         "exe"
       ],
+      "Categories": [],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "4D5A"
+        },
+        {
+          "Start": 5,
+          "Pattern": "0000002000B000FFFF"
+        },
+        {
+          "Start": 20,
+          "Pattern": "000000001E00000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000EB1990E9"
+        },
+        {
+          "Start": 538,
+          "Pattern": "0ABB0000BC000336C7070A0983C30232C0368807FEC375F936C606FE003736C706EE00"
+        },
+        {
+          "Start": 591,
+          "Pattern": "0A62792020526963686172642052757373656C6C2C204A656666726579205261796E6F7220616E64204272616E646F6E20427574746572776F7274680D0A28"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "4152524159005355425343524950540053594E544158204552524F5200455343415045004449564953494F4E204259205A45524F00535452494E4720544F4F204C4F4E4700544F4F20424947002D564520524F4F54004C4F47"
+        },
+        {
+          "Pattern": "4A414E4645424D41524150524D41594A554E4A554C4155475345504F43544E4F5644454353554E4D4F4E545545574544544855465249534154"
+        },
+        {
+          "Pattern": "4A454646524559205241594E4F5220414E44204252414E444F4E20425554544552574F525448"
+        },
+        {
+          "Pattern": "303132333435363738395043204242432042415349432056455253494F4E20342E3832"
+        },
+        {
+          "Pattern": "53495A45204E4545444544004D554C5449504C45204C4142454C004D495354414B45"
+        },
+        {
+          "Pattern": "494E434F4D50415449424C45204841524457415245204F52204241442046494C45"
+        },
+        {
+          "Pattern": "28432920434F5059524947485420522E542E52555353454C4C2032303030"
+        },
+        {
+          "Pattern": "42592020524943484152442052555353454C4C"
+        },
+        {
+          "Pattern": "4143435552414359204C4F535400455850"
+        },
+        {
+          "Pattern": "43414C4C00415247554D454E5453"
+        },
+        {
+          "Pattern": "54595045204D49534D41544348"
+        },
+        {
+          "Pattern": "454E56454C4F5045"
+        },
+        {
+          "Pattern": "52454E554D424552"
+        },
+        {
+          "Pattern": "535452494E472428"
+        },
+        {
+          "Pattern": "5641524941424C45"
+        },
+        {
+          "Pattern": "454E4450524F43"
+        },
+        {
+          "Pattern": "4D495353494E47"
+        },
+        {
+          "Pattern": "4E4F2053554348"
+        },
+        {
+          "Pattern": "4F50454E4F5554"
+        },
+        {
+          "Pattern": "524553544F5245"
+        },
+        {
+          "Pattern": "52494748542428"
+        },
+        {
+          "Pattern": "54204D41544348"
+        },
+        {
+          "Pattern": "434F4C4F5552"
+        },
+        {
+          "Pattern": "44454C455445"
+        },
+        {
+          "Pattern": "494E4B455924"
+        },
+        {
+          "Pattern": "494E53545228"
+        },
+        {
+          "Pattern": "4C4546542428"
+        },
+        {
+          "Pattern": "4F50454E494E"
+        },
+        {
+          "Pattern": "4F50454E5550"
+        },
+        {
+          "Pattern": "4F5554204F46"
+        },
+        {
+          "Pattern": "504F494E5428"
+        },
+        {
+          "Pattern": "524550454154"
+        },
+        {
+          "Pattern": "5245504F5254"
+        },
+        {
+          "Pattern": "52455455524E"
+        },
+        {
+          "Pattern": "53594E544158"
+        },
+        {
+          "Pattern": "414456414C"
+        },
+        {
+          "Pattern": "434841494E"
+        },
+        {
+          "Pattern": "434C454152"
+        },
+        {
+          "Pattern": "434C4F5345"
+        },
+        {
+          "Pattern": "434F4C4F52"
+        },
+        {
+          "Pattern": "434F554E54"
+        },
+        {
+          "Pattern": "4552524F52"
+        },
+        {
+          "Pattern": "46414C5345"
+        },
+        {
+          "Pattern": "474F535542"
+        },
+        {
+          "Pattern": "48494D454D"
+        },
+        {
+          "Pattern": "494E4B4559"
+        },
+        {
+          "Pattern": "494E505554"
+        },
+        {
+          "Pattern": "4C4F43414C"
+        },
+        {
+          "Pattern": "4C4F4D454D"
+        },
+        {
+          "Pattern": "4D49442428"
+        },
+        {
+          "Pattern": "4F53434C49"
+        },
+        {
+          "Pattern": "5052494E54"
+        },
+        {
+          "Pattern": "52414E4745"
+        },
+        {
+          "Pattern": "534F554E44"
+        },
+        {
+          "Pattern": "5350414345"
+        },
+        {
+          "Pattern": "5452414345"
+        },
+        {
+          "Pattern": "554E54494C"
+        },
+        {
+          "Pattern": "5749445448"
+        },
+        {
+          "Pattern": "4155544F"
+        },
+        {
+          "Pattern": "42474554"
+        },
+        {
+          "Pattern": "42505554"
+        },
+        {
+          "Pattern": "43414C4C"
+        },
+        {
+          "Pattern": "43485224"
+        },
+        {
+          "Pattern": "44415441"
+        },
+        {
+          "Pattern": "44524157"
+        },
+        {
+          "Pattern": "454C5345"
+        },
+        {
+          "Pattern": "4556414C"
+        },
+        {
+          "Pattern": "47434F4C"
+        },
+        {
+          "Pattern": "47455424"
+        },
+        {
+          "Pattern": "474F544F"
+        },
+        {
+          "Pattern": "4C494E45"
+        },
+        {
+          "Pattern": "4C495354"
+        },
+        {
+          "Pattern": "4C4F4144"
+        },
+        {
+          "Pattern": "4D4F4445"
+        },
+        {
+          "Pattern": "4D4F5645"
+        },
+        {
+          "Pattern": "4E455854"
+        },
+        {
+          "Pattern": "50414745"
+        },
+        {
+          "Pattern": "504C4F54"
+        },
+        {
+          "Pattern": "50524F43"
+        },
+        {
+          "Pattern": "52454144"
+        },
+        {
+          "Pattern": "524F4F4D"
+        },
+        {
+          "Pattern": "53415645"
+        },
+        {
+          "Pattern": "53544550"
+        },
+        {
+          "Pattern": "53544F50"
+        },
+        {
+          "Pattern": "53545224"
+        },
+        {
+          "Pattern": "54414228"
+        },
+        {
+          "Pattern": "5448454E"
+        },
+        {
+          "Pattern": "54494D45"
+        },
+        {
+          "Pattern": "54525545"
+        },
+        {
+          "Pattern": "56504F53"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "exe"
+      ],
       "Categories": [
         "Database",
         "Executable"
@@ -20060,6 +21930,46 @@
         },
         {
           "Pattern": "50535152"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "exe"
+      ],
+      "Categories": [
+        "Database",
+        "Executable",
+        "Compressed"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "4D5A"
+        },
+        {
+          "Start": 6,
+          "Pattern": "00000200"
+        },
+        {
+          "Start": 16,
+          "Pattern": "800000000E00"
+        },
+        {
+          "Start": 24,
+          "Pattern": "1C00000043454245"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "2A4345502A"
+        },
+        {
+          "Pattern": "43454245"
         }
       ]
     }
@@ -23545,7 +25455,7 @@
         },
         {
           "Start": 30,
-          "Pattern": "504B"
+          "Pattern": "50"
         }
       ],
       "Strings": [
@@ -29305,6 +31215,170 @@
       ],
       "Categories": [
         "Database",
+        "Executable"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "4D5A"
+        },
+        {
+          "Start": 6,
+          "Pattern": "0000"
+        },
+        {
+          "Start": 23,
+          "Pattern": "00"
+        },
+        {
+          "Start": 25,
+          "Pattern": "0000"
+        },
+        {
+          "Start": 29,
+          "Pattern": "0000"
+        },
+        {
+          "Start": 32,
+          "Pattern": "00000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "494E5354414C4C534849454C442053454C462D45585452414354494E472045584536434F554C44204E4F542046494E4420454E4F554748204449534B20535041434520464F522045585452414354494E472046494C45532E"
+        },
+        {
+          "Pattern": "504C454153452057414954205748494C4520494E5354414C4C534849454C44204558545241435453205448452046494C45532057484943482057494C4C20494E5354414C4C2054484953204150504C49434154494F4E"
+        },
+        {
+          "Pattern": "594F55204841564520454E544552454420414E20494E434F52524543542050415353574F52442E2E544849532057494C4C20494E5354414C4C2025532E20444F20594F55205749534820544F20434F4E54494E5545"
+        },
+        {
+          "Pattern": "504C4541534520454E544552205448452050415353574F524420524551554952454420544F2045585452414354205448452041545441434845442046494C45532E"
+        },
+        {
+          "Pattern": "254437434F554C44204E4F54204352454154452044455354494E4154494F4E2046494C452025532E20204552524F52204E554D424552"
+        },
+        {
+          "Pattern": "55534552002A494E5354414C4C534849454C442053454C462D45585452414354494E4720535455422050524F4752414D"
+        },
+        {
+          "Pattern": "50524F475245535300494E5354414C4C534849454C442053454C462D45585452414354494E4720455845"
+        },
+        {
+          "Pattern": "5300544849532050524F4752414D205245515549524553204D4943524F534F46542057494E444F57532E"
+        },
+        {
+          "Pattern": "434F554C44204E4F54204F50454E2044455354494E4154494F4E2046494C45202553"
+        },
+        {
+          "Pattern": "46524545204449534B20535041434520415641494C41424C45"
+        },
+        {
+          "Pattern": "52455455524E2046524F4D2045585452414354"
+        },
+        {
+          "Pattern": "45585452414354204641494C4544"
+        },
+        {
+          "Pattern": "57494E45584543204641494C4544"
+        },
+        {
+          "Pattern": "4D532053414E53205345524946"
+        },
+        {
+          "Pattern": "5F494E53543332492E45585F"
+        },
+        {
+          "Pattern": "434F4D5052455353494F4E"
+        },
+        {
+          "Pattern": "4445434F4D5052455353"
+        },
+        {
+          "Pattern": "4449524543544F52592E"
+        },
+        {
+          "Pattern": "4D595245534F55524345"
+        },
+        {
+          "Pattern": "5F495344454C2E455845"
+        },
+        {
+          "Pattern": "5F53455455502E444C4C"
+        },
+        {
+          "Pattern": "53455455502E455845"
+        },
+        {
+          "Pattern": "53455455502E494E49"
+        },
+        {
+          "Pattern": "53455455502E494E53"
+        },
+        {
+          "Pattern": "4552524F5220494E"
+        },
+        {
+          "Pattern": "4C4F434154494F4E"
+        },
+        {
+          "Pattern": "53455455502E4C49"
+        },
+        {
+          "Pattern": "45585453545542"
+        },
+        {
+          "Pattern": "4953204E4F54"
+        },
+        {
+          "Pattern": "4B45524E454C"
+        },
+        {
+          "Pattern": "4D4F44554C45"
+        },
+        {
+          "Pattern": "4E4F54494659"
+        },
+        {
+          "Pattern": "52454C4F43"
+        },
+        {
+          "Pattern": "44415441"
+        },
+        {
+          "Pattern": "494E544C"
+        },
+        {
+          "Pattern": "4C414E47"
+        },
+        {
+          "Pattern": "4C4F4144"
+        },
+        {
+          "Pattern": "4E534554"
+        },
+        {
+          "Pattern": "53495A45"
+        },
+        {
+          "Pattern": "54454D50"
+        },
+        {
+          "Pattern": "54595045"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "exe"
+      ],
+      "Categories": [
+        "Database",
         "Executable",
         "Compressed"
       ],
@@ -29468,6 +31542,112 @@
       ],
       "Categories": [
         "Database",
+        "Executable"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "4D5A"
+        },
+        {
+          "Start": 3,
+          "Pattern": "01"
+        },
+        {
+          "Start": 5,
+          "Pattern": "00010020001504FFFF"
+        },
+        {
+          "Start": 16,
+          "Pattern": "8000000000000000220000000100FB20726A01000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000BA"
+        },
+        {
+          "Start": 514,
+          "Pattern": "032E8916F801B430CD218B2E02008B1E2C008EDAA392008C069000891E8C00892EAC00C7069600FFFFE83401C43E8A008BC78BD8B9FF7F26813D38377519268B550280FA3D751080E6DFFF06960080FE597504FF069600F2AEE3614326380575D680CD80F7D9890E8A00B90100D3E383C30883E3F8891E8E008CDA2BEA8B3E"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "53554E004D4F4E0054554500574544005448550046524900534154004A414E00464542004D415200415052004D4159004A554E004A554C0041554700534550004F4354004E4F560044454300255320255320253032442025303244"
+        },
+        {
+          "Pattern": "43414E4E4F54204F50454E2054454D504F524152592046494C4520255320464F52204D4F4445202553"
+        },
+        {
+          "Pattern": "4A5243484956453130002553204E4F542041204A52434849564520415243484956452046494C45"
+        },
+        {
+          "Pattern": "424F524C414E4420494E544C2E004E554C4C20504F494E5445522041535349474E4D454E54"
+        },
+        {
+          "Pattern": "25532025530046494C45202553204558495354532D2D4F5645525752495445204954"
+        },
+        {
+          "Pattern": "464C4F4154494E4720504F494E5420464F524D415453204E4F54204C494E4B4544"
+        },
+        {
+          "Pattern": "43414E4E4F54204F50454E2046494C4520255320464F52204D4F4445202553"
+        },
+        {
+          "Pattern": "41424E4F524D414C2050524F4752414D205445524D494E4154494F4E"
+        },
+        {
+          "Pattern": "535441434B204F564552464C4F5720494E20455850414E53494F4E"
+        },
+        {
+          "Pattern": "554E41424C4520544F20414C4C4F43415445204D454D4F5259"
+        },
+        {
+          "Pattern": "46494C452025532043414E4E4F54204245204F50454E4544"
+        },
+        {
+          "Pattern": "4A5243484956452046494C4520434F4D5052455353494F4E"
+        },
+        {
+          "Pattern": "284E554C4C290030313233343536373839414243444546"
+        },
+        {
+          "Pattern": "545552424F2D43202D20434F5059524947485420284329"
+        },
+        {
+          "Pattern": "5052454D415455524520454E44204F462044415441"
+        },
+        {
+          "Pattern": "544D50002E24242400005052494E54205343414E46"
+        },
+        {
+          "Pattern": "494E56414C49442046494C4520434F4445202543"
+        },
+        {
+          "Pattern": "284329204A415941522053595354454D53"
+        },
+        {
+          "Pattern": "415243484956494E472053595354454D"
+        },
+        {
+          "Pattern": "4A52434520204A524348495645"
+        },
+        {
+          "Pattern": "444956494445204552524F52"
+        },
+        {
+          "Pattern": "545A0045535400454454"
+        },
+        {
+          "Pattern": "4A5243452056312E"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "exe"
+      ],
+      "Categories": [
+        "Database",
         "Executable",
         "Compressed"
       ],
@@ -29580,8 +31760,8 @@
           "Pattern": "4D5A"
         },
         {
-          "Start": 11,
-          "Pattern": "00FFFF"
+          "Start": 12,
+          "Pattern": "FFFF"
         },
         {
           "Start": 16,
@@ -29599,12 +31779,6 @@
           "Pattern": "494E56414C494420535441434B2053495A45"
         },
         {
-          "Pattern": "54204F50454E205354444F55542046494C45"
-        },
-        {
-          "Pattern": "54204F50454E20535444494E2046494C45"
-        },
-        {
           "Pattern": "4C415454494345204320322E31"
         },
         {
@@ -29612,21 +31786,6 @@
         },
         {
           "Pattern": "24494E56414C49442049"
-        },
-        {
-          "Pattern": "5200570041000043414E"
-        },
-        {
-          "Pattern": "4552524F52"
-        },
-        {
-          "Pattern": "25300054"
-        },
-        {
-          "Pattern": "49542E46"
-        },
-        {
-          "Pattern": "4E414D45"
         }
       ]
     }
@@ -29648,8 +31807,8 @@
           "Pattern": "4D5A"
         },
         {
-          "Start": 11,
-          "Pattern": "00FFFF"
+          "Start": 12,
+          "Pattern": "FFFF"
         }
       ],
       "Strings": [
@@ -29670,9 +31829,6 @@
         },
         {
           "Pattern": "24494E56414C49442049"
-        },
-        {
-          "Pattern": "49542E46"
         }
       ]
     }
@@ -34082,6 +36238,204 @@
     "Signature": {
       "Prefix": [
         {
+          "Pattern": "4D5A"
+        },
+        {
+          "Start": 5,
+          "Pattern": "00"
+        },
+        {
+          "Start": 9,
+          "Pattern": "00"
+        },
+        {
+          "Start": 12,
+          "Pattern": "FFFF"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "4D455441574152452050524F46455353494F4E414C2050415343414C2052554E2D54494D45204C49425241525920434F505952494748542028432920313938332D313938"
+        },
+        {
+          "Pattern": "4D4554415741524520494E434F52504F52415445442E2E"
+        },
+        {
+          "Pattern": "494E534552545F494E544F5F465245455F434841494E"
+        },
+        {
+          "Pattern": "52454D4F56455F46524F4D5F465245455F434841494E"
+        },
+        {
+          "Pattern": "434845434B5F484541505F494E54454752495459"
+        },
+        {
+          "Pattern": "5345415243485F465245455F434841494E"
+        },
+        {
+          "Pattern": "454143485F465245455F4954454D"
+        },
+        {
+          "Pattern": "48454150204F564552464C4F572E"
+        },
+        {
+          "Pattern": "4144445F4E45575F4348554E4B"
+        },
+        {
+          "Pattern": "5F4D5746494E49545F494D504C"
+        },
+        {
+          "Pattern": "41424F5254494E472E2E2E"
+        },
+        {
+          "Pattern": "454E434F554E5445524544"
+        },
+        {
+          "Pattern": "454E5649524F4E4D454E54"
+        },
+        {
+          "Pattern": "46434C4F53455F414C4C"
+        },
+        {
+          "Pattern": "484541504D474D54202D"
+        },
+        {
+          "Pattern": "535441434B2044554D50"
+        },
+        {
+          "Pattern": "44554D505F48454150"
+        },
+        {
+          "Pattern": "454143485F4954454D"
+        },
+        {
+          "Pattern": "484541502044554D50"
+        },
+        {
+          "Pattern": "454143485F415247"
+        },
+        {
+          "Pattern": "46494E495450494F"
+        },
+        {
+          "Pattern": "464E45574C494E45"
+        },
+        {
+          "Pattern": "48454150434F4445"
+        },
+        {
+          "Pattern": "535953414C4C4F43"
+        },
+        {
+          "Pattern": "5F4D574845415031"
+        },
+        {
+          "Pattern": "484D414C4C4F43"
+        },
+        {
+          "Pattern": "4D414B455F4654"
+        },
+        {
+          "Pattern": "4D414C4C4F4332"
+        },
+        {
+          "Pattern": "50555443484152"
+        },
+        {
+          "Pattern": "5F4D5750494F31"
+        },
+        {
+          "Pattern": "5F4D5750494F32"
+        },
+        {
+          "Pattern": "2A2A2A4E4557"
+        },
+        {
+          "Pattern": "46464C555348"
+        },
+        {
+          "Pattern": "464F524D4154"
+        },
+        {
+          "Pattern": "465752495445"
+        },
+        {
+          "Pattern": "4F5554505554"
+        },
+        {
+          "Pattern": "5F4C494D4954"
+        },
+        {
+          "Pattern": "4552524F52"
+        },
+        {
+          "Pattern": "4650555443"
+        },
+        {
+          "Pattern": "4650555453"
+        },
+        {
+          "Pattern": "465445524D"
+        },
+        {
+          "Pattern": "494E505554"
+        },
+        {
+          "Pattern": "4C44495350"
+        },
+        {
+          "Pattern": "5F4D575354"
+        },
+        {
+          "Pattern": "494E4954"
+        },
+        {
+          "Pattern": "41524743"
+        },
+        {
+          "Pattern": "41524753"
+        },
+        {
+          "Pattern": "41524756"
+        },
+        {
+          "Pattern": "424F4459"
+        },
+        {
+          "Pattern": "46455252"
+        },
+        {
+          "Pattern": "46494C45"
+        },
+        {
+          "Pattern": "4C494E4B"
+        },
+        {
+          "Pattern": "4C4E4557"
+        },
+        {
+          "Pattern": "5345545F"
+        },
+        {
+          "Pattern": "57535452"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "exe"
+      ],
+      "Categories": [
+        "Database",
+        "Executable"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
           "Pattern": "4D5A90000300000004000000FFFF0000B80000000000000040"
         },
         {
@@ -35484,6 +37838,72 @@
         }
       ],
       "Strings": []
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "exe"
+      ],
+      "Categories": [
+        "Database",
+        "Executable"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "4D5A"
+        },
+        {
+          "Start": 5,
+          "Pattern": "00"
+        },
+        {
+          "Start": 7,
+          "Pattern": "00"
+        },
+        {
+          "Start": 9,
+          "Pattern": "00"
+        },
+        {
+          "Start": 13,
+          "Pattern": "0F"
+        },
+        {
+          "Start": 16,
+          "Pattern": "00"
+        },
+        {
+          "Start": 18,
+          "Pattern": "0000000000004000000000000000000000000000000000000000000000000000000000000000000000000000000006000000"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "43204C49425241525920434F505952494748542028432920313938342D313939312048492D5445434820534F465457415245"
+        },
+        {
+          "Pattern": "353520434C594445204558502024"
+        },
+        {
+          "Pattern": "514C442E204155535452414C4941"
+        },
+        {
+          "Pattern": "5620312E312031393938"
+        },
+        {
+          "Pattern": "4252495342414E45"
+        },
+        {
+          "Pattern": "525438362D2D44"
+        },
+        {
+          "Pattern": "3231203032"
+        }
+      ]
     }
   },
   {
@@ -42139,8 +44559,8 @@
           "Pattern": "4D5A"
         },
         {
-          "Start": 5,
-          "Pattern": "0000002000"
+          "Start": 6,
+          "Pattern": "00002000"
         },
         {
           "Start": 12,
@@ -42153,22 +44573,6 @@
         {
           "Start": 24,
           "Pattern": "1E00000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000626C"
-        },
-        {
-          "Start": 526,
-          "Pattern": "3000"
-        },
-        {
-          "Start": 530,
-          "Pattern": "0000000000003000000000000000"
-        },
-        {
-          "Start": 547,
-          "Pattern": "000000000000000000FFFF"
-        },
-        {
-          "Start": 559,
-          "Pattern": "10"
         }
       ],
       "Strings": [
@@ -44288,6 +46692,151 @@
         "exe"
       ],
       "Categories": [
+        "Archive"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "4D5AD4010A0002002000A304A30440050008E400960900001E0000000100B403D5009709000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000558BEC5DC3558BEC5DC3558BEC5DC3558BEC83EC02B8040050E80A0083C402E88F038BE55DC3558BEC568B76040BF6741356E8BC0B83C4025056B8010050E8300883C4065E8BE55DC3558BEC837E04657505B84700EB09837E0466750AB84F0050E8C2FF83C402FF7606E8B9FF83C402FF7608E8B0FF83C402FF760AE8A7FF83C402837E0466750AB8010050E8B30883C4028BE55DC3558BEC83EC0256837E0A007C677F06837E0800765F837E0A007C0E7F07817E0800207605BE0020EB038B76088BC69929460819560A56B8952450FF7604E85F0783C4063BC67405B80300EB2A56B8952450E8270083C404837E06FE74AA56B8952450FF7606E8730783C4063BC67498B80200EB0233C05E8BE55DC3558BEC5756B40BCD21A19C448B7E048B4E06E31A2AFF8AD8321DD1E38B978C012AFF8ADC33DA8BC347E2E9A39C445E5F8BE55DC3518BCFE8330259C7067F000000C3558BEC57561E892E59008CDB8EC38B4604A35D008B4606A35F00E80B008B2E59001F5E5F8BE55DC389265B00C7066D000900C7066F000002C70669000201C7066B000000C7067D000000C7067F000000F6065800FF7514BB1406B448CD217303EB3E90A36100C6065800FF8B1E5D008B160200B90020B43FCD217303EB1A90E814013D01017521833E7F000074078B0E7F00E8960133C0C3B802008B265B00C3B801008B265B00C33D0001752FE85701E8E300A36300A36500A27200A27100A072008B3E7F0081FF00207205E823FF2BFF033E0000AAFF067F00EBA3A36300A367008E0661003B0669007211A16500A36300A0710050FF066B00A163003DFF0076198BD88BEBD1E303DD268A470250FF066B00268B07A36300EBE28CD88EC0A16300A27100A27200508B0E6B0041890E6B00E31F588B3E7F0081FF00207205E8B0FE2BFF033E0000AAFF067F00E2E5890E6B008B1E69008BEBD1E303DD068E066100A0720026884702A1650026890707FF066900A16700A365008B1E69003B1E6F00720F833E6D000D7408FF066D00D1266F00E9E9FEA17D008BD003066D00A37D008BC2D1E8D1E8D1E881E207003DFD1F72305203166D0089167D00B900208BE82BC8030602008BF08B3E0200F3A48B1E5D008BD78BCDB43FCD217303E9B8FE33C05A030602008BF0AD8BD8AC8BCAE306D0E8D1DBE2FA8BC38B1E6D0083EB09D1E323877300C3C7066D000900C7066F000002C70669000201C3505351525052E89BFD83C4045A595B58C3505351528B1E5F008B16000083FBFE75048BC1EB10B440CD217303E94FFE3BC17403E948FEE8C7FFC7067F0000005A595B58C3558BEC81EC740156C7469E0000C746A60000B85F01508D8610FF50E8FF0783C404EB4180BE10FF007417B88200508D8610FF50B8850050B8650050E85AFC83C408B8910050E82DFC83C402B88400508D8610FF5033C050E82A0483C4068BF0C6820EFF008D8610FF50E8900483C4028946A43DFFFF74ACB8AB00508D8610FF50B8AF0050B86D0050E80DFC83C408FF76A4E80C0383C402FF76A4E8BC0783C40299894696895698B82200508D46DE50FF76A4E8CF0383C40633C0508B46F68B56F80346961356985250FF76A4E8DA0683C408B83300508D46AA50FF76A4E8A40383C406817EACC4FD7507817EAADCA7741C33C05050B8BB0050B8660050E898FB83C408B8010050E8870483C4028B46B00B46B27503E9EC018B46B08B56B28946A08956A2807EC6017506807EC7007419B8D200508D46D050B86E0150B8650050E855FB83C408E9A901837E9E00756F8D46D050E8A60383C4028946943DFFFF745D50E8C80383C402B8D500508D46D050B8E50050B86D0050E81DFB83C408B88400508D868CFE5033C050E8F70283C406808E8CFE2080BE8CFE79740E80BE8CFE6E740780BE8CFE6175BE80BE8CFE617503FF469E80BE8CFE6E7503E934018D46D050E8970383C4028946943DFFFF750EB8F000508D46D050B8F300E9CE0033C0508B46B48B56B60346961356985250FF76A4E8B40583C408C7069C4400008D46D050E870FA83C4028D46D050E8310683C4022D0D00F7D850B8010150B8010050E89D0283C406B80F0150E848FA83C402807EAF007514FF76C4FF76C2FF7694"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "5055424C494320444F4D41494E2053455A2053454C462D45585452414354494E47205A4F4F205554494C49545920312E3020425920524148554C204448455349"
+        },
+        {
+          "Pattern": "2E455845000000000000000000554E4B4E4F574E20434F4D5052455353494F4E204D4554484F44"
+        },
+        {
+          "Pattern": "45585452414354494E47200042414420454E54525920494E2041524348495645"
+        },
+        {
+          "Pattern": "54204F50454E20004E414D45204F462046494C4520544F2045585452414354"
+        },
+        {
+          "Pattern": "5420435245415445200020202020202020202020202020002D2D"
+        },
+        {
+          "Pattern": "444F5320322E30204F52204C41544552205245515549524544"
+        },
+        {
+          "Pattern": "464C4F4154494E4720504F494E54204E4F54204C4F41444544"
+        },
+        {
+          "Pattern": "4241442041524348495645202D2D2043414E"
+        },
+        {
+          "Pattern": "535441434B204F564552464C4F57"
+        },
+        {
+          "Pattern": "4F5554204F46204D454D4F5259"
+        },
+        {
+          "Pattern": "444956494445204552524F52"
+        },
+        {
+          "Pattern": "435F46494C455F494E464F"
+        },
+        {
+          "Pattern": "5420575249544520544F"
+        },
+        {
+          "Pattern": "455854524143544544"
+        },
+        {
+          "Pattern": "4F5645525752495445"
+        },
+        {
+          "Pattern": "542045585452414354"
+        },
+        {
+          "Pattern": "415243484956452E"
+        },
+        {
+          "Pattern": "42414420435243"
+        },
+        {
+          "Pattern": "5741524E494E47"
+        },
+        {
+          "Pattern": "464154414C"
+        },
+        {
+          "Pattern": "28594553"
+        },
+        {
+          "Pattern": "414C4C29"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "exe"
+      ],
+      "Categories": [
+        "Archive"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "4D5ABC01050001002000160616069D04401F2878000000001E00000001000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000BA6C002E891624008B2E02008EDA8C060000B8401F8CDA050A4383C3108ED28BE0E802000000B8060050E80E00E8F000E88E0333C050E8320659C356558BEC8B76060BF6741056E84E06595056B8010050E8C9058BE55D5EC2020056558BEC837E0C007D03E975007F06837E0A00766D837E0C007C0E7F07817E0A00207605BE0020EB038B760A8B560C8B460A52508BC6995B592BD81BCA894E0C895E0A56B8042350FF7606E86F058BE53BC67405B80300EB2B56B8042350E87F008BE5837E08FE749B56B8042350FF7608E84E058BE53BC67503E987FFB80200EB0233C05D5EC35657558BEC4C4C8B7E0833F6D1E7C746FE0800EB1BD1EF8BC733C6A90100740B8BC6D1E83501A08BF0EB02D1EEFF4EFE837EFE007FDF8BC68BE55D5F5EC35633F6EB0E56E8B9FF598BDED1E3898702214681FE000172EC5EC3558BEC5756B40BCD21A102238B7E048B4E06E31A2AFF8AD8321DD1E38B9702212AFF8ADC33DA8BC347E2E9A302235E5F8BE55DC3518BCFE8090259C7064D000000C3558BEC57561E892E27008CDB8EC38B4604A32B008B4606A32D00E80B008B2E27001F5E5F8BE55DC389262900C7063B000900C7063D000002C70637000201C70639000000C7064B000000C7064D000000F6062600FF7514BB1406B448CD217303EB3E90A32F00C6062600FF8B1E2B008B160400B90020B43FCD217303EB1A90E8EA003D01017521833E4D000074078B0E4D00E86C0133C0C3B802008B262900C3B801008B262900C33D0001751AE82D01E8B900A33100A33300A24000A23F00A04000E86601EBB8A33100A335008E062F003B0637007211A13300A33100A03F0050FF063900A131003DFF0076198BD88BEBD1E303DD268A470250FF063900268B07A33100EBE28CD88EC0A13100A23F00A24000508B0E390041890E3900E30A58E80801E2FA890E39008B1E37008BEBD1E303DD068E062F00A0400026884702A1330026890707FF063700A13500A333008B1E37003B1E3D00720F833E3B000D7408FF063B00D1263D00E913FFA14B008BD003063B00A34B008BC2D1E8D1E8D1E881E207003DFD1F72305203163B0089164B00B900208BE82BC8030604008BF08B3E0400F3A48B1E2B008BD78BCDB43FCD217303E9E2FE33C05A030604008BF0AD8BD8AC8BCAE306D0E8D1DBE2FA8BC38B1E3B0083EB09D1E323874100C3C7063B000900C7063D000002C70637000201C3505351525052E8C5FD83C4045A595B58C3505351528B1E2D008B160200B440CD217303E982FE3BC17403E97BFEE8D0FFC7064D0000005A595B58C38B3E4D0081FF00207205E8BAFD2BFF033E0200AAFF064D00C35657558BEC81EC6801C746FC0000B85000508D861CFF50E8990259598D861CFF50E86002598BF083FEFF753DB8840050E847FC8D861CFF50E83FFCB8900050E838FCB8930050E831FCB88400508D861CFF5033C050E8FF0183C4068946FE8D9E1AFF03D8C60700EBB3B8AD0050E80AFC8D861CFF50E802FCB8B90050E8FBFBFF366200FF36600056E8160283C406B82200508D46A45056E8BD0183C4068B166200A160000346BC1356BE525056E8F10183C406B83300508D46C85056E8980183C406817ECAC4FD7507817EC8DCA7740FB8640050E8A3FBB8010050E8CC01598B46CE0B46D07503E95B018B56D08B46CE8956A28946A0807EE4017506807EE500740AB8640050E871FBE920018D46EE50E87101598BF883FFFF743B57E87901598D46EE50E853FBB8BD0050E84CFBB88400508D8698FE5033C050E81A0183C406808E98FE2080BE98FE6E7503E9DD0080BE98FE7975CA8D46EE50E81F01598BF88D46EE50E813FBB8D20050E80CFB83FFFF750AB8750050E800FBE9AF008B166200A160000346D21356D4525056E8110183C406C70602230000807ECD007513FF76E2FF76E05756E8F0FA83C4088946C6EB1E807ECD01750C5756E8FFFB59598946C6EB0CB8640050E8AFFAFF46FCEB5C837EC60074288D46EE50E8C90059837EC6017511B8D60050E88FFAB8010050E8B80059EB32B8750050E87EFAEB298B46DA3B060223740CB8E40050E86CFAFF46FCEB14FF76D8FF76D657E87F0083C406B8EF0050E853FA57E86D00598B166200A160000346A01356A2525056E86200"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "53455A204D4F44554C4520322E3320425920524148554C204448455349"
+        },
+        {
+          "Pattern": "4E414D45204F462046494C4520544F2045585452414354"
+        },
+        {
+          "Pattern": "434F525255505445442046494C45"
+        },
+        {
+          "Pattern": "4F5554505554204552524F52"
+        },
+        {
+          "Pattern": "45585452414354494E47"
+        },
+        {
+          "Pattern": "455854524143544544"
+        },
+        {
+          "Pattern": "4E4F204D454D4F5259"
+        },
+        {
+          "Pattern": "4F5645525752495445"
+        },
+        {
+          "Pattern": "415243484956452E"
+        },
+        {
+          "Pattern": "42414420435243"
+        },
+        {
+          "Pattern": "455849535453"
+        },
+        {
+          "Pattern": "542046494E44"
+        },
+        {
+          "Pattern": "2E455845"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "exe"
+      ],
+      "Categories": [
         "Encrypted"
       ],
       "MimeType": "application/octet-stream"
@@ -44410,6 +46959,40 @@
   {
     "File": {
       "Extensions": [
+        "exe",
+        "com"
+      ],
+      "Categories": [
+        "Database",
+        "Executable"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Start": 6,
+          "Pattern": "00"
+        },
+        {
+          "Start": 12,
+          "Pattern": "000000"
+        },
+        {
+          "Start": 47,
+          "Pattern": "0053796D4578653130"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "53594D4558453130"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
         "exe"
       ],
       "Categories": [
@@ -44431,6 +47014,9 @@
       "Strings": [
         {
           "Pattern": "545552424F204241534943"
+        },
+        {
+          "Pattern": "424F524C414E44"
         }
       ]
     }
@@ -52419,6 +55005,25 @@
     "Signature": {
       "Prefix": [
         {
+          "Pattern": "5B44656C757865466F6E745D00"
+        }
+      ],
+      "Strings": []
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "fnt"
+      ],
+      "Categories": [
+        "Font"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
           "Pattern": "44594E414D4943205055424C495348455220464F4E54"
         }
       ],
@@ -52722,10 +55327,54 @@
     "Signature": {
       "Prefix": [
         {
+          "Pattern": "4B415246312E30"
+        }
+      ],
+      "Strings": []
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "fnt"
+      ],
+      "Categories": [
+        "Font"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
           "Pattern": "4D6174726F7820466F6E7420332E"
         }
       ],
       "Strings": []
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "fnt"
+      ],
+      "Categories": [
+        "Font",
+        "Image"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Start": 50,
+          "Pattern": "4D455441464F4E54"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "4D455441464F4E54"
+        }
+      ]
     }
   },
   {
@@ -52768,6 +55417,25 @@
           "Pattern": "5049544348"
         }
       ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "fnt"
+      ],
+      "Categories": [
+        "Font"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "0D0A090920504320546F6F6C732056372E7820466F6E742046696C650D0A1A"
+        }
+      ],
+      "Strings": []
     }
   },
   {
@@ -52916,6 +55584,25 @@
       "Prefix": [
         {
           "Pattern": "50320100464E0A000000"
+        }
+      ],
+      "Strings": []
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "fnt"
+      ],
+      "Categories": [
+        "Font"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "464F4E5431202020000100180018228421210000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002122"
         }
       ],
       "Strings": []
@@ -53854,44 +56541,8 @@
     "Signature": {
       "Prefix": [
         {
-          "Start": 336,
+          "Start": 436,
           "Pattern": "00"
-        },
-        {
-          "Start": 356,
-          "Pattern": "00"
-        },
-        {
-          "Start": 373,
-          "Pattern": "00"
-        },
-        {
-          "Start": 376,
-          "Pattern": "00"
-        },
-        {
-          "Start": 386,
-          "Pattern": "00"
-        },
-        {
-          "Start": 396,
-          "Pattern": "00000000"
-        },
-        {
-          "Start": 403,
-          "Pattern": "0000000000000000000000000000000000"
-        },
-        {
-          "Start": 424,
-          "Pattern": "0000000000000000"
-        },
-        {
-          "Start": 435,
-          "Pattern": "0000"
-        },
-        {
-          "Start": 455,
-          "Pattern": "0000"
         },
         {
           "Start": 461,
@@ -53922,10 +56573,6 @@
           "Pattern": "000000"
         },
         {
-          "Start": 549,
-          "Pattern": "00"
-        },
-        {
           "Start": 556,
           "Pattern": "00"
         },
@@ -53938,27 +56585,11 @@
           "Pattern": "00"
         },
         {
-          "Start": 597,
-          "Pattern": "00"
-        },
-        {
           "Start": 613,
           "Pattern": "00"
         },
         {
           "Start": 637,
-          "Pattern": "00"
-        },
-        {
-          "Start": 653,
-          "Pattern": "00"
-        },
-        {
-          "Start": 669,
-          "Pattern": "0000"
-        },
-        {
-          "Start": 693,
           "Pattern": "00"
         },
         {
@@ -54026,14 +56657,6 @@
           "Pattern": "00"
         },
         {
-          "Start": 864,
-          "Pattern": "0000"
-        },
-        {
-          "Start": 868,
-          "Pattern": "00"
-        },
-        {
           "Start": 873,
           "Pattern": "00"
         },
@@ -54054,36 +56677,8 @@
           "Pattern": "00"
         },
         {
-          "Start": 965,
-          "Pattern": "00"
-        },
-        {
-          "Start": 969,
-          "Pattern": "00"
-        },
-        {
-          "Start": 972,
-          "Pattern": "0000"
-        },
-        {
-          "Start": 977,
-          "Pattern": "00"
-        },
-        {
           "Start": 985,
           "Pattern": "00"
-        },
-        {
-          "Start": 989,
-          "Pattern": "00"
-        },
-        {
-          "Start": 997,
-          "Pattern": "00"
-        },
-        {
-          "Start": 1008,
-          "Pattern": "0000"
         },
         {
           "Start": 1017,
@@ -54093,9 +56688,6 @@
       "Strings": [
         {
           "Pattern": "4344303031"
-        },
-        {
-          "Pattern": "46494C4553"
         }
       ]
     }
@@ -54103,21 +56695,25 @@
   {
     "File": {
       "Extensions": [
-        "iso"
+        "iso",
+        "toast",
+        "dmg"
       ],
       "Categories": [
+        "Archive",
+        "DiskImage",
         "Image"
       ],
-      "MimeType": ""
+      "MimeType": "application/x-apple-diskimage"
     },
     "Signature": {
       "Prefix": [
         {
-          "Pattern": "4552020000"
+          "Pattern": "4552"
         },
         {
-          "Start": 1024,
-          "Pattern": "504D"
+          "Start": 3,
+          "Pattern": "00"
         }
       ],
       "Strings": []
@@ -54145,6 +56741,44 @@
         },
         {
           "Pattern": "4C41594552"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "iso"
+      ],
+      "Categories": [
+        "Image"
+      ],
+      "MimeType": "application/x-udf-image"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "4F53544120434F4D5052455353454420554E49434F444500000000000000000000000000000000000000000000000000000000000000000000000000000000004F53544120434F4D5052455353454420554E49434F4445"
+        },
+        {
+          "Pattern": "2A4F5354412055444620434F4D504C49414E54"
+        },
+        {
+          "Pattern": "2A554446204C5620494E464F"
+        },
+        {
+          "Pattern": "2B4E535230"
+        },
+        {
+          "Pattern": "4245413031"
+        },
+        {
+          "Pattern": "5445413031"
         }
       ]
     }
@@ -54531,8 +57165,8 @@
   {
     "File": {
       "Extensions": [
-        "jpg",
-        "jpeg"
+        "jpeg",
+        "jpg"
       ],
       "Categories": [
         "Image",
@@ -54556,28 +57190,8 @@
   {
     "File": {
       "Extensions": [
+        "jpeg",
         "jpg"
-      ],
-      "Categories": [
-        "Image",
-        "Bitmap"
-      ],
-      "MimeType": "application/octet-stream"
-    },
-    "Signature": {
-      "Prefix": [
-        {
-          "Pattern": "68736931"
-        }
-      ],
-      "Strings": []
-    }
-  },
-  {
-    "File": {
-      "Extensions": [
-        "jpg",
-        "jpeg"
       ],
       "Categories": [
         "Image",
@@ -54601,8 +57215,8 @@
   {
     "File": {
       "Extensions": [
-        "jpg",
-        "jpeg"
+        "jpeg",
+        "jpg"
       ],
       "Categories": [
         "Image",
@@ -54630,8 +57244,8 @@
   {
     "File": {
       "Extensions": [
-        "jpg",
-        "jpeg"
+        "jpeg",
+        "jpg"
       ],
       "Categories": [
         "Image",
@@ -54651,8 +57265,8 @@
   {
     "File": {
       "Extensions": [
-        "jpg",
-        "jpeg"
+        "jpeg",
+        "jpg"
       ],
       "Categories": [
         "Image",
@@ -54683,6 +57297,26 @@
           "Pattern": "4A504547"
         }
       ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "jpg"
+      ],
+      "Categories": [
+        "Image",
+        "Bitmap"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "68736931"
+        }
+      ],
+      "Strings": []
     }
   },
   {
@@ -54792,6 +57426,27 @@
       "Prefix": [
         {
           "Pattern": "4A41595F4D53412E4B65793A"
+        }
+      ],
+      "Strings": []
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "key"
+      ],
+      "Categories": [],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "464D2A2130"
+        },
+        {
+          "Start": 20,
+          "Pattern": "44455300"
         }
       ],
       "Strings": []
@@ -55020,7 +57675,7 @@
         "lnk"
       ],
       "Categories": [],
-      "MimeType": ""
+      "MimeType": "application/x-ms-shortcut"
     },
     "Signature": {
       "Prefix": [
@@ -56856,6 +59511,26 @@
   {
     "File": {
       "Extensions": [
+        "mpeg",
+        "mpg"
+      ],
+      "Categories": [
+        "Video"
+      ],
+      "MimeType": "video/mpeg"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "000001BA"
+        }
+      ],
+      "Strings": []
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
         "mpg"
       ],
       "Categories": [
@@ -56867,26 +59542,6 @@
       "Prefix": [
         {
           "Pattern": "546F6D6D79536F667477617265204D504720312E"
-        }
-      ],
-      "Strings": []
-    }
-  },
-  {
-    "File": {
-      "Extensions": [
-        "mpg",
-        "mpeg"
-      ],
-      "Categories": [
-        "Video"
-      ],
-      "MimeType": "video/mpeg"
-    },
-    "Signature": {
-      "Prefix": [
-        {
-          "Pattern": "000001BA"
         }
       ],
       "Strings": []
@@ -57222,6 +59877,23 @@
           "Pattern": "52004F004F005400200045004E005400520059"
         }
       ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "msg"
+      ],
+      "Categories": [],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "4465736B746F702048656C702046696C652020202056657273696F6E2037"
+        }
+      ],
+      "Strings": []
     }
   },
   {
@@ -58283,6 +60955,88 @@
         }
       ],
       "Strings": []
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "pdf"
+      ],
+      "Categories": [
+        "Database",
+        "Document",
+        "Encrypted"
+      ],
+      "MimeType": "application/pdf"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "255044462D"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "464C4154454445434F4445"
+        },
+        {
+          "Pattern": "454E4453545245414D"
+        },
+        {
+          "Pattern": "5245534F5552434553"
+        },
+        {
+          "Pattern": "535441525458524546"
+        },
+        {
+          "Pattern": "434F4E54454E5453"
+        },
+        {
+          "Pattern": "4D45444941424F58"
+        },
+        {
+          "Pattern": "5354414E44415244"
+        },
+        {
+          "Pattern": "434154414C4F47"
+        },
+        {
+          "Pattern": "454E4352595054"
+        },
+        {
+          "Pattern": "53554254595045"
+        },
+        {
+          "Pattern": "454E444F424A"
+        },
+        {
+          "Pattern": "46494C544552"
+        },
+        {
+          "Pattern": "4C454E475448"
+        },
+        {
+          "Pattern": "504152454E54"
+        },
+        {
+          "Pattern": "2525454F46"
+        },
+        {
+          "Pattern": "5041474553"
+        },
+        {
+          "Pattern": "464F4E54"
+        },
+        {
+          "Pattern": "494E464F"
+        },
+        {
+          "Pattern": "524F4F54"
+        },
+        {
+          "Pattern": "53495A45"
+        }
+      ]
     }
   },
   {
@@ -60726,6 +63480,29 @@
   {
     "File": {
       "Extensions": [
+        "swf"
+      ],
+      "Categories": [
+        "DiskImage",
+        "Executable",
+        "Compressed",
+        "Script",
+        "Video"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "474658"
+        }
+      ],
+      "Strings": []
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
         "tex"
       ],
       "Categories": [],
@@ -60922,8 +63699,140 @@
   {
     "File": {
       "Extensions": [
-        "tif",
-        "tiff"
+        "tif"
+      ],
+      "Categories": [],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "49492A00"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "434C454152205052452053455155454E4345"
+        },
+        {
+          "Pattern": "4652414D455320544F2041564552414745"
+        },
+        {
+          "Pattern": "43414D45524120424954204445505448"
+        },
+        {
+          "Pattern": "43414D4552412053485554544552"
+        },
+        {
+          "Pattern": "5F494C4C554D53455454494E475F"
+        },
+        {
+          "Pattern": "54524947474552204D4F4445"
+        },
+        {
+          "Pattern": "5F4D414753455454494E475F"
+        },
+        {
+          "Pattern": "414C57415953204F50454E"
+        },
+        {
+          "Pattern": "434C45415220434F554E54"
+        },
+        {
+          "Pattern": "4F46465345542041542028"
+        },
+        {
+          "Pattern": "54454D5045524154555245"
+        },
+        {
+          "Pattern": "434C454152204D4F4445"
+        },
+        {
+          "Pattern": "4449474954495A4552"
+        },
+        {
+          "Pattern": "4D4554414D4F525048"
+        },
+        {
+          "Pattern": "4143515549524544"
+        },
+        {
+          "Pattern": "4558504F53555245"
+        },
+        {
+          "Pattern": "5355425452414354"
+        },
+        {
+          "Pattern": "42494E4E494E47"
+        },
+        {
+          "Pattern": "53484144494E47"
+        },
+        {
+          "Pattern": "5F4D41474E415F"
+        },
+        {
+          "Pattern": "5F4D414752495F"
+        },
+        {
+          "Pattern": "4E4F524D414C"
+        },
+        {
+          "Pattern": "524547494F4E"
+        },
+        {
+          "Pattern": "504C415445"
+        },
+        {
+          "Pattern": "4741494E"
+        },
+        {
+          "Pattern": "53495445"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "tif"
+      ],
+      "Categories": [
+        "Image",
+        "Bitmap"
+      ],
+      "MimeType": ""
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "00"
+        },
+        {
+          "Start": 65,
+          "Pattern": "54494646"
+        },
+        {
+          "Start": 74,
+          "Pattern": "00"
+        },
+        {
+          "Start": 82,
+          "Pattern": "00"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "54494646"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "tiff",
+        "tif"
       ],
       "Categories": [
         "Image",
@@ -60943,8 +63852,8 @@
   {
     "File": {
       "Extensions": [
-        "tif",
-        "tiff"
+        "tiff",
+        "tif"
       ],
       "Categories": [
         "BigEndian",
@@ -61086,8 +63995,8 @@
   {
     "File": {
       "Extensions": [
-        "tif",
-        "tiff"
+        "tiff",
+        "tif"
       ],
       "Categories": [
         "Image",
@@ -61228,8 +64137,8 @@
   {
     "File": {
       "Extensions": [
-        "tif",
-        "tiff"
+        "tiff",
+        "tif"
       ],
       "Categories": [],
       "MimeType": "application/octet-stream"
@@ -61254,8 +64163,8 @@
   {
     "File": {
       "Extensions": [
-        "tif",
-        "tiff"
+        "tiff",
+        "tif"
       ],
       "Categories": [
         "BigEndian",
@@ -61276,8 +64185,8 @@
   {
     "File": {
       "Extensions": [
-        "tif",
-        "tiff"
+        "tiff",
+        "tif"
       ],
       "Categories": [
         "LittleEndian",
@@ -61293,42 +64202,6 @@
         }
       ],
       "Strings": []
-    }
-  },
-  {
-    "File": {
-      "Extensions": [
-        "tif"
-      ],
-      "Categories": [
-        "Image",
-        "Bitmap"
-      ],
-      "MimeType": ""
-    },
-    "Signature": {
-      "Prefix": [
-        {
-          "Pattern": "00"
-        },
-        {
-          "Start": 65,
-          "Pattern": "54494646"
-        },
-        {
-          "Start": 74,
-          "Pattern": "00"
-        },
-        {
-          "Start": 82,
-          "Pattern": "00"
-        }
-      ],
-      "Strings": [
-        {
-          "Pattern": "54494646"
-        }
-      ]
     }
   },
   {
@@ -62206,8 +65079,8 @@
   {
     "File": {
       "Extensions": [
-        "wma",
-        "wmv"
+        "wmv",
+        "wma"
       ],
       "Categories": [],
       "MimeType": "application/octet-stream"
@@ -63135,6 +66008,72 @@
         },
         {
           "Pattern": "574F524B534845455453"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "xls",
+        "xml"
+      ],
+      "Categories": [
+        "Spreadsheet"
+      ],
+      "MimeType": "application/vnd.ms-excel"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "3C3F786D6C2076657273696F6E3D22312E3022"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "534348454D41532D4D4943524F534F46542D434F4D"
+        },
+        {
+          "Pattern": "574F524B424F4F4B20584D4C4E53"
+        },
+        {
+          "Pattern": "574F524B5348454554205353"
+        },
+        {
+          "Pattern": "5350524541445348454554"
+        },
+        {
+          "Pattern": "584D4C2056455253494F4E"
+        },
+        {
+          "Pattern": "5245432D48544D4C3430"
+        },
+        {
+          "Pattern": "5757572E57332E4F5247"
+        },
+        {
+          "Pattern": "5441424C45205353"
+        },
+        {
+          "Pattern": "434F4C554D4E"
+        },
+        {
+          "Pattern": "4E554D424552"
+        },
+        {
+          "Pattern": "4F4646494345"
+        },
+        {
+          "Pattern": "455843454C"
+        },
+        {
+          "Pattern": "43454C4C"
+        },
+        {
+          "Pattern": "48545450"
+        },
+        {
+          "Pattern": "4E414D45"
         }
       ]
     }
@@ -67810,7 +70749,7 @@
     "Signature": {
       "Prefix": [
         {
-          "Pattern": "3C3F786D6C2076657273696F6E3D22312E302220"
+          "Pattern": "3C3F786D6C2076657273696F6E3D22312E3022"
         }
       ],
       "Strings": [
@@ -67822,9 +70761,6 @@
         },
         {
           "Pattern": "4150504C49434154494F4E5F53435245454E53484F545F55524C"
-        },
-        {
-          "Pattern": "50524F4752414D5F53504543494649435F43415445474F5259"
         },
         {
           "Pattern": "4150504C49434154494F4E5F584D4C5F46494C455F55524C"
@@ -67870,9 +70806,6 @@
         },
         {
           "Pattern": "434F4D50414E595F574542534954455F55524C"
-        },
-        {
-          "Pattern": "50524F4752414D5F4348414E47455F494E464F"
         },
         {
           "Pattern": "50524F4752414D5F52454C454153455F444159"
@@ -68047,6 +70980,9 @@
         },
         {
           "Pattern": "494E434C554445"
+        },
+        {
+          "Pattern": "4348414E4745"
         },
         {
           "Pattern": "45554C41"
@@ -69279,72 +72215,6 @@
         },
         {
           "Pattern": "55554944"
-        }
-      ]
-    }
-  },
-  {
-    "File": {
-      "Extensions": [
-        "xml",
-        "xls"
-      ],
-      "Categories": [
-        "Spreadsheet"
-      ],
-      "MimeType": "application/vnd.ms-excel"
-    },
-    "Signature": {
-      "Prefix": [
-        {
-          "Pattern": "3C3F786D6C2076657273696F6E3D22312E3022"
-        }
-      ],
-      "Strings": [
-        {
-          "Pattern": "534348454D41532D4D4943524F534F46542D434F4D"
-        },
-        {
-          "Pattern": "574F524B424F4F4B20584D4C4E53"
-        },
-        {
-          "Pattern": "574F524B5348454554205353"
-        },
-        {
-          "Pattern": "5350524541445348454554"
-        },
-        {
-          "Pattern": "584D4C2056455253494F4E"
-        },
-        {
-          "Pattern": "5245432D48544D4C3430"
-        },
-        {
-          "Pattern": "5757572E57332E4F5247"
-        },
-        {
-          "Pattern": "5441424C45205353"
-        },
-        {
-          "Pattern": "434F4C554D4E"
-        },
-        {
-          "Pattern": "4E554D424552"
-        },
-        {
-          "Pattern": "4F4646494345"
-        },
-        {
-          "Pattern": "455843454C"
-        },
-        {
-          "Pattern": "43454C4C"
-        },
-        {
-          "Pattern": "48545450"
-        },
-        {
-          "Pattern": "4E414D45"
         }
       ]
     }
@@ -70808,387 +73678,64 @@
           "Pattern": "3C626C75656D73787468656D65206E616D653D22"
         }
       ],
+      "Strings": []
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "xml"
+      ],
+      "Categories": [
+        "Archive"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "3C3F786D6C2076657273696F6E3D22312E3022"
+        }
+      ],
       "Strings": [
         {
-          "Pattern": "4A4F59322D4B4559424F4152442D425554544F4E2E424D50"
+          "Pattern": "414444544F414343455353464F524D415453"
         },
         {
-          "Pattern": "4B4559424F4152442D4A4F59312D425554544F4E2E424D50"
+          "Pattern": "50414745204C4541464E554D"
         },
         {
-          "Pattern": "4B4559424F4152442D4A4F59322D425554544F4E2E424D50"
+          "Pattern": "4F524947484549474854"
         },
         {
-          "Pattern": "454F532D544554524953444F4E474C452E424D50"
+          "Pattern": "424F4F4B5354415254"
         },
         {
-          "Pattern": "4A4F59322D4A4F59312D425554544F4E2E424D50"
+          "Pattern": "4C454146434F554E54"
         },
         {
-          "Pattern": "504F5254312D434F4C45434F4A4F59535449434B"
+          "Pattern": "4F5249475749445448"
         },
         {
-          "Pattern": "504F5254312D4D414749434B4559444F4E474C45"
+          "Pattern": "424F4F4B44415441"
         },
         {
-          "Pattern": "504F5254322D434F4C45434F4A4F59535449434B"
+          "Pattern": "5041474544415441"
         },
         {
-          "Pattern": "504F5254322D4D414749434B4559444F4E474C45"
+          "Pattern": "5041474554595045"
         },
         {
-          "Pattern": "454F532D41524B414E4F49445041442E424D50"
+          "Pattern": "43524F50424F58"
         },
         {
-          "Pattern": "4E4F54204B4559424F4152442D454E41424C45"
+          "Pattern": "424F4F4B4944"
         },
         {
-          "Pattern": "504F5254312D54455452495332444F4E474C45"
+          "Pattern": "4E4F524D414C"
         },
         {
-          "Pattern": "504F5254322D54455452495332444F4E474C45"
-        },
-        {
-          "Pattern": "424C55454D53585448454D45204E414D45"
-        },
-        {
-          "Pattern": "454F532D4A4F59535449434B322E424D50"
-        },
-        {
-          "Pattern": "4C414E472D4B42442D4D4150504544544F"
-        },
-        {
-          "Pattern": "504F5254312D41524B414E4F4944504144"
-        },
-        {
-          "Pattern": "504F5254322D41524B414E4F4944504144"
-        },
-        {
-          "Pattern": "434C4F53452D425554544F4E2E424D50"
-        },
-        {
-          "Pattern": "434F4C45434F312D484153484D41524B"
-        },
-        {
-          "Pattern": "434F4C45434F322D484153484D41524B"
-        },
-        {
-          "Pattern": "454F532D415343494947554E2E424D50"
-        },
-        {
-          "Pattern": "454F532D4A4F59535449434B2E424D50"
-        },
-        {
-          "Pattern": "454F532D4B4559424F4152442E424D50"
-        },
-        {
-          "Pattern": "504F5254312D41534349494C41534552"
-        },
-        {
-          "Pattern": "504F5254322D41534349494C41534552"
-        },
-        {
-          "Pattern": "544558542D53454C45435445444B4559"
-        },
-        {
-          "Pattern": "454F532D5345474147554E2E424D50"
-        },
-        {
-          "Pattern": "4C414E472D4B42442D53454C4B4559"
-        },
-        {
-          "Pattern": "454F532D434F4C45434F2E424D50"
-        },
-        {
-          "Pattern": "454F532D444F4E474C452E424D50"
-        },
-        {
-          "Pattern": "4D494E2D425554544F4E2E424D50"
-        },
-        {
-          "Pattern": "504F5254312D47554E535449434B"
-        },
-        {
-          "Pattern": "504F5254312D4A4F59535449434B"
-        },
-        {
-          "Pattern": "504F5254322D47554E535449434B"
-        },
-        {
-          "Pattern": "504F5254322D4A4F59535449434B"
-        },
-        {
-          "Pattern": "544558542D4D41505045444B4559"
-        },
-        {
-          "Pattern": "5448454D452D4D494E494D495A45"
-        },
-        {
-          "Pattern": "425554544F4E2D43414E43454C"
-        },
-        {
-          "Pattern": "454F532D4D4F5553452E424D50"
-        },
-        {
-          "Pattern": "4A4F59425554544F4E2E424D50"
-        },
-        {
-          "Pattern": "4D454E552D4A4F59504F525432"
-        },
-        {
-          "Pattern": "544558542D4A4F59504F525432"
-        },
-        {
-          "Pattern": "5448454D452D53455450414745"
-        },
-        {
-          "Pattern": "4143544956454E4F54494659"
-        },
-        {
-          "Pattern": "434F4C45434F312D53544152"
-        },
-        {
-          "Pattern": "434F4C45434F322D53544152"
-        },
-        {
-          "Pattern": "4A4F59312D425554544F4E31"
-        },
-        {
-          "Pattern": "4A4F59312D425554544F4E32"
-        },
-        {
-          "Pattern": "4A4F59322D425554544F4E31"
-        },
-        {
-          "Pattern": "4A4F59322D425554544F4E32"
-        },
-        {
-          "Pattern": "5249474854425241434B4554"
-        },
-        {
-          "Pattern": "53454C2D44524F502E424D50"
-        },
-        {
-          "Pattern": "53454C2D544558542E424D50"
-        },
-        {
-          "Pattern": "44524147494D4147452058"
-        },
-        {
-          "Pattern": "454F532D4B45592E424D50"
-        },
-        {
-          "Pattern": "454F532D544F502E424D50"
-        },
-        {
-          "Pattern": "4C454654425241434B4554"
-        },
-        {
-          "Pattern": "504F5254312D4D4F555345"
-        },
-        {
-          "Pattern": "504F5254322D4D4F555345"
-        },
-        {
-          "Pattern": "53454C2D424F582E424D50"
-        },
-        {
-          "Pattern": "5448454D452D434C4F5345"
-        },
-        {
-          "Pattern": "57494E444F57204E414D45"
-        },
-        {
-          "Pattern": "434952434F4D464C4558"
-        },
-        {
-          "Pattern": "434C4950524547494F4E"
-        },
-        {
-          "Pattern": "4A4F59312D5249474854"
-        },
-        {
-          "Pattern": "4A4F59322D5249474854"
-        },
-        {
-          "Pattern": "4B4559424F4152442058"
-        },
-        {
-          "Pattern": "50414745205749445448"
-        },
-        {
-          "Pattern": "504F5254322D4E4F4E45"
-        },
-        {
-          "Pattern": "52494748545348494654"
-        },
-        {
-          "Pattern": "554E44455253434F5245"
-        },
-        {
-          "Pattern": "4241434B534C415348"
-        },
-        {
-          "Pattern": "4241434B5350414345"
-        },
-        {
-          "Pattern": "425554544F4E2D4F4B"
-        },
-        {
-          "Pattern": "4A4F59312D444F574E"
-        },
-        {
-          "Pattern": "4A4F59312D4C454654"
-        },
-        {
-          "Pattern": "4A4F59322D444F574E"
-        },
-        {
-          "Pattern": "4A4F59322D4C454654"
-        },
-        {
-          "Pattern": "4A4F59535449434B31"
-        },
-        {
-          "Pattern": "4C4546545348494654"
-        },
-        {
-          "Pattern": "4E554D504552494F44"
-        },
-        {
-          "Pattern": "53454D49434F4C4F4E"
-        },
-        {
-          "Pattern": "544F52494B45534849"
-        },
-        {
-          "Pattern": "425554544F4E2058"
-        },
-        {
-          "Pattern": "4B455920434F4445"
-        },
-        {
-          "Pattern": "4E554D434F4D4D41"
-        },
-        {
-          "Pattern": "4F424A4543542058"
-        },
-        {
-          "Pattern": "424C4F434B2058"
-        },
-        {
-          "Pattern": "4647434F4C4F52"
-        },
-        {
-          "Pattern": "48414E444C4552"
-        },
-        {
-          "Pattern": "4A4F59312D5550"
-        },
-        {
-          "Pattern": "4A4F59322D5550"
-        },
-        {
-          "Pattern": "504F494E542058"
-        },
-        {
-          "Pattern": "54524947474552"
-        },
-        {
-          "Pattern": "545552424F524E"
-        },
-        {
-          "Pattern": "56495349424C45"
-        },
-        {
-          "Pattern": "414354494F4E"
-        },
-        {
-          "Pattern": "484549474854"
-        },
-        {
-          "Pattern": "4A494B4B4F55"
-        },
-        {
-          "Pattern": "4E4154495645"
-        },
-        {
-          "Pattern": "4E554D414444"
-        },
-        {
-          "Pattern": "4E554D444956"
-        },
-        {
-          "Pattern": "4E554D4D554C"
-        },
-        {
-          "Pattern": "4E554D535542"
-        },
-        {
-          "Pattern": "52455455524E"
-        },
-        {
-          "Pattern": "544558542058"
-        },
-        {
-          "Pattern": "414C49474E"
-        },
-        {
-          "Pattern": "4652414D45"
-        },
-        {
-          "Pattern": "4752415048"
-        },
-        {
-          "Pattern": "5041555345"
-        },
-        {
-          "Pattern": "41524741"
-        },
-        {
-          "Pattern": "41524742"
-        },
-        {
-          "Pattern": "43415053"
-        },
-        {
-          "Pattern": "4354524C"
-        },
-        {
-          "Pattern": "4E554D30"
-        },
-        {
-          "Pattern": "4E554D31"
-        },
-        {
-          "Pattern": "4E554D32"
-        },
-        {
-          "Pattern": "4E554D33"
-        },
-        {
-          "Pattern": "4E554D34"
-        },
-        {
-          "Pattern": "4E554D35"
-        },
-        {
-          "Pattern": "4E554D36"
-        },
-        {
-          "Pattern": "4E554D37"
-        },
-        {
-          "Pattern": "4E554D38"
-        },
-        {
-          "Pattern": "4E554D39"
-        },
-        {
-          "Pattern": "53544F50"
-        },
-        {
-          "Pattern": "54595045"
+          "Pattern": "5449544C45"
         }
       ]
     }
@@ -71399,6 +73946,197 @@
         },
         {
           "Pattern": "55554944"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "xml"
+      ],
+      "Categories": [
+        "Image"
+      ],
+      "MimeType": "text/xml"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "3C3F786D6C2076657273696F6E3D22312E30223F3E"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "484947484C4947485445445F5345415243485F524553554C5453"
+        },
+        {
+          "Pattern": "43555252454E545F44454255475F4C494E45"
+        },
+        {
+          "Pattern": "43363453545544494F53455454494E4753"
+        },
+        {
+          "Pattern": "4552524F525F554E4445524C494E45"
+        },
+        {
+          "Pattern": "4C49544552414C5F4E554D424552"
+        },
+        {
+          "Pattern": "4C49544552414C5F535452494E47"
+        },
+        {
+          "Pattern": "434F4C4F5220454C454D454E54"
+        },
+        {
+          "Pattern": "454449544F52434F4C4F5253"
+        },
+        {
+          "Pattern": "454D5054595F5350414345"
+        },
+        {
+          "Pattern": "50534555444F5F4F50"
+        },
+        {
+          "Pattern": "4F50455241544F52"
+        },
+        {
+          "Pattern": "4247434F4C4F52"
+        },
+        {
+          "Pattern": "434F4D4D454E54"
+        },
+        {
+          "Pattern": "4647434F4C4F52"
+        },
+        {
+          "Pattern": "4C4142454C"
+        },
+        {
+          "Pattern": "4155544F"
+        },
+        {
+          "Pattern": "434F4445"
+        },
+        {
+          "Pattern": "4E4F4E45"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "xml"
+      ],
+      "Categories": [],
+      "MimeType": "text/xml"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "3C3F786D6C2076657273696F6E3D22312E302220656E636F64696E673D225554462D3822207374616E64616C6F6E653D2279657322"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "434154524F4241544C414E475541474556455253494F4E"
+        },
+        {
+          "Pattern": "4150504C49434154494F4E4255494C444E554D424552"
+        },
+        {
+          "Pattern": "4150504C49434154494F4E4255494C444E414D45"
+        },
+        {
+          "Pattern": "50524F4752414D5641524941424C454C495354"
+        },
+        {
+          "Pattern": "4150504C49434154494F4E56455253494F4E"
+        },
+        {
+          "Pattern": "4150504C49434154494F4E4E414D45"
+        },
+        {
+          "Pattern": "504C4154464F524D56455253494F4E"
+        },
+        {
+          "Pattern": "4441544554494D4555504C4F4144"
+        },
+        {
+          "Pattern": "50524F4752414D4C4943454E5345"
+        },
+        {
+          "Pattern": "4D454449414C4943454E5345"
+        },
+        {
+          "Pattern": "53435245454E484549474854"
+        },
+        {
+          "Pattern": "555345525641524941424C45"
+        },
+        {
+          "Pattern": "4445534352495054494F4E"
+        },
+        {
+          "Pattern": "504F434B455420434F4445"
+        },
+        {
+          "Pattern": "50524F4752414D4E414D45"
+        },
+        {
+          "Pattern": "53435245454E5749445448"
+        },
+        {
+          "Pattern": "5354415254534352495054"
+        },
+        {
+          "Pattern": "4445564943454E414D45"
+        },
+        {
+          "Pattern": "4F424A4543544C495354"
+        },
+        {
+          "Pattern": "5343524950544C495354"
+        },
+        {
+          "Pattern": "5354414E44414C4F4E45"
+        },
+        {
+          "Pattern": "5553455248414E444C45"
+        },
+        {
+          "Pattern": "425249434B4C495354"
+        },
+        {
+          "Pattern": "534F554E444C495354"
+        },
+        {
+          "Pattern": "5641524941424C4553"
+        },
+        {
+          "Pattern": "4C4F4F4B4C495354"
+        },
+        {
+          "Pattern": "414E44524F4944"
+        },
+        {
+          "Pattern": "464F524D554C41"
+        },
+        {
+          "Pattern": "52454D49584F46"
+        },
+        {
+          "Pattern": "484541444552"
+        },
+        {
+          "Pattern": "56414C5545"
+        },
+        {
+          "Pattern": "54414753"
+        },
+        {
+          "Pattern": "54595045"
         }
       ]
     }
@@ -73706,6 +76444,52 @@
         "xml"
       ],
       "Categories": [
+        "Archive",
+        "Executable",
+        "Script"
+      ],
+      "MimeType": "text/xml"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "3C3F786D6C2076657273696F6E3D22312E302220656E636F64696E673D227574662D3822"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "494E5354414C4C45522D4755492D534352495054204D494E5350454356455253494F4E"
+        },
+        {
+          "Pattern": "4F5054494F4E5320435553544F4D495A45"
+        },
+        {
+          "Pattern": "43484F494345532D4F55544C494E45"
+        },
+        {
+          "Pattern": "4C494E452043484F494345"
+        },
+        {
+          "Pattern": "504B472D524546204944"
+        },
+        {
+          "Pattern": "43484F494345204944"
+        },
+        {
+          "Pattern": "44454641554C54"
+        },
+        {
+          "Pattern": "56495349424C45"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "xml"
+      ],
+      "Categories": [
         "Project",
         "Vector"
       ],
@@ -74921,6 +77705,138 @@
       "Extensions": [
         "xml"
       ],
+      "Categories": [
+        "Archive",
+        "Log"
+      ],
+      "MimeType": "text/xml"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "EFBBBF3C3F786D6C2076657273696F6E3D22312E302220656E636F64696E673D225554462D3822207374616E64616C6F6E653D2279657322203F3E0D3C3F65787072657373696F6E206D65646961206578706F727476657273696F6E3D22312E30222061707076657273696F6E3D22312E3022203F3E0D0D3C"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "45585052455353494F4E204D45444941204558504F525456455253494F4E"
+        },
+        {
+          "Pattern": "535247422049454336313936362D322E31"
+        },
+        {
+          "Pattern": "434154414C4F47205041544854595045"
+        },
+        {
+          "Pattern": "415353455450524F50455254494553"
+        },
+        {
+          "Pattern": "4D4544494150524F50455254494553"
+        },
+        {
+          "Pattern": "5052494D415259454E434F44494E47"
+        },
+        {
+          "Pattern": "5245534F4C5554494F4E20554E4954"
+        },
+        {
+          "Pattern": "4D455441444154414649454C4453"
+        },
+        {
+          "Pattern": "46494C4553495A4520554E4954"
+        },
+        {
+          "Pattern": "4D454449414954454D4C495354"
+        },
+        {
+          "Pattern": "434F4C4F5250524F46494C45"
+        },
+        {
+          "Pattern": "50484F544F202D204A504547"
+        },
+        {
+          "Pattern": "56494557524F544154494F4E"
+        },
+        {
+          "Pattern": "434154414C4F4754595045"
+        },
+        {
+          "Pattern": "434F4D5052455353494F4E"
+        },
+        {
+          "Pattern": "48454947485420554E4954"
+        },
+        {
+          "Pattern": "53414D504C45434F4C4F52"
+        },
+        {
+          "Pattern": "41505056455253494F4E"
+        },
+        {
+          "Pattern": "434F4C4F525350414345"
+        },
+        {
+          "Pattern": "444550544820554E4954"
+        },
+        {
+          "Pattern": "5354414E44414C4F4E45"
+        },
+        {
+          "Pattern": "574944544820554E4954"
+        },
+        {
+          "Pattern": "4D4544494154595045"
+        },
+        {
+          "Pattern": "534F5552434555524C"
+        },
+        {
+          "Pattern": "46494C454E414D45"
+        },
+        {
+          "Pattern": "46494C4550415448"
+        },
+        {
+          "Pattern": "4D4F444946494544"
+        },
+        {
+          "Pattern": "554E495155454944"
+        },
+        {
+          "Pattern": "43524541544544"
+        },
+        {
+          "Pattern": "504958454C53"
+        },
+        {
+          "Pattern": "524154494E47"
+        },
+        {
+          "Pattern": "4144444544"
+        },
+        {
+          "Pattern": "4259544553"
+        },
+        {
+          "Pattern": "4C4142454C"
+        },
+        {
+          "Pattern": "5041474553"
+        },
+        {
+          "Pattern": "42495453"
+        },
+        {
+          "Pattern": "544F4E45"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "xml"
+      ],
       "Categories": [],
       "MimeType": "text/xml"
     },
@@ -75332,6 +78248,41 @@
         },
         {
           "Pattern": "55524C53"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "xml"
+      ],
+      "Categories": [
+        "Configuration"
+      ],
+      "MimeType": "text/xml"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "3C3F786D6C2076657273696F6E3D22312E3022"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "5441524745542D504C41594552"
+        },
+        {
+          "Pattern": "464C45582D434F4E464947"
+        },
+        {
+          "Pattern": "434F4D50494C4552"
+        },
+        {
+          "Pattern": "4C4942524152"
+        },
+        {
+          "Pattern": "41444F4245"
         }
       ]
     }
@@ -78757,6 +81708,648 @@
       "Extensions": [
         "xml"
       ],
+      "Categories": [
+        "Utf8"
+      ],
+      "MimeType": "text/xml"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "EFBBBF3C3F786D6C2076657273696F6E3D22312E3022"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "54454D5045524154555245554E4954"
+        },
+        {
+          "Pattern": "5757572E4C414E44584D4C2E4F5247"
+        },
+        {
+          "Pattern": "5052455353555245554E4954"
+        },
+        {
+          "Pattern": "4C414E44584D4C2D312E31"
+        },
+        {
+          "Pattern": "4C494E454152554E4954"
+        },
+        {
+          "Pattern": "564F4C554D45554E4954"
+        },
+        {
+          "Pattern": "41524541554E4954"
+        },
+        {
+          "Pattern": "4C4F434154494F4E"
+        },
+        {
+          "Pattern": "534348454D41"
+        },
+        {
+          "Pattern": "535155415245"
+        },
+        {
+          "Pattern": "5354414E4345"
+        },
+        {
+          "Pattern": "4355424943"
+        },
+        {
+          "Pattern": "4D454E5453"
+        },
+        {
+          "Pattern": "554E495453"
+        },
+        {
+          "Pattern": "584D4C4E53"
+        },
+        {
+          "Pattern": "44415445"
+        },
+        {
+          "Pattern": "44455343"
+        },
+        {
+          "Pattern": "48545450"
+        },
+        {
+          "Pattern": "494E5354"
+        },
+        {
+          "Pattern": "4E414D45"
+        },
+        {
+          "Pattern": "54494D45"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "xml"
+      ],
+      "Categories": [],
+      "MimeType": "text/xml"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "3C3F786D6C2076657273696F6E3D22312E3022"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "54454D5045524154555245554E4954"
+        },
+        {
+          "Pattern": "5757572E4C414E44584D4C2E4F5247"
+        },
+        {
+          "Pattern": "5052455353555245554E4954"
+        },
+        {
+          "Pattern": "4C414E44584D4C2D312E31"
+        },
+        {
+          "Pattern": "4C494E454152554E4954"
+        },
+        {
+          "Pattern": "564F4C554D45554E4954"
+        },
+        {
+          "Pattern": "41524541554E4954"
+        },
+        {
+          "Pattern": "4C4F434154494F4E"
+        },
+        {
+          "Pattern": "534348454D41"
+        },
+        {
+          "Pattern": "535155415245"
+        },
+        {
+          "Pattern": "5354414E4345"
+        },
+        {
+          "Pattern": "554E495453"
+        },
+        {
+          "Pattern": "584D4C4E53"
+        },
+        {
+          "Pattern": "44415445"
+        },
+        {
+          "Pattern": "44455343"
+        },
+        {
+          "Pattern": "48545450"
+        },
+        {
+          "Pattern": "494E5354"
+        },
+        {
+          "Pattern": "4D454E54"
+        },
+        {
+          "Pattern": "4E414D45"
+        },
+        {
+          "Pattern": "54494D45"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "xml"
+      ],
+      "Categories": [
+        "Utf8"
+      ],
+      "MimeType": "text/xml"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "EFBBBF3C3F786D6C2076657273696F6E3D22312E3022"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "584D4C534348454D412D494E5354414E4345"
+        },
+        {
+          "Pattern": "4150504C49434154494F4E204E414D45"
+        },
+        {
+          "Pattern": "4C414E44584D4C2D312E322048545450"
+        },
+        {
+          "Pattern": "444543494D414C2044454752454553"
+        },
+        {
+          "Pattern": "4C414E44584D4C2D312E322E585344"
+        },
+        {
+          "Pattern": "4D414E55464143545552455255524C"
+        },
+        {
+          "Pattern": "54454D5045524154555245554E4954"
+        },
+        {
+          "Pattern": "5757572E4C414E44584D4C2E4F5247"
+        },
+        {
+          "Pattern": "534348454D414C4F434154494F4E"
+        },
+        {
+          "Pattern": "4C414E44584D4C20584D4C4E53"
+        },
+        {
+          "Pattern": "4347504F494E54204E414D45"
+        },
+        {
+          "Pattern": "5052455353555245554E4954"
+        },
+        {
+          "Pattern": "414E47554C4152554E4954"
+        },
+        {
+          "Pattern": "5351554152454D45544552"
+        },
+        {
+          "Pattern": "43554249434D45544552"
+        },
+        {
+          "Pattern": "4C494E454152554E4954"
+        },
+        {
+          "Pattern": "564F4C554D45554E4954"
+        },
+        {
+          "Pattern": "5757572E57332E4F5247"
+        },
+        {
+          "Pattern": "54494D455354414D50"
+        },
+        {
+          "Pattern": "41524541554E4954"
+        },
+        {
+          "Pattern": "4347504F494E5453"
+        },
+        {
+          "Pattern": "4C414E4755414745"
+        },
+        {
+          "Pattern": "524541444F4E4C59"
+        },
+        {
+          "Pattern": "43454C53495553"
+        },
+        {
+          "Pattern": "50524F4A454354"
+        },
+        {
+          "Pattern": "4D4554524943"
+        },
+        {
+          "Pattern": "554E495453"
+        },
+        {
+          "Pattern": "32303031"
+        },
+        {
+          "Pattern": "44415445"
+        },
+        {
+          "Pattern": "44455343"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "xml"
+      ],
+      "Categories": [],
+      "MimeType": "text/xml"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "3C3F786D6C2076657273696F6E3D22312E3022"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "584D4C534348454D412D494E5354414E4345"
+        },
+        {
+          "Pattern": "4150504C49434154494F4E204E414D45"
+        },
+        {
+          "Pattern": "4C414E44584D4C2D312E322048545450"
+        },
+        {
+          "Pattern": "444543494D414C2044454752454553"
+        },
+        {
+          "Pattern": "4C414E44584D4C2D312E322E585344"
+        },
+        {
+          "Pattern": "4D414E55464143545552455255524C"
+        },
+        {
+          "Pattern": "54454D5045524154555245554E4954"
+        },
+        {
+          "Pattern": "5757572E4C414E44584D4C2E4F5247"
+        },
+        {
+          "Pattern": "534348454D414C4F434154494F4E"
+        },
+        {
+          "Pattern": "4C414E44584D4C20584D4C4E53"
+        },
+        {
+          "Pattern": "4347504F494E54204E414D45"
+        },
+        {
+          "Pattern": "5052455353555245554E4954"
+        },
+        {
+          "Pattern": "414E47554C4152554E4954"
+        },
+        {
+          "Pattern": "5351554152454D45544552"
+        },
+        {
+          "Pattern": "43554249434D45544552"
+        },
+        {
+          "Pattern": "4C494E454152554E4954"
+        },
+        {
+          "Pattern": "564F4C554D45554E4954"
+        },
+        {
+          "Pattern": "5757572E57332E4F5247"
+        },
+        {
+          "Pattern": "54494D455354414D50"
+        },
+        {
+          "Pattern": "41524541554E4954"
+        },
+        {
+          "Pattern": "4347504F494E5453"
+        },
+        {
+          "Pattern": "4C414E4755414745"
+        },
+        {
+          "Pattern": "524541444F4E4C59"
+        },
+        {
+          "Pattern": "43454C53495553"
+        },
+        {
+          "Pattern": "50524F4A454354"
+        },
+        {
+          "Pattern": "4D4554524943"
+        },
+        {
+          "Pattern": "554E495453"
+        },
+        {
+          "Pattern": "32303031"
+        },
+        {
+          "Pattern": "44415445"
+        },
+        {
+          "Pattern": "44455343"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "xml"
+      ],
+      "Categories": [
+        "Utf8"
+      ],
+      "MimeType": "text/xml"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "EFBBBF3C3F786D6C2076657273696F6E3D22312E30223F3E"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "444546494E4954494F4E205355524654595045"
+        },
+        {
+          "Pattern": "584D4C534348454D412D494E5354414E4345"
+        },
+        {
+          "Pattern": "54455854555245494D414745204E414D45"
+        },
+        {
+          "Pattern": "54455854555245494D4147455343414C45"
+        },
+        {
+          "Pattern": "54455854555245494D4147455441424C45"
+        },
+        {
+          "Pattern": "4150504C49434154494F4E204E414D45"
+        },
+        {
+          "Pattern": "424F554E4441525920424E4454595045"
+        },
+        {
+          "Pattern": "4C414E44584D4C2D322E302048545450"
+        },
+        {
+          "Pattern": "54455854555245484558535452494E47"
+        },
+        {
+          "Pattern": "4C414E44584D4C2D322E302E585344"
+        },
+        {
+          "Pattern": "4D414E55464143545552455255524C"
+        },
+        {
+          "Pattern": "54455854555245494D414745524546"
+        },
+        {
+          "Pattern": "5757572E4C414E44584D4C2E4F5247"
+        },
+        {
+          "Pattern": "4D4154455249414C20494E444558"
+        },
+        {
+          "Pattern": "534348454D414C4F434154494F4E"
+        },
+        {
+          "Pattern": "4C414E44584D4C20584D4C4E53"
+        },
+        {
+          "Pattern": "4D4154455249414C5441424C45"
+        },
+        {
+          "Pattern": "53555246414345204E414D45"
+        },
+        {
+          "Pattern": "424F554E444152494553"
+        },
+        {
+          "Pattern": "4C494E454152554E4954"
+        },
+        {
+          "Pattern": "534F5552434544415441"
+        },
+        {
+          "Pattern": "564F4C554D45554E4954"
+        },
+        {
+          "Pattern": "5757572E57332E4F5247"
+        },
+        {
+          "Pattern": "504E544C4953543344"
+        },
+        {
+          "Pattern": "41524541554E4954"
+        },
+        {
+          "Pattern": "4C414E4755414745"
+        },
+        {
+          "Pattern": "524541444F4E4C59"
+        },
+        {
+          "Pattern": "5355524641434553"
+        },
+        {
+          "Pattern": "434F4C4F52"
+        },
+        {
+          "Pattern": "4355424943"
+        },
+        {
+          "Pattern": "554E495453"
+        },
+        {
+          "Pattern": "32303031"
+        },
+        {
+          "Pattern": "44415445"
+        },
+        {
+          "Pattern": "44455343"
+        },
+        {
+          "Pattern": "50204944"
+        },
+        {
+          "Pattern": "504E5453"
+        },
+        {
+          "Pattern": "54494D45"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "xml"
+      ],
+      "Categories": [],
+      "MimeType": "text/xml"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "3C3F786D6C2076657273696F6E3D22312E30223F3E"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "444546494E4954494F4E205355524654595045"
+        },
+        {
+          "Pattern": "584D4C534348454D412D494E5354414E4345"
+        },
+        {
+          "Pattern": "54455854555245494D414745204E414D45"
+        },
+        {
+          "Pattern": "54455854555245494D4147455343414C45"
+        },
+        {
+          "Pattern": "54455854555245494D4147455441424C45"
+        },
+        {
+          "Pattern": "4150504C49434154494F4E204E414D45"
+        },
+        {
+          "Pattern": "424F554E4441525920424E4454595045"
+        },
+        {
+          "Pattern": "4C414E44584D4C2D322E302048545450"
+        },
+        {
+          "Pattern": "54455854555245484558535452494E47"
+        },
+        {
+          "Pattern": "4C414E44584D4C2D322E302E585344"
+        },
+        {
+          "Pattern": "4D414E55464143545552455255524C"
+        },
+        {
+          "Pattern": "54455854555245494D414745524546"
+        },
+        {
+          "Pattern": "5757572E4C414E44584D4C2E4F5247"
+        },
+        {
+          "Pattern": "4D4154455249414C20494E444558"
+        },
+        {
+          "Pattern": "534348454D414C4F434154494F4E"
+        },
+        {
+          "Pattern": "4C414E44584D4C20584D4C4E53"
+        },
+        {
+          "Pattern": "4D4154455249414C5441424C45"
+        },
+        {
+          "Pattern": "53555246414345204E414D45"
+        },
+        {
+          "Pattern": "584D4C2056455253494F4E"
+        },
+        {
+          "Pattern": "424F554E444152494553"
+        },
+        {
+          "Pattern": "4C494E454152554E4954"
+        },
+        {
+          "Pattern": "534F5552434544415441"
+        },
+        {
+          "Pattern": "564F4C554D45554E4954"
+        },
+        {
+          "Pattern": "5757572E57332E4F5247"
+        },
+        {
+          "Pattern": "504E544C4953543344"
+        },
+        {
+          "Pattern": "41524541554E4954"
+        },
+        {
+          "Pattern": "4C414E4755414745"
+        },
+        {
+          "Pattern": "524541444F4E4C59"
+        },
+        {
+          "Pattern": "5355524641434553"
+        },
+        {
+          "Pattern": "434F4C4F52"
+        },
+        {
+          "Pattern": "4355424943"
+        },
+        {
+          "Pattern": "554E495453"
+        },
+        {
+          "Pattern": "32303031"
+        },
+        {
+          "Pattern": "44415445"
+        },
+        {
+          "Pattern": "44455343"
+        },
+        {
+          "Pattern": "50204944"
+        },
+        {
+          "Pattern": "504E5453"
+        },
+        {
+          "Pattern": "54494D45"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "xml"
+      ],
       "Categories": [],
       "MimeType": "text/xml"
     },
@@ -81147,7 +84740,7 @@
     "Signature": {
       "Prefix": [
         {
-          "Pattern": "3C3F786D6C2076657273696F6E3D22312E30223F3E"
+          "Pattern": "3C3F786D6C2076657273696F6E3D22312E3022"
         }
       ],
       "Strings": [
@@ -81158,9 +84751,6 @@
           "Pattern": "584D4C534348454D412D494E5354414E4345"
         },
         {
-          "Pattern": "4143515549534954494F4E44415445"
-        },
-        {
           "Pattern": "44494D454E53494F4E4F52444552"
         },
         {
@@ -81168,9 +84758,6 @@
         },
         {
           "Pattern": "584D4C2056455253494F4E"
-        },
-        {
-          "Pattern": "42494E41525946494C45"
         },
         {
           "Pattern": "5757572E57332E4F5247"
@@ -81210,6 +84797,9 @@
         },
         {
           "Pattern": "44415441"
+        },
+        {
+          "Pattern": "44415445"
         },
         {
           "Pattern": "48545450"
@@ -81302,6 +84892,158 @@
         },
         {
           "Pattern": "59454152"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "xml"
+      ],
+      "Categories": [
+        "Project"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "3C3F786D6C2076657273696F6E3D27312E302720656E636F64696E673D277574662D38273F3E"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "46494C4548454144455220434F4D50414E594E414D45"
+        },
+        {
+          "Pattern": "434F4E4E454354494F4E205245464C4F43414C4944"
+        },
+        {
+          "Pattern": "4D4F44494649434154494F4E4441544554494D45"
+        },
+        {
+          "Pattern": "434F4E46494755524154494F4E204E414D45"
+        },
+        {
+          "Pattern": "434F4E4E454354494F4E504F494E544F5554"
+        },
+        {
+          "Pattern": "434F4E54454E54484541444552204E414D45"
+        },
+        {
+          "Pattern": "434F4E4E454354494F4E504F494E54494E"
+        },
+        {
+          "Pattern": "4352454154494F4E4441544554494D45"
+        },
+        {
+          "Pattern": "504F55494E5354414E4345204E414D45"
+        },
+        {
+          "Pattern": "5641524941424C45204C4F43414C4944"
+        },
+        {
+          "Pattern": "5757572E504C434F50454E2E4F5247"
+        },
+        {
+          "Pattern": "434F4E46494755524154494F4E53"
+        },
+        {
+          "Pattern": "434F4F5244494E415445494E464F"
+        },
+        {
+          "Pattern": "50524F4455435456455253494F4E"
+        },
+        {
+          "Pattern": "50524F4A45435420584D4C4E53"
+        },
+        {
+          "Pattern": "52454C504F534954494F4E2058"
+        },
+        {
+          "Pattern": "5245534F55524345204E414D45"
+        },
+        {
+          "Pattern": "5641524941424C45204E414D45"
+        },
+        {
+          "Pattern": "4F55545641524941424C45"
+        },
+        {
+          "Pattern": "50524F445543544E414D45"
+        },
+        {
+          "Pattern": "45585052455353494F4E"
+        },
+        {
+          "Pattern": "5757572E57332E4F5247"
+        },
+        {
+          "Pattern": "444154415459504553"
+        },
+        {
+          "Pattern": "494E5354414E434553"
+        },
+        {
+          "Pattern": "494E54455246414345"
+        },
+        {
+          "Pattern": "4C4F43414C56415253"
+        },
+        {
+          "Pattern": "5343414C494E472058"
+        },
+        {
+          "Pattern": "5441534B204E414D45"
+        },
+        {
+          "Pattern": "584D4C534348454D41"
+        },
+        {
+          "Pattern": "494E54455256414C"
+        },
+        {
+          "Pattern": "504F55204E414D45"
+        },
+        {
+          "Pattern": "5052494F52495459"
+        },
+        {
+          "Pattern": "5443365F30323031"
+        },
+        {
+          "Pattern": "545950454E414D45"
+        },
+        {
+          "Pattern": "504F5554595045"
+        },
+        {
+          "Pattern": "50524F4752414D"
+        },
+        {
+          "Pattern": "484549474854"
+        },
+        {
+          "Pattern": "5749445448"
+        },
+        {
+          "Pattern": "5848544D4C"
+        },
+        {
+          "Pattern": "31393939"
+        },
+        {
+          "Pattern": "32303031"
+        },
+        {
+          "Pattern": "424F4459"
+        },
+        {
+          "Pattern": "48545450"
+        },
+        {
+          "Pattern": "504F5553"
         }
       ]
     }
@@ -82002,7 +85744,7 @@
     "Signature": {
       "Prefix": [
         {
-          "Pattern": "3C6D616368696E652069643D22"
+          "Pattern": "3C"
         }
       ],
       "Strings": [
@@ -82013,13 +85755,13 @@
           "Pattern": "4241434B47524F554E44"
         },
         {
+          "Pattern": "4D414348494E45204944"
+        },
+        {
           "Pattern": "4E414D4520504F53"
         },
         {
           "Pattern": "44454641554C54"
-        },
-        {
-          "Pattern": "44455649434553"
         },
         {
           "Pattern": "424F52444552"
@@ -82034,9 +85776,6 @@
           "Pattern": "52414D204944"
         },
         {
-          "Pattern": "2E4A534F4E"
-        },
-        {
           "Pattern": "4D4F44454C"
         },
         {
@@ -82046,13 +85785,7 @@
           "Pattern": "41444452"
         },
         {
-          "Pattern": "46494C45"
-        },
-        {
           "Pattern": "53495A45"
-        },
-        {
-          "Pattern": "54455354"
         },
         {
           "Pattern": "54595045"
@@ -82936,6 +86669,83 @@
       "Extensions": [
         "xml"
       ],
+      "Categories": [
+        "Configuration"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "3C534353493253443E"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "444556494345545950454D4F444946494552"
+        },
+        {
+          "Pattern": "484541445350455243594C494E444552"
+        },
+        {
+          "Pattern": "534543544F5253504552545241434B"
+        },
+        {
+          "Pattern": "4259544553504552534543544F52"
+        },
+        {
+          "Pattern": "53435349544152474554204944"
+        },
+        {
+          "Pattern": "5344534543544F525354415254"
+        },
+        {
+          "Pattern": "554E4954415454454E54494F4E"
+        },
+        {
+          "Pattern": "454E41424C455343534932"
+        },
+        {
+          "Pattern": "53435349534543544F5253"
+        },
+        {
+          "Pattern": "5245564953494F4E"
+        },
+        {
+          "Pattern": "434F4445535243"
+        },
+        {
+          "Pattern": "44495341424C45"
+        },
+        {
+          "Pattern": "454E41424C4544"
+        },
+        {
+          "Pattern": "504152495459"
+        },
+        {
+          "Pattern": "50524F444944"
+        },
+        {
+          "Pattern": "515549524B53"
+        },
+        {
+          "Pattern": "53455249414C"
+        },
+        {
+          "Pattern": "56454E444F52"
+        },
+        {
+          "Pattern": "41434845"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "xml"
+      ],
       "Categories": [],
       "MimeType": "text/xml"
     },
@@ -83708,6 +87518,59 @@
         "xml"
       ],
       "Categories": [
+        "Spreadsheet"
+      ],
+      "MimeType": "text/xml"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "3C3F786D6C2076657273696F6E3D22312E302220656E636F64696E673D225554462D38223F3E0A3C212D2D2D20205363726962612F7461626C65202D2D3E0A3C746162656C206E616D653D22"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "424F524445525F424F54544F4D"
+        },
+        {
+          "Pattern": "424F524445525F5249474854"
+        },
+        {
+          "Pattern": "424F524445525F4C454654"
+        },
+        {
+          "Pattern": "4649454C44205749445448"
+        },
+        {
+          "Pattern": "5445585420535452494E47"
+        },
+        {
+          "Pattern": "424F524445525F544F50"
+        },
+        {
+          "Pattern": "524F5720464F524D4154"
+        },
+        {
+          "Pattern": "464F4E5453495A45"
+        },
+        {
+          "Pattern": "4E45574C494E45"
+        },
+        {
+          "Pattern": "4F504143495459"
+        },
+        {
+          "Pattern": "484549474854"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "xml"
+      ],
+      "Categories": [
         "Utf8",
         "Configuration"
       ],
@@ -84372,6 +88235,98 @@
         }
       ],
       "Strings": []
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "xml"
+      ],
+      "Categories": [
+        "Archive"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "3C3F786D6C2076657273696F6E203D2022312E302220656E636F64696E673D225554462D3822207374616E64616C6F6E653D22796573223F3E0D0A3C5646504461746120786D6C3A73706163653D227072657365727665223E0D0A093C7873643A736368656D612069643D22564650446174612220786D6C6E733A7873643D22687474703A2F2F7777772E77332E6F72672F323030312F584D4C536368656D612220786D6C6E733A6D73646174613D2275726E3A736368656D61732D6D6963726F736F66742D636F6D3A786D6C2D6D7364617461223E0D0A09093C7873643A656C656D656E74206E616D653D225646504461746122206D73646174613A4973446174615365743D2274727565223E0D0A0909093C7873643A636F6D706C6578547970653E0D0A090909093C7873643A63686F696365206D61784F63637572733D22756E626F756E646564223E0D0A09090909093C7873643A656C656D656E74206E616D653D22635F"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "414E59415454524942555445204E414D455350414345"
+        },
+        {
+          "Pattern": "534348454D41532D4D4943524F534F46542D434F4D"
+        },
+        {
+          "Pattern": "43484F494345204D41584F4343555253"
+        },
+        {
+          "Pattern": "5245535452494354494F4E2042415345"
+        },
+        {
+          "Pattern": "4D41584C454E4754482056414C5545"
+        },
+        {
+          "Pattern": "50524F43455353434F4E54454E5453"
+        },
+        {
+          "Pattern": "454C454D454E54204E414D45"
+        },
+        {
+          "Pattern": "434F4D504C455854595045"
+        },
+        {
+          "Pattern": "53494D504C4554595045"
+        },
+        {
+          "Pattern": "5354414E44414C4F4E45"
+        },
+        {
+          "Pattern": "5757572E57332E4F5247"
+        },
+        {
+          "Pattern": "584D4C2D4D5344415441"
+        },
+        {
+          "Pattern": "495344415441534554"
+        },
+        {
+          "Pattern": "4D494E4F4343555253"
+        },
+        {
+          "Pattern": "534348454D41204944"
+        },
+        {
+          "Pattern": "554E424F554E444544"
+        },
+        {
+          "Pattern": "584D4C534348454D41"
+        },
+        {
+          "Pattern": "5052455345525645"
+        },
+        {
+          "Pattern": "53455155454E4345"
+        },
+        {
+          "Pattern": "535452494E47"
+        },
+        {
+          "Pattern": "584D4C4E53"
+        },
+        {
+          "Pattern": "31393938"
+        },
+        {
+          "Pattern": "32303031"
+        },
+        {
+          "Pattern": "48545450"
+        }
+      ]
     }
   },
   {
@@ -87079,6 +91034,123 @@
       "Extensions": [
         "zip"
       ],
+      "Categories": [
+        "Project"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "504B0304"
+        },
+        {
+          "Start": 12,
+          "Pattern": "AB56"
+        },
+        {
+          "Start": 30,
+          "Pattern": "636F6C6F722070616C65747465732F504B0304"
+        },
+        {
+          "Start": 57,
+          "Pattern": "AB56"
+        },
+        {
+          "Start": 75,
+          "Pattern": "636F6C6F722070616C65747465732F4336342E6A736F6E"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "415353454D424C45522E4A534F4E504B"
+        },
+        {
+          "Pattern": "415353454D424C45522E4A534F4E2D"
+        },
+        {
+          "Pattern": "415353454D424C45522E4A53504B"
+        },
+        {
+          "Pattern": "434F4C4F522050414C4554544553"
+        },
+        {
+          "Pattern": "4D4143524F532E41534D504B"
+        },
+        {
+          "Pattern": "4D4143524F532E41534D7D"
+        },
+        {
+          "Pattern": "53435245454E2E4A53504B"
+        },
+        {
+          "Pattern": "4336342E4A534F4E504B"
+        },
+        {
+          "Pattern": "4D41494E2E41534D504B"
+        },
+        {
+          "Pattern": "3344205343454E4553"
+        },
+        {
+          "Pattern": "4D41494E2E41534D4D"
+        },
+        {
+          "Pattern": "54494C452053455453"
+        },
+        {
+          "Pattern": "4336342E4A53504B"
+        },
+        {
+          "Pattern": "53435245454E53"
+        },
+        {
+          "Pattern": "53435249505453"
+        },
+        {
+          "Pattern": "53505249544553"
+        },
+        {
+          "Pattern": "434F4E464947"
+        },
+        {
+          "Pattern": "515843554652"
+        },
+        {
+          "Pattern": "4255494C44"
+        },
+        {
+          "Pattern": "4D55534943"
+        },
+        {
+          "Pattern": "573524544D"
+        },
+        {
+          "Pattern": "5855472B53"
+        },
+        {
+          "Pattern": "3643205A"
+        },
+        {
+          "Pattern": "4641484B"
+        },
+        {
+          "Pattern": "4C5A5235"
+        },
+        {
+          "Pattern": "4F30532A"
+        },
+        {
+          "Pattern": "56484533"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "zip"
+      ],
       "Categories": [],
       "MimeType": "application/octet-stream"
     },
@@ -87112,6 +91184,57 @@
         },
         {
           "Pattern": "474F4F474C45"
+        }
+      ]
+    }
+  },
+  {
+    "File": {
+      "Extensions": [
+        "zip"
+      ],
+      "Categories": [
+        "Archive"
+      ],
+      "MimeType": "application/octet-stream"
+    },
+    "Signature": {
+      "Prefix": [
+        {
+          "Pattern": "504B0304"
+        },
+        {
+          "Start": 30,
+          "Pattern": "7465726D696E616C2E747874"
+        }
+      ],
+      "Strings": [
+        {
+          "Pattern": "504C5547494E5F534F4654574152455550444154455F434F4E534F4C452E4C4F47504B"
+        },
+        {
+          "Pattern": "504C5547494E5F504C5547494E4D414E414745525F434F4E534F4C452E4C4F47504B"
+        },
+        {
+          "Pattern": "504C5547494E5F534F4654574152455550444154455F5550444154452E4C4F47504B"
+        },
+        {
+          "Pattern": "53595354454D494E464F2E545854504B"
+        },
+        {
+          "Pattern": "4F43544F5052494E542E4C4F47504B"
+        },
+        {
+          "Pattern": "5445524D494E414C2E545854504B"
+        },
+        {
+          "Pattern": "484150524F58592E4C4F47504B"
+        },
+        {
+          "Pattern": "57454243414D442E4C4F47504B"
+        },
+        {
+          "Pattern": "53455249414C2E4C4F47504B"
         }
       ]
     }
