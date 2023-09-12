@@ -35,7 +35,7 @@ install-package Mime-Detective.Definitions.Exhaustive
 ```csharp
 using MimeDetective;
 var Inspector = new ContentInspectorBuilder() {
-    Definitions = Definitions.Default.All()
+    Definitions = MimeDetective.Definitions.Default.All()
 }.Build();
 ```
 
@@ -116,7 +116,7 @@ which may be used for personal/non-commercial use (free) or with a [paid commerc
 Create a copy of these definitions by using the following code:
 ```
 var AllDefintions = new Definitions.CondensedBuilder() { 
-    UsageType = Data.Licensing.UsageType.PersonalNonCommercial //Change this to be your usage type
+    UsageType = Definitions.Licensing.UsageType.PersonalNonCommercial //Change this to be your usage type
 }.Build();
 ```
 
@@ -149,7 +149,7 @@ which may be used for personal/non-commercial use (free) or with a [paid commerc
 Create a copy of these definitions by using the following code:
 ```csharp
 var AllDefintions = new Definitions.ExhaustiveBuilder() { 
-    UsageType = Data.Licensing.UsageType.PersonalNonCommercial //Change this to be your usage type
+    UsageType = Definitions.Licensing.UsageType.PersonalNonCommercial //Change this to be your usage type
 }.Build();
 ```
 
@@ -205,7 +205,7 @@ set that only contains those definitions and trim out unnecessary fields.
 
 ```csharp
 var AllDefintions = new Definitions.ExhaustiveBuilder() { 
-    UsageType = Data.Licensing.UsageType.PersonalNonCommercial
+    UsageType = Definitions.LicensingLicensing.UsageType.PersonalNonCommercial
 }.Build();
 
 var Extensions = new[]{
@@ -240,7 +240,7 @@ Materializing definitions causes a new instance of each definition to be created
 same definitions for multiple purposes, load them once and reuse them.
 ```csharp
 var AllDefintions = new Definitions.ExhaustiveBuilder() { 
-    UsageType = Data.Licensing.UsageType.PersonalNonCommercial
+    UsageType = Definitions.Licensing.UsageType.PersonalNonCommercial
 }.Build();
 
 var Inspector = new ContentInspectorBuilder() {
