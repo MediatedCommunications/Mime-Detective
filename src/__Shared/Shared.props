@@ -21,16 +21,14 @@
     <Authors>Tony Valenti, Joshua Clark, Max Vasilyev, Neil Harvey</Authors>
     <Company />
     <Product />
-    <AssemblyVersion>23.06.01.0</AssemblyVersion>
-    <FileVersion>23.06.01.0</FileVersion>
-    <Version>23.06.01</Version>
+    <AssemblyVersion>23.09.01.0</AssemblyVersion>
+    <FileVersion>23.09.01.0</FileVersion>
+    <Version>23.09.01</Version>
     <PackageIcon>noun_data search_4033516.png</PackageIcon>
     <PackageIconUrl />
   </PropertyGroup>
-
-    <ItemGroup>
-		<None Include="..\..\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)" Visible="false" />
-		<None Include="..\__Shared\noun_data search_4033516.png" Pack="true" PackagePath="$(PackageIcon)" Visible="false" />
-	</ItemGroup>
- 
+  <ItemGroup>
+    <None Include="..\..\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)" Visible="false" />
+    <None Include="..\__Shared\noun_data search_4033516.png" Pack="true" PackagePath="$(PackageIcon)" Visible="false" />
+  </ItemGroup>
 </Project>

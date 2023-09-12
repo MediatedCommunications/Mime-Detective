@@ -15,8 +15,8 @@
 	<AssemblyOriginatorKeyFile>..\..\Mime-Detective.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>    
   <ItemGroup>
-    <PackageReference Include="BenchmarkDotNet" Version="0.13.5" />
-    <PackageReference Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.13.5" />
+    <PackageReference Include="BenchmarkDotNet" Version="0.13.8" />
+    <PackageReference Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.13.8" />
   </ItemGroup>    
   <ItemGroup>
     <ProjectReference Include="..\MimeDetective.Definitions.Condensed\MimeDetective.Definitions.Condensed.csproj" />

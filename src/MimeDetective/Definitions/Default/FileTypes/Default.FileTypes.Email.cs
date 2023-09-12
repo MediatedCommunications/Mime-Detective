@@ -28,7 +28,7 @@ namespace MimeDetective.Definitions {
                                 }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[] {
-                                PrefixSegment.Create(0, "46 72 6F 6D") 
+                                StringSegment.Create("from"),
                             }.ToSignature(),
                         },
                     }.ToImmutableArray();

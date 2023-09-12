@@ -29,5 +29,6 @@
         Spreadsheet,
         Vector,
         Video,
+        Other,
     }
 }

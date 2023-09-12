@@ -153,6 +153,47 @@ var AllDefintions = new Definitions.ExhaustiveBuilder() {
 }.Build();
 ```
 
+## Custom Definitions
+Here is an example showing how to create a custom definition pack.
+This example uses all of the predefined "MP3" formats as well as a custom ".magic" file type:
+```
+internal static class CustomContentInspector {
+
+    public static ContentInspector Instance { get; }
+
+    static CustomContentInspector() {
+
+        var MyDefinitions = new List<Definition>();
+                
+        //Add a predefined definition
+        MyDefinitions.AddRange(MimeDetective.Definitions.Default.FileTypes.Audio.MP3());
+
+        //Add a custom definition
+        MyDefinitions.Add(new() {
+            File = new() {
+                Categories = new[] { Category.Other }.ToImmutableHashSet(),
+                Description = "Magic File Type",
+                Extensions = new[] { "magic" }.ToImmutableArray(),
+                MimeType = "application/octet-stream",
+            },
+            //All of these rules must match
+            Signature = new Segment[] {
+                StringSegment.Create("MAGIC"), //anywhere in the file, expect "MAGIC" (exact case)
+                PrefixSegment.Create(110, "4d 41 47 49 43") //At offset 100 in the file, expect the bytes "MAGIC".
+            }.ToSignature(),
+        });
+
+        Instance = new ContentInspectorBuilder() {
+            Definitions = MyDefinitions,
+            StringSegmentOptions = new() {
+                OptimizeFor = Engine.StringSegmentResourceOptimization.HighSpeed,
+            },
+        }.Build();
+    }
+
+}
+```
+
 # Optimizing/Balancing Performance and Memory
 The ```ContentInspector``` is designed to be a fast, high-speed utility.  In order to achieve
 maximum performance and lowest memory usage, there are a few things you want to do.
