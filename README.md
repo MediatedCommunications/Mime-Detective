@@ -14,25 +14,25 @@ More information on these definitions is included toward the end of this file.
 
 ## Installing from Nuget
 ### Installing the ```Default``` (Small) Definition Pack
-```
+```bash
 install-package Mime-Detective
 ```
 
 ### Installing the ```Condensed``` (Medium) Definition Pack
-```
+```bash
 install-package Mime-Detective
 install-package Mime-Detective.Definitions.Condensed
 ```
 
 ### Installing the ```Exhaustive``` (Large) Definition Pack
-```
+```bash
 install-package Mime-Detective
 install-package Mime-Detective.Definitions.Exhaustive
 ```
 
 ## Create the ```ContentInspector```
 ### Create the ```Default``` ```ContentInspector```
-```
+```csharp
 using MimeDetective;
 var Inspector = new ContentInspectorBuilder() {
     Definitions = Definitions.Default.All()
@@ -40,7 +40,7 @@ var Inspector = new ContentInspectorBuilder() {
 ```
 
 ### Create the ```Condensed``` ```ContentInspector```
-```
+```csharp
 using MimeDetective;
 var Inspector = new ContentInspectorBuilder() {
     Definitions = new Definitions.CondensedBuilder() {
@@ -50,7 +50,7 @@ var Inspector = new ContentInspectorBuilder() {
 ```
 
 ### Create the ```Exhaustive``` ```ContentInspector```
-```
+```csharp
 using MimeDetective;
 var Inspector = new ContentInspectorBuilder() {
     Definitions = new Definitions.ExhaustiveBuilder() {
@@ -62,14 +62,14 @@ var Inspector = new ContentInspectorBuilder() {
 ## Inspect Content
 Once you have a ```ContentInspector``` you can use it to inspect a stream, file, or array of bytes:
 
-```
+```csharp
 var Results = Inspector.Inspect(ContentByteArray);
 var Results = Inspector.Inspect(ContentStream);
 var Results = Inspector.Inspect(ContentFileName);
 ```
 
 ## Group Results by File Extension or Mime Type
-```
+```csharp
 var ResultsByFileExtension = Results.ByFileExtension();
 var ResultsByMimeType = Results.ByMimeType();
 ```
@@ -111,7 +111,7 @@ This is a condensed library containing the most common file signatures.
 \
 \
 It is derived from the publicly available [TrID file signatures](https://mark0.net/soft-tridnet-e.html)
-which may be used for personal/non-commercial use (free) or with a [paid commercial license](https://mark0.net) (usually around 300€).
+which may be used for personal/non-commercial use (free) or with a [paid commercial license](https://mark0.net) (usually around 300â‚¬).
 
 Create a copy of these definitions by using the following code:
 ```
@@ -144,10 +144,10 @@ This library contains the exhaustive set of 14,000+ file signatures.
 \
 \
 It is derived from the publicly available [TrID file signatures](https://mark0.net/soft-tridnet-e.html)
-which may be used for personal/non-commercial use (free) or with a [paid commercial license](https://mark0.net) (usually around 300€).
+which may be used for personal/non-commercial use (free) or with a [paid commercial license](https://mark0.net) (usually around 300â‚¬).
 
 Create a copy of these definitions by using the following code:
-```
+```csharp
 var AllDefintions = new Definitions.ExhaustiveBuilder() { 
     UsageType = Data.Licensing.UsageType.PersonalNonCommercial //Change this to be your usage type
 }.Build();
@@ -203,7 +203,7 @@ maximum performance and lowest memory usage, there are a few things you want to 
 If you are positive that a file is going to be one of a few different types, create a definition
 set that only contains those definitions and trim out unnecessary fields.
 
-```
+```csharp
 var AllDefintions = new Definitions.ExhaustiveBuilder() { 
     UsageType = Data.Licensing.UsageType.PersonalNonCommercial
 }.Build();
@@ -238,7 +238,7 @@ If you have a low number of definitions or you want more balanced CPU usage, set
 ## 4.  Read Definitions Once
 Materializing definitions causes a new instance of each definition to be created.  If you are going to use the 
 same definitions for multiple purposes, load them once and reuse them.
-```
+```csharp
 var AllDefintions = new Definitions.ExhaustiveBuilder() { 
     UsageType = Data.Licensing.UsageType.PersonalNonCommercial
 }.Build();
