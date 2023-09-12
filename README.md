@@ -156,7 +156,7 @@ var AllDefintions = new Definitions.ExhaustiveBuilder() {
 ## Custom Definitions
 Here is an example showing how to create a custom definition pack.
 This example uses all of the predefined "MP3" formats as well as a custom ".magic" file type:
-```
+```csharp
 internal static class CustomContentInspector {
 
     public static ContentInspector Instance { get; }
