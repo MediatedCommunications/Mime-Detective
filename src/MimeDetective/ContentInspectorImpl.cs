@@ -2,6 +2,7 @@
 using MimeDetective.Storage;
 using System.Collections.Immutable;
 using System.Linq;
+using System.Security.Cryptography;
 
 namespace MimeDetective {
 
@@ -81,41 +82,45 @@ namespace MimeDetective {
         {
 
             var NoContentStrings = ImmutableArray<StringSegment>.Empty;
+            
+            var tret = ImmutableArray<(DefinitionMatch Match, DefinitionMatcher Matcher)>.Empty;
 
-
-            var MatchEvaluator1 = new DefinitionMatchEvaluator()
             {
-                Options = MatchEvaluatorOptions with
-                {
-                    Include_Segments_Strings = false
-                }
-            };
+                var MatchEvaluator1 = new DefinitionMatchEvaluator() {
+                    Options = MatchEvaluatorOptions with {
+                        Include_Segments_Strings = false,
+                        Include_Matches_Empty = true,
+                    }
+                };
 
+                //Get an initial list of matches that dont include string matches
+                tret = (
+                    from DefinitionMatcher in DefinitionMatchers.AsParallel(Parallel)
 
-            var tret = (
-                from DefinitionMatcher in DefinitionMatchers.AsParallel(Parallel)
+                    let Match = MatchEvaluator1.Match(
+                        DefinitionMatcher,
+                        Content,
+                        NoContentStrings
+                        )
+                    where Match is { }
+                    orderby Match.Points descending
+                    select (Match, DefinitionMatcher)
+                    ).ToImmutableArray();
+            }
 
-                let Match = MatchEvaluator1.Match(
-                    DefinitionMatcher, 
-                    Content, 
-                    NoContentStrings
-                    )
-                where Match is { }
-                orderby Match.Points descending
-                select new {
-                    Match,
-                    DefinitionMatcher
-                }
-                ).ToImmutableArray();
-
-
-            if (MatchEvaluatorOptions.Include_Segments_Strings) {
+            if (MatchEvaluatorOptions.Include_Segments_Strings == false && MatchEvaluatorOptions.Include_Matches_Empty == false) {
+                //If we dont need strings and we dont want empty, just shortcut.
+                tret = tret
+                    .Where(x => x.Match.Type != DefinitionMatchType.Empty)
+                    .ToImmutableArray()
+                    ;
+            } else {
 
                 var Source2 = tret;
 
                 var NeedsStrings = (
                     from x in Source2
-                    where x.DefinitionMatcher.Strings.Length > 0
+                    where x.Matcher.Strings.Length > 0
                     select x
                     ).Any()
                     ;
@@ -132,16 +137,13 @@ namespace MimeDetective {
                     tret = (
                         from x in Source2.AsParallel(Parallel)
                         let Match = MatchEvaluator2.Match(
-                            x.DefinitionMatcher,
+                            x.Matcher,
                             Content,
                             ContentStrings
                             )
                         where Match is { }
                         orderby Match.Points descending
-                        select new {
-                            Match,
-                            x.DefinitionMatcher,
-                        }
+                        select (Match, x.Matcher)
                         ).ToImmutableArray();
 
                 } else

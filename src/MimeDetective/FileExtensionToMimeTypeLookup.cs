@@ -48,7 +48,14 @@ namespace MimeDetective {
                     //Group the items by mime type and sort the m descending.
                     from x2 in G1
                     group x2 by x2.File.MimeType?.ToLower() into G2
-                    let Matches = G2.Select(x => new DefinitionMatch(x)).ToImmutableArray()
+                    let Matches = (
+                        from y in G2
+                        select new DefinitionMatch() { 
+                            Definition = y,
+                            Type = DefinitionMatchType.Unknown,
+                        }).ToImmutableArray()
+                        
+
                     let v2 = new MimeTypeMatch() {
                         MimeType = G2.Key,
                         Matches = Matches,

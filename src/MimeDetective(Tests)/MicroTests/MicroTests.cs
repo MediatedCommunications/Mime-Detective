@@ -9,11 +9,28 @@ namespace MimeDetective.Tests {
     public abstract class MicroTests {
         private static ContentInspector? GetEngine_Result;
         protected static ContentInspector GetEngine() {
+
+            var IsDebug = false;
+
+            if (GetEngine_Result == default && IsDebug) {
+                var inspector = new ContentInspectorBuilder() {
+                    Definitions = {
+                        Definitions.Default.FileTypes.Email.EML(),
+                    },
+                    Parallel = false,
+                };
+                GetEngine_Result = inspector.Build();
+            }
+
+
+
+
             if (GetEngine_Result == default) {
                 var Defintions = Definitions.Default.All();
 
                 GetEngine_Result = new ContentInspectorBuilder() {
                     Definitions = Defintions,
+                    Parallel = true,
                 }.Build();
                 ;
             }
@@ -48,9 +65,10 @@ public void {Name}(){{
             return ret;
         }
 
-        protected void Test(string FileName) {
-            var FN = $@"{RelativeRoot()}{FileName}";
+        protected void Test(string RelativeFileName) {
+            var FN = $@"{RelativeRoot()}{RelativeFileName}";
             var FullPath = System.IO.Path.GetFullPath(FN);
+            var FileName = System.IO.Path.GetFileName(FullPath);
 
             var Content = ContentReader.Default.ReadFromFile(FullPath);
 

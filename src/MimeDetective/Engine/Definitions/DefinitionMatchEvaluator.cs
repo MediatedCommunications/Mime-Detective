@@ -83,7 +83,7 @@ namespace MimeDetective.Engine {
                 }
             }
 
-            if (GoodMatches == 0 && !Options.Include_Matches_Failed)
+            if (GoodMatches == 0 && Options.Include_Matches_Empty == false)
             {
                 Valid = false;
             }
@@ -98,14 +98,32 @@ namespace MimeDetective.Engine {
 
                 var Points = GetPoints(PrefixSegmentMatches, StringSegmentMatches);
 
-                ret = new DefinitionMatch(DefinitionMatcherCache.Definition)
-                {
-                    PrefixSegmentMatches = PrefixSegmentMatches.ToImmutableDictionary(),
-                    StringSegmentMatches = StringSegmentMatches.ToImmutableDictionary(),
-
-                    Percentage = Percentage,
-                    Points = Points,
+                var Type = (GoodMatches, AllMatches) switch {
+                    _ when GoodMatches == AllMatches && GoodMatches == 0 => DefinitionMatchType.Empty,
+                    _ when GoodMatches == AllMatches && GoodMatches != 0 => DefinitionMatchType.Complete,
+                    _ when GoodMatches != AllMatches && GoodMatches > 0 => DefinitionMatchType.Partial,
+                    _ => DefinitionMatchType.Failed,
                 };
+
+                Valid = false
+                    || (Type == DefinitionMatchType.Complete && Options.Include_Matches_Complete)
+                    || (Type == DefinitionMatchType.Partial && Options.Include_Matches_Partial)
+                    || (Type == DefinitionMatchType.Empty && Options.Include_Matches_Empty)
+                    || (Type == DefinitionMatchType.Failed && Options.Include_Matches_Failed)
+                    ;
+
+                if(Valid) {
+                    ret = new DefinitionMatch {
+                        Definition = DefinitionMatcherCache.Definition,
+                        Type = Type,
+                        PrefixSegmentMatches = PrefixSegmentMatches.ToImmutableDictionary(),
+                        StringSegmentMatches = StringSegmentMatches.ToImmutableDictionary(),
+
+                        Percentage = Percentage,
+                        Points = Points,
+                    };
+                }
+
             }
 
             return ret;

@@ -10,12 +10,8 @@ namespace MimeDetective.Engine
     /// </summary>
     public record DefinitionMatch : DisplayRecord
     {
-        public DefinitionMatch(Definition Definition)
-        {
-            this.Definition = Definition;
-        }
-
-        public Definition Definition { get; }
+        public required Definition Definition { get; init; }
+        public required DefinitionMatchType Type { get; init; }
 
         /// <summary>
         /// How many <see cref="Points"/> this <see cref="DefinitionMatch"/> scored.  The higher this value, the better the <see cref="DefinitionMatch"/>.
@@ -36,6 +32,14 @@ namespace MimeDetective.Engine
             return $@"{Definition.File.Extensions.FirstOrDefault()} /// {Points} Points /// {Definition.File.Description}";
         }
 
+    }
+
+    public enum DefinitionMatchType { 
+        Unknown,
+        Complete,
+        Partial,
+        Empty,
+        Failed,
     }
 
 }

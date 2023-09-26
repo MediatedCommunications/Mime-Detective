@@ -45,7 +45,13 @@ namespace MimeDetective {
                     let extension = y2.ToLower()
                     where !string.IsNullOrWhiteSpace(extension)
                     group x2 by extension into G2
-                    let Matches = G2.Select(x => new DefinitionMatch(x)).ToImmutableArray()
+                    let Matches = (
+                        from y in G2
+                        select new DefinitionMatch() {
+                            Definition = y,
+                            Type = DefinitionMatchType.Unknown,
+                        }).ToImmutableArray()
+
                     let v2 = new FileExtensionMatch() {
                         Extension = G2.Key,
                         Matches = Matches,

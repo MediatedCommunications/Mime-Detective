@@ -27,6 +27,11 @@ namespace MimeDetective.Engine
         /// </summary>
         public bool Include_Matches_Partial { get; init; } = false;
 
+        /// <summary>
+        /// Should Non-Failed rules with <see cref="DefinitionMatch"/>es with <see cref="DefinitionMatch.Percentage"/> at 0 be returned.
+        /// </summary>
+        public bool Include_Matches_Empty { get; init; } = false;
+
         /// Should <see cref="DefinitionMatch"/>es with <see cref="DefinitionMatch.Percentage"/> = 0 be returned.
         public bool Include_Matches_Failed { get; init; } = false;
     }
