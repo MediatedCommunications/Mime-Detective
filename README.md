@@ -4,7 +4,19 @@ It uses Magic-Number and Magic-Word signatures to accurately identify over
 14,000 different file variants by analyzing a raw stream or array of bytes.
 It also allows you to easily convert between file extensions and mime types.
 
-# Overview
+## How Does it Work?
+Mime-Detective is a signature-based detection library that looks for
+patterns within the raw content of a file.  Based on the presence (or absence)
+of certain bytes, most files can be accurately predicted.  For example,
+every JPG file starts with ```0xFFD8 FFE0 0010 4A46 4946 0001 0101 0047```.
+
+## Limitations
+Binary file work best because they often have an identifiable signature.
+Some file types, such as .txt files, have no identifying mark and may not be well predicted.
+Because of this, you may need to choose a fallback type if Mime-Detective is not
+able to predict the file type.
+
+# Getting Started
 There are three main ways you can use Mime-Detective.
 * The ```Default``` definition pack which includes a very small set of detection rules.
 * The ```Condensed``` definition pack which includes an expanded set of detection rules.
