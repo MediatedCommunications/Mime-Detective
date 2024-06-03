@@ -23,6 +23,8 @@ namespace MimeDetective.Definitions {
                         TIFF_Le(),
                         TIFF_NoBom(),
 
+                        WEBP()
+
                     }.ToImmutableArray();
                 }
 
@@ -224,6 +226,26 @@ namespace MimeDetective.Definitions {
                             },
                             Signature = new Segment[]{
                                 PrefixSegment.Create(0, "49 20 49")
+                            }.ToSignature(),
+                        },
+                    }.ToImmutableArray();
+                }
+
+                public static ImmutableArray<Definition> WEBP() {
+                    return new List<Definition>() {
+                        new() {
+                            File = new() {
+                                Extensions = new[]{"webp"}.ToImmutableArray(),
+                                MimeType = "image/webp",
+                                Categories = new[]{
+                                    Category.Image,
+                                    Category.Document,
+                                    Category.Compressed,
+                                }.ToImmutableHashSet(),
+                            },
+                            Signature = new Segment[]{
+                                PrefixSegment.Create(0, "52 49 46 46"), //At offset 0 in the file, expect the bytes "RIFF".
+                                PrefixSegment.Create(8, "57 45 42 50") //At offset 8 in the file, expect the bytes "WEBP".
                             }.ToSignature(),
                         },
                     }.ToImmutableArray();

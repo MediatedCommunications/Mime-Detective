@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 
@@ -15,21 +16,24 @@ namespace MimeDetective.Storage {
         /// </summary>
         public int Start { get; init; }
 
+        public static PrefixSegment Create(int Start, ImmutableArray<byte> Bytes) {
+            return new PrefixSegment() {
+                Start = Start,
+                Pattern = Bytes,
+            };
+        }
+
         public static PrefixSegment Create(int Start, params byte[] Bytes) {
-            return Create(Start, Bytes.AsEnumerable());
+            return Create(Start, Bytes.ToImmutableArray());
         }
 
         public static PrefixSegment Create(int Start, IEnumerable<byte> Bytes) {
-            return new PrefixSegment() {
-                Start = Start,
-                Pattern = Bytes.ToImmutableArray(),
-            };
+            return Create(Start, Bytes.ToImmutableArray());
         }
 
         public static PrefixSegment Create(int Start, string HexString) {
             return Create(Start, BytesFromHex(HexString));
         }
-
 
         public override string? GetDebuggerDisplay()
         {

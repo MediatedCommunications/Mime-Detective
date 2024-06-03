@@ -29,6 +29,7 @@ namespace MimeDetective.Definitions
                                 MimeType = "application/xml",
                                 Categories = new[]{
                                     Category.Document,
+                                    Category.Xml,
                                 }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[]{
@@ -47,6 +48,7 @@ namespace MimeDetective.Definitions
                                 Categories = new[]{
                                     Category.Document,
                                     Category.Utf8,
+                                    Category.Xml,
                                 }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[]{
@@ -65,6 +67,7 @@ namespace MimeDetective.Definitions
                                 Categories = new[]{
                                     Category.Document,
                                     Category.BigEndian,
+                                    Category.Xml,
                                 }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[]{
@@ -83,6 +86,7 @@ namespace MimeDetective.Definitions
                                 Categories = new[]{
                                     Category.Document,
                                     Category.LittleEndian,
+                                    Category.Xml,
                                 }.ToImmutableHashSet(),
                             },
                             Signature = new Segment[]{

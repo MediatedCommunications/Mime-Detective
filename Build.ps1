@@ -7,6 +7,9 @@ if(Test-Path .\artifacts) {
 	Remove-Item .\artifacts -Force -Recurse
 }
 
+Push-Location .\src\
+
+
 & dotnet restore --no-cache
 
 $branch = @{ $true = $env:APPVEYOR_REPO_BRANCH; $false = $(git symbolic-ref --short -q HEAD) }[$env:APPVEYOR_REPO_BRANCH -ne $NULL];
