@@ -2,7 +2,7 @@
   <Import Project="..\__Shared\Shared.props" Label="Shared" />
 
   <PropertyGroup>
-    <TargetFrameworks>net461</TargetFrameworks>
+    <TargetFrameworks>net462</TargetFrameworks>
     <RootNamespace>MimeDetective.Tests.Vb</RootNamespace>
     <Nullable>enable</Nullable>
     <LangVersion>11.0</LangVersion>
