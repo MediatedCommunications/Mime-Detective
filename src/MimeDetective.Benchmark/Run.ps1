@@ -1,4 +1,11 @@
-﻿# Remove Artifacts
+#!/usr/bin/env pwsh
+
+$PSNativeCommandUseErrorActionPreference = $true
+$ErrorActionPreference = 'Stop'
+
+cd $PSScriptRoot
+
+# Remove Artifacts
 $artefacts = ".\BenchmarkDotNet.Artifacts"
 if (Test-Path $artefacts)
 {
@@ -6,4 +13,6 @@ if (Test-Path $artefacts)
 }
 
 # Run benchmarks
-dotnet run -c Release
+& dotnet restore
+& dotnet build -c Release --no-restore
+& dotnet run -c Release --no-build --framework net8.0
