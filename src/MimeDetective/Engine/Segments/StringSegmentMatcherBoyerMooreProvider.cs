@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.Linq;
 
 namespace MimeDetective.Engine {
     internal sealed class StringSegmentMatcherBoyerMooreProvider
@@ -23,10 +24,10 @@ namespace MimeDetective.Engine {
 
         public IEnumerable<int> Search(IEnumerable<byte> haystack, bool MultipleResults = true)
         {
-            return Search(haystack.ToImmutableArray(), MultipleResults);
+            return Search(haystack.ToArray().AsMemory(), MultipleResults);
         }
 
-        public IEnumerable<int> Search(IReadOnlyList<byte> haystack, bool MultipleResults = true)
+        public IEnumerable<int> Search(ReadOnlyMemory<byte> haystack, bool MultipleResults = true)
         {
             if (Needle.Count == 0)
             {
@@ -37,11 +38,11 @@ namespace MimeDetective.Engine {
 
             var found = false;
 
-            for (var i = end; i < haystack.Count;)
+            for (var i = end; i < haystack.Length;)
             {
                 int j;
 
-                for (j = end; Needle[j] == haystack[i]; --i, --j)
+                for (j = end; Needle[j] == haystack.Span[i]; --i, --j)
                 {
                     if (j != 0)
                     {
@@ -54,12 +55,40 @@ namespace MimeDetective.Engine {
                     break;
                 }
 
-                i += Math.Max(OffsetTable[end - j], SkipTable[haystack[i]]);
+                i += Math.Max(OffsetTable[end - j], SkipTable[haystack.Span[i]]);
                 if (!MultipleResults && found)
                 {
                     break;
                 }
             }
+        }
+        public int? SearchFirst(ReadOnlySpan<byte> haystack)
+        {
+            if (Needle.Count == 0)
+            {
+                return null;
+            }
+
+            var end = Needle.Count - 1;
+
+            for (var i = end; i < haystack.Length;)
+            {
+                int j;
+
+                for (j = end; Needle[j] == haystack[i]; --i, --j)
+                {
+                    if (j != 0)
+                    {
+                        continue;
+                    }
+
+                    return i;
+                }
+
+                i += Math.Max(OffsetTable[end - j], SkipTable[haystack[i]]);
+            }
+
+            return null;
         }
 
         private static int[] MakeSkipTable(IReadOnlyList<byte> Needle)

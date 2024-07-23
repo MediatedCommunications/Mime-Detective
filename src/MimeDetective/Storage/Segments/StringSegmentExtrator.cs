@@ -29,7 +29,7 @@ namespace MimeDetective.Storage {
         }
 
 
-        public static byte[] ExtractBytes(ImmutableArray<byte> Content) {
+        public static byte[] ExtractBytes(ReadOnlySpan<byte> Content) {
             var ret = Array.Empty<byte>();
 
             var delta = (byte)('a' - 'A');
@@ -85,7 +85,7 @@ namespace MimeDetective.Storage {
             return ret;
         }
 
-        public static ImmutableArray<StringSegment> ExtractBytesString(ImmutableArray<byte> Content) {
+        public static ImmutableArray<StringSegment> ExtractBytesString(ReadOnlySpan<byte> Content) {
             var ret = ImmutableArray<StringSegment>.Empty;
 
             var tret = ExtractBytes(Content);
@@ -101,11 +101,11 @@ namespace MimeDetective.Storage {
             return ret;
         }
 
-        public static ImmutableArray<StringSegment> ExtractStrings(ImmutableArray<byte> Content) {
+        public static ImmutableArray<StringSegment> ExtractStrings(ReadOnlySpan<byte> Content) {
             return ExtractBytesString(Content);
         }
 
-        public static ImmutableArray<StringSegment> ExtractAllStrings(ImmutableArray<byte> Content) {
+        public static ImmutableArray<StringSegment> ExtractAllStrings(ReadOnlySpan<byte> Content) {
             var tret = new List<ImmutableArray<byte>>();
 
             var Bytes = ExtractBytes(Content);

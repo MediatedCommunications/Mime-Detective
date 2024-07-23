@@ -1,6 +1,5 @@
 ﻿using MimeDetective.Storage;
-using System.Collections.Immutable;
-using System.Linq;
+using System;
 
 namespace MimeDetective.Engine
 {
@@ -16,14 +15,12 @@ namespace MimeDetective.Engine
 
         private StringSegmentMatcherBoyerMooreProvider BM { get; }
 
-        public override SegmentMatch Match(ImmutableArray<byte> Haystack){
+        public override SegmentMatch Match(ReadOnlySpan<byte> Haystack){
             SegmentMatch ret = NoSegmentMatch.Instance;
 
-            if (BM.Search(Haystack, false).ToArray() is { } V1 && V1.Length > 0) {
+            if (BM.SearchFirst(Haystack) is { } i ) {
                 
-                var i = V1[0];
-
-                ret = new StringSegmentMatch()
+                ret = new StringSegmentMatch
                 {
                     Segment = Segment,
                     Index = i
