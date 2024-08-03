@@ -17,9 +17,18 @@ public static class ContentInspectorExtensions {
         using var mapping = MemoryMappedFile.CreateFromFile(file, null, 0,
             MemoryMappedFileAccess.Read, HandleInheritability.None, true);
         using var view = mapping.CreateViewAccessor(0, 0, MemoryMappedFileAccess.Read);
-        using var unsafeMemoryManager =
-            new UnsafeMemoryMappedViewMemory(view.SafeMemoryMappedViewHandle, checked((int)file.Length));
+        //using var unsafeMemoryManager =
+        //    new UnsafeMemoryMappedViewMemory(view.SafeMemoryMappedViewHandle, checked((int)file.Length));
+        //return This.Inspect(unsafeMemoryManager.Memory);
 
-        return This.Inspect(unsafeMemoryManager.Memory);
+        unsafe {
+            byte* ptr = null;
+            view.SafeMemoryMappedViewHandle.AcquirePointer(ref ptr);
+            try {
+                return This.Inspect(new(ptr, checked((int)file.Length)));
+            } finally {
+                view.SafeMemoryMappedViewHandle.ReleasePointer();
+            }
+        }
     }
 }

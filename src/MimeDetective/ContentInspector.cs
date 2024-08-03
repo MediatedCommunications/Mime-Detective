@@ -8,10 +8,10 @@ namespace MimeDetective {
     /// </summary>
     public interface ContentInspector {
         /// <summary>
-        /// <see cref="Inspect(ReadOnlyMemory{byte})"/> the type of content.
+        /// <see cref="Inspect(ReadOnlySpan{byte})"/> the type of content.
         /// </summary>
         /// <param name="Content"></param>
         /// <returns></returns>
-        ImmutableArray<DefinitionMatch> Inspect(ReadOnlyMemory<byte> Content);
+        ImmutableArray<DefinitionMatch> Inspect(ReadOnlySpan<byte> Content);
     }
 }

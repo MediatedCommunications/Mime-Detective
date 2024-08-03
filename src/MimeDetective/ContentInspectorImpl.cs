@@ -1,6 +1,7 @@
 ﻿using MimeDetective.Engine;
 using MimeDetective.Storage;
 using System;
+using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 
@@ -8,10 +9,9 @@ namespace MimeDetective {
 
 
     internal class ContentInspectorImpl
-        : ContentInspector
-    {
+        : ContentInspector {
         public ContentInspectorImpl(
-            ImmutableArray<Definition> Definitions, 
+            ImmutableArray<Definition> Definitions,
             DefinitionMatchEvaluatorOptions MatchEvaluatorOptions,
             StringSegmentMatcherProvider StringSegmentIndex,
             bool Parallel
@@ -31,8 +31,8 @@ namespace MimeDetective {
 
         private static ImmutableArray<DefinitionMatcher> GenerateDefinitionMatchers(StringSegmentMatcherProvider StringSegmentIndex, ImmutableArray<Definition> Definitions) {
 
-            var Prefixes = (from x in Definitions from y in x.Signature.Prefix select y).Distinct(PrefixSegmentEqualityComparer.Instance).ToList();
-            var Strings = (from x in Definitions from y in x.Signature.Strings select y).Distinct(StringSegmentEqualityComparer.Instance).ToList();
+            var Prefixes = (from x in Definitions from y in x.Signature.Prefix select y).Distinct(PrefixSegmentEqualityComparer.Instance);
+            var Strings = (from x in Definitions from y in x.Signature.Strings select y).Distinct(StringSegmentEqualityComparer.Instance);
 
             var PrefixMatcherCache = Prefixes
                 .ToImmutableDictionary(
@@ -71,94 +71,74 @@ namespace MimeDetective {
         }
 
 
-        public ImmutableArray<DefinitionMatch> Inspect(ReadOnlyMemory<byte> Content)
-        {
+        public ImmutableArray<DefinitionMatch> Inspect(ReadOnlySpan<byte> Content) {
             var ret = Inspect_Current(Content);
 
             return ret;
         }
-        
-        protected ImmutableArray<DefinitionMatch> Inspect_Current(ReadOnlyMemory<byte> Content)
-        {
+
+        protected ImmutableArray<DefinitionMatch> Inspect_Current(ReadOnlySpan<byte> Content) {
 
             var NoContentStrings = ImmutableArray<StringSegment>.Empty;
-            
-            var tret = ImmutableArray<(DefinitionMatch Match, DefinitionMatcher Matcher)>.Empty;
+
+            var tret = new List<(DefinitionMatch Match, DefinitionMatcher Matcher)>(32);
+
+            var useEmptyShortcut = this.MatchEvaluatorOptions is { Include_Segments_Strings: false, Include_Matches_Empty: false };
+            var needsStrings = false;
 
             {
-                var MatchEvaluator1 = new DefinitionMatchEvaluator() {
+                var MatchEvaluator1 = new DefinitionMatchEvaluator {
                     Options = MatchEvaluatorOptions with {
                         Include_Segments_Strings = false,
                         Include_Matches_Empty = true,
                     }
                 };
 
-                //Get an initial list of matches that don't include string matches
-                tret = (
-                    from DefinitionMatcher in DefinitionMatchers.AsParallel(Parallel)
 
-                    let Match = MatchEvaluator1.Match(
-                        DefinitionMatcher,
-                        Content.Span,
-                        NoContentStrings
-                        )
-                    where Match is { }
-                    orderby Match.Points descending
-                    select (Match, DefinitionMatcher)
-                    ).ToImmutableArray();
+                //Get an initial list of matches that don't include string matches
+                foreach (var matcher in this.DefinitionMatchers) {
+                    var match = MatchEvaluator1.Match(matcher, Content, NoContentStrings);
+                    if (match is null)
+                        continue;
+
+                    //If we don't need strings, and we don't want empty, just shortcut.
+                    if (useEmptyShortcut && match.Type == DefinitionMatchType.Empty)
+                        continue;
+
+                    if (matcher.Strings.Length > 0)
+                        needsStrings = true;
+
+                    tret.Add((match, matcher));
+                }
             }
 
-            if (MatchEvaluatorOptions.Include_Segments_Strings == false && MatchEvaluatorOptions.Include_Matches_Empty == false) {
-                //If we don't need strings and we don't want empty, just shortcut.
-                tret = tret
-                    .Where(x => x.Match.Type != DefinitionMatchType.Empty)
-                    .ToImmutableArray()
-                    ;
-            } else {
+            if (!useEmptyShortcut && needsStrings) {
+                var MatchEvaluator2 = new DefinitionMatchEvaluator { Options = this.MatchEvaluatorOptions };
 
-                var Source2 = tret;
+                var ContentStrings = StringSegmentExtrator.ExtractStrings(Content);
 
-                var NeedsStrings = (
-                    from x in Source2
-                    where x.Matcher.Strings.Length > 0
-                    select x
-                    ).Any()
-                    ;
-                if(NeedsStrings)
-                {
-                    var MatchEvaluator2 = new DefinitionMatchEvaluator()
-                    {
-                        Options = MatchEvaluatorOptions
-                    };
+                var output = 0;
+                for (var i = 0; i < tret.Count; ++i) {
+                    var item = tret[i];
 
-                    var ContentStrings = StringSegmentExtrator.ExtractStrings(Content.Span);
+                    var match = MatchEvaluator2.Match(item.Matcher, Content, ContentStrings);
+                    if (match is null)
+                        continue;
 
-
-                    tret = (
-                        from x in Source2.AsParallel(Parallel)
-                        let Match = MatchEvaluator2.Match(
-                            x.Matcher,
-                            Content.Span,
-                            ContentStrings
-                            )
-                        where Match is { }
-                        orderby Match.Points descending
-                        select (Match, x.Matcher)
-                        ).ToImmutableArray();
-
-                } else
-                {
-
+                    tret[output++] = (match, item.Matcher);
                 }
 
+                tret.RemoveRange(output, tret.Count - output);
             }
 
-            var ret = (
-                from x in tret
-                select x.Match
-                ).ToImmutableArray();
+            tret.Sort(static (a, b) => Comparer<long>.Default.Compare(a.Match.Points, b.Match.Points));
 
-            return ret;
+            var ret = new DefinitionMatch[tret.Count];
+
+            for (var i = 0; i < tret.Count; ++i)
+                ret[i] = tret[i].Match;
+
+            return ret.ToImmutableArray();
         }
 
     }
