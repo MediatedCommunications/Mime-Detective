@@ -1,7 +1,7 @@
 ﻿
 using MimeDetective.Diagnostics;
 using MimeDetective.Storage;
-using System.Collections.Immutable;
+using System;
 
 namespace MimeDetective.Engine
 {
@@ -17,7 +17,7 @@ namespace MimeDetective.Engine
             this.Segment = Segment;
         }
 
-        public abstract SegmentMatch Match(ImmutableArray<byte> Content);
+        public abstract SegmentMatch Match(ReadOnlySpan<byte> Content);
 
 
         public static StringSegmentMatcher Create(StringSegment Segment)

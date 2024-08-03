@@ -4,43 +4,52 @@ using BenchmarkDotNet.Analysers;
 using BenchmarkDotNet.Columns;
 using BenchmarkDotNet.Configs;
 using BenchmarkDotNet.Diagnosers;
-using BenchmarkDotNet.Environments;
 using BenchmarkDotNet.Exporters;
 using BenchmarkDotNet.Jobs;
 using BenchmarkDotNet.Loggers;
+using BenchmarkDotNet.Toolchains.InProcess.Emit;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
-using System.Linq;
 
 #endregion
 
-namespace MimeDetective.Benchmark
-{
-    public class BenchmarkConfig
-    {
-        public static IConfig Get()
-        {
-            return ManualConfig.CreateEmpty()
-                               .WithArtifactsPath($"{Path.GetFullPath(@"..\..\..\BenchmarkDotNet.Artifacts")}")
-                               .AddJob(Job.Default.WithRuntime(CoreRuntime.Core60).WithPlatform(Platform.X64))
-                               .AddLogicalGroupRules(BenchmarkLogicalGroupRule.ByParams)
-                               .AddDiagnoser(MemoryDiagnoser.Default)
-                               .AddColumnProvider(DefaultColumnProviders.Instance)
-                               .AddLogger(ConsoleLogger.Default)
-                               .AddExporter(MarkdownExporter.GitHub)
-                               .AddExporter(HtmlExporter.Default)
-                               .AddAnalyser(GetAnalysers().ToArray());
-        }
+namespace MimeDetective.Benchmark;
 
-        private static IEnumerable<IAnalyser> GetAnalysers()
-        {
-            yield return EnvironmentAnalyser.Default;
-            yield return OutliersAnalyser.Default;
-            yield return MinIterationTimeAnalyser.Default;
-            yield return MultimodalDistributionAnalyzer.Default;
-            yield return RuntimeErrorAnalyser.Default;
-            yield return ZeroMeasurementAnalyser.Default;
-            yield return BaselineCustomAnalyzer.Default;
-        }
+public class BenchmarkConfig {
+    private static readonly IAnalyser[] Analysers = {
+        EnvironmentAnalyser.Default, OutliersAnalyser.Default, MinIterationTimeAnalyser.Default,
+        MultimodalDistributionAnalyzer.Default, RuntimeErrorAnalyser.Default, ZeroMeasurementAnalyser.Default,
+        BaselineCustomAnalyzer.Default
+    };
+
+    public static IConfig Get() {
+#if DEBUG
+        return new DebugQuickInProcessConfig()
+#else
+        return ManualConfig.CreateEmpty()
+#endif
+            .WithArtifactsPath($"{Path.GetFullPath(@"..\..\..\BenchmarkDotNet.Artifacts")}")
+            .WithCultureInfo(CultureInfo.InvariantCulture)
+            .AddLogicalGroupRules(BenchmarkLogicalGroupRule.ByParams)
+            .AddDiagnoser(MemoryDiagnoser.Default)
+            .AddColumnProvider(DefaultColumnProviders.Instance)
+            .AddLogger(ConsoleLogger.Default)
+            .AddExporter(MarkdownExporter.GitHub)
+            .AddExporter(HtmlExporter.Default)
+            .AddAnalyser(Analysers);
+    }
+}
+
+public class DebugQuickInProcessConfig : DebugConfig {
+    public override IEnumerable<Job> GetJobs() {
+        return [
+            Job.Dry
+                .WithToolchain(
+                    new InProcessEmitToolchain(
+                        TimeSpan.FromHours(1), // 1h should be enough to debug the benchmark
+                        true))
+        ];
     }
 }

@@ -1,4 +1,5 @@
 ﻿using MimeDetective.Storage;
+using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace MimeDetective.Engine {
         public DefinitionMatchEvaluatorOptions Options { get; init; } = new();
 
         public virtual DefinitionMatch? Match(
-            DefinitionMatcher DefinitionMatcherCache, ImmutableArray<byte> Content, ImmutableArray<StringSegment> ContentStrings)
+            DefinitionMatcher DefinitionMatcherCache, ReadOnlySpan<byte> Content, ImmutableArray<StringSegment> ContentStrings)
         {
             var ret = default(DefinitionMatch?);
 
@@ -60,10 +61,9 @@ namespace MimeDetective.Engine {
                     AllMatches += 1;
 
                     var Result = ContentStrings
-                        .Select(x => item.Match(x.Pattern))
-                        .Where(x => x != NoSegmentMatch.Instance)
-                        .FirstOrDefault() 
-                        ?? NoSegmentMatch.Instance
+                        .Select(x => item.Match(x.Pattern.AsSpan()))
+                        .FirstOrDefault(x => x != NoSegmentMatch.Instance)
+                            ?? NoSegmentMatch.Instance
                         ;
 
                     StringSegmentMatches[item.Segment] = Result;

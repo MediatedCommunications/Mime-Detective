@@ -1,18 +1,26 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFrameworks>net48;net6.0;net8.0</TargetFrameworks>
     <OutputType>Exe</OutputType>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <!--<PlatformTarget>AnyCPU</PlatformTarget>-->
     <DebugType>pdbonly</DebugType>
     <DebugSymbols>true</DebugSymbols>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <Optimize>true</Optimize>
-    <Configuration>Release</Configuration>
     <IsPackable>false</IsPackable>
 	<SignAssembly>True</SignAssembly>
 	<AssemblyOriginatorKeyFile>..\..\Mime-Detective.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net48|AnyCPU'">
+    <Optimize>True</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0|AnyCPU'">
+    <Optimize>True</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0|AnyCPU'">
+    <Optimize>True</Optimize>
   </PropertyGroup>    
   <ItemGroup>
     <PackageReference Include="BenchmarkDotNet" Version="0.13.12" />
@@ -21,6 +29,10 @@
   <ItemGroup>
     <ProjectReference Include="..\MimeDetective.Definitions.Condensed\MimeDetective.Definitions.Condensed.csproj" />
     <ProjectReference Include="..\MimeDetective.Definitions.Exhaustive\MimeDetective.Definitions.Exhaustive.csproj" />
+    <ProjectReference Include="..\MimeDetective.MemoryMapping\MimeDetective.MemoryMapping.csproj" />
     <ProjectReference Include="..\MimeDetective\MimeDetective.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BenchmarkDotNet.Artifacts\" />
   </ItemGroup>  
 </Project>

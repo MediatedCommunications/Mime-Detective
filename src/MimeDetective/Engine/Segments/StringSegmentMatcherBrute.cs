@@ -1,4 +1,5 @@
 ﻿using MimeDetective.Storage;
+using System;
 using System.Collections.Immutable;
 
 namespace MimeDetective.Engine
@@ -13,13 +14,13 @@ namespace MimeDetective.Engine
 
         }
 
-        public override SegmentMatch Match(ImmutableArray<byte> Haystack)
+        public override SegmentMatch Match(ReadOnlySpan<byte> Haystack)
         {
             SegmentMatch ret = NoSegmentMatch.Instance;
 
             for (var i = 0; i <= Haystack.Length - Segment.Pattern.Length; i++)
             {
-                if (Match(Haystack, Segment.Pattern, i))
+                if (Match(Haystack, Segment.Pattern.AsSpan(), i))
                 {
                     ret = new StringSegmentMatch()
                     {
@@ -33,7 +34,7 @@ namespace MimeDetective.Engine
             return ret;
         }
 
-        private static bool Match(ImmutableArray<byte> Haystack, ImmutableArray<byte> Needle, int start)
+        private static bool Match(ReadOnlySpan<byte> Haystack, ReadOnlySpan<byte> Needle, int start)
         {
             var ret = true;
 

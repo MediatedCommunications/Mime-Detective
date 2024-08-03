@@ -1,4 +1,4 @@
-﻿using System.Collections.Immutable;
+﻿using System;
 
 namespace MimeDetective.Engine {
 
@@ -7,7 +7,7 @@ namespace MimeDetective.Engine {
     /// </summary>
     internal interface ISegmentMatcher
     {
-        SegmentMatch Match(ImmutableArray<byte> Content);
+        SegmentMatch Match(ReadOnlySpan<byte> Content);
     }
 
 
