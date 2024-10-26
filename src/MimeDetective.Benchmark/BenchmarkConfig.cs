@@ -30,7 +30,7 @@ public static class BenchmarkConfig {
 #else
         return ManualConfig.CreateEmpty()
 #endif
-            .WithArtifactsPath($"{Path.GetFullPath(@"..\..\..\BenchmarkDotNet.Artifacts")}")
+            .WithArtifactsPath($"{Path.GetFullPath(Path.Combine("..", "..", "..", "BenchmarkDotNet.Artifacts"))}")
             .WithCultureInfo(CultureInfo.InvariantCulture)
             .AddLogicalGroupRules(BenchmarkLogicalGroupRule.ByParams)
             .AddDiagnoser(MemoryDiagnoser.Default)
