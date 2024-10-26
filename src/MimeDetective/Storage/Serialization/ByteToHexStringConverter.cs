@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -19,9 +18,15 @@ namespace MimeDetective.Storage {
 
         }
 
-        protected static void WriteBytes(Utf8JsonWriter writer, IEnumerable<byte> value, JsonSerializerOptions options)
-        {
-            var Data = Convert.ToHexString(value.ToArray());
+        protected static void WriteBytes(Utf8JsonWriter writer, ReadOnlySpan<byte> value, JsonSerializerOptions options) {
+            var Data = Convert.ToHexString(
+#if NET5_0_OR_GREATER
+                value
+#else
+                value.ToArray()
+#endif
+            );
+
             JsonSerializer.Serialize(writer, Data, options);
         }
 
