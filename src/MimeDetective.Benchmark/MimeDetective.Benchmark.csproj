@@ -10,8 +10,8 @@
     <DebugSymbols>true</DebugSymbols>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <IsPackable>false</IsPackable>
-	<SignAssembly>True</SignAssembly>
-	<AssemblyOriginatorKeyFile>..\..\Mime-Detective.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\Mime-Detective.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net48|AnyCPU'">
     <Optimize>True</Optimize>
@@ -21,11 +21,11 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net8.0|AnyCPU'">
     <Optimize>True</Optimize>
-  </PropertyGroup>    
+  </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="BenchmarkDotNet" Version="0.13.12" />
-    <PackageReference Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.13.12" />
-  </ItemGroup>    
+    <PackageReference Include="BenchmarkDotNet" />
+    <PackageReference Include="BenchmarkDotNet.Diagnostics.Windows" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MimeDetective.Definitions.Condensed\MimeDetective.Definitions.Condensed.csproj" />
     <ProjectReference Include="..\MimeDetective.Definitions.Exhaustive\MimeDetective.Definitions.Exhaustive.csproj" />
@@ -34,5 +34,5 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BenchmarkDotNet.Artifacts\" />
-  </ItemGroup>  
+  </ItemGroup>
 </Project>

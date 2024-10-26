@@ -1,30 +1,30 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="..\__Shared\Shared.props" Label="Shared" />
-  
+
   <PropertyGroup>
     <PackageId>Mime-Detective</PackageId>
     <Description>The ultimate file-extension &amp; mime-type library with over 14,000+ signatures.  Quickly detect extensions &amp; mime types from a stream or byte array using magic numbers (file headers) and magic words.  A default signature library is included and can be expanded using Mime-Detective.Definitions.Condensed (common signatures) or Mime-Detective.Definitions.Exhaustive (14,000+ signatures).</Description>
     <PackageReleaseNotes>A default signature pack is included.  Mime-Detective.Definitions.Exhaustive is required to leverage the full set of 14,000+ signatures.</PackageReleaseNotes>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-	<SignAssembly>True</SignAssembly>
-	<AssemblyOriginatorKeyFile>..\..\Mime-Detective.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\Mime-Detective.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-    <PackageReference Include="System.Collections.Immutable" Version="8.0.0" />
-	<PackageReference Include="System.Text.Json" Version="8.0.4" />
+    <PackageReference Include="System.Collections.Immutable" />
   </ItemGroup>
 
-	<ItemGroup>
-		<None Include="..\..\README.md" Pack="true" PackagePath="\" />
-	</ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
 
-	<ItemGroup>
-	  <PackageReference Include="PolySharp" Version="1.14.1">
-	    <PrivateAssets>all</PrivateAssets>
-	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-	  </PackageReference>
-	</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="PolySharp">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="System.Text.Json" />
+  </ItemGroup>
 
 </Project>

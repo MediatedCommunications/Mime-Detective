@@ -1,41 +1,41 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-	<Import Project="..\__Shared\Shared.props" Label="Shared" />
+  <Import Project="..\__Shared\Shared.props" Label="Shared" />
 
-	<PropertyGroup>
-		<PackageId>Mime-Detective.Definitions.Condensed</PackageId>
-		<Description>A condensed library of +100 common file signatures for use by the "Mime-Detective" package.</Description>
-		<PackageReleaseNotes>For use with the "Mime-Detective" package.</PackageReleaseNotes>
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<SignAssembly>True</SignAssembly>
-		<AssemblyOriginatorKeyFile>..\..\Mime-Detective.snk</AssemblyOriginatorKeyFile>
-	</PropertyGroup>
+  <PropertyGroup>
+    <PackageId>Mime-Detective.Definitions.Condensed</PackageId>
+    <Description>A condensed library of +100 common file signatures for use by the "Mime-Detective" package.</Description>
+    <PackageReleaseNotes>For use with the "Mime-Detective" package.</PackageReleaseNotes>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\Mime-Detective.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
 
-	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-		<PackageReference Include="System.Collections.Immutable" Version="8.0.0" />
-	</ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="System.Collections.Immutable" />
+  </ItemGroup>
 
-	<ItemGroup>
-		<None Include="..\..\README.md" Pack="true" PackagePath="\" />
-	</ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="..\MimeDetective\MimeDetective.csproj" />
-	</ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MimeDetective\MimeDetective.csproj" />
+  </ItemGroup>
 
-	<ItemGroup>
-		<Compile Update="Resources.Designer.cs">
-			<DependentUpon>Resources.resx</DependentUpon>
-			<DesignTime>True</DesignTime>
-			<AutoGen>True</AutoGen>
-		</Compile>
-	</ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+  </ItemGroup>
 
-	<ItemGroup>
-		<EmbeddedResource Update="Resources.resx">
-			<CustomToolNamespace>MimeDetective.Definitions</CustomToolNamespace>
-			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
-			<Generator>ResXFileCodeGenerator</Generator>
-		</EmbeddedResource>
-	</ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resources.resx">
+      <CustomToolNamespace>MimeDetective.Definitions</CustomToolNamespace>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
 
 </Project>
