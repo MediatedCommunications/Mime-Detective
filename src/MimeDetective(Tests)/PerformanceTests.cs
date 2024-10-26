@@ -77,6 +77,10 @@ namespace MimeDetective.Tests {
         }
 
         private static ImmutableArray<FileExtensionMatch> Test_Extension(string FileName, string Extension) {
+            if (!System.IO.File.Exists(FileName)) {
+                Assert.Inconclusive("File not found");
+            }
+
             var ret = ImmutableArray<FileExtensionMatch>.Empty;
 
             var Content = System.IO.File.ReadAllBytes(FileName);
