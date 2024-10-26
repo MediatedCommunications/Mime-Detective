@@ -5,6 +5,7 @@
     <LangVersion>latest</LangVersion>
     <nullable>enable</nullable>
     <NoWarn>IDE1006</NoWarn>
+    <IsAotCompatible Condition="'$(TargetFramework)' == 'net8.0'">true</IsAotCompatible>
   </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
     <NoWarn>CS0436;CS1685</NoWarn>

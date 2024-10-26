@@ -1,6 +1,7 @@
 ﻿using MimeDetective.Definitions.Licensing;
 using MimeDetective.Storage;
 using System.Collections.Immutable;
+using System.IO;
 using System.Linq;
 
 namespace MimeDetective.Definitions {
@@ -20,7 +21,7 @@ namespace MimeDetective.Definitions {
 
             var raw = MimeDetective.Definitions.Resources.data;
             var ret = MimeDetective.Storage.DefinitionBinarySerializer
-                .FromBinary(raw)
+                .FromBinary(new MemoryStream(raw))
                 .ToImmutableArray()
                 ;
 
