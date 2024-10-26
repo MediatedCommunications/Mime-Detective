@@ -1,3 +1,9 @@
+#!/usr/bin/env pwsh
+
+#Set-PSDebug -Trace 2
+$PSNativeCommandUseErrorActionPreference = $true
+$ErrorActionPreference = 'Stop'
+
 echo "build: Build started"
 
 Push-Location $PSScriptRoot
@@ -27,10 +33,10 @@ $buildSuffix = ""
 echo "build: Package version suffix is $suffix"
 echo "build: Build version suffix is $buildSuffix" 
 
-foreach ($src in ls src/*) {
+foreach ($src in ls -Attributes Directory ./Mime*) {
     Push-Location $src
 
-	echo "build: Packaging project in $src"
+    echo "build: Packaging project in $src"
 
     if($suffix -ne "") {
         & dotnet pack -c Release --include-source --no-build -o ..\..\artifacts --version-suffix=$suffix
@@ -42,7 +48,7 @@ foreach ($src in ls src/*) {
     Pop-Location
 }
 
-foreach ($test in ls test/*.Tests) {
+foreach ($test in ls -Attributes Directory ./Mime*`(Tests`)) {
     Push-Location $test
 
 	echo "build: Testing project in $test"
@@ -53,15 +59,15 @@ foreach ($test in ls test/*.Tests) {
     Pop-Location
 }
 
-foreach ($test in ls test/*.PerformanceTests) {
-    Push-Location $test
+# foreach ($test in ls test/*.PerformanceTests) {
+#     Push-Location $test
 
-	echo "build: Building performance test project in $test"
+# 	echo "build: Building performance test project in $test"
 
-    & dotnet build -c Release
-    if($LASTEXITCODE -ne 0) { exit 2 }
+#     & dotnet build -c Release
+#     if($LASTEXITCODE -ne 0) { exit 2 }
 
-    Pop-Location
-}
+#     Pop-Location
+# }
 
 Pop-Location
