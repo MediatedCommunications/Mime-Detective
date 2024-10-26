@@ -17,7 +17,7 @@ using System.IO;
 
 namespace MimeDetective.Benchmark;
 
-public class BenchmarkConfig {
+public static class BenchmarkConfig {
     private static readonly IAnalyser[] Analysers = {
         EnvironmentAnalyser.Default, OutliersAnalyser.Default, MinIterationTimeAnalyser.Default,
         MultimodalDistributionAnalyzer.Default, RuntimeErrorAnalyser.Default, ZeroMeasurementAnalyser.Default,
