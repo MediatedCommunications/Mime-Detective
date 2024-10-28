@@ -92,7 +92,7 @@ namespace MimeDetective
         /// <returns></returns>
         public static ImmutableArray<DefinitionMatch> Inspect(this ContentInspector This, ImmutableArray<byte> Content)
         {
-            return This.Inspect(Content);
+            return This.Inspect(Content.AsSpan());
         }
 
         /// <summary>
