@@ -12,14 +12,14 @@ namespace MimeDetective.Storage {
         /// <summary>
         /// The <see cref="Pattern"/> that must exist in the target file.
         /// </summary>
-        public ImmutableArray<byte> Pattern { get; init; } = ImmutableArray<byte>.Empty;
+        public ImmutableArray<byte> Pattern { get; init; } = [];
 
         protected static ImmutableArray<byte> BytesFromHex(string HexString) {
-            var ValidCharacters = "0123456789ABCDEF";
-            var Trimmed = new StringBuilder();
+            const string ValidCharacters = "0123456789ABCDEF";
+            var Trimmed = new StringBuilder(HexString.Length);
 
             HexString = HexString
-                .ToUpper()
+                .ToUpperInvariant()
                 .Replace("0X", "")
                 ;
 
@@ -53,8 +53,8 @@ namespace MimeDetective.Storage {
 
         public override string? GetDebuggerDisplay()
         {
-            var Hex = System.Convert.ToHexString(Pattern.ToArray());
-            var String = System.Text.Encoding.UTF8.GetString(Pattern.ToArray());
+            var Hex = System.Convert.ToHexString([.. Pattern]);
+            var String = System.Text.Encoding.UTF8.GetString([.. Pattern]);
             String = String.Replace("\0", "'");
 
             return $@"{String} /// {Hex}";
@@ -63,7 +63,7 @@ namespace MimeDetective.Storage {
         private int? GetHashCode_Value;
         public override sealed int GetHashCode() {
             
-            if (! (GetHashCode_Value is { } V1)) {
+            if (this.GetHashCode_Value is not { } V1) {
                 V1 = GetHashCodeInternal();
                 GetHashCode_Value = V1;
             }

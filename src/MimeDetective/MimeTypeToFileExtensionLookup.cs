@@ -34,7 +34,7 @@ namespace MimeDetective {
         internal MimeTypeToFileExtensionLookup(ImmutableArray<Definition> Definitions) {
             this.Values = (
                 from x1 in Definitions
-                let mimetype = x1.File.MimeType?.ToLower()
+                let mimetype = x1.File.MimeType?.ToLowerInvariant()
                 where !string.IsNullOrWhiteSpace(mimetype)
 
                 group x1 by mimetype into G1
@@ -42,7 +42,7 @@ namespace MimeDetective {
                 let FileExtensions = (
                     from x2 in G1
                     from y2 in x2.File.Extensions
-                    let extension = y2.ToLower()
+                    let extension = y2.ToLowerInvariant()
                     where !string.IsNullOrWhiteSpace(extension)
                     group x2 by extension into G2
                     let Matches = (

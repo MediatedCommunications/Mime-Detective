@@ -1,4 +1,5 @@
 ﻿using MimeDetective.Diagnostics;
+using System.Globalization;
 
 namespace MimeDetective.Storage
 {
@@ -8,7 +9,7 @@ namespace MimeDetective.Storage
 
         public override string? GetDebuggerDisplay()
         {
-            return $@"{Files?.ToString() ?? "???"} Files";
+            return $"{Files?.ToString(CultureInfo.CurrentCulture) ?? "???"} Files";
         }
 
     }

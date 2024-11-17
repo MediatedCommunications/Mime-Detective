@@ -4,6 +4,7 @@
     <LangVersion>12.0</LangVersion>
     <Nullable>enable</Nullable>
     <NoWarn>IDE1006</NoWarn>
+    <NeutralLanguage>en</NeutralLanguage>
     <IsAotCompatible Condition="'$(TargetFramework)' == 'net8.0'">true</IsAotCompatible>
   </PropertyGroup>
 

@@ -21,7 +21,7 @@ namespace MimeDetective {
         }
 
         public ImmutableArray<MimeTypeMatch> TryGetValues(string Extension) {
-            while (Extension.StartsWith(".")) {
+            while (Extension.StartsWith(".", StringComparison.Ordinal)) {
                 Extension = Extension[1..];
             }
             
@@ -43,11 +43,11 @@ namespace MimeDetective {
                 from y1 in x1.File.Extensions
                 where !string.IsNullOrWhiteSpace(y1)
 
-                group x1 by y1.ToLower() into G1
+                group x1 by y1.ToLowerInvariant() into G1
                 let MimeTypes = (
                     //Group the items by mime type and sort the m descending.
                     from x2 in G1
-                    group x2 by x2.File.MimeType?.ToLower() into G2
+                    group x2 by x2.File.MimeType?.ToLowerInvariant() into G2
                     let Matches = (
                         from y in G2
                         select new DefinitionMatch() { 

@@ -35,7 +35,8 @@ public class Generator {
         var definitions =
             from FileName in Directory.EnumerateFiles(Folder, "*.xml", SearchOption.AllDirectories).AsParallel()
             let Id = Path.GetFileNameWithoutExtension(FileName)
-            let Item = XmlSerializer.FromXmlFile(FileName) ?? throw new NullReferenceException()
+            let Item = XmlSerializer.FromXmlFile(FileName)
+                ?? throw new InvalidOperationException($"Unable to deserialize {FileName}")
             let Modern = Item.Modernize()
             select Modern with { Meta = (Modern.Meta ?? new()) with { Id = Id } };
 

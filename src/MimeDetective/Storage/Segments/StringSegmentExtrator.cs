@@ -78,7 +78,7 @@ namespace MimeDetective.Storage {
 
             //Must be > because it contains a | at the start
             if (tret.Count > MinSegmentLength) {
-                ret = tret.ToArray();
+                ret = [..tret];
             }
 
             return ret;
