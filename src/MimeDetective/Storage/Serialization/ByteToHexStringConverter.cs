@@ -39,7 +39,7 @@ internal abstract class ByteToHexStringConverter<T> : JsonConverter<T>
         //    ;
         //return Convert.FromHexString(xData);
 
-#if NET8_0_OR_GREATER && false
+#if NET8_0_OR_GREATER
                 if (reader.TokenType != JsonTokenType.String) {
                     throw new JsonException("Expected string");
                 }
