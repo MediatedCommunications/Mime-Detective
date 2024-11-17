@@ -12,7 +12,7 @@ namespace MimeDetective.Storage {
 
 
         static StringSegmentExtrator() {
-            var Valid = ""
+            const string Valid = ""
                 + "abcdefghijklmnopqrstuvwxyz"
                 + "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 + "0123456789"
@@ -24,8 +24,7 @@ namespace MimeDetective.Storage {
                 ValidBytesArray[(byte)item] = true;
             }
 
-            ValidBytes = ValidBytesArray.ToImmutableArray();
-
+            ValidBytes = [..ValidBytesArray];
         }
 
 
@@ -47,7 +46,7 @@ namespace MimeDetective.Storage {
                 var V1 = Content[i];
 
                 if (ValidBytes[V1]) {
-                    if (V1 >= (byte)'a' && V1 <= (byte)'z') {
+                    if (V1 is >= (byte)'a' and <= (byte)'z') {
                         V1 -= delta;
                     }
 
@@ -91,11 +90,13 @@ namespace MimeDetective.Storage {
             var tret = ExtractBytes(Content);
 
             if(tret.Length > 0) {
-                ret = new[] {
-                    new StringSegment() {
-                        Pattern = tret.ToImmutableArray()
+                ret = [
+                    ..new[] {
+                        new StringSegment() {
+                            Pattern = [..tret]
+                        }
                     }
-                }.ToImmutableArray();
+                ];
             }
 
             return ret;
@@ -115,7 +116,7 @@ namespace MimeDetective.Storage {
             while(Start < Bytes.Length) {
                 var NextEnd = Array.IndexOf(Bytes, Separator, Start);
 
-                tret.Add(Bytes[Start..NextEnd].ToImmutableArray());
+                tret.Add([..Bytes.AsSpan(Start, NextEnd - Start)]);
 
                 Start = NextEnd + 1;
             }
