@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="..\__Shared\Shared.props" Label="Shared" />
 
   <PropertyGroup>
     <PackageId>Mime-Detective.Definitions.Exhaustive</PackageId>

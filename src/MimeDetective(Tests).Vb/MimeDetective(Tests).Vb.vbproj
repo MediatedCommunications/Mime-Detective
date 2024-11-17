@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="..\__Shared\Shared.props" Label="Shared" />
 
   <PropertyGroup>
     <TargetFrameworks>net462</TargetFrameworks>
