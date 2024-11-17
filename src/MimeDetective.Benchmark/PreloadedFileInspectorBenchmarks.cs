@@ -16,9 +16,9 @@ public class PreloadedFileInspectorBenchmarks {
 
     #region Parameters
 
-    [ParamsSource(nameof(FileContents))] public BenchmarkParameter<byte[]> TestFile { get; set; }
+    [ParamsSource(nameof(FileContents))] public BenchmarkParameter<byte[]> TestFile { get; set; } = null!;
 
-    [ParamsSource(nameof(Inspectors))] public BenchmarkParameter<ContentInspector> Inspector { get; set; }
+    [ParamsSource(nameof(Inspectors))] public BenchmarkParameter<ContentInspector> Inspector { get; set; } = null!;
 
     #endregion
 }

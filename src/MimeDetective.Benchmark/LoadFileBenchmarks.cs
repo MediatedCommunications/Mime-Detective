@@ -11,7 +11,7 @@ public class LoadFileBenchmarks {
 
     #region Parameters
 
-    [ParamsSource(nameof(FilePaths))] public BenchmarkParameter<string> TestFile { get; set; }
+    [ParamsSource(nameof(FilePaths))] public BenchmarkParameter<string> TestFile { get; set; } = null!;
 
     #endregion
 

@@ -14,7 +14,7 @@ public class FileLoadInspectorBenchmarks {
     public BenchmarkParameter<ContentInspector>[] Inspectors => BenchmarkInspectors.Instance.Inspectors;
 
     [Benchmark]
-    public (string extension, string mimeType) InspectAndInterpret() {
+    public (string? extension, string? mimeType) InspectAndInterpret() {
         var results = this.Inspector.Value.Inspect(ContentReader.Default.ReadFromFile(this.TestFile.Value));
         var ext = results.ByFileExtension();
         var mt = results.ByMimeType();
@@ -29,9 +29,9 @@ public class FileLoadInspectorBenchmarks {
 
     #region Parameters
 
-    [ParamsSource(nameof(FilePaths))] public BenchmarkParameter<string> TestFile { get; set; }
+    [ParamsSource(nameof(FilePaths))] public BenchmarkParameter<string> TestFile { get; set; } = null!;
 
-    [ParamsSource(nameof(Inspectors))] public BenchmarkParameter<ContentInspector> Inspector { get; set; }
+    [ParamsSource(nameof(Inspectors))] public BenchmarkParameter<ContentInspector> Inspector { get; set; } = null!;
 
     #endregion
 }
