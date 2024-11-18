@@ -16,7 +16,7 @@ namespace System {
 
         private static string ByteArrayToHexString(byte[] Bytes) {
             var Result = new StringBuilder(Bytes.Length * 2);
-            var HexAlphabet = "0123456789ABCDEF";
+            const string HexAlphabet = "0123456789ABCDEF";
 
             foreach (var B in Bytes) {
                 Result.Append(HexAlphabet[B >> 4]);
@@ -33,8 +33,8 @@ namespace System {
        0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F };
 
             for (int x = 0, i = 0; i < Hex.Length; i += 2, x += 1) {
-                Bytes[x] = (byte)(HexValue[char.ToUpper(Hex[i + 0]) - '0'] << 4 |
-                                  HexValue[char.ToUpper(Hex[i + 1]) - '0']);
+                Bytes[x] = (byte)(HexValue[char.ToUpperInvariant(Hex[i + 0]) - '0'] << 4 |
+                                  HexValue[char.ToUpperInvariant(Hex[i + 1]) - '0']);
             }
 
             return Bytes;

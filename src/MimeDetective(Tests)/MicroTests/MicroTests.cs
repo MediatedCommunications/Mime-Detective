@@ -87,7 +87,7 @@ public void {Name}(){{
                 );
             }
 
-            var Expected = FileName.Split('.').LastOrDefault()?.ToLower() ?? string.Empty;
+            var Expected = FileName.Split('.').LastOrDefault()?.ToLowerInvariant() ?? string.Empty;
 
             var IsValid = Results.Contains(Expected);
 

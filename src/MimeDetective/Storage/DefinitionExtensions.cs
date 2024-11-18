@@ -164,14 +164,14 @@ namespace MimeDetective.Storage {
             var ExtensionCache = (
                 from x in Definitions
                 from y in x.File.Extensions
-                select y.ToLower()
+                select y.ToLowerInvariant()
                 )
                 .Distinct(StringComparer.InvariantCultureIgnoreCase)
                 .ToImmutableDictionary(x => x, x => x, StringComparer.InvariantCultureIgnoreCase);
 
             var MimeTypeCache = (
                 from x in Definitions
-                let v = x.File.MimeType?.ToLower()
+                let v = x.File.MimeType?.ToLowerInvariant()
                 where v is { }
                 select v
                 )

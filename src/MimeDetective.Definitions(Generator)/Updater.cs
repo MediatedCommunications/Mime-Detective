@@ -19,11 +19,8 @@ namespace MimeDetective.Definitions {
         [TestMethod]
         public async Task UpdateDefinitions() {
             var defsRoot = SourceDefinitions.DefinitionRoot();
-            var extractPath = Directory.GetParent(defsRoot)?.FullName;
-
-            if (extractPath is null) {
-                throw new InvalidOperationException("Could not determine the path to the definitions parent directory.");
-            }
+            var extractPath = Directory.GetParent(defsRoot)?.FullName
+                ?? throw new InvalidOperationException("Could not determine the path to the definitions parent directory.");
 
             using var client = new HttpClient {
                 DefaultRequestVersion = HttpVersion.Version20,
@@ -50,7 +47,7 @@ namespace MimeDetective.Definitions {
                         && e.Key.EndsWith(DEFS_DIR, StringComparison.OrdinalIgnoreCase));
 
                 if (archiveEntry is null) {
-                    throw new Exception($"Could not find '{DEFS_DIR}' directory in archive.");
+                    throw new InvalidOperationException($"Could not find '{DEFS_DIR}' directory in archive.");
                 }
 
                 using var reader = archive.ExtractAllEntries();

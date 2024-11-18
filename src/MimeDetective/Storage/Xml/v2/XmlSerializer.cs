@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using System.Xml;
 
 namespace MimeDetective.Storage.Xml.v2 {
 
@@ -23,12 +24,13 @@ namespace MimeDetective.Storage.Xml.v2 {
 
 #if NET8_0_OR_GREATER
         [RequiresUnreferencedCode("XmlSerializer deserializes Definition")]
+        [DynamicDependency(DynamicallyAccessedMemberTypes.All, typeof(Definition))]
 #endif
         public static Definition? FromXmlStream(Stream Input) {
             
             var Serializer = new System.Xml.Serialization.XmlSerializer(typeof(Definition));
 
-            var ret = Serializer.Deserialize(Input) as Definition;
+            var ret = Serializer.Deserialize(XmlReader.Create(Input)) as Definition;
 
             return ret;
         }

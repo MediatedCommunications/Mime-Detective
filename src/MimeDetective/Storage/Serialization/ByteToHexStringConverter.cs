@@ -60,8 +60,9 @@ internal abstract class ByteToHexStringConverter<T> : JsonConverter<T>
             throw new JsonException("Expected string");
         }
 
-        if (!reader.HasValueSequence)
+        if (!reader.HasValueSequence) {
             return ByteToHexUtility.FromHex(reader.ValueSpan);
+        }
 
         if (reader.ValueSequence.Length > ByteToHexUtility.MaximumLength) {
             throw new JsonException("Input too long");
@@ -82,11 +83,8 @@ internal abstract class ByteToHexStringConverter<T> : JsonConverter<T>
             }
         }
 #else
-        var Data = reader.GetString();
-
-        if (Data is null) {
-            throw new JsonException("Expected string");
-        }
+        var Data = reader.GetString()
+            ?? throw new JsonException("Expected string");
 
         return Convert.FromHexString(Data);
 #endif
