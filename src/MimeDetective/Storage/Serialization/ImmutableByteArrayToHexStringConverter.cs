@@ -15,7 +15,7 @@ namespace MimeDetective.Storage
 
         public override void Write(Utf8JsonWriter writer, ImmutableArray<byte> value, JsonSerializerOptions options)
         {
-            WriteBytes(writer, value, options);
+            WriteBytes(writer, value.AsSpan(), options);
         }
 
     }

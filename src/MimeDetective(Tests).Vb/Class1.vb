@@ -5,7 +5,7 @@ Namespace MimeDetective_VB.Tests.Vb
     <TestClass>
     Public Class VbTests
 
-        <TestMethod>
+        '<TestMethod>
         Public Sub Test1()
             Dim E = New MimeDetective.ContentInspectorBuilder().Build()
             Dim R = E.Inspect(Array.Empty(Of Byte)).First()

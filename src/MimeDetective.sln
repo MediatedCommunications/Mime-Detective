@@ -7,7 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extensions", "Extensions", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ED5ED47B-B980-434E-AC3E-1DCDD244C53D}"
 	ProjectSection(SolutionItems) = preProject
+		..\.editorconfig = ..\.editorconfig
 		..\Build.ps1 = ..\Build.ps1
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
 		..\LICENSE.txt = ..\LICENSE.txt
 		NegativeOptimizations.md = NegativeOptimizations.md
 		..\README.md = ..\README.md
@@ -25,16 +28,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MimeDetective.Definitions.E
 EndProject
 Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "MimeDetective(Tests).Vb", "MimeDetective(Tests).Vb\MimeDetective(Tests).Vb.vbproj", "{43E99D1C-B71C-43D4-9F6F-26E96033CCDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MimeDetective.Benchmark", "MimeDetective.Benchmark\MimeDetective.Benchmark.csproj", "{D9D56BBA-F75E-4EB5-8881-4DEFFAEE3586}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MimeDetective.Benchmark", "MimeDetective.Benchmark\MimeDetective.Benchmark.csproj", "{D9D56BBA-F75E-4EB5-8881-4DEFFAEE3586}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MimeDetective.MemoryMapping", "MimeDetective.MemoryMapping\MimeDetective.MemoryMapping.csproj", "{47EAF697-0036-4760-8E0B-5C40F0A0961C}"
 EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		__Shared\Shared.props*{43e99d1c-b71c-43d4-9f6f-26e96033ccdb}*SharedItemsImports = 5
-		__Shared\Shared.props*{51483a4a-129f-4044-bcf5-ddf8c6fc5d3f}*SharedItemsImports = 5
-		__Shared\Shared.props*{642c4115-00dc-4faf-9e1a-993e87d81593}*SharedItemsImports = 5
-		__Shared\Shared.props*{848ca710-a03a-4854-a505-561620eb16bb}*SharedItemsImports = 5
-		__Shared\Shared.props*{8ac8ea20-8331-4d5f-b0ac-fbcc31088780}*SharedItemsImports = 5
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -68,6 +66,10 @@ Global
 		{D9D56BBA-F75E-4EB5-8881-4DEFFAEE3586}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9D56BBA-F75E-4EB5-8881-4DEFFAEE3586}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9D56BBA-F75E-4EB5-8881-4DEFFAEE3586}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47EAF697-0036-4760-8E0B-5C40F0A0961C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47EAF697-0036-4760-8E0B-5C40F0A0961C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47EAF697-0036-4760-8E0B-5C40F0A0961C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47EAF697-0036-4760-8E0B-5C40F0A0961C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

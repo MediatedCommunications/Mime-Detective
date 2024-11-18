@@ -2,7 +2,7 @@
 
 namespace MimeDetective.Storage {
     /// <summary>
-    /// Contains information used to identiy a file.
+    /// Contains information used to identify a file.
     /// </summary>
     public record Definition : DisplayRecord
     {

@@ -1,49 +1,65 @@
-using MimeDetective.Definitions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Immutable;
-using System.Linq;
+using System.Diagnostics.CodeAnalysis;
+using System.IO;
+using System.Text;
 
 namespace MimeDetective.Tests {
 
     [TestClass]
-    public class FormatTests
-    {
-        
+    public class FormatTests {
+
         [TestMethod]
-        public void JsonRoundTrip()
-        {
+        public void JsonRoundTrip() {
             var Data1 = EngineData.Example();
-            var Json1 = MimeDetective.Storage.DefinitionJsonSerializer.ToJson(Data1);
-            var Data2 = MimeDetective.Storage.DefinitionJsonSerializer.FromJson(Json1);
-            var Json2 = MimeDetective.Storage.DefinitionJsonSerializer.ToJson(Data2);
-            Assert.AreEqual(Json1, Json2);
+            using var Ms1 = new System.IO.MemoryStream();
+
+            MimeDetective.Storage.DefinitionJsonSerializer.ToJson(Ms1, [Data1]);
+            var Json1 = Encoding.UTF8.GetString(Ms1.ToArray());
+
+            Ms1.Position = 0;
+            var Data2 = MimeDetective.Storage.DefinitionJsonSerializer.FromJson(Ms1);
+
+            using var Ms2 = new System.IO.MemoryStream();
+            MimeDetective.Storage.DefinitionJsonSerializer.ToJson(Ms2, Data2);
+
+            var Json2 = Encoding.UTF8.GetString(Ms1.ToArray());
+
+            CollectionAssert.AreEqual(Ms1.ToArray(), Ms2.ToArray());
         }
 
         [TestMethod]
-        public void BinaryRoundTrip()
-        {
+        public void BinaryRoundTrip() {
             var Data1 = EngineData.Example();
-            var Json1 = MimeDetective.Storage.DefinitionBinarySerializer.ToBinary(Data1);
-            var Data2 = MimeDetective.Storage.DefinitionBinarySerializer.FromBinary(Json1);
-            var Json2 = MimeDetective.Storage.DefinitionBinarySerializer.ToBinary(Data2);
+            using var Ms1 = new System.IO.MemoryStream();
 
-            Assert.IsTrue(Enumerable.SequenceEqual(Json1, Json2));
+            MimeDetective.Storage.DefinitionBinarySerializer.ToBinary(Ms1, Data1);
+            Ms1.Position = 0;
+            var Data2 = MimeDetective.Storage.DefinitionBinarySerializer.FromBinary(Ms1);
+
+            using var Ms2 = new System.IO.MemoryStream();
+            MimeDetective.Storage.DefinitionBinarySerializer.ToBinary(Ms2, Data2);
+
+            CollectionAssert.AreEqual(Ms1.ToArray(), Ms2.ToArray());
         }
 
+#if NET5_0_OR_GREATER
+        [RequiresUnreferencedCode("This uses XML")]
+#endif
         [TestMethod]
-        public void TestXmlSchema_FromMemory()
-        {
+        public void TestXmlSchema_FromMemory() {
             var Data = XmlData.Example();
             var xml = MimeDetective.Storage.Xml.v2.XmlSerializer.ToXml(Data);
             Assert.IsNotNull(xml);
         }
 
+#if NET5_0_OR_GREATER
+        [RequiresUnreferencedCode("This uses XML")]
+#endif
         [TestMethod]
         public void TestXmlSchema_FromFiles() {
-            var Folder = $@"{SourceDefinitions.DefinitionRoot()}\0\";
+            var Folder = Path.Combine(SourceDefinitions.DefinitionRoot(), "0");
 
-            var Files = System.IO.Directory.GetFiles(Folder, "*.xml");
+            var Files = System.IO.Directory.EnumerateFiles(Folder, "*.xml");
 
             foreach (var File in Files) {
 
@@ -55,8 +71,7 @@ namespace MimeDetective.Tests {
         }
 
         [TestMethod]
-        public void BinaryMatchesXml()
-        {
+        public void BinaryMatchesXml() {
             var Data1 = XmlData.Example();
             var Data2 = EngineData.Example();
 
@@ -68,12 +83,12 @@ namespace MimeDetective.Tests {
             Assert.AreEqual(Data1.General.Time.Sec, Data2?.Meta?.Created?.At?.Second);
 
             Assert.AreEqual(Data1.FrontBlock.Count, Data2?.Signature.Prefix.Length);
-            
+
 
         }
 
 
-        
+
 
 
     }

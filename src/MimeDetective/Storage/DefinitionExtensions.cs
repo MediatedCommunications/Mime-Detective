@@ -106,11 +106,7 @@ namespace MimeDetective.Storage {
         /// <param name="This"></param>
         /// <param name="Extensions"></param>
         /// <returns></returns>
-        public static IEnumerable<Definition> TrimExtensions(this IEnumerable<Definition> This, IEnumerable<string> Extensions) {
-            return TrimExtensions(This, Extensions.ToImmutableHashSet(StringComparer.InvariantCultureIgnoreCase));
-        }
-
-        private static IEnumerable<Definition> TrimExtensions(this IEnumerable<Definition> This, ImmutableHashSet<string> Extensions) {
+        public static IEnumerable<Definition> TrimExtensions(this IEnumerable<Definition> This, ISet<string> Extensions) {
             return This.Select(x => x.TrimExtensions(Extensions));
         }
 
@@ -120,22 +116,18 @@ namespace MimeDetective.Storage {
         /// <param name="This"></param>
         /// <param name="Extensions"></param>
         /// <returns></returns>
-        public static Definition TrimExtensions(this Definition This, IEnumerable<string> Extensions) {
-            return TrimExtensions(This, Extensions.ToImmutableHashSet(StringComparer.InvariantCultureIgnoreCase));
-        }
-
-        private static Definition TrimExtensions(this Definition This, ImmutableHashSet<string> Extensions) {
+        public static Definition TrimExtensions(this Definition This, ISet<string> Extensions) {
             return This with {
                 File = This.File with {
-                    Extensions = Extensions
-                        .Intersect(This.File.Extensions)
-                        .ToImmutableArray()
+                        Extensions = This.File.Extensions
+                            .Where(Extensions.Contains)
+                            .ToImmutableArray()
                 }
             };
         }
 
         /// <summary>
-        /// Returns a copy of the <see cref="Definition"/>s whose <see cref="FileType.Extensions"/> are intersected with the provided <paramref name="Extensions"/>.  If a <see cref="Definition"/> would contain no <see cref="FileType.Extensions"/>, it is ommitted from the results.
+        /// Returns a copy of the <see cref="Definition"/>s whose <see cref="FileType.Extensions"/> are intersected with the provided <paramref name="Extensions"/>.  If a <see cref="Definition"/> would contain no <see cref="FileType.Extensions"/>, it is omitted from the results.
         /// </summary>
         /// <param name="This"></param>
         /// <param name="Extensions"></param>

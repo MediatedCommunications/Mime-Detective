@@ -12,7 +12,7 @@ namespace MimeDetective.Storage {
 
 
         static StringSegmentExtrator() {
-            var Valid = ""
+            const string Valid = ""
                 + "abcdefghijklmnopqrstuvwxyz"
                 + "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 + "0123456789"
@@ -24,12 +24,11 @@ namespace MimeDetective.Storage {
                 ValidBytesArray[(byte)item] = true;
             }
 
-            ValidBytes = ValidBytesArray.ToImmutableArray();
-
+            ValidBytes = [..ValidBytesArray];
         }
 
 
-        public static byte[] ExtractBytes(ImmutableArray<byte> Content) {
+        public static byte[] ExtractBytes(ReadOnlySpan<byte> Content) {
             var ret = Array.Empty<byte>();
 
             var delta = (byte)('a' - 'A');
@@ -47,7 +46,7 @@ namespace MimeDetective.Storage {
                 var V1 = Content[i];
 
                 if (ValidBytes[V1]) {
-                    if (V1 >= (byte)'a' && V1 <= (byte)'z') {
+                    if (V1 is >= (byte)'a' and <= (byte)'z') {
                         V1 -= delta;
                     }
 
@@ -85,27 +84,29 @@ namespace MimeDetective.Storage {
             return ret;
         }
 
-        public static ImmutableArray<StringSegment> ExtractBytesString(ImmutableArray<byte> Content) {
+        public static ImmutableArray<StringSegment> ExtractBytesString(ReadOnlySpan<byte> Content) {
             var ret = ImmutableArray<StringSegment>.Empty;
 
             var tret = ExtractBytes(Content);
 
             if(tret.Length > 0) {
-                ret = new[] {
-                    new StringSegment() {
-                        Pattern = tret.ToImmutableArray()
+                ret = [
+                    ..new[] {
+                        new StringSegment() {
+                            Pattern = [..tret]
+                        }
                     }
-                }.ToImmutableArray();
+                ];
             }
 
             return ret;
         }
 
-        public static ImmutableArray<StringSegment> ExtractStrings(ImmutableArray<byte> Content) {
+        public static ImmutableArray<StringSegment> ExtractStrings(ReadOnlySpan<byte> Content) {
             return ExtractBytesString(Content);
         }
 
-        public static ImmutableArray<StringSegment> ExtractAllStrings(ImmutableArray<byte> Content) {
+        public static ImmutableArray<StringSegment> ExtractAllStrings(ReadOnlySpan<byte> Content) {
             var tret = new List<ImmutableArray<byte>>();
 
             var Bytes = ExtractBytes(Content);
@@ -115,7 +116,7 @@ namespace MimeDetective.Storage {
             while(Start < Bytes.Length) {
                 var NextEnd = Array.IndexOf(Bytes, Separator, Start);
 
-                tret.Add(Bytes[Start..NextEnd].ToImmutableArray());
+                tret.Add([..Bytes.AsSpan(Start, NextEnd - Start)]);
 
                 Start = NextEnd + 1;
             }

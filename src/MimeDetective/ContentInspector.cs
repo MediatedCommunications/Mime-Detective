@@ -1,4 +1,5 @@
 ﻿using MimeDetective.Engine;
+using System;
 using System.Collections.Immutable;
 
 namespace MimeDetective {
@@ -7,10 +8,10 @@ namespace MimeDetective {
     /// </summary>
     public interface ContentInspector {
         /// <summary>
-        /// <see cref="Inspect(ImmutableArray{byte})"/> the type of content.
+        /// <see cref="Inspect(ReadOnlySpan{byte})"/> the type of content.
         /// </summary>
         /// <param name="Content"></param>
         /// <returns></returns>
-        ImmutableArray<DefinitionMatch> Inspect(ImmutableArray<byte> Content);
+        ImmutableArray<DefinitionMatch> Inspect(ReadOnlySpan<byte> Content);
     }
 }
