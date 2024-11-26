@@ -4,7 +4,7 @@ using System.Collections.Immutable;
 namespace MimeDetective.Tests {
     public static class ContentInspectors {
         public static class Exhaustive {
-            public static ContentInspector ContentInspector { get; }
+            public static IContentInspector ContentInspector { get; }
             public static ImmutableArray<Definition> Definitions { get; }
             public static MimeTypeToFileExtensionLookup MimeTypeToFileExtensionLookup { get; }
             public static FileExtensionToMimeTypeLookup FileExtensionToMimeTypeLookup { get; }

@@ -9,7 +9,7 @@ namespace MimeDetective.Tests {
 
         public static class CustomContentInspector {
 
-            public static ContentInspector Instance { get; }
+            public static IContentInspector Instance { get; }
 
             static CustomContentInspector() {
 

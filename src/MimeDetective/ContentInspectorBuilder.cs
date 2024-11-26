@@ -6,7 +6,7 @@ using System.Collections.Immutable;
 namespace MimeDetective {
 
     /// <summary>
-    /// Use this class to create a new <see cref="ContentInspector"/>.
+    /// Use this class to create a new <see cref="IContentInspector"/>.
     /// </summary>
     public class ContentInspectorBuilder {
 
@@ -28,7 +28,7 @@ namespace MimeDetective {
         /// </summary>
         public bool Parallel { get; set; } = true;
 
-        public ContentInspector Build() {
+        public IContentInspector Build() {
 
             var Options = MatchEvaluatorOptions;
             var Defs = Definitions.ToImmutableArray();

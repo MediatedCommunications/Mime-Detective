@@ -11,7 +11,7 @@ public static class ContentInspectorExtensions {
     /// <param name="This"></param>
     /// <param name="FilePath"></param>
     /// <returns></returns>
-    public static ImmutableArray<DefinitionMatch> InspectMemoryMapped(this ContentInspector This, string FilePath) {
+    public static ImmutableArray<DefinitionMatch> InspectMemoryMapped(this IContentInspector This, string FilePath) {
         using var file = new FileStream(FilePath, FileMode.Open, FileAccess.Read,
             FileShare.Read, 4096, FileOptions.RandomAccess);
         using var mapping = MemoryMappedFile.CreateFromFile(file, null, 0,

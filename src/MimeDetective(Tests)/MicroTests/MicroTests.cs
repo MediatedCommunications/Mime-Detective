@@ -7,8 +7,8 @@ using System.Text;
 namespace MimeDetective.Tests {
     [TestClass]
     public abstract class MicroTests {
-        private static ContentInspector? GetEngine_Result;
-        protected static ContentInspector GetEngine() {
+        private static IContentInspector? GetEngine_Result;
+        protected static IContentInspector GetEngine() {
 
             var IsDebug = false;
 

@@ -11,7 +11,7 @@ namespace MimeDetective.Benchmark;
 
 public class FileLoadInspectorBenchmarks {
     public BenchmarkParameter<string>[] FilePaths => BenchmarkFiles.Instance.FilePaths;
-    public BenchmarkParameter<ContentInspector>[] Inspectors => BenchmarkInspectors.Instance.Inspectors;
+    public BenchmarkParameter<IContentInspector>[] Inspectors => BenchmarkInspectors.Instance.Inspectors;
 
     [Benchmark]
     public (string? extension, string? mimeType) InspectAndInterpret() {
@@ -31,7 +31,7 @@ public class FileLoadInspectorBenchmarks {
 
     [ParamsSource(nameof(FilePaths))] public BenchmarkParameter<string> TestFile { get; set; } = null!;
 
-    [ParamsSource(nameof(Inspectors))] public BenchmarkParameter<ContentInspector> Inspector { get; set; } = null!;
+    [ParamsSource(nameof(Inspectors))] public BenchmarkParameter<IContentInspector> Inspector { get; set; } = null!;
 
     #endregion
 }

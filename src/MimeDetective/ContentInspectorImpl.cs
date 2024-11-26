@@ -9,7 +9,7 @@ namespace MimeDetective {
 
 
     internal class ContentInspectorImpl
-        : ContentInspector {
+        : IContentInspector {
         public ContentInspectorImpl(
             ImmutableArray<Definition> Definitions,
             DefinitionMatchEvaluatorOptions MatchEvaluatorOptions,
