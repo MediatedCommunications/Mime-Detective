@@ -21,9 +21,7 @@ namespace MimeDetective {
         }
 
         public ImmutableArray<MimeTypeMatch> TryGetValues(string Extension) {
-            while (Extension.StartsWith(".", StringComparison.Ordinal)) {
-                Extension = Extension[1..];
-            }
+            Extension = Extension.TrimStart('.');
             
             var ret = ImmutableArray<MimeTypeMatch>.Empty;
 
