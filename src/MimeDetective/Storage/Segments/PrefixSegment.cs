@@ -14,23 +14,23 @@ public class PrefixSegment : PatternSegment {
     /// </summary>
     public int Start { get; init; }
 
-    public static PrefixSegment Create(int Start, ImmutableArray<byte> Bytes) {
+    public static PrefixSegment Create(int start, ImmutableArray<byte> bytes) {
         return new PrefixSegment() {
-            Start = Start,
-            Pattern = Bytes,
+            Start = start,
+            Pattern = bytes,
         };
     }
 
-    public static PrefixSegment Create(int Start, params byte[] Bytes) {
-        return Create(Start, Bytes.ToImmutableArray());
+    public static PrefixSegment Create(int start, params byte[] bytes) {
+        return Create(start, bytes.ToImmutableArray());
     }
 
-    public static PrefixSegment Create(int Start, IEnumerable<byte> Bytes) {
-        return Create(Start, Bytes.ToImmutableArray());
+    public static PrefixSegment Create(int start, IEnumerable<byte> bytes) {
+        return Create(start, bytes.ToImmutableArray());
     }
 
-    public static PrefixSegment Create(int Start, string HexString) {
-        return Create(Start, BytesFromHex(HexString));
+    public static PrefixSegment Create(int start, string hexString) {
+        return Create(start, BytesFromHex(hexString));
     }
 
     public override string? GetDebuggerDisplay() {

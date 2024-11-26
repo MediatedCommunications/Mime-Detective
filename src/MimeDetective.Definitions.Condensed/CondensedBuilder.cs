@@ -9,14 +9,14 @@ public class CondensedBuilder : DefinitionBuilder {
     public UsageType UsageType { get; set; }
 
     public override ImmutableArray<Definition> Build() {
-        var AllowedUsageTypes = new[] {
+        var allowedUsageTypes = new[] {
             UsageType.CommercialPaid,
             UsageType.PersonalNonCommercial
         };
 
-        var Error = "Please change your usage type or visit https://mark0.net/soft-tridnet-e.html to purchase a license.";
+        var error = "Please change your usage type or visit https://mark0.net/soft-tridnet-e.html to purchase a license.";
 
-        EnsureValidUsageType(UsageType, AllowedUsageTypes, Error);
+        EnsureValidUsageType(UsageType, allowedUsageTypes, error);
 
         var raw = MimeDetective.Definitions.Resources.data;
         var ret = MimeDetective.Storage.DefinitionBinarySerializer

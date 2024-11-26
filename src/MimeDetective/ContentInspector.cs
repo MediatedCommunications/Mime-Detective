@@ -11,7 +11,7 @@ public interface IContentInspector {
     /// <summary>
     /// <see cref="Inspect(ReadOnlySpan{byte})"/> the type of content.
     /// </summary>
-    /// <param name="Content"></param>
+    /// <param name="content"></param>
     /// <returns></returns>
-    ImmutableArray<DefinitionMatch> Inspect(ReadOnlySpan<byte> Content);
+    ImmutableArray<DefinitionMatch> Inspect(ReadOnlySpan<byte> content);
 }

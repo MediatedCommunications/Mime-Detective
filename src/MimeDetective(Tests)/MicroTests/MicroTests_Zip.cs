@@ -3,7 +3,7 @@
 namespace MimeDetective.Tests;
 
 [TestClass]
-public class MicroTests_Zip : MicroTests {
+public class MicroTestsZip : MicroTests {
 
     protected override string RelativeRoot() {
         return base.RelativeRoot() + @"\Zip\";

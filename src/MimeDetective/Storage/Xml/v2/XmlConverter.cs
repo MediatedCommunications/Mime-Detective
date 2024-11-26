@@ -10,78 +10,78 @@ namespace MimeDetective.Storage.Xml.v2;
 ///     Convert XML definitions into <see cref="Engine.Definition" />s.
 /// </summary>
 public static class XmlConverter {
-    public static Storage.Definition Convert(Definition V1) {
+    public static Storage.Definition Convert(Definition v1) {
         var ret = new Storage.Definition {
-            File = ConvertFile(V1),
-            Meta = ConvertMeta(V1),
-            Signature = ConvertSignature(V1)
+            File = ConvertFile(v1),
+            Meta = ConvertMeta(v1),
+            Signature = ConvertSignature(v1)
         };
 
         return ret;
     }
 
 
-    private static FileType ConvertFile(Definition V1) {
-        var Extensions = $@"{V1.Info?.FileExtension}"
+    private static FileType ConvertFile(Definition v1) {
+        var extensions = $@"{v1.Info?.FileExtension}"
                 .Split([@"/"], StringSplitOptions.RemoveEmptyEntries)
                 .Select(x => x.Trim().ToLowerInvariant())
                 .Where(x => !string.IsNullOrWhiteSpace(x))
                 .ToImmutableArray()
             ;
 
-        var Description = $@"{V1.Info?.FileType}";
-        var MimeType = $@"{V1.Info?.MimeType}";
+        var description = $@"{v1.Info?.FileType}";
+        var mimeType = $@"{v1.Info?.MimeType}";
 
-        var Categories = CategoryExtractor.Extract(Description);
+        var categories = CategoryExtractor.Extract(description);
 
         var ret = new FileType {
-            Description = Description,
-            Extensions = Extensions,
-            MimeType = MimeType,
-            Categories = Categories
+            Description = description,
+            Extensions = extensions,
+            MimeType = mimeType,
+            Categories = categories
         };
 
         return ret;
     }
 
-    private static Meta ConvertMeta(Definition V1) {
+    private static Meta ConvertMeta(Definition v1) {
         var ret = new Meta {
             Created = new() {
                 At = new DateTime(
-                    Math.Max(V1.General?.Date?.Year ?? 0, 1901),
-                    Math.Max(V1.General?.Date?.Month ?? 0, 1),
-                    Math.Max(V1.General?.Date?.Day ?? 0, 1),
-                    V1.General?.Time?.Hour ?? 0,
-                    V1.General?.Time?.Min ?? 0,
-                    V1.General?.Time?.Sec ?? 0
+                    Math.Max(v1.General?.Date?.Year ?? 0, 1901),
+                    Math.Max(v1.General?.Date?.Month ?? 0, 1),
+                    Math.Max(v1.General?.Date?.Day ?? 0, 1),
+                    v1.General?.Time?.Hour ?? 0,
+                    v1.General?.Time?.Min ?? 0,
+                    v1.General?.Time?.Sec ?? 0
                 ),
                 By = new() {
-                    Name = $@"{V1.Info?.Author}",
-                    Email = $@"{V1.Info?.AuthorEmail}",
-                    Website = $@"{V1.Info?.Website}"
+                    Name = $@"{v1.Info?.Author}",
+                    Email = $@"{v1.Info?.AuthorEmail}",
+                    Website = $@"{v1.Info?.Website}"
                 },
-                Source = new() { Files = V1.General?.FileNum ?? 0 },
-                Using = new() { Application = $@"{V1.General?.Creator}" }
+                Source = new() { Files = v1.General?.FileNum ?? 0 },
+                Using = new() { Application = $@"{v1.General?.Creator}" }
             },
             Reference = new() {
-                Text = $@"{V1.Info?.ExtraInfo?.Remark}",
-                Uri = $@"{V1.Info?.ExtraInfo?.ReferenceUrl}"
+                Text = $@"{v1.Info?.ExtraInfo?.Remark}",
+                Uri = $@"{v1.Info?.ExtraInfo?.ReferenceUrl}"
             }
         };
 
         return ret;
     }
 
-    private static Signature ConvertSignature(Definition V1) {
+    private static Signature ConvertSignature(Definition v1) {
         var ret = new Signature {
             Prefix = [
-                ..V1
+                ..v1
                     .FrontBlock
                     .Select(ConvertPattern)
                     .OrderBy(x => x.Start)
             ],
             Strings = [
-                ..V1
+                ..v1
                     .GlobalStrings
                     .Select(ConvertGlobalString)
                     .OrderByDescending(x => x.Pattern.Length)
@@ -91,23 +91,23 @@ public static class XmlConverter {
         return ret;
     }
 
-    private static StringSegment ConvertGlobalString(string V1) {
-        return StringSegment.Create(V1);
+    private static StringSegment ConvertGlobalString(string v1) {
+        return StringSegment.Create(v1);
     }
 
-    private static PrefixSegment ConvertPattern(Pattern V1) {
-        var Position = V1.Position;
+    private static PrefixSegment ConvertPattern(Pattern v1) {
+        var position = v1.Position;
 
-        var Bytes = V1.Bytes ?? string.Empty;
-        while (Bytes.Length % 2 != 0) {
-            Bytes = "0" + Bytes;
+        var bytes = v1.Bytes ?? string.Empty;
+        while (bytes.Length % 2 != 0) {
+            bytes = "0" + bytes;
         }
 
-        var Content = System.Convert.FromHexString(Bytes).ToImmutableArray();
+        var content = System.Convert.FromHexString(bytes).ToImmutableArray();
 
         var ret = new PrefixSegment {
-            Start = Position,
-            Pattern = Content
+            Start = position,
+            Pattern = content
         };
 
         return ret;
@@ -231,47 +231,47 @@ public static class XmlConverter {
             }.ToImmutableDictionary();
         }
 
-        public static string Tokenize(string Text) {
+        public static string Tokenize(string text) {
             var sb = new StringBuilder();
 
-            var Space = (char)32;
-            var Last = 0;
-            foreach (var c in Text.ToLowerInvariant()) {
-                var Next = c;
+            var space = (char)32;
+            var last = 0;
+            foreach (var c in text.ToLowerInvariant()) {
+                var next = c;
                 if (!char.IsLetterOrDigit(c)) {
-                    Next = Space;
+                    next = space;
                 }
 
-                if (Next == Space && Last == Space) {
+                if (next == space && last == space) {
                     //Ignore it.
                 } else {
-                    sb.Append(Next);
+                    sb.Append(next);
                 }
 
-                Last = Next;
+                last = next;
             }
 
             var ret = sb.ToString();
             while (true) {
-                var New = ret.Replace("  ", " ");
+                var @new = ret.Replace("  ", " ");
 
-                if (New == ret) {
+                if (@new == ret) {
                     break;
                 }
 
-                ret = New;
+                ret = @new;
             }
 
             return ret;
         }
 
-        public static ImmutableHashSet<Category> Extract(string Text) {
+        public static ImmutableHashSet<Category> Extract(string text) {
             var ret = new List<Category>();
 
-            var Input = Tokenize(Text);
+            var input = Tokenize(text);
 
             foreach (var item in Lookup) {
-                if (Input.Contains(item.Key)) {
+                if (input.Contains(item.Key)) {
                     ret.AddRange(item.Value);
                 }
             }

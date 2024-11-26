@@ -10,8 +10,8 @@ internal class DefinitionMatcher : DisplayClass {
         return Definition.GetDebuggerDisplay();
     }
 
-    public DefinitionMatcher(Definition Definition) {
-        this.Definition = Definition;
+    public DefinitionMatcher(Definition definition) {
+        this.Definition = definition;
     }
 
     public Definition Definition { get; }

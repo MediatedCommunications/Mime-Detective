@@ -4,7 +4,7 @@ namespace MimeDetective.Engine;
 
 internal class StringSegmentMatcherProviderHighSpeed
     : StringSegmentMatcherProvider {
-    public override StringSegmentMatcher CreateMatcher(StringSegment Segment) {
-        return StringSegmentMatcher.CreateHighSpeed(Segment);
+    public override StringSegmentMatcher CreateMatcher(StringSegment segment) {
+        return StringSegmentMatcher.CreateHighSpeed(segment);
     }
 }

@@ -31,12 +31,12 @@ public static partial class DefinitionJsonSerializer {
         return ret;
     }
 
-    public static Definition[] FromJson(Stream Content) {
+    public static Definition[] FromJson(Stream content) {
         var ret =
 #if NET7_0_OR_GREATER
-            JsonSerializer.Deserialize(Content, MimeDetectiveSourceGeneratedSerializer.Default.DefinitionArray);
+            JsonSerializer.Deserialize(content, MimeDetectiveSourceGeneratedSerializer.Default.DefinitionArray);
 #else
-            JsonSerializer.Deserialize<Definition[]>(Content, SerializerOptions());
+            JsonSerializer.Deserialize<Definition[]>(content, SerializerOptions());
 #endif
         return ret ?? [];
     }
@@ -45,22 +45,22 @@ public static partial class DefinitionJsonSerializer {
     [RequiresDynamicCodeAttribute("The JSON deserializer may require dynamic code")]
     [RequiresUnreferencedCode("JSON deserialization may require types that cannot be statically analyzed.")]
 #endif
-    public static Definition[] FromJson(JsonSerializerOptions? Options, Stream Content) {
-        if (Options is null) {
-            return FromJson(Content);
+    public static Definition[] FromJson(JsonSerializerOptions? options, Stream content) {
+        if (options is null) {
+            return FromJson(content);
         }
 
-        var ret = JsonSerializer.Deserialize<Definition[]>(Content, Options) ?? [];
+        var ret = JsonSerializer.Deserialize<Definition[]>(content, options) ?? [];
 
         return ret;
     }
 
 
-    public static void ToJson(Stream Data, IEnumerable<Definition> Values) {
+    public static void ToJson(Stream data, IEnumerable<Definition> values) {
 #if NET7_0_OR_GREATER
-        JsonSerializer.Serialize(Data, Values, MimeDetectiveSourceGeneratedSerializer.Default.IEnumerableDefinition);
+        JsonSerializer.Serialize(data, values, MimeDetectiveSourceGeneratedSerializer.Default.IEnumerableDefinition);
 #else
-        JsonSerializer.Serialize(Data, Values, SerializerOptions());
+        JsonSerializer.Serialize(data, values, SerializerOptions());
 #endif
     }
 
@@ -68,11 +68,11 @@ public static partial class DefinitionJsonSerializer {
     [RequiresDynamicCode("JSON serialization may require dynamic code.")]
     [RequiresUnreferencedCode("JSON serialization may require types that cannot be statically analyzed.")]
 #endif
-    public static void ToJson(JsonSerializerOptions? Options, Stream Data, IEnumerable<Definition> Values) {
-        if (Options is null) {
-            ToJson(Data, Values);
+    public static void ToJson(JsonSerializerOptions? options, Stream data, IEnumerable<Definition> values) {
+        if (options is null) {
+            ToJson(data, values);
         } else {
-            JsonSerializer.Serialize(Data, Values, Options);
+            JsonSerializer.Serialize(data, values, options);
         }
     }
 
@@ -80,13 +80,13 @@ public static partial class DefinitionJsonSerializer {
     [RequiresDynamicCode("JSON serialization may require dynamic code.")]
     [RequiresUnreferencedCode("JSON serialization may require types that cannot be statically analyzed.")]
 #endif
-    public static void ToJsonFile(string FileName, IEnumerable<Definition> Values, JsonSerializerOptions? Options = default) {
-        using var Stream = new FileStream(FileName, FileMode.Create, FileAccess.Write, FileShare.Read, 64 * 1024);
+    public static void ToJsonFile(string fileName, IEnumerable<Definition> values, JsonSerializerOptions? options = default) {
+        using var stream = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.Read, 64 * 1024);
 
-        if (Options is null) {
-            ToJson(Stream, Values);
+        if (options is null) {
+            ToJson(stream, values);
         } else {
-            JsonSerializer.Serialize(Stream, Values, Options);
+            JsonSerializer.Serialize(stream, values, options);
         }
     }
 

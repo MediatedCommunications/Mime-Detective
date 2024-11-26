@@ -7,16 +7,16 @@ namespace MimeDetective.Engine;
 /// An <see cref="ISegmentMatcher"/> that matches a <see cref="StringSegment"/> against content.
 /// </summary>
 internal class StringSegmentMatcherBoyerMoore : StringSegmentMatcher {
-    public StringSegmentMatcherBoyerMoore(StringSegment Segment) : base(Segment) {
-        this.BM = new StringSegmentMatcherBoyerMooreProvider(Segment.Pattern);
+    public StringSegmentMatcherBoyerMoore(StringSegment segment) : base(segment) {
+        this.Bm = new StringSegmentMatcherBoyerMooreProvider(segment.Pattern);
     }
 
-    private StringSegmentMatcherBoyerMooreProvider BM { get; }
+    private StringSegmentMatcherBoyerMooreProvider Bm { get; }
 
-    public override SegmentMatch Match(ReadOnlySpan<byte> Haystack) {
+    public override SegmentMatch Match(ReadOnlySpan<byte> haystack) {
         SegmentMatch ret = NoSegmentMatch.Instance;
 
-        if (BM.SearchFirst(Haystack) is { } i) {
+        if (this.Bm.SearchFirst(haystack) is { } i) {
 
             ret = new StringSegmentMatch {
                 Segment = Segment,

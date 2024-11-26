@@ -11,7 +11,7 @@ public class PerformanceTests {
         _ = ContentInspectors.Exhaustive.ContentInspector;
     }
 
-    private const int Iterations_Per_Test = 1;
+    private const int IterationsPerTest = 1;
 
     [TestMethod]
     public void Engine_Test_Exe() {
@@ -64,17 +64,17 @@ public class PerformanceTests {
         Test_Extension($@"C:\Windows\System32\ComputerToastIcon.png", "png");
     }
 
-    private static ImmutableArray<FileExtensionMatch> Test_Extension(string FileName, string Extension) {
-        if (!System.IO.File.Exists(FileName)) {
+    private static ImmutableArray<FileExtensionMatch> Test_Extension(string fileName, string extension) {
+        if (!System.IO.File.Exists(fileName)) {
             Assert.Inconclusive("File not found");
         }
 
         var ret = ImmutableArray<FileExtensionMatch>.Empty;
 
-        var Content = System.IO.File.ReadAllBytes(FileName);
+        var content = System.IO.File.ReadAllBytes(fileName);
 
-        for (var i = 0; i < Iterations_Per_Test; i++) {
-            ret = Test_Extension_Internal(Content, Extension);
+        for (var i = 0; i < IterationsPerTest; i++) {
+            ret = Test_Extension_Internal(content, extension);
         }
 
 
@@ -82,16 +82,16 @@ public class PerformanceTests {
     }
 
 
-    private static ImmutableArray<FileExtensionMatch> Test_Extension_Internal(byte[] Content, string Extension) {
+    private static ImmutableArray<FileExtensionMatch> Test_Extension_Internal(byte[] content, string extension) {
 
 
 
-        var Engine = ContentInspectors.Exhaustive.ContentInspector;
-        var Results = Engine.Inspect(Content).ByFileExtension();
+        var engine = ContentInspectors.Exhaustive.ContentInspector;
+        var results = engine.Inspect(content).ByFileExtension();
 
-        Assert.AreEqual(Extension, Results.First().Extension);
+        Assert.AreEqual(extension, results.First().Extension);
 
-        return Results;
+        return results;
     }
 
 }

@@ -19,36 +19,36 @@ internal class ContentInspectorImpl(
     protected ImmutableArray<DefinitionMatcher> DefinitionMatchers { get; } = GenerateDefinitionMatchers(stringSegmentIndex, definitions);
     protected bool Parallel { get; } = parallel;
 
-    private static ImmutableArray<DefinitionMatcher> GenerateDefinitionMatchers(StringSegmentMatcherProvider StringSegmentIndex, ImmutableArray<Definition> Definitions) {
+    private static ImmutableArray<DefinitionMatcher> GenerateDefinitionMatchers(StringSegmentMatcherProvider stringSegmentIndex, ImmutableArray<Definition> definitions) {
 
-        var Prefixes = (from x in Definitions from y in x.Signature.Prefix select y).Distinct(PrefixSegmentEqualityComparer.Instance);
-        var Strings = (from x in Definitions from y in x.Signature.Strings select y).Distinct(StringSegmentEqualityComparer.Instance);
+        var prefixes = (from x in definitions from y in x.Signature.Prefix select y).Distinct(PrefixSegmentEqualityComparer.Instance);
+        var strings = (from x in definitions from y in x.Signature.Strings select y).Distinct(StringSegmentEqualityComparer.Instance);
 
-        var PrefixMatcherCache = Prefixes
+        var prefixMatcherCache = prefixes
             .ToImmutableDictionary(
                 x => x,
                 PrefixSegmentMatcher.Create,
                 PrefixSegmentEqualityComparer.Instance
             );
 
-        var StringMatcherCache = Strings
+        var stringMatcherCache = strings
             .ToImmutableDictionary(
                 x => x,
-                StringSegmentIndex.CreateMatcher,
+                stringSegmentIndex.CreateMatcher,
                 StringSegmentEqualityComparer.Instance
             );
 
         var ret = (
-            from Definition in Definitions
+            from Definition in definitions
 
             let PrefixMatchers = (
                 from y in Definition.Signature.Prefix
-                select PrefixMatcherCache[y]
+                select prefixMatcherCache[y]
             ).ToImmutableArray()
 
             let StringMatchers = (
                 from y in Definition.Signature.Strings
-                select StringMatcherCache[y]
+                select stringMatcherCache[y]
             ).ToImmutableArray()
 
             select new DefinitionMatcher(Definition) {
@@ -61,33 +61,33 @@ internal class ContentInspectorImpl(
     }
 
 
-    public ImmutableArray<DefinitionMatch> Inspect(ReadOnlySpan<byte> Content) {
-        var ret = Inspect_Current(Content);
+    public ImmutableArray<DefinitionMatch> Inspect(ReadOnlySpan<byte> content) {
+        var ret = Inspect_Current(content);
 
         return ret;
     }
 
-    protected ImmutableArray<DefinitionMatch> Inspect_Current(ReadOnlySpan<byte> Content) {
+    protected ImmutableArray<DefinitionMatch> Inspect_Current(ReadOnlySpan<byte> content) {
 
-        var NoContentStrings = ImmutableArray<StringSegment>.Empty;
+        var noContentStrings = ImmutableArray<StringSegment>.Empty;
 
         var tret = new List<(DefinitionMatch Match, DefinitionMatcher Matcher)>(32);
 
-        var useEmptyShortcut = this.MatchEvaluatorOptions is { Include_Segments_Strings: false, Include_Matches_Empty: false };
+        var useEmptyShortcut = this.MatchEvaluatorOptions is { IncludeSegmentsStrings: false, IncludeMatchesEmpty: false };
         var needsStrings = false;
 
         {
-            var MatchEvaluator1 = new DefinitionMatchEvaluator {
+            var matchEvaluator1 = new DefinitionMatchEvaluator {
                 Options = MatchEvaluatorOptions with {
-                    Include_Segments_Strings = false,
-                    Include_Matches_Empty = true,
+                    IncludeSegmentsStrings = false,
+                    IncludeMatchesEmpty = true,
                 }
             };
 
 
             //Get an initial list of matches that don't include string matches
             foreach (var matcher in this.DefinitionMatchers) {
-                var match = MatchEvaluator1.Match(matcher, Content, NoContentStrings);
+                var match = matchEvaluator1.Match(matcher, content, noContentStrings);
                 if (match is null)
                     continue;
 
@@ -103,15 +103,15 @@ internal class ContentInspectorImpl(
         }
 
         if (!useEmptyShortcut && needsStrings) {
-            var MatchEvaluator2 = new DefinitionMatchEvaluator { Options = this.MatchEvaluatorOptions };
+            var matchEvaluator2 = new DefinitionMatchEvaluator { Options = this.MatchEvaluatorOptions };
 
-            var ContentStrings = StringSegmentExtrator.ExtractStrings(Content);
+            var contentStrings = StringSegmentExtrator.ExtractStrings(content);
 
             var output = 0;
             for (var i = 0; i < tret.Count; ++i) {
                 var item = tret[i];
 
-                var match = MatchEvaluator2.Match(item.Matcher, Content, ContentStrings);
+                var match = matchEvaluator2.Match(item.Matcher, content, contentStrings);
                 if (match is null)
                     continue;
 

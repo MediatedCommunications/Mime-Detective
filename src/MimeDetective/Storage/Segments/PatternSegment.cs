@@ -13,37 +13,37 @@ public abstract class PatternSegment : Segment {
     /// </summary>
     public ImmutableArray<byte> Pattern { get; init; } = [];
 
-    protected static ImmutableArray<byte> BytesFromHex(string HexString) {
-        const string ValidCharacters = "0123456789ABCDEF";
-        var Trimmed = new StringBuilder(HexString.Length);
+    protected static ImmutableArray<byte> BytesFromHex(string hexString) {
+        const string validCharacters = "0123456789ABCDEF";
+        var trimmed = new StringBuilder(hexString.Length);
 
-        HexString = HexString
+        hexString = hexString
                 .ToUpperInvariant()
                 .Replace("0X", "")
             ;
 
-        for (var i = 0; i < HexString.Length; i++) {
-            var Char = HexString[i..(i + 1)];
+        for (var i = 0; i < hexString.Length; i++) {
+            var @char = hexString[i..(i + 1)];
 
-            if (ValidCharacters.Contains(Char)) {
-                Trimmed.Append(Char);
+            if (validCharacters.Contains(@char)) {
+                trimmed.Append(@char);
             }
         }
 
         var ret = Convert
-                .FromHexString(Trimmed.ToString())
+                .FromHexString(trimmed.ToString())
                 .ToImmutableArray()
             ;
 
         return ret;
     }
 
-    protected static ImmutableArray<byte> BytesFromText(string Text, bool ApostropheIsNull = true) {
-        if (ApostropheIsNull) {
-            Text = Text.Replace("'", "\0");
+    protected static ImmutableArray<byte> BytesFromText(string text, bool apostropheIsNull = true) {
+        if (apostropheIsNull) {
+            text = text.Replace("'", "\0");
         }
         var ret = System.Text.Encoding.UTF8
-                .GetBytes(Text)
+                .GetBytes(text)
                 .ToImmutableArray()
             ;
 
@@ -51,22 +51,22 @@ public abstract class PatternSegment : Segment {
     }
 
     public override string? GetDebuggerDisplay() {
-        var Hex = System.Convert.ToHexString([.. Pattern]);
-        var String = System.Text.Encoding.UTF8.GetString([.. Pattern]);
-        String = String.Replace("\0", "'");
+        var hex = System.Convert.ToHexString([.. Pattern]);
+        var @string = System.Text.Encoding.UTF8.GetString([.. Pattern]);
+        @string = @string.Replace("\0", "'");
 
-        return $@"{String} /// {Hex}";
+        return $@"{@string} /// {hex}";
     }
 
-    private int? GetHashCode_Value;
+    private int? _getHashCodeValue;
     public override sealed int GetHashCode() {
 
-        if (this.GetHashCode_Value is not { } V1) {
-            V1 = GetHashCodeInternal();
-            GetHashCode_Value = V1;
+        if (this._getHashCodeValue is not { } v1) {
+            v1 = GetHashCodeInternal();
+            this._getHashCodeValue = v1;
         }
 
-        return V1;
+        return v1;
     }
 
     protected virtual int GetHashCodeInternal() {

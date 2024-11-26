@@ -6,37 +6,37 @@ using System.Linq;
 namespace MimeDetective.Engine;
 
 internal sealed class StringSegmentMatcherBoyerMooreProvider {
-    private readonly int[] SkipTable;
-    private readonly IReadOnlyList<byte> Needle;
-    private readonly int[] OffsetTable;
+    private readonly int[] _skipTable;
+    private readonly IReadOnlyList<byte> _needle;
+    private readonly int[] _offsetTable;
 
     public StringSegmentMatcherBoyerMooreProvider(IEnumerable<byte> needle) : this(needle.ToImmutableArray()) {
 
     }
 
     public StringSegmentMatcherBoyerMooreProvider(IReadOnlyList<byte> needle) {
-        Needle = needle;
-        SkipTable = MakeSkipTable(Needle);
-        OffsetTable = MakeOffsetTable(Needle);
+        this._needle = needle;
+        this._skipTable = MakeSkipTable(this._needle);
+        this._offsetTable = MakeOffsetTable(this._needle);
     }
 
-    public IEnumerable<int> Search(IEnumerable<byte> haystack, bool MultipleResults = true) {
-        return Search(haystack.ToArray().AsMemory(), MultipleResults);
+    public IEnumerable<int> Search(IEnumerable<byte> haystack, bool multipleResults = true) {
+        return Search(haystack.ToArray().AsMemory(), multipleResults);
     }
 
-    public IEnumerable<int> Search(ReadOnlyMemory<byte> haystack, bool MultipleResults = true) {
-        if (Needle.Count == 0) {
+    public IEnumerable<int> Search(ReadOnlyMemory<byte> haystack, bool multipleResults = true) {
+        if (this._needle.Count == 0) {
             yield break;
         }
 
-        var end = Needle.Count - 1;
+        var end = this._needle.Count - 1;
 
         var found = false;
 
         for (var i = end; i < haystack.Length;) {
             int j;
 
-            for (j = end; Needle[j] == haystack.Span[i]; --i, --j) {
+            for (j = end; this._needle[j] == haystack.Span[i]; --i, --j) {
                 if (j != 0) {
                     continue;
                 }
@@ -47,23 +47,23 @@ internal sealed class StringSegmentMatcherBoyerMooreProvider {
                 break;
             }
 
-            i += Math.Max(OffsetTable[end - j], SkipTable[haystack.Span[i]]);
-            if (!MultipleResults && found) {
+            i += Math.Max(this._offsetTable[end - j], this._skipTable[haystack.Span[i]]);
+            if (!multipleResults && found) {
                 break;
             }
         }
     }
     public int? SearchFirst(ReadOnlySpan<byte> haystack) {
-        if (Needle.Count == 0) {
+        if (this._needle.Count == 0) {
             return null;
         }
 
-        var end = Needle.Count - 1;
+        var end = this._needle.Count - 1;
 
         for (var i = end; i < haystack.Length;) {
             int j;
 
-            for (j = end; Needle[j] == haystack[i]; --i, --j) {
+            for (j = end; this._needle[j] == haystack[i]; --i, --j) {
                 if (j != 0) {
                     continue;
                 }
@@ -71,19 +71,19 @@ internal sealed class StringSegmentMatcherBoyerMooreProvider {
                 return i;
             }
 
-            i += Math.Max(OffsetTable[end - j], SkipTable[haystack[i]]);
+            i += Math.Max(this._offsetTable[end - j], this._skipTable[haystack[i]]);
         }
 
         return null;
     }
 
-    private static int[] MakeSkipTable(IReadOnlyList<byte> Needle) {
+    private static int[] MakeSkipTable(IReadOnlyList<byte> needle) {
         var ret = new int[byte.MaxValue + 1];
-        Array.Fill(ret, Needle.Count);
-        var end = Needle.Count - 1;
+        Array.Fill(ret, needle.Count);
+        var end = needle.Count - 1;
 
-        for (var i = 0; i < Needle.Count; ++i) {
-            ret[Needle[i]] = end - i;
+        for (var i = 0; i < needle.Count; ++i) {
+            ret[needle[i]] = end - i;
         }
 
         return ret;

@@ -8,26 +8,26 @@ public static class PrefixSegmentExtensions {
     /// <summary>
     /// The exclusive upper bound of the <see cref="PrefixSegment"/>'s <see cref="Segment.Content"/>
     /// </summary>
-    /// <param name="This"></param>
+    /// <param name="this"></param>
     /// <returns></returns>
-    public static int ExclusiveEnd(this PrefixSegment This) {
-        return This.Start + This.Pattern.Length;
+    public static int ExclusiveEnd(this PrefixSegment @this) {
+        return @this.Start + @this.Pattern.Length;
     }
 
-    public static byte?[] TryGetRange(this IEnumerable<PrefixSegment> This, int Index, int Length) {
-        var ret = new byte?[Length];
-        var Segments = This.OrderBy(x => x.Start).ToArray();
-        var SegmentIndex = 0;
+    public static byte?[] TryGetRange(this IEnumerable<PrefixSegment> @this, int index, int length) {
+        var ret = new byte?[length];
+        var segments = @this.OrderBy(x => x.Start).ToArray();
+        var segmentIndex = 0;
 
-        for (var i = 0; i < Length; i++) {
-            var ByteIndex = Index + i;
+        for (var i = 0; i < length; i++) {
+            var byteIndex = index + i;
 
-            while (SegmentIndex < Segments.Length && (ByteIndex < Segments[SegmentIndex].Start || ByteIndex >= Segments[SegmentIndex].ExclusiveEnd())) {
-                SegmentIndex += 1;
+            while (segmentIndex < segments.Length && (byteIndex < segments[segmentIndex].Start || byteIndex >= segments[segmentIndex].ExclusiveEnd())) {
+                segmentIndex += 1;
             }
 
-            if (SegmentIndex < Segments.Length) {
-                ret[i] = Segments[SegmentIndex].TryGetPatternAt(ByteIndex);
+            if (segmentIndex < segments.Length) {
+                ret[i] = segments[segmentIndex].TryGetPatternAt(byteIndex);
             }
 
         }
@@ -36,31 +36,31 @@ public static class PrefixSegmentExtensions {
         return ret;
     }
 
-    public static byte? TryGetPatternAt(this PrefixSegment? This, int Index) {
+    public static byte? TryGetPatternAt(this PrefixSegment? @this, int index) {
         var ret = default(byte?);
 
-        if (TryGetPatternAt(This, Index, out var V1)) {
-            ret = V1;
+        if (TryGetPatternAt(@this, index, out var v1)) {
+            ret = v1;
         }
 
         return ret;
     }
 
-    public static bool TryGetPatternAt(this PrefixSegment? This, int Index, out byte Value) {
+    public static bool TryGetPatternAt(this PrefixSegment? @this, int index, out byte value) {
         var ret = false;
 
-        Value = default;
+        value = default;
 
-        if (This is { } && Index >= This.Start && Index < This.ExclusiveEnd()) {
-            Value = This.GetPatternAt(Index);
+        if (@this is { } && index >= @this.Start && index < @this.ExclusiveEnd()) {
+            value = @this.GetPatternAt(index);
             ret = true;
         }
 
         return ret;
     }
 
-    public static byte GetPatternAt(this PrefixSegment This, int Index) {
-        var ret = This.Pattern[Index - This.Start];
+    public static byte GetPatternAt(this PrefixSegment @this, int index) {
+        var ret = @this.Pattern[index - @this.Start];
 
         return ret;
     }
@@ -68,11 +68,11 @@ public static class PrefixSegmentExtensions {
     /// <summary>
     /// Break a Prefix segment into individual 1-byte segments.
     /// </summary>
-    /// <param name="This"></param>
+    /// <param name="this"></param>
     /// <returns></returns>
-    public static IEnumerable<PrefixSegment> Singularize(this PrefixSegment This) {
-        for (var i = 0; i < This.Pattern.Length; i++) {
-            var ret = PrefixSegment.Create(This.Start + i, This.Pattern[i]);
+    public static IEnumerable<PrefixSegment> Singularize(this PrefixSegment @this) {
+        for (var i = 0; i < @this.Pattern.Length; i++) {
+            var ret = PrefixSegment.Create(@this.Start + i, @this.Pattern[i]);
 
             yield return ret;
         }

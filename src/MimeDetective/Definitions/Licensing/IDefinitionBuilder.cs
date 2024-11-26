@@ -10,14 +10,14 @@ public interface IDefinitionBuilder {
 
 public abstract class DefinitionBuilder : IDefinitionBuilder {
 
-    protected static void EnsureValidUsageType(UsageType Type, UsageType[] AllowedTypes, string Error) {
+    protected static void EnsureValidUsageType(UsageType type, UsageType[] allowedTypes, string error) {
 
-        var Allowed = false
-                || AllowedTypes.Contains(Type)
+        var allowed = false
+                || allowedTypes.Contains(type)
             ;
 
-        if (!Allowed) {
-            throw new UsageTypeNotAllowedException(Type, AllowedTypes, Error);
+        if (!allowed) {
+            throw new UsageTypeNotAllowedException(type, allowedTypes, error);
         }
     }
 

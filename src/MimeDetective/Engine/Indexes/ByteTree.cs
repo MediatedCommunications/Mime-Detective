@@ -10,12 +10,12 @@ namespace MimeDetective.Engine;
 internal class ByteTree<T> {
     public ByteTreeNode<T> Root { get; } = new();
 
-    public List<T> Find(params byte[] Key) {
-        return Root.Find(Key, 0).ToList();
+    public List<T> Find(params byte[] key) {
+        return Root.Find(key, 0).ToList();
     }
 
-    public void Add(byte?[] Key, T Value) {
-        Root.Add(Key, Value, 0);
+    public void Add(byte?[] key, T value) {
+        Root.Add(key, value, 0);
     }
 
 

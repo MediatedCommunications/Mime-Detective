@@ -14,8 +14,8 @@ namespace MimeDetective.Definitions;
 
 [TestClass]
 public class Updater {
-    private const string DEFINITIONS_URL = "https://mark0.net/download/triddefs_xml.7z";
-    private const string DEFS_DIR = "defs";
+    private const string DefinitionsUrl = "https://mark0.net/download/triddefs_xml.7z";
+    private const string DefsDir = "defs";
 
     [TestMethod]
     public async Task UpdateDefinitions() {
@@ -29,7 +29,7 @@ public class Updater {
         };
 
         var clock = Stopwatch.StartNew();
-        using (var response = await client.GetAsync(DEFINITIONS_URL).ConfigureAwait(false)) {
+        using (var response = await client.GetAsync(DefinitionsUrl).ConfigureAwait(false)) {
             clock.Stop();
 
             response.EnsureSuccessStatusCode();
@@ -45,10 +45,10 @@ public class Updater {
             using var archive = SevenZipArchive.Open(stream);
             var archiveEntry = archive.Entries.FirstOrDefault(
                 e => e is { IsDirectory: true, Key: not null }
-                    && e.Key.EndsWith(DEFS_DIR, StringComparison.OrdinalIgnoreCase));
+                    && e.Key.EndsWith(DefsDir, StringComparison.OrdinalIgnoreCase));
 
             if (archiveEntry is null) {
-                throw new InvalidOperationException($"Could not find '{DEFS_DIR}' directory in archive.");
+                throw new InvalidOperationException($"Could not find '{DefsDir}' directory in archive.");
             }
 
             using var reader = archive.ExtractAllEntries();
@@ -72,6 +72,6 @@ public class Updater {
             Directory.Delete(defsRoot, true);
         }
 
-        Directory.Move(Path.Combine(extractPath, DEFS_DIR), defsRoot);
+        Directory.Move(Path.Combine(extractPath, DefsDir), defsRoot);
     }
 }

@@ -10,23 +10,23 @@ public class FileExtensionToMimeTypeLookup {
 
     public ImmutableDictionary<string, ImmutableArray<MimeTypeMatch>> Values { get; }
 
-    public string? TryGetValue(string Extension) {
+    public string? TryGetValue(string extension) {
         var ret = default(string?);
 
-        if (TryGetValues(Extension).FirstOrDefault() is { } V1) {
-            ret = V1.MimeType;
+        if (TryGetValues(extension).FirstOrDefault() is { } v1) {
+            ret = v1.MimeType;
         }
 
 
         return ret;
     }
 
-    public ImmutableArray<MimeTypeMatch> TryGetValues(string Extension) {
-        Extension = Extension.TrimStart('.');
+    public ImmutableArray<MimeTypeMatch> TryGetValues(string extension) {
+        extension = extension.TrimStart('.');
 
         var ret = ImmutableArray<MimeTypeMatch>.Empty;
 
-        if (Values.TryGetValue(Extension, out var tret)) {
+        if (Values.TryGetValue(extension, out var tret)) {
             ret = tret;
         }
 
@@ -34,9 +34,9 @@ public class FileExtensionToMimeTypeLookup {
     }
 
 
-    internal FileExtensionToMimeTypeLookup(ImmutableArray<Definition> Definitions) {
+    internal FileExtensionToMimeTypeLookup(ImmutableArray<Definition> definitions) {
         this.Values = (
-            from x1 in Definitions
+            from x1 in definitions
             where !string.IsNullOrWhiteSpace(x1.File.MimeType)
 
             from y1 in x1.File.Extensions

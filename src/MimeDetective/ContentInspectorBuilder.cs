@@ -30,17 +30,17 @@ public class ContentInspectorBuilder {
 
     public IContentInspector Build() {
 
-        var Options = MatchEvaluatorOptions;
-        var Defs = Definitions.ToImmutableArray();
+        var options = MatchEvaluatorOptions;
+        var defs = Definitions.ToImmutableArray();
 
-        StringSegmentMatcherProvider StringSegmentIndex = StringSegmentOptions.OptimizeFor switch {
+        StringSegmentMatcherProvider stringSegmentIndex = StringSegmentOptions.OptimizeFor switch {
             StringSegmentResourceOptimization.HighSpeed => new StringSegmentMatcherProviderHighSpeed(),
             StringSegmentResourceOptimization.LowMemory => new StringSegmentMatcherProviderLowMemory(),
             _ => new StringSegmentMatcherProviderHighSpeed()
             //_ => new StringSegmentMatcherProviderLowMemory()
         };
 
-        var ret = new ContentInspectorImpl(Defs, Options, StringSegmentIndex, Parallel);
+        var ret = new ContentInspectorImpl(defs, options, stringSegmentIndex, Parallel);
 
         return ret;
     }

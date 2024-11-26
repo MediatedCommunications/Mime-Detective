@@ -16,9 +16,9 @@ internal class SequenceComparer<TCollection, TElement> : IEqualityComparer<TColl
 
     }
 
-    public SequenceComparer(Comparer<TElement> Comparer, EqualityComparer<TElement> EqualityComparer) {
-        this.Comparer = Comparer;
-        this.EqualityComparer = EqualityComparer;
+    public SequenceComparer(Comparer<TElement> comparer, EqualityComparer<TElement> equalityComparer) {
+        this.Comparer = comparer;
+        this.EqualityComparer = equalityComparer;
     }
 
     public bool Equals(TCollection? x, TCollection? y) {
@@ -54,16 +54,16 @@ internal class SequenceComparer<TCollection, TElement> : IEqualityComparer<TColl
             ret = -1;
         } else if (x is null && y is { }) {
             ret = +1;
-        } else if (x is { } V1 && y is { } V2) {
-            var IE1 = V1.GetEnumerator();
-            var IE2 = V2.GetEnumerator();
+        } else if (x is { } v1 && y is { } v2) {
+            var ie1 = v1.GetEnumerator();
+            var ie2 = v2.GetEnumerator();
 
             while (true) {
-                var M1 = IE1.MoveNext();
-                var M2 = IE2.MoveNext();
+                var m1 = ie1.MoveNext();
+                var m2 = ie2.MoveNext();
 
-                if (M1 != M2) {
-                    if (M1) {
+                if (m1 != m2) {
+                    if (m1) {
                         ret = -1;
                         break;
                     } else {
@@ -71,11 +71,11 @@ internal class SequenceComparer<TCollection, TElement> : IEqualityComparer<TColl
                         break;
                     }
                 } else {
-                    if (M1) {
-                        var C1 = IE1.Current;
-                        var C2 = IE2.Current;
+                    if (m1) {
+                        var c1 = ie1.Current;
+                        var c2 = ie2.Current;
 
-                        ret = Comparer.Compare(C1, C2);
+                        ret = Comparer.Compare(c1, c2);
                         if (ret != 0) {
                             break;
                         }

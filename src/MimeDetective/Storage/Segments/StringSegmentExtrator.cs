@@ -13,68 +13,68 @@ public static class StringSegmentExtrator {
 
 
     static StringSegmentExtrator() {
-        const string Valid = ""
+        const string valid = ""
                 + "abcdefghijklmnopqrstuvwxyz"
                 + "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 + "0123456789"
                 + " -+_.$(){}~*%\0"
             ;
 
-        var ValidBytesArray = new bool[byte.MaxValue + 1];
-        foreach (var item in Valid) {
-            ValidBytesArray[(byte)item] = true;
+        var validBytesArray = new bool[byte.MaxValue + 1];
+        foreach (var item in valid) {
+            validBytesArray[(byte)item] = true;
         }
 
-        ValidBytes = [.. ValidBytesArray];
+        ValidBytes = [.. validBytesArray];
     }
 
 
-    public static byte[] ExtractBytes(ReadOnlySpan<byte> Content) {
+    public static byte[] ExtractBytes(ReadOnlySpan<byte> content) {
         var ret = Array.Empty<byte>();
 
         var delta = (byte)('a' - 'A');
 
-        var SegmentLength = 0;
+        var segmentLength = 0;
 
-        var tret = new List<byte>(Content.Length) {
+        var tret = new List<byte>(content.Length) {
             Separator
         };
 
-        var SegmentStart = tret.Count;
+        var segmentStart = tret.Count;
 
 
-        for (var i = 0; i < Content.Length; i++) {
-            var V1 = Content[i];
+        for (var i = 0; i < content.Length; i++) {
+            var v1 = content[i];
 
-            if (ValidBytes[V1]) {
-                if (V1 is >= (byte)'a' and <= (byte)'z') {
-                    V1 -= delta;
+            if (ValidBytes[v1]) {
+                if (v1 is >= (byte)'a' and <= (byte)'z') {
+                    v1 -= delta;
                 }
 
-                tret.Add(V1);
+                tret.Add(v1);
 
-                SegmentLength += 1;
+                segmentLength += 1;
 
             } else if (tret[^1] != Separator) {
 
-                if (SegmentLength >= MinSegmentLength) {
+                if (segmentLength >= MinSegmentLength) {
                     tret.Add(Separator);
-                    SegmentStart = tret.Count;
+                    segmentStart = tret.Count;
                 } else {
-                    var AmountToRemove = tret.Count - SegmentStart;
-                    tret.RemoveRange(SegmentStart, AmountToRemove);
+                    var amountToRemove = tret.Count - segmentStart;
+                    tret.RemoveRange(segmentStart, amountToRemove);
                 }
 
-                SegmentLength = 0;
+                segmentLength = 0;
 
             }
         }
 
-        if (SegmentLength >= MinSegmentLength) {
+        if (segmentLength >= MinSegmentLength) {
             tret.Add(Separator);
         } else {
-            var AmountToRemove = tret.Count - SegmentStart;
-            tret.RemoveRange(SegmentStart, AmountToRemove);
+            var amountToRemove = tret.Count - segmentStart;
+            tret.RemoveRange(segmentStart, amountToRemove);
         }
 
         //Must be > because it contains a | at the start
@@ -85,10 +85,10 @@ public static class StringSegmentExtrator {
         return ret;
     }
 
-    public static ImmutableArray<StringSegment> ExtractBytesString(ReadOnlySpan<byte> Content) {
+    public static ImmutableArray<StringSegment> ExtractBytesString(ReadOnlySpan<byte> content) {
         var ret = ImmutableArray<StringSegment>.Empty;
 
-        var tret = ExtractBytes(Content);
+        var tret = ExtractBytes(content);
 
         if (tret.Length > 0) {
             ret = [
@@ -103,23 +103,23 @@ public static class StringSegmentExtrator {
         return ret;
     }
 
-    public static ImmutableArray<StringSegment> ExtractStrings(ReadOnlySpan<byte> Content) {
-        return ExtractBytesString(Content);
+    public static ImmutableArray<StringSegment> ExtractStrings(ReadOnlySpan<byte> content) {
+        return ExtractBytesString(content);
     }
 
-    public static ImmutableArray<StringSegment> ExtractAllStrings(ReadOnlySpan<byte> Content) {
+    public static ImmutableArray<StringSegment> ExtractAllStrings(ReadOnlySpan<byte> content) {
         var tret = new List<ImmutableArray<byte>>();
 
-        var Bytes = ExtractBytes(Content);
+        var bytes = ExtractBytes(content);
 
-        var Start = 1;
+        var start = 1;
 
-        while (Start < Bytes.Length) {
-            var NextEnd = Array.IndexOf(Bytes, Separator, Start);
+        while (start < bytes.Length) {
+            var nextEnd = Array.IndexOf(bytes, Separator, start);
 
-            tret.Add([.. Bytes.AsSpan(Start, NextEnd - Start)]);
+            tret.Add([.. bytes.AsSpan(start, nextEnd - start)]);
 
-            Start = NextEnd + 1;
+            start = nextEnd + 1;
         }
 
 

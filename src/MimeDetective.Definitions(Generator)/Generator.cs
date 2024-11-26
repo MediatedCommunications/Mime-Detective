@@ -30,10 +30,10 @@ public class Generator {
     }.ToFrozenSet(StringComparer.OrdinalIgnoreCase);
 
     private static Storage.Definition[] MacroSourceData() {
-        var Folder = SourceDefinitions.DefinitionRoot();
+        var folder = SourceDefinitions.DefinitionRoot();
 
         var definitions =
-            from FileName in Directory.EnumerateFiles(Folder, "*.xml", SearchOption.AllDirectories).AsParallel()
+            from FileName in Directory.EnumerateFiles(folder, "*.xml", SearchOption.AllDirectories).AsParallel()
             let Id = Path.GetFileNameWithoutExtension(FileName)
             let Item = XmlSerializer.FromXmlFile(FileName)
                 ?? throw new InvalidOperationException($"Unable to deserialize {FileName}")
@@ -45,9 +45,9 @@ public class Generator {
 
     [TestMethod]
     public void Generate() {
-        var Root = Path.GetFullPath(Path.Combine("..", "..", "..", ".."));
+        var root = Path.GetFullPath(Path.Combine("..", "..", "..", ".."));
 
-        var Items = MacroSourceData();
+        var items = MacroSourceData();
 
         //var NoNames = (
         //        from x in Items
@@ -60,24 +60,24 @@ public class Generator {
         //    .OrderByDescending(x => x.Value)
         //    .ToArray();
 
-        WriteSmall(Root, Items);
-        WriteLarge(Root, Items);
+        WriteSmall(root, items);
+        WriteLarge(root, items);
         //WriteTrimmed(Root, Items);
     }
 
-    private static void WriteSmall(string Root, IEnumerable<Storage.Definition> AllItems) {
+    private static void WriteSmall(string root, IEnumerable<Storage.Definition> allItems) {
         //List from:
         //https://www.computerhope.com/issues/ch001789.htm
 
 
-        var I1 = AllItems
+        var i1 = allItems
                 .Where(x => x.File.Extensions.Any(ext => Extensions.Contains(ext)))
 #if DEBUG
                 .ToArray()
 #endif
             ;
 
-        var I2 = I1
+        var i2 = i1
                 .TrimMeta()
                 .TrimExtensions(Extensions)
 #if DEBUG
@@ -85,40 +85,40 @@ public class Generator {
 #endif
             ;
 
-        var I3 = I2
+        var i3 = i2
                 //.Minify()
                 .TrimDescription()
                 .OrderBy(x => x.File.Extensions.FirstOrDefault())
                 .ToArray()
             ;
 
-        var BaseDir = Path.Combine(Root, "MimeDetective.Definitions.Condensed", "Data");
+        var baseDir = Path.Combine(root, "MimeDetective.Definitions.Condensed", "Data");
 
-        WriteFiles(BaseDir, I3);
+        WriteFiles(baseDir, i3);
     }
 
-    private static void WriteLarge(string Root, IEnumerable<Storage.Definition> AllItems) {
-        var Items = AllItems
+    private static void WriteLarge(string root, IEnumerable<Storage.Definition> allItems) {
+        var items = allItems
                 .TrimMeta()
                 .OrderBy(x => x.File.Extensions.FirstOrDefault())
                 .ToArray()
             ;
 
-        var BaseDir = Path.Combine(Root, "MimeDetective.Definitions.Exhaustive", "Data");
+        var baseDir = Path.Combine(root, "MimeDetective.Definitions.Exhaustive", "Data");
 
-        WriteFiles(BaseDir, Items);
-        var Json = $@"{Root}\MimeDetective.Definitions.Exhaustive\Data\data.json";
-        var Binn = $@"{Root}\MimeDetective.Definitions.Exhaustive\Data\data.bin";
+        WriteFiles(baseDir, items);
+        var json = $@"{root}\MimeDetective.Definitions.Exhaustive\Data\data.json";
+        var binn = $@"{root}\MimeDetective.Definitions.Exhaustive\Data\data.bin";
 
-        DefinitionJsonSerializer.ToJsonFile(Json, Items);
-        DefinitionBinarySerializer.ToBinaryFile(Binn, Items);
+        DefinitionJsonSerializer.ToJsonFile(json, items);
+        DefinitionBinarySerializer.ToBinaryFile(binn, items);
     }
 
-    private static void WriteFiles(string BaseDir, IReadOnlyCollection<Storage.Definition> Items) {
-        var Json = Path.Combine(BaseDir, "data.json");
-        var Binn = Path.Combine(BaseDir, "data.bin");
+    private static void WriteFiles(string baseDir, IReadOnlyCollection<Storage.Definition> items) {
+        var json = Path.Combine(baseDir, "data.json");
+        var binn = Path.Combine(baseDir, "data.bin");
 
-        DefinitionJsonSerializer.ToJsonFile(Json, Items);
-        DefinitionBinarySerializer.ToBinaryFile(Binn, Items);
+        DefinitionJsonSerializer.ToJsonFile(json, items);
+        DefinitionBinarySerializer.ToBinaryFile(binn, items);
     }
 }

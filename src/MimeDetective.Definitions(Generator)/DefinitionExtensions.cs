@@ -11,23 +11,23 @@ public static class DefinitionExtensions {
 
 
 
-    public static IEnumerable<Definition> Minify(this IEnumerable<Definition> Values) {
-        var Input = Values.ToList();
-        var Any = true;
+    public static IEnumerable<Definition> Minify(this IEnumerable<Definition> values) {
+        var input = values.ToList();
+        var any = true;
 
-        while (Any) {
-            Any = false;
+        while (any) {
+            any = false;
 
-            for (var i = Input.Count - 1; i >= 1; i--) {
+            for (var i = input.Count - 1; i >= 1; i--) {
 
                 for (var j = i - 1; j >= 0; j--) {
 
-                    var v = Intersection(Input[i], Input[j]);
+                    var v = Intersection(input[i], input[j]);
                     if (v is { }) {
-                        Input.RemoveAt(i);
-                        Input.RemoveAt(j);
-                        Input.Add(v);
-                        Any = true;
+                        input.RemoveAt(i);
+                        input.RemoveAt(j);
+                        input.Add(v);
+                        any = true;
                         break;
                     }
 
@@ -37,104 +37,104 @@ public static class DefinitionExtensions {
 
         }
 
-        return Input;
+        return input;
 
     }
 
-    public static Definition? Intersection(Definition A, Definition B) {
+    public static Definition? Intersection(Definition a, Definition b) {
         var ret = default(Definition?);
 
-        var Extensions = A.File.Extensions
+        var extensions = a.File.Extensions
             .ToHashSet(StringComparer.InvariantCultureIgnoreCase);
-        Extensions.IntersectWith(B.File.Extensions);
+        extensions.IntersectWith(b.File.Extensions);
 
 
-        var MimeType = StringComparer.InvariantCultureIgnoreCase.Compare(A.File.MimeType, B.File.MimeType) == 0
-                ? A.File.MimeType
+        var mimeType = StringComparer.InvariantCultureIgnoreCase.Compare(a.File.MimeType, b.File.MimeType) == 0
+                ? a.File.MimeType
                 : default
             ;
 
-        var Signature = Intersection(A.Signature, B.Signature);
+        var signature = Intersection(a.Signature, b.Signature);
 
-        if (Signature is { } && Extensions.Count > 0) {
+        if (signature is { } && extensions.Count > 0) {
             ret = new Definition() {
                 File = new() {
-                    Description = string.Join("/", Extensions),
-                    Extensions = Extensions.ToImmutableArray(),
-                    MimeType = MimeType,
+                    Description = string.Join("/", extensions),
+                    Extensions = extensions.ToImmutableArray(),
+                    MimeType = mimeType,
                 },
-                Signature = Signature,
+                Signature = signature,
             };
         }
 
         return ret;
     }
 
-    public static Signature? Intersection(Signature A, Signature B) {
+    public static Signature? Intersection(Signature a, Signature b) {
         var ret = default(Signature);
 
-        var Any = Intersection(A.Strings, B.Strings);
-        var Front = Intersection(A.Prefix, B.Prefix);
+        var any = Intersection(a.Strings, b.Strings);
+        var front = Intersection(a.Prefix, b.Prefix);
 
-        if (Any.Length > 0 || Front.Length > 0) {
+        if (any.Length > 0 || front.Length > 0) {
             ret = new Signature() {
-                Strings = Any,
-                Prefix = Front,
+                Strings = any,
+                Prefix = front,
             };
         }
 
         return ret;
     }
 
-    public static ImmutableArray<PrefixSegment> Intersection(ImmutableArray<PrefixSegment> A, ImmutableArray<PrefixSegment> B) {
-        var Values = (
-            from x in A
-            from y in B
+    public static ImmutableArray<PrefixSegment> Intersection(ImmutableArray<PrefixSegment> a, ImmutableArray<PrefixSegment> b) {
+        var values = (
+            from x in a
+            from y in b
             from z in Intersection(x, y)
             select z
         ).ToImmutableArray();
 
-        return Values;
+        return values;
     }
 
-    public static ImmutableArray<PrefixSegment> Intersection(PrefixSegment A, PrefixSegment B) {
+    public static ImmutableArray<PrefixSegment> Intersection(PrefixSegment a, PrefixSegment b) {
         var ret = new List<PrefixSegment>();
 
-        var Start1 = A.Start;
-        var End1 = A.ExclusiveEnd();
+        var start1 = a.Start;
+        var end1 = a.ExclusiveEnd();
 
-        var Start2 = B.Start;
-        var End2 = B.ExclusiveEnd();
+        var start2 = b.Start;
+        var end2 = b.ExclusiveEnd();
 
-        var RangeStart = Math.Max(Start1, Start2);
-        var RangeEnd = Math.Min(End1, End2);
+        var rangeStart = Math.Max(start1, start2);
+        var rangeEnd = Math.Min(end1, end2);
 
 
         {
-            var Found = new List<byte>();
-            for (var Start = RangeStart; Start <= RangeEnd; Start++) {
-                var Terminal = Start == RangeEnd;
-                var Yield = Terminal;
+            var found = new List<byte>();
+            for (var start = rangeStart; start <= rangeEnd; start++) {
+                var terminal = start == rangeEnd;
+                var yield = terminal;
 
-                if (!Terminal) {
-                    var AS = A.Pattern[Start - A.Start];
-                    var BS = B.Pattern[Start - B.Start];
+                if (!terminal) {
+                    var @as = a.Pattern[start - a.Start];
+                    var bs = b.Pattern[start - b.Start];
 
-                    if (AS == BS) {
-                        Found.Add(AS);
+                    if (@as == bs) {
+                        found.Add(@as);
                     } else {
-                        Yield = true;
+                        yield = true;
                     }
                 }
 
 
-                if (Yield && Found.Count > 0) {
+                if (yield && found.Count > 0) {
                     ret.Add(new PrefixSegment() {
-                        Pattern = Found.ToImmutableArray(),
-                        Start = Start - Found.Count,
+                        Pattern = found.ToImmutableArray(),
+                        Start = start - found.Count,
                     });
 
-                    Found = new();
+                    found = new();
                 }
 
             }
@@ -148,23 +148,23 @@ public static class DefinitionExtensions {
     }
 
 
-    public static ImmutableArray<StringSegment> Intersection(ImmutableArray<StringSegment> A, ImmutableArray<StringSegment> B) {
-        var Values = (
-            from x in A
-            from y in B
+    public static ImmutableArray<StringSegment> Intersection(ImmutableArray<StringSegment> a, ImmutableArray<StringSegment> b) {
+        var values = (
+            from x in a
+            from y in b
             let v = Intersection(x, y)
             where v is { }
             select v
         ).ToImmutableArray();
 
-        return Values;
+        return values;
     }
 
-    private static StringSegment? Intersection(StringSegment A, StringSegment B) {
+    private static StringSegment? Intersection(StringSegment a, StringSegment b) {
         var ret = default(StringSegment?);
 
-        if (A.Pattern.SequenceEqual(B.Pattern)) {
-            ret = A;
+        if (a.Pattern.SequenceEqual(b.Pattern)) {
+            ret = a;
         }
 
         return ret;

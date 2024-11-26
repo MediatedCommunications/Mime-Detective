@@ -102,57 +102,57 @@ public static class DefinitionExtensions {
     }
 
     /// <summary>
-    /// Returns a copy of the <see cref="Definition"/>s whose <see cref="FileType.Extensions"/> are intersected with the provided <paramref name="Extensions"/>.  If a <see cref="Definition"/> would contain no <see cref="FileType.Extensions"/>, it is still returned.
+    /// Returns a copy of the <see cref="Definition"/>s whose <see cref="FileType.Extensions"/> are intersected with the provided <paramref name="extensions"/>.  If a <see cref="Definition"/> would contain no <see cref="FileType.Extensions"/>, it is still returned.
     /// </summary>
     /// <param name="This"></param>
-    /// <param name="Extensions"></param>
+    /// <param name="extensions"></param>
     /// <returns></returns>
-    public static IEnumerable<Definition> TrimExtensions(this IEnumerable<Definition> This, ISet<string> Extensions) {
-        return This.Select(x => x.TrimExtensions(Extensions));
+    public static IEnumerable<Definition> TrimExtensions(this IEnumerable<Definition> This, ISet<string> extensions) {
+        return This.Select(x => x.TrimExtensions(extensions));
     }
 
     /// <summary>
-    /// Returns a copy of the <see cref="Definition"/> whose <see cref="FileType.Extensions"/> are intersected with the provided <paramref name="Extensions"/>.  If a <see cref="Definition"/> would contain no <see cref="FileType.Extensions"/>, it is still returned.
+    /// Returns a copy of the <see cref="Definition"/> whose <see cref="FileType.Extensions"/> are intersected with the provided <paramref name="extensions"/>.  If a <see cref="Definition"/> would contain no <see cref="FileType.Extensions"/>, it is still returned.
     /// </summary>
     /// <param name="This"></param>
-    /// <param name="Extensions"></param>
+    /// <param name="extensions"></param>
     /// <returns></returns>
-    public static Definition TrimExtensions(this Definition This, ISet<string> Extensions) {
+    public static Definition TrimExtensions(this Definition This, ISet<string> extensions) {
         return This with {
             File = This.File with {
                 Extensions = This.File.Extensions
-                    .Where(Extensions.Contains)
+                    .Where(extensions.Contains)
                     .ToImmutableArray()
             }
         };
     }
 
     /// <summary>
-    /// Returns a copy of the <see cref="Definition"/>s whose <see cref="FileType.Extensions"/> are intersected with the provided <paramref name="Extensions"/>.  If a <see cref="Definition"/> would contain no <see cref="FileType.Extensions"/>, it is omitted from the results.
+    /// Returns a copy of the <see cref="Definition"/>s whose <see cref="FileType.Extensions"/> are intersected with the provided <paramref name="extensions"/>.  If a <see cref="Definition"/> would contain no <see cref="FileType.Extensions"/>, it is omitted from the results.
     /// </summary>
     /// <param name="This"></param>
-    /// <param name="Extensions"></param>
+    /// <param name="extensions"></param>
     /// <returns></returns>
-    public static IEnumerable<Definition> ScopeExtensions(this IEnumerable<Definition> This, IEnumerable<string> Extensions) {
-        return ScopeExtensions(This, Extensions.ToImmutableHashSet(StringComparer.InvariantCultureIgnoreCase));
+    public static IEnumerable<Definition> ScopeExtensions(this IEnumerable<Definition> This, IEnumerable<string> extensions) {
+        return ScopeExtensions(This, extensions.ToImmutableHashSet(StringComparer.InvariantCultureIgnoreCase));
     }
 
-    private static IEnumerable<Definition> ScopeExtensions(this IEnumerable<Definition> This, ImmutableHashSet<string> Extensions) {
-        return This.Select(x => x.ScopeExtensions(Extensions)).OfType<Definition>();
+    private static IEnumerable<Definition> ScopeExtensions(this IEnumerable<Definition> This, ImmutableHashSet<string> extensions) {
+        return This.Select(x => x.ScopeExtensions(extensions)).OfType<Definition>();
     }
 
     /// <summary>
-    /// Returns a copy of the <see cref="Definition"/> whose <see cref="FileType.Extensions"/> are intersected with the provided <paramref name="Extensions"/>.  If this list would be empty, no value is returned.
+    /// Returns a copy of the <see cref="Definition"/> whose <see cref="FileType.Extensions"/> are intersected with the provided <paramref name="extensions"/>.  If this list would be empty, no value is returned.
     /// </summary>
     /// <param name="This"></param>
-    /// <param name="Extensions"></param>
+    /// <param name="extensions"></param>
     /// <returns></returns>
-    public static Definition? ScopeExtensions(this Definition This, IEnumerable<string> Extensions) {
-        return TrimExtensions(This, Extensions.ToImmutableHashSet(StringComparer.InvariantCultureIgnoreCase));
+    public static Definition? ScopeExtensions(this Definition This, IEnumerable<string> extensions) {
+        return TrimExtensions(This, extensions.ToImmutableHashSet(StringComparer.InvariantCultureIgnoreCase));
     }
 
-    private static Definition? ScopeExtensions(this Definition This, ImmutableHashSet<string> Extensions) {
-        var tret = This.TrimExtensions(Extensions);
+    private static Definition? ScopeExtensions(this Definition This, ImmutableHashSet<string> extensions) {
+        var tret = This.TrimExtensions(extensions);
 
         var ret = tret.File.Extensions.Length > 0 ? tret : default;
 
@@ -160,18 +160,18 @@ public static class DefinitionExtensions {
     }
 
     public static DefinitionDeduplicateResults Deduplicate(this IEnumerable<Definition> This) {
-        var Definitions = This.ToList();
+        var definitions = This.ToList();
 
-        var ExtensionCache = (
-                from x in Definitions
+        var extensionCache = (
+                from x in definitions
                 from y in x.File.Extensions
                 select y.ToLowerInvariant()
             )
             .Distinct(StringComparer.InvariantCultureIgnoreCase)
             .ToImmutableDictionary(x => x, x => x, StringComparer.InvariantCultureIgnoreCase);
 
-        var MimeTypeCache = (
-                from x in Definitions
+        var mimeTypeCache = (
+                from x in definitions
                 let v = x.File.MimeType?.ToLowerInvariant()
                 where v is { }
                 select v
@@ -179,8 +179,8 @@ public static class DefinitionExtensions {
             .Distinct(StringComparer.InvariantCultureIgnoreCase)
             .ToImmutableDictionary(x => x, x => x, StringComparer.InvariantCultureIgnoreCase);
 
-        var DescriptionCache = (
-                from x in Definitions
+        var descriptionCache = (
+                from x in definitions
                 let v = x.File.Description
                 where v is { }
                 select v
@@ -192,8 +192,8 @@ public static class DefinitionExtensions {
                 StringComparer.InvariantCultureIgnoreCase
             );
 
-        var PrefixCache = (
-                from x in Definitions
+        var prefixCache = (
+                from x in definitions
                 from y in x.Signature.Prefix
                 select y
             )
@@ -204,8 +204,8 @@ public static class DefinitionExtensions {
                 PrefixSegmentEqualityComparer.Instance
             );
 
-        var SingularizedPrefixCache = (
-                from x in PrefixCache.Keys
+        var singularizedPrefixCache = (
+                from x in prefixCache.Keys
                 from y in x.Singularize()
                 select y
             )
@@ -216,16 +216,16 @@ public static class DefinitionExtensions {
                 PrefixSegmentEqualityComparer.Instance
             );
 
-        var PrefixCacheLookup =
-            PrefixCache.Keys
+        var prefixCacheLookup =
+            prefixCache.Keys
                 .ToImmutableDictionary(
                     x => x,
-                    x => x.Singularize().Select(y => SingularizedPrefixCache[y]).ToImmutableArray(),
+                    x => x.Singularize().Select(y => singularizedPrefixCache[y]).ToImmutableArray(),
                     PrefixSegmentEqualityComparer.Instance
                 );
 
-        var StringCache = (
-                from x in Definitions
+        var stringCache = (
+                from x in definitions
                 from y in x.Signature.Strings
                 select y
             )
@@ -237,8 +237,8 @@ public static class DefinitionExtensions {
             );
 
 
-        var CategoryCache = (
-                from x in Definitions
+        var categoryCache = (
+                from x in definitions
                 select x.File.Categories
             ).Distinct(SequenceComparer<ImmutableHashSet<Category>, Category>.Instance)
             .ToImmutableDictionary(
@@ -248,29 +248,29 @@ public static class DefinitionExtensions {
             );
 
 
-        var NewDefinitions = (
-            from Definition in Definitions
+        var newDefinitions = (
+            from Definition in definitions
 
-            let Description = Definition.File.Description is { } V1 ? DescriptionCache[V1] : default
+            let Description = Definition.File.Description is { } v1 ? descriptionCache[v1] : default
 
             let Extensions = (
                 from y in Definition.File.Extensions
-                select ExtensionCache[y]
+                select extensionCache[y]
             ).ToImmutableArray()
 
-            let MimeType = Definition.File.MimeType is { } V1 ? MimeTypeCache[V1] : default
+            let MimeType = Definition.File.MimeType is { } v1 ? mimeTypeCache[v1] : default
 
-            let Categories = CategoryCache[Definition.File.Categories]
+            let Categories = categoryCache[Definition.File.Categories]
 
             let Prefixes = (
                 from y in Definition.Signature.Prefix
-                from z in PrefixCacheLookup[y]
+                from z in prefixCacheLookup[y]
                 select z
             ).ToImmutableArray()
 
             let Strings = (
                 from y in Definition.Signature.Strings
-                select StringCache[y]
+                select stringCache[y]
             ).ToImmutableArray()
 
             let NewDef = new Definition() {
@@ -290,13 +290,13 @@ public static class DefinitionExtensions {
         ).ToImmutableArray();
 
         var ret = new DefinitionDeduplicateResults() {
-            Definitions = NewDefinitions,
-            Extensions = ExtensionCache,
-            MimeTypes = MimeTypeCache,
-            Descriptions = DescriptionCache,
-            Prefixes = SingularizedPrefixCache,
-            Strings = StringCache,
-            Categories = CategoryCache,
+            Definitions = newDefinitions,
+            Extensions = extensionCache,
+            MimeTypes = mimeTypeCache,
+            Descriptions = descriptionCache,
+            Prefixes = singularizedPrefixCache,
+            Strings = stringCache,
+            Categories = categoryCache,
         };
 
         return ret;

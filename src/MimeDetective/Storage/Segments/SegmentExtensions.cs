@@ -5,20 +5,20 @@ using System.Diagnostics;
 namespace MimeDetective.Storage;
 
 public static class SegmentExtensions {
-    public static Signature ToSignature<T>(this IEnumerable<T> Segments)
+    public static Signature ToSignature<T>(this IEnumerable<T> segments)
         where T : Segment {
-        List<PrefixSegment>? Prefixes = null;
-        List<StringSegment>? Strings = null;
+        List<PrefixSegment>? prefixes = null;
+        List<StringSegment>? strings = null;
 
-        foreach (var segment in Segments) {
+        foreach (var segment in segments) {
             switch (segment) {
                 case PrefixSegment prefix:
-                    Prefixes ??= [];
-                    Prefixes.Add(prefix);
+                    prefixes ??= [];
+                    prefixes.Add(prefix);
                     break;
                 case StringSegment str:
-                    Strings ??= [];
-                    Strings.Add(str);
+                    strings ??= [];
+                    strings.Add(str);
                     break;
                 default:
                     Debug.Fail("Unknown segment type");
@@ -26,14 +26,14 @@ public static class SegmentExtensions {
             }
         }
 
-        Prefixes?.Sort(static (a, b)
+        prefixes?.Sort(static (a, b)
             => a.Start.CompareTo(b.Start));
-        Strings?.Sort(static (a, b)
+        strings?.Sort(static (a, b)
             => b.Pattern.Length.CompareTo(a.Pattern.Length));
 
         var ret = new Signature {
-            Prefix = Prefixes?.ToImmutableArray() ?? [],
-            Strings = Strings?.ToImmutableArray() ?? []
+            Prefix = prefixes?.ToImmutableArray() ?? [],
+            Strings = strings?.ToImmutableArray() ?? []
         };
 
         return ret;

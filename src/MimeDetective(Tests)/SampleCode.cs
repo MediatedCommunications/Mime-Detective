@@ -11,13 +11,13 @@ public class SampleCode {
 
         static CustomContentInspector() {
 
-            var MyDefinitions = new List<Definition>();
+            var myDefinitions = new List<Definition>();
 
             //Add a predefined definition
-            MyDefinitions.AddRange(MimeDetective.Definitions.Default.FileTypes.Audio.MP3());
+            myDefinitions.AddRange(MimeDetective.Definitions.Default.FileTypes.Audio.MP3());
 
             //Add a custom definition
-            MyDefinitions.Add(new() {
+            myDefinitions.Add(new() {
                 File = new() {
                     Categories = [Category.Other],
                     Description = "Magic File Type",
@@ -32,7 +32,7 @@ public class SampleCode {
             });
 
             Instance = new ContentInspectorBuilder() {
-                Definitions = MyDefinitions,
+                Definitions = myDefinitions,
                 StringSegmentOptions = new() {
                     OptimizeFor = Engine.StringSegmentResourceOptimization.HighSpeed,
                 },

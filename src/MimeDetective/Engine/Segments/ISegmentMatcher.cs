@@ -6,5 +6,5 @@ namespace MimeDetective.Engine;
 /// The base interface for detecting if content matches a segment.
 /// </summary>
 internal interface ISegmentMatcher {
-    SegmentMatch Match(ReadOnlySpan<byte> Content);
+    SegmentMatch Match(ReadOnlySpan<byte> content);
 }

@@ -6,47 +6,47 @@ public static class XmlData {
 
     public static string ExampleVersion => "1.20";
 
-    public static string Pattern1_ASCII => "12345678";
-    public static string Pattern1_Bytes => "AAFFCCDD";
-    public static int Pattern1_Position => 11;
+    public static string Pattern1Ascii => "12345678";
+    public static string Pattern1Bytes => "AAFFCCDD";
+    public static int Pattern1Position => 11;
 
 
-    public static string Pattern2_ASCII => "87654321";
-    public static string Pattern2_Bytes => "DDFFEECC";
-    public static int Pattern2_Position => 99;
+    public static string Pattern2Ascii => "87654321";
+    public static string Pattern2Bytes => "DDFFEECC";
+    public static int Pattern2Position => 99;
 
     public static string GlobalString1 => "Global 1";
     public static string GlobalString2 => "Global 2";
 
     public static string CheckStrings => "True";
     public static string Creator => "Tony Valenti";
-    public static int Date_Year => 2020;
-    public static int Date_Month => 1;
-    public static int Date_Day => 2;
-    public static int Date_Hour => 3;
-    public static int Date_Minute => 4;
-    public static int Date_Second => 5;
+    public static int DateYear => 2020;
+    public static int DateMonth => 1;
+    public static int DateDay => 2;
+    public static int DateHour => 3;
+    public static int DateMinute => 4;
+    public static int DateSecond => 5;
 
-    public static string File_Extension => "exe";
-    public static string File_Description => "Applications";
-    public static string File_MimeType => "Application/exe";
+    public static string FileExtension => "exe";
+    public static string FileDescription => "Applications";
+    public static string FileMimeType => "Application/exe";
 
     public static Definition Example() {
-        var Example = new Definition() {
+        var example = new Definition() {
             Version = ExampleVersion,
             FrontBlock =
             {
                 new Pattern()
                 {
-                    ASCII = Pattern1_ASCII,
-                    Bytes = Pattern1_Bytes,
-                    Position = Pattern1_Position,
+                    ASCII = Pattern1Ascii,
+                    Bytes = Pattern1Bytes,
+                    Position = Pattern1Position,
                 },
                 new Pattern()
                 {
-                    ASCII = Pattern2_ASCII,
-                    Bytes = Pattern2_Bytes,
-                    Position = Pattern2_Position,
+                    ASCII = Pattern2Ascii,
+                    Bytes = Pattern2Bytes,
+                    Position = Pattern2Position,
                 }
             },
             GlobalStrings =
@@ -59,15 +59,15 @@ public static class XmlData {
                 CheckStrings = CheckStrings,
                 Creator = Creator,
                 Date = {
-                    Year = Date_Year,
-                    Month = Date_Month,
-                    Day = Date_Day,
+                    Year = DateYear,
+                    Month = DateMonth,
+                    Day = DateDay,
                 },
                 Time =
                 {
-                    Hour = Date_Hour,
-                    Min = Date_Minute,
-                    Sec = Date_Second,
+                    Hour = DateHour,
+                    Min = DateMinute,
+                    Sec = DateSecond,
                 },
                 FileNum = 12,
                 Refine = "asd",
@@ -75,19 +75,19 @@ public static class XmlData {
             Info =
             {
                 AuthorEmail = "Email",
-                FileExtension = File_Extension,
+                FileExtension = FileExtension,
                 ExtraInfo = {
                     ReferenceUrl = "URL",
                     Remark = "Remark",
                 },
-                FileType = File_Description,
-                MimeType = File_MimeType,
+                FileType = FileDescription,
+                MimeType = FileMimeType,
                 Author = "asdf",
             }
 
         };
 
-        return Example;
+        return example;
     }
 
 }

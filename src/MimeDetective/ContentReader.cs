@@ -37,43 +37,43 @@ public class ContentReader {
 
     public int MaxFileSize { get; init; }
 
-    public byte[] ReadFromFile(string FileName) {
-        using var FS = System.IO.File.OpenRead(FileName);
+    public byte[] ReadFromFile(string fileName) {
+        using var fs = System.IO.File.OpenRead(fileName);
 
-        return ReadFromStream(FS, false);
+        return ReadFromStream(fs, false);
     }
 
-    public byte[] ReadFromStream(Stream Input, bool ResetPosition = false) {
-        var ret = ResetPosition
-                ? FromStream_Reset_True(Input)
-                : FromStream_Reset_False(Input)
+    public byte[] ReadFromStream(Stream input, bool resetPosition = false) {
+        var ret = resetPosition
+                ? FromStream_Reset_True(input)
+                : FromStream_Reset_False(input)
             ;
 
         return ret;
     }
 
-    public byte[] ReadFromStream(Func<Stream> Input) {
-        using var Stream = Input();
+    public byte[] ReadFromStream(Func<Stream> input) {
+        using var stream = input();
 
-        var ret = FromStream_Reset_False(Stream);
-
-        return ret;
-    }
-
-    protected byte[] FromStream_Reset_True(Stream Input) {
-        var Position = Input.Position;
-
-        var R = new BinaryReader(Input);
-        var ret = R.ReadBytes(MaxFileSize);
-
-        Input.Position = Position;
+        var ret = FromStream_Reset_False(stream);
 
         return ret;
     }
 
-    protected byte[] FromStream_Reset_False(Stream Input) {
-        var R = new BinaryReader(Input);
-        var ret = R.ReadBytes(MaxFileSize);
+    protected byte[] FromStream_Reset_True(Stream input) {
+        var position = input.Position;
+
+        var r = new BinaryReader(input);
+        var ret = r.ReadBytes(MaxFileSize);
+
+        input.Position = position;
+
+        return ret;
+    }
+
+    protected byte[] FromStream_Reset_False(Stream input) {
+        var r = new BinaryReader(input);
+        var ret = r.ReadBytes(MaxFileSize);
 
         return ret;
     }

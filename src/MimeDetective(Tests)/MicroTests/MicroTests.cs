@@ -8,35 +8,35 @@ namespace MimeDetective.Tests;
 
 [TestClass]
 public abstract class MicroTests {
-    private static IContentInspector? GetEngine_Result;
+    private static IContentInspector? _getEngineResult;
     protected static IContentInspector GetEngine() {
 
-        var IsDebug = false;
+        var isDebug = false;
 
-        if (GetEngine_Result == default && IsDebug) {
+        if (_getEngineResult == default && isDebug) {
             var inspector = new ContentInspectorBuilder() {
                 Definitions = {
                     Definitions.Default.FileTypes.Email.EML(),
                 },
                 Parallel = false,
             };
-            GetEngine_Result = inspector.Build();
+            _getEngineResult = inspector.Build();
         }
 
 
 
 
-        if (GetEngine_Result == default) {
-            var Defintions = Definitions.Default.All();
+        if (_getEngineResult == default) {
+            var defintions = Definitions.Default.All();
 
-            GetEngine_Result = new ContentInspectorBuilder() {
-                Definitions = Defintions,
+            _getEngineResult = new ContentInspectorBuilder() {
+                Definitions = defintions,
                 Parallel = true,
             }.Build();
             ;
         }
 
-        return GetEngine_Result;
+        return _getEngineResult;
     }
 
     [TestMethod]
@@ -47,53 +47,53 @@ public abstract class MicroTests {
     protected string GenerateTests() {
         var tret = new StringBuilder();
 
-        var FullPath = System.IO.Path.GetFullPath(RelativeRoot());
+        var fullPath = System.IO.Path.GetFullPath(RelativeRoot());
 
-        foreach (var item in System.IO.Directory.GetFiles(FullPath)) {
-            var FN = System.IO.Path.GetFileName(item);
-            var Name = FN.Replace(".", "_");
+        foreach (var item in System.IO.Directory.GetFiles(fullPath)) {
+            var fn = System.IO.Path.GetFileName(item);
+            var name = fn.Replace(".", "_");
 
-            var Content = $@"
+            var content = $@"
 [TestMethod]
-public void {Name}(){{
-    Test(""{FN}"");
+public void {name}(){{
+    Test(""{fn}"");
 }}";
 
-            tret.AppendLine(Content);
+            tret.AppendLine(content);
         }
 
         var ret = tret.ToString();
         return ret;
     }
 
-    protected void Test(string RelativeFileName) {
-        var FN = $@"{RelativeRoot()}{RelativeFileName}";
-        var FullPath = System.IO.Path.GetFullPath(FN);
-        var FileName = System.IO.Path.GetFileName(FullPath);
+    protected void Test(string relativeFileName) {
+        var fn = $@"{RelativeRoot()}{relativeFileName}";
+        var fullPath = System.IO.Path.GetFullPath(fn);
+        var fileName = System.IO.Path.GetFileName(fullPath);
 
-        var Content = ContentReader.Default.ReadFromFile(FullPath);
+        var content = ContentReader.Default.ReadFromFile(fullPath);
 
-        var Engine = GetEngine();
+        var engine = GetEngine();
 
-        var AllResults = Engine.Inspect(Content).ByFileExtension();
+        var allResults = engine.Inspect(content).ByFileExtension();
 
-        var Results = new HashSet<string>(StringComparer.InvariantCultureIgnoreCase);
+        var results = new HashSet<string>(StringComparer.InvariantCultureIgnoreCase);
 
-        if (AllResults.Length > 0) {
-            var MaxPoints = AllResults.First().Points;
-            Results.UnionWith(
-                from x in AllResults
-                where x.Points == MaxPoints
+        if (allResults.Length > 0) {
+            var maxPoints = allResults.First().Points;
+            results.UnionWith(
+                from x in allResults
+                where x.Points == maxPoints
                 select x.Extension
             );
         }
 
-        var Expected = FileName.Split('.').LastOrDefault()?.ToLowerInvariant() ?? string.Empty;
+        var expected = fileName.Split('.').LastOrDefault()?.ToLowerInvariant() ?? string.Empty;
 
-        var IsValid = Results.Contains(Expected);
+        var isValid = results.Contains(expected);
 
-        if (!IsValid) {
-            Assert.AreNotEqual(Expected, string.Join(",", Results));
+        if (!isValid) {
+            Assert.AreNotEqual(expected, string.Join(",", results));
         }
 
     }

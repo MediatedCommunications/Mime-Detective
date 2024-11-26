@@ -10,19 +10,19 @@ public class Minifier {
 
     [TestMethod]
     public void Minify() {
-        var A = new PrefixSegment() {
+        var a = new PrefixSegment() {
             Start = 1,
             Pattern = new byte[] { 2, 3, 4, 5, 6, 7, 8, 9, 10 }.ToImmutableArray()
         };
 
-        var B = new PrefixSegment() {
+        var b = new PrefixSegment() {
             Start = 2,
             Pattern = new byte[] { 3, 4, 0, 0, 7, 8, 9 }.ToImmutableArray()
         };
 
-        var Data = DefinitionExtensions.Intersection(A, B);
+        var data = DefinitionExtensions.Intersection(a, b);
 
-        Data.Equals(Data);
+        data.Equals(data);
 
     }
 

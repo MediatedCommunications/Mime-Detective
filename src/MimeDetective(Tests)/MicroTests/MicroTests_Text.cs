@@ -3,7 +3,7 @@
 namespace MimeDetective.Tests;
 
 [TestClass]
-public class MicroTests_Text : MicroTests {
+public class MicroTestsText : MicroTests {
 
     protected override string RelativeRoot() {
         return base.RelativeRoot() + @"Text\";

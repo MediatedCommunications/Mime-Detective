@@ -12,23 +12,23 @@ public abstract class StringSegmentMatcher : DisplayClass, ISegmentMatcher {
 
     public StringSegment Segment { get; }
 
-    public StringSegmentMatcher(StringSegment Segment) {
-        this.Segment = Segment;
+    public StringSegmentMatcher(StringSegment segment) {
+        this.Segment = segment;
     }
 
-    public abstract SegmentMatch Match(ReadOnlySpan<byte> Content);
+    public abstract SegmentMatch Match(ReadOnlySpan<byte> content);
 
 
-    public static StringSegmentMatcher Create(StringSegment Segment) {
-        return CreateHighSpeed(Segment);
+    public static StringSegmentMatcher Create(StringSegment segment) {
+        return CreateHighSpeed(segment);
     }
 
-    public static StringSegmentMatcher CreateLowMemory(StringSegment Segment) {
-        return new StringSegmentMatcherBrute(Segment);
+    public static StringSegmentMatcher CreateLowMemory(StringSegment segment) {
+        return new StringSegmentMatcherBrute(segment);
     }
 
-    public static StringSegmentMatcher CreateHighSpeed(StringSegment Segment) {
-        return new StringSegmentMatcherBoyerMoore(Segment);
+    public static StringSegmentMatcher CreateHighSpeed(StringSegment segment) {
+        return new StringSegmentMatcherBoyerMoore(segment);
     }
 
 

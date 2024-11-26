@@ -12,32 +12,32 @@ internal class PrefixSegmentMatcher : DisplayClass, ISegmentMatcher {
         return Segment.GetDebuggerDisplay();
     }
 
-    public static PrefixSegmentMatcher Create(PrefixSegment Segment) {
-        return new PrefixSegmentMatcher(Segment);
+    public static PrefixSegmentMatcher Create(PrefixSegment segment) {
+        return new PrefixSegmentMatcher(segment);
     }
 
-    public PrefixSegmentMatcher(PrefixSegment Segment) {
-        this.Segment = Segment;
+    public PrefixSegmentMatcher(PrefixSegment segment) {
+        this.Segment = segment;
     }
 
     public PrefixSegment Segment { get; }
 
-    public SegmentMatch Match(ReadOnlySpan<byte> Content) {
+    public SegmentMatch Match(ReadOnlySpan<byte> content) {
         SegmentMatch ret = NoSegmentMatch.Instance;
 
-        var Matches = true;
-        Matches &= Content.Length >= Segment.ExclusiveEnd();
+        var matches = true;
+        matches &= content.Length >= Segment.ExclusiveEnd();
 
-        if (Matches) {
-            for (int PatternIndex = 0, ContentIndex = Segment.Start; ContentIndex < Segment.ExclusiveEnd(); PatternIndex++, ContentIndex++) {
-                if (Segment.Pattern[PatternIndex] != Content[ContentIndex]) {
-                    Matches = false;
+        if (matches) {
+            for (int patternIndex = 0, contentIndex = Segment.Start; contentIndex < Segment.ExclusiveEnd(); patternIndex++, contentIndex++) {
+                if (Segment.Pattern[patternIndex] != content[contentIndex]) {
+                    matches = false;
                     break;
                 }
             }
         }
 
-        if (Matches) {
+        if (matches) {
             ret = new PrefixSegmentMatch() {
                 Segment = Segment,
             };

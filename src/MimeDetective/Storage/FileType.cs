@@ -12,8 +12,8 @@ public record FileType : DisplayRecord {
     public string? MimeType { get; init; }
 
     public override string? GetDebuggerDisplay() {
-        var Extension = string.Join(@"/", Extensions.Select(x => x.ToUpperInvariant()));
+        var extension = string.Join(@"/", Extensions.Select(x => x.ToUpperInvariant()));
 
-        return $@"{Extension} ({MimeType} /// {Description})";
+        return $@"{extension} ({MimeType} /// {Description})";
     }
 }
