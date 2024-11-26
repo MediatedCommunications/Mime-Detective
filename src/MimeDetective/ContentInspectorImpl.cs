@@ -8,26 +8,17 @@ using System.Linq;
 namespace MimeDetective {
 
 
-    internal class ContentInspectorImpl
+    internal class ContentInspectorImpl(
+        ImmutableArray<Definition> definitions,
+        DefinitionMatchEvaluatorOptions matchEvaluatorOptions,
+        StringSegmentMatcherProvider stringSegmentIndex,
+        bool parallel)
         : IContentInspector {
-        public ContentInspectorImpl(
-            ImmutableArray<Definition> Definitions,
-            DefinitionMatchEvaluatorOptions MatchEvaluatorOptions,
-            StringSegmentMatcherProvider StringSegmentIndex,
-            bool Parallel
-            ) {
+        protected StringSegmentMatcherProvider StringSegmentIndex { get; } = stringSegmentIndex;
 
-            this.StringSegmentIndex = StringSegmentIndex;
-            this.MatchEvaluatorOptions = MatchEvaluatorOptions;
-            this.Parallel = Parallel;
-            this.DefinitionMatchers = GenerateDefinitionMatchers(StringSegmentIndex, Definitions);
-        }
-
-        protected StringSegmentMatcherProvider StringSegmentIndex { get; }
-
-        protected DefinitionMatchEvaluatorOptions MatchEvaluatorOptions { get; }
-        protected ImmutableArray<DefinitionMatcher> DefinitionMatchers { get; }
-        protected bool Parallel { get; }
+        protected DefinitionMatchEvaluatorOptions MatchEvaluatorOptions { get; } = matchEvaluatorOptions;
+        protected ImmutableArray<DefinitionMatcher> DefinitionMatchers { get; } = GenerateDefinitionMatchers(stringSegmentIndex, definitions);
+        protected bool Parallel { get; } = parallel;
 
         private static ImmutableArray<DefinitionMatcher> GenerateDefinitionMatchers(StringSegmentMatcherProvider StringSegmentIndex, ImmutableArray<Definition> Definitions) {
 
@@ -138,7 +129,7 @@ namespace MimeDetective {
             for (var i = 0; i < tret.Count; ++i)
                 ret[i] = tret[i].Match;
 
-            return ret.ToImmutableArray();
+            return [..ret];
         }
 
     }

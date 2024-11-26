@@ -21,7 +21,7 @@ namespace MimeDetective {
         /// <summary>
         /// The definitions that will be run against input data.
         /// </summary>
-        public IList<Definition> Definitions { get; set; } = new List<Definition>();
+        public IList<Definition> Definitions { get; set; } = [];
 
         /// <summary>
         /// Whether multiple definitions should be evaluated concurrently.  If you have thousands of definitions, set this to true, otherwise, set this to false.

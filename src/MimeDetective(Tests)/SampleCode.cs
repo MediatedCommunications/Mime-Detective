@@ -1,7 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MimeDetective.Storage;
+﻿using MimeDetective.Storage;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 
 namespace MimeDetective.Tests {
 
@@ -21,16 +19,16 @@ namespace MimeDetective.Tests {
                 //Add a custom definition
                 MyDefinitions.Add(new() {
                     File = new() {
-                        Categories = new[] { Category.Other }.ToImmutableHashSet(),
+                        Categories = [ Category.Other ],
                         Description = "Magic File Type",
-                        Extensions = new[] { "magic" }.ToImmutableArray(),
+                        Extensions = [ "magic" ],
                         MimeType = "application/octet-stream",
                     },
                     //All of these rules must match
-                    Signature = new Segment[] {
+                    Signature = SegmentExtensions.ToSignature<Segment>([
                         StringSegment.Create("MAGIC"), //anywhere in the file, expect "MAGIC" (exact case)
                         PrefixSegment.Create(100, "4d 41 47 49 43") //At offset 100 in the file, expect the bytes "MAGIC".
-                    }.ToSignature(),
+                    ]),
                 });
 
                 Instance = new ContentInspectorBuilder() {
