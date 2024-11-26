@@ -2,25 +2,24 @@
 using System.Collections.Immutable;
 using System.Linq;
 
-namespace MimeDetective.Definitions.Licensing {
-    public interface IDefinitionBuilder {
-        public ImmutableArray<Definition> Build();
-    }
+namespace MimeDetective.Definitions.Licensing;
 
-    public abstract class DefinitionBuilder : IDefinitionBuilder {
+public interface IDefinitionBuilder {
+    public ImmutableArray<Definition> Build();
+}
 
-        protected static void EnsureValidUsageType(UsageType Type, UsageType[] AllowedTypes, string Error) {
+public abstract class DefinitionBuilder : IDefinitionBuilder {
 
-            var Allowed = false
+    protected static void EnsureValidUsageType(UsageType Type, UsageType[] AllowedTypes, string Error) {
+
+        var Allowed = false
                 || AllowedTypes.Contains(Type)
-                ;
+            ;
 
-            if (!Allowed) {
-                throw new UsageTypeNotAllowedException(Type, AllowedTypes, Error);
-            }
+        if (!Allowed) {
+            throw new UsageTypeNotAllowedException(Type, AllowedTypes, Error);
         }
-
-        public abstract ImmutableArray<Definition> Build();
     }
 
+    public abstract ImmutableArray<Definition> Build();
 }

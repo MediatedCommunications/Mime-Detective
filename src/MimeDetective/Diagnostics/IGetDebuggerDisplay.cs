@@ -1,7 +1,5 @@
-﻿namespace MimeDetective.Diagnostics
-{
-    internal interface IGetDebuggerDisplay
-    {
-        string? GetDebuggerDisplay();
-    }
+﻿namespace MimeDetective.Diagnostics;
+
+internal interface IGetDebuggerDisplay {
+    string? GetDebuggerDisplay();
 }

@@ -278,7 +278,7 @@ public static class XmlConverter {
 
             if (ret.Count == 0) { }
 
-            return [..ret];
+            return [.. ret];
         }
     }
 }

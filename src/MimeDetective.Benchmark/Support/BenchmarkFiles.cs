@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 
 namespace MimeDetective.Benchmark.Support;
@@ -17,7 +16,7 @@ public sealed class BenchmarkFiles {
         string fullPath;
 
         var basePath = Path.GetFullPath(".");
-        for (;;) {
+        for (; ; ) {
             fullPath = Path.Combine(basePath, DATA_ROOT_PATH);
             if (Directory.Exists(fullPath)) {
                 break;

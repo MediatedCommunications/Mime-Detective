@@ -40,7 +40,7 @@ public class Generator {
             let Modern = Item.Modernize()
             select Modern with { Meta = (Modern.Meta ?? new()) with { Id = Id } };
 
-        return [..definitions.OrderBy(item => item.Meta?.Id, StringComparer.OrdinalIgnoreCase)];
+        return [.. definitions.OrderBy(item => item.Meta?.Id, StringComparer.OrdinalIgnoreCase)];
     }
 
     [TestMethod]

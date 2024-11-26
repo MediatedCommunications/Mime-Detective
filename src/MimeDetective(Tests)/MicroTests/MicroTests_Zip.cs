@@ -1,59 +1,57 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
-namespace MimeDetective.Tests {
-    [TestClass]
-    public class MicroTests_Zip : MicroTests {
+namespace MimeDetective.Tests;
 
-        protected override string RelativeRoot() {
-            return base.RelativeRoot() + @"\Zip\";
-        }
+[TestClass]
+public class MicroTests_Zip : MicroTests {
 
-        [TestMethod]
-        public void EmptiedBy7zip_zip() {
-            Test("EmptiedBy7zip.zip");
-        }
+    protected override string RelativeRoot() {
+        return base.RelativeRoot() + @"\Zip\";
+    }
 
-        [TestMethod]
-        public void empty_zip() {
-            Test("empty.zip");
-        }
+    [TestMethod]
+    public void EmptiedBy7zip_zip() {
+        Test("EmptiedBy7zip.zip");
+    }
 
-        [TestMethod]
-        public void emptyZip_zip() {
-            Test("emptyZip.zip");
-        }
+    [TestMethod]
+    public void empty_zip() {
+        Test("empty.zip");
+    }
 
-        [TestMethod]
-        public void images_7z() {
-            Test("images.7z");
-        }
+    [TestMethod]
+    public void emptyZip_zip() {
+        Test("emptyZip.zip");
+    }
 
-        [TestMethod]
-        public void images_zip() {
-            Test("images.zip");
-        }
+    [TestMethod]
+    public void images_7z() {
+        Test("images.7z");
+    }
 
-        [TestMethod]
-        public void Images7zip_tar() {
-            Test("Images7zip.tar");
-        }
+    [TestMethod]
+    public void images_zip() {
+        Test("images.zip");
+    }
 
-        [TestMethod]
-        public void imagesBy7zip_zip() {
-            Test("imagesBy7zip.zip");
-        }
+    [TestMethod]
+    public void Images7zip_tar() {
+        Test("Images7zip.tar");
+    }
 
-        [TestMethod]
-        public void TestBlender_rar() {
-            Test("TestBlender.rar");
-        }
+    [TestMethod]
+    public void imagesBy7zip_zip() {
+        Test("imagesBy7zip.zip");
+    }
 
-        [TestMethod]
-        public void WinRar_rar() {
-            Test("WinRar.rar");
-        }
+    [TestMethod]
+    public void TestBlender_rar() {
+        Test("TestBlender.rar");
+    }
 
+    [TestMethod]
+    public void WinRar_rar() {
+        Test("WinRar.rar");
     }
 
 }

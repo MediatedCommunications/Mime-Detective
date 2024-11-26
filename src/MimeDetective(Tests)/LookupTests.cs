@@ -1,37 +1,36 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace MimeDetective.Tests {
-    [TestClass]
-    public class LookupTests {
+namespace MimeDetective.Tests;
 
-        private string application_octetstream = "application/octet-stream";
+[TestClass]
+public class LookupTests {
 
-        [TestMethod]
-        public void FileExtension_AllowVariants() {
-            var expected = application_octetstream;
+    private string application_octetstream = "application/octet-stream";
 
-            var V1 = ContentInspectors.Exhaustive.FileExtensionToMimeTypeLookup.TryGetValue("exe");
-            var V2 = ContentInspectors.Exhaustive.FileExtensionToMimeTypeLookup.TryGetValue(".exe");
-            var V3 = ContentInspectors.Exhaustive.FileExtensionToMimeTypeLookup.TryGetValue("ExE");
-            var V4 = ContentInspectors.Exhaustive.FileExtensionToMimeTypeLookup.TryGetValue(".ExE");
+    [TestMethod]
+    public void FileExtension_AllowVariants() {
+        var expected = application_octetstream;
 
-            Assert.AreEqual(expected, V1);
-            Assert.AreEqual(expected, V2);
-            Assert.AreEqual(expected, V3);
-            Assert.AreEqual(expected, V4);
-        }
+        var V1 = ContentInspectors.Exhaustive.FileExtensionToMimeTypeLookup.TryGetValue("exe");
+        var V2 = ContentInspectors.Exhaustive.FileExtensionToMimeTypeLookup.TryGetValue(".exe");
+        var V3 = ContentInspectors.Exhaustive.FileExtensionToMimeTypeLookup.TryGetValue("ExE");
+        var V4 = ContentInspectors.Exhaustive.FileExtensionToMimeTypeLookup.TryGetValue(".ExE");
 
-        [TestMethod]
-        public void MimeType_AllowVariants() {
-            var expected = "exe";
+        Assert.AreEqual(expected, V1);
+        Assert.AreEqual(expected, V2);
+        Assert.AreEqual(expected, V3);
+        Assert.AreEqual(expected, V4);
+    }
 
-            var V1 = ContentInspectors.Exhaustive.MimeTypeToFileExtensionLookup.TryGetValue("application/octet-stream");
-            var V2 = ContentInspectors.Exhaustive.MimeTypeToFileExtensionLookup.TryGetValue("application/OCTET-stream");
+    [TestMethod]
+    public void MimeType_AllowVariants() {
+        var expected = "exe";
 
-            Assert.AreEqual(expected, V1);
-            Assert.AreEqual(expected, V2);
+        var V1 = ContentInspectors.Exhaustive.MimeTypeToFileExtensionLookup.TryGetValue("application/octet-stream");
+        var V2 = ContentInspectors.Exhaustive.MimeTypeToFileExtensionLookup.TryGetValue("application/OCTET-stream");
 
-        }
+        Assert.AreEqual(expected, V1);
+        Assert.AreEqual(expected, V2);
 
     }
 
