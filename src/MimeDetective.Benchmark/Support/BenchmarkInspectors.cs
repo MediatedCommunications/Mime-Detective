@@ -19,13 +19,13 @@ public sealed class BenchmarkInspectors {
 
     public BenchmarkParameter<ImmutableArray<Definition>>[] Definitions { get; }
 
-    public ContentInspector Default { get; }
+    public IContentInspector Default { get; }
 
-    public ContentInspector Condensed { get; }
+    public IContentInspector Condensed { get; }
 
-    public ContentInspector Exhaustive { get; }
+    public IContentInspector Exhaustive { get; }
 
-    public BenchmarkParameter<ContentInspector>[] Inspectors { get; }
+    public BenchmarkParameter<IContentInspector>[] Inspectors { get; }
 
     public BenchmarkInspectors() {
         this.Definitions = [

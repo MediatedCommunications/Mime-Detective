@@ -1,11 +1,10 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 
 namespace MimeDetective.Benchmark.Support;
 
 public sealed class BenchmarkFiles {
-    public const string DATA_ROOT_PATH = @"MimeDetective(Tests)\MicroTests\Data";
+    public const string DataRootPath = @"MimeDetective(Tests)\MicroTests\Data";
 
     public static BenchmarkFiles Instance { get; } = new();
 
@@ -17,8 +16,8 @@ public sealed class BenchmarkFiles {
         string fullPath;
 
         var basePath = Path.GetFullPath(".");
-        for (;;) {
-            fullPath = Path.Combine(basePath, DATA_ROOT_PATH);
+        for (; ; ) {
+            fullPath = Path.Combine(basePath, DataRootPath);
             if (Directory.Exists(fullPath)) {
                 break;
             }

@@ -1,8 +1,7 @@
-﻿namespace MimeDetective.Engine {
-    public enum StringSegmentResourceOptimization {
-        Any,
-        HighSpeed,
-        LowMemory
-    }
+﻿namespace MimeDetective.Engine;
 
+public enum StringSegmentResourceOptimization {
+    Any,
+    HighSpeed,
+    LowMemory
 }

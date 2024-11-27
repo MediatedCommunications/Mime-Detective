@@ -60,8 +60,9 @@ internal abstract class ByteToHexStringConverter<T> : JsonConverter<T>
             throw new JsonException("Expected string");
         }
 
-        if (!reader.HasValueSequence)
+        if (!reader.HasValueSequence) {
             return ByteToHexUtility.FromHex(reader.ValueSpan);
+        }
 
         if (reader.ValueSequence.Length > ByteToHexUtility.MaximumLength) {
             throw new JsonException("Input too long");
@@ -82,18 +83,15 @@ internal abstract class ByteToHexStringConverter<T> : JsonConverter<T>
             }
         }
 #else
-        var Data = reader.GetString();
+        var data = reader.GetString()
+            ?? throw new JsonException("Expected string");
 
-        if (Data is null) {
-            throw new JsonException("Expected string");
-        }
-
-        return Convert.FromHexString(Data);
+        return Convert.FromHexString(data);
 #endif
     }
 
     protected static void WriteBytes(Utf8JsonWriter writer, ReadOnlySpan<byte> value, JsonSerializerOptions options) {
-        var Data = Convert.ToHexString(
+        var data = Convert.ToHexString(
 #if NET5_0_OR_GREATER
             value
 #else
@@ -102,9 +100,9 @@ internal abstract class ByteToHexStringConverter<T> : JsonConverter<T>
         );
 
 #if NET8_0_OR_GREATER
-        JsonSerializer.Serialize(writer, Data, MimeDetectiveSourceGeneratedSerializer.Default.String);
+        JsonSerializer.Serialize(writer, data, MimeDetectiveSourceGeneratedSerializer.Default.String);
 #else
-        JsonSerializer.Serialize(writer, Data, options);
+        JsonSerializer.Serialize(writer, data, options);
 #endif
         //writer.WriteStringValue(Data);
     }
