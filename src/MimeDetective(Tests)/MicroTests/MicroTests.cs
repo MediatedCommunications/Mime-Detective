@@ -79,7 +79,7 @@ public abstract class MicroTests {
 
         var allResults = engine.Inspect(content).ByFileExtension();
 
-        var results = new HashSet<string>(StringComparer.InvariantCultureIgnoreCase);
+        var results = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
         if (allResults.Length > 0) {
             var maxPoints = allResults.First().Points;
@@ -90,12 +90,15 @@ public abstract class MicroTests {
             );
         }
 
-        var expected = fileName.Split('.').LastOrDefault()?.ToLowerInvariant() ?? string.Empty;
+        var dotIndex = fileName.LastIndexOf('.');
+        var expected = dotIndex >= 0
+            ? fileName[dotIndex..].ToLowerInvariant()
+            : string.Empty;
 
         var isValid = results.Contains(expected);
 
         if (!isValid) {
-            Assert.AreNotEqual(expected, string.Join(",", results));
+            Assert.AreNotEqual(expected, string.Join(",", results), StringComparer.OrdinalIgnoreCase);
         }
     }
 }
