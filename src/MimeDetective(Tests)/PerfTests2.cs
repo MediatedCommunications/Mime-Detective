@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MimeDetective.Definitions;
 using MimeDetective.Definitions.Licensing;
 using MimeDetective.Engine;
@@ -105,19 +105,19 @@ public class PerfTests2 {
     public void ByteTree_Test1() {
         var tree = new ByteTree<int>();
 
-        tree.Add(new byte?[] { 0, 0, 0 }, 0);
-        tree.Add(new byte?[] { 0, 0, 1 }, 1);
-        tree.Add(new byte?[] { 0, 1, 0 }, 2);
-        tree.Add(new byte?[] { 0, 1, 1 }, 3);
-        tree.Add(new byte?[] { 1, 0, 0 }, 4);
-        tree.Add(new byte?[] { 1, 0, 1 }, 5);
-        tree.Add(new byte?[] { 1, 1, 0 }, 6);
-        tree.Add(new byte?[] { 1, 1, 1 }, 7);
+        tree.Add([0, 0, 0], 0);
+        tree.Add([0, 0, 1], 1);
+        tree.Add([0, 1, 0], 2);
+        tree.Add([0, 1, 1], 3);
+        tree.Add([1, 0, 0], 4);
+        tree.Add([1, 0, 1], 5);
+        tree.Add([1, 1, 0], 6);
+        tree.Add([1, 1, 1], 7);
 
-        tree.Add(new byte?[] { 4, 5, 6 }, 456);
-        tree.Add(new byte?[] { 4, 5, null }, 450);
-        tree.Add(new byte?[] { 4, null, 6 }, 406);
-        tree.Add(new byte?[] { 4, null, null }, 400);
+        tree.Add([4, 5, 6], 456);
+        tree.Add([4, 5, null], 450);
+        tree.Add([4, null, 6], 406);
+        tree.Add([4, null, null], 400);
 
 
         {
