@@ -1,12 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.IO;
 
 namespace MimeDetective.Tests;
 
 [TestClass]
 public class MicroTestsImages : MicroTests {
-    protected override string RelativeRoot() {
-        return base.RelativeRoot() + @"Images\";
-    }
+    protected override string RelativeRoot => Path.Combine(base.RelativeRoot, "Images");
 
     [TestMethod]
     public void test_bmp() {

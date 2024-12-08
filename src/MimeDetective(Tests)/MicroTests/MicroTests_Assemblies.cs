@@ -1,12 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.IO;
 
 namespace MimeDetective.Tests;
 
 [TestClass]
 public class MicroTestsAssemblies : MicroTests {
-    protected override string RelativeRoot() {
-        return base.RelativeRoot() + @"Assemblies\";
-    }
+    protected override string RelativeRoot => Path.Combine(base.RelativeRoot, "Assemblies");
 
     [TestMethod]
     public void ManagedDLL_dll() {

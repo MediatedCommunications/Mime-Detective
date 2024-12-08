@@ -46,7 +46,7 @@ public abstract class MicroTests {
     protected string GenerateTests() {
         var tret = new StringBuilder();
 
-        var fullPath = Path.GetFullPath(RelativeRoot());
+        var fullPath = Path.GetFullPath(RelativeRoot);
 
         foreach (var item in Directory.GetFiles(fullPath)) {
             var fn = Path.GetFileName(item);
@@ -67,7 +67,7 @@ public abstract class MicroTests {
     }
 
     protected void Test(string relativeFileName) {
-        var fn = Path.Combine(RelativeRoot(), relativeFileName);
+        var fn = Path.Combine(RelativeRoot, relativeFileName);
         var fullPath = Path.GetFullPath(fn);
         var fileName = Path.GetFileName(fullPath);
 
@@ -97,7 +97,5 @@ public abstract class MicroTests {
         }
     }
 
-    protected virtual string RelativeRoot() {
-        return _relativeRoot;
-    }
+    protected virtual string RelativeRoot => _relativeRoot;
 }

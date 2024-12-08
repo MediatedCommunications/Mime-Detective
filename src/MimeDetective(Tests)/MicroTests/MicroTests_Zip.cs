@@ -1,12 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.IO;
 
 namespace MimeDetective.Tests;
 
 [TestClass]
 public class MicroTestsZip : MicroTests {
-    protected override string RelativeRoot() {
-        return base.RelativeRoot() + @"\Zip\";
-    }
+    protected override string RelativeRoot => Path.Combine(base.RelativeRoot, "Zip");
 
     [TestMethod]
     public void EmptiedBy7zip_zip() {

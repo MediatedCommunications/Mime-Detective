@@ -1,12 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.IO;
 
 namespace MimeDetective.Tests;
 
 [TestClass]
 public class MicroTestsAudio : MicroTests {
-    protected override string RelativeRoot() {
-        return base.RelativeRoot() + @"Audio\";
-    }
+    protected override string RelativeRoot => Path.Combine(base.RelativeRoot, "Audio");
 
     [TestMethod]
     public void flacVLC_flac() {

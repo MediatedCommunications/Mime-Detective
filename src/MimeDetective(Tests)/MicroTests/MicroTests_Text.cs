@@ -1,12 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.IO;
 
 namespace MimeDetective.Tests;
 
 [TestClass]
 public class MicroTestsText : MicroTests {
-    protected override string RelativeRoot() {
-        return base.RelativeRoot() + @"Text\";
-    }
+    protected override string RelativeRoot => Path.Combine(base.RelativeRoot, "Text");
 
     [TestMethod]
     public void MindMap_NoBOM_smmx_xml() {

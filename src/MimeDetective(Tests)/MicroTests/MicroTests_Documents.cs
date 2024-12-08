@@ -1,12 +1,11 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.IO;
 
 namespace MimeDetective.Tests;
 
 [TestClass]
 public class MicroTestsDocuments : MicroTests {
-    protected override string RelativeRoot() {
-        return base.RelativeRoot() + @"Documents\";
-    }
+    protected override string RelativeRoot => Path.Combine(base.RelativeRoot, "Documents");
 
     [TestMethod]
     public void DocWord2016_doc() {
