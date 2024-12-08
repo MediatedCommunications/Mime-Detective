@@ -4,11 +4,17 @@
     <LangVersion>12.0</LangVersion>
     <Nullable>enable</Nullable>
     <NoWarn>IDE1006</NoWarn>
+    <NeutralLanguage>en</NeutralLanguage>
     <IsAotCompatible Condition="'$(TargetFramework)' == 'net8.0'">true</IsAotCompatible>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-    <NoWarn>CS0436;CS1685</NoWarn>
+    <NoWarn>$(NoWarn);CS0436;CS1685</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <AnalysisLevel>Latest-Recommended</AnalysisLevel>
+    <NoWarn>$(NoWarn);CA1707</NoWarn>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -31,7 +37,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)..\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)" Visible="false" />
-    <None Include="$(MSBuildThisFileDirectory)__Shared\noun_data search_4033516.png" Pack="true" PackagePath="$(PackageIcon)" Visible="false" />
+    <None Include="$(MSBuildThisFileDirectory)..\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)"
+          Visible="false" />
+    <None Include="$(MSBuildThisFileDirectory)__Shared\noun_data search_4033516.png" Pack="true"
+          PackagePath="$(PackageIcon)" Visible="false" />
   </ItemGroup>
 </Project>

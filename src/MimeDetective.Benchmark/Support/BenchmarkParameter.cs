@@ -5,6 +5,6 @@ public sealed class BenchmarkParameter<T>(string name, T value) {
     public T Value { get; } = value;
 
     public override string ToString() {
-        return this.Name;
+        return Name;
     }
 }

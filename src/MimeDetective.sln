@@ -32,6 +32,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MimeDetective.Benchmark", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MimeDetective.MemoryMapping", "MimeDetective.MemoryMapping\MimeDetective.MemoryMapping.csproj", "{47EAF697-0036-4760-8E0B-5C40F0A0961C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MimeDetective.MinimalApi.AOT", "Samples\MimeDetective.MinimalApi.AOT\MimeDetective.MinimalApi.AOT.csproj", "{12C7C0E5-AB54-4EFE-9314-A2C1E382B7A4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{21E01D6E-2B19-4BCE-9B01-AA47B81C6D3B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{79552086-C8E5-4910-8CAC-771B214C1BBE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MimeDetective.Console.AOT", "Samples\MimeDetective.Console.AOT\MimeDetective.Console.AOT.csproj", "{11E08726-D4F4-4114-BBD9-C059A83DEE59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -70,9 +78,24 @@ Global
 		{47EAF697-0036-4760-8E0B-5C40F0A0961C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47EAF697-0036-4760-8E0B-5C40F0A0961C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47EAF697-0036-4760-8E0B-5C40F0A0961C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12C7C0E5-AB54-4EFE-9314-A2C1E382B7A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12C7C0E5-AB54-4EFE-9314-A2C1E382B7A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12C7C0E5-AB54-4EFE-9314-A2C1E382B7A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12C7C0E5-AB54-4EFE-9314-A2C1E382B7A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11E08726-D4F4-4114-BBD9-C059A83DEE59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11E08726-D4F4-4114-BBD9-C059A83DEE59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11E08726-D4F4-4114-BBD9-C059A83DEE59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11E08726-D4F4-4114-BBD9-C059A83DEE59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{848CA710-A03A-4854-A505-561620EB16BB} = {79552086-C8E5-4910-8CAC-771B214C1BBE}
+		{43E99D1C-B71C-43D4-9F6F-26E96033CCDB} = {79552086-C8E5-4910-8CAC-771B214C1BBE}
+		{47EAF697-0036-4760-8E0B-5C40F0A0961C} = {C9C39197-405F-40E1-86C2-10BBDEF58132}
+		{12C7C0E5-AB54-4EFE-9314-A2C1E382B7A4} = {21E01D6E-2B19-4BCE-9B01-AA47B81C6D3B}
+		{11E08726-D4F4-4114-BBD9-C059A83DEE59} = {21E01D6E-2B19-4BCE-9B01-AA47B81C6D3B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {86F67FD2-3EBD-45B2-A4BB-60F4AC2779C4}

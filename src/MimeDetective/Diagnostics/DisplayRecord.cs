@@ -1,19 +1,14 @@
 ﻿using System.Diagnostics;
 
-namespace MimeDetective.Diagnostics
-{
-    [DebuggerDisplay(DisplayBase.GetDebuggerDisplay)]
-    public record DisplayRecord : IGetDebuggerDisplay
-    {
+namespace MimeDetective.Diagnostics;
 
-        public virtual string? GetDebuggerDisplay()
-        {
-            return this.ToString();
-        }
+[DebuggerDisplay(DisplayBase.GetDebuggerDisplay)]
+public record DisplayRecord : IGetDebuggerDisplay {
+    string? IGetDebuggerDisplay.GetDebuggerDisplay() {
+        return GetDebuggerDisplay();
+    }
 
-        string? IGetDebuggerDisplay.GetDebuggerDisplay()
-        {
-            return GetDebuggerDisplay();
-        }
+    public virtual string? GetDebuggerDisplay() {
+        return ToString();
     }
 }

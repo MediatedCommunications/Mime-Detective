@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace MimeDetective.Tests {
-    public static class SourceDefinitions {
-    
-        public static string DefinitionRoot() {
-            var Profile = System.Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+namespace MimeDetective.Tests;
 
-            var Folder = $@"{Profile}\Downloads\defs_xml";
+public static class SourceDefinitions {
+    public static string DefinitionRoot() {
+        var profile = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
 
-            return Folder;
-        }
+        var folder = $@"{profile}\Downloads\defs_xml";
 
+        return folder;
     }
 }

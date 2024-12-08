@@ -1,13 +1,10 @@
-﻿namespace MimeDetective.Storage
-{
+﻿namespace MimeDetective.Storage;
 
-    /// <summary>
-    /// A singleton instance that represents a null segment.
-    /// </summary>
-    internal class NoSegment : Segment
-    {
-        private NoSegment() { }
+/// <summary>
+///     A singleton instance that represents a null segment.
+/// </summary>
+internal class NoSegment : Segment {
+    public static NoSegment Instance { get; } = new();
 
-        public static NoSegment Instance { get; } = new();
-    }
+    private NoSegment() { }
 }

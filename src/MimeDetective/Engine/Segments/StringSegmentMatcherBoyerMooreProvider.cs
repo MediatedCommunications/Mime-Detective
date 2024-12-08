@@ -3,155 +3,128 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 
-namespace MimeDetective.Engine {
-    internal sealed class StringSegmentMatcherBoyerMooreProvider
-    {
-        private readonly int[] SkipTable;
-        private readonly IReadOnlyList<byte> Needle;
-        private readonly int[] OffsetTable;
+namespace MimeDetective.Engine;
 
-        public StringSegmentMatcherBoyerMooreProvider(IEnumerable<byte> needle) : this(needle.ToImmutableArray())
-        {
+internal sealed class StringSegmentMatcherBoyerMooreProvider {
+    private readonly IReadOnlyList<byte> _needle;
+    private readonly int[] _offsetTable;
+    private readonly int[] _skipTable;
 
+    public StringSegmentMatcherBoyerMooreProvider(IEnumerable<byte> needle) : this(needle.ToImmutableArray()) { }
+
+    public StringSegmentMatcherBoyerMooreProvider(IReadOnlyList<byte> needle) {
+        _needle = needle;
+        _skipTable = MakeSkipTable(_needle);
+        _offsetTable = MakeOffsetTable(_needle);
+    }
+
+    public IEnumerable<int> Search(IEnumerable<byte> haystack, bool multipleResults = true) {
+        return Search(haystack.ToArray().AsMemory(), multipleResults);
+    }
+
+    public IEnumerable<int> Search(ReadOnlyMemory<byte> haystack, bool multipleResults = true) {
+        if (_needle.Count == 0) {
+            yield break;
         }
 
-        public StringSegmentMatcherBoyerMooreProvider(IReadOnlyList<byte> needle)
-        {
-            Needle = needle;
-            SkipTable = MakeSkipTable(Needle);
-            OffsetTable = MakeOffsetTable(Needle);
-        }
+        var end = _needle.Count - 1;
 
-        public IEnumerable<int> Search(IEnumerable<byte> haystack, bool MultipleResults = true)
-        {
-            return Search(haystack.ToArray().AsMemory(), MultipleResults);
-        }
+        var found = false;
 
-        public IEnumerable<int> Search(ReadOnlyMemory<byte> haystack, bool MultipleResults = true)
-        {
-            if (Needle.Count == 0)
-            {
-                yield break;
-            }
+        for (var i = end; i < haystack.Length;) {
+            int j;
 
-            var end = Needle.Count - 1;
-
-            var found = false;
-
-            for (var i = end; i < haystack.Length;)
-            {
-                int j;
-
-                for (j = end; Needle[j] == haystack.Span[i]; --i, --j)
-                {
-                    if (j != 0)
-                    {
-                        continue;
-                    }
-
-                    yield return i;
-                    found = true;
-                    i += end;
-                    break;
+            for (j = end; _needle[j] == haystack.Span[i]; --i, --j) {
+                if (j != 0) {
+                    continue;
                 }
 
-                i += Math.Max(OffsetTable[end - j], SkipTable[haystack.Span[i]]);
-                if (!MultipleResults && found)
-                {
-                    break;
-                }
+                yield return i;
+                found = true;
+                i += end;
+                break;
+            }
+
+            i += Math.Max(_offsetTable[end - j], _skipTable[haystack.Span[i]]);
+            if (!multipleResults && found) {
+                break;
             }
         }
-        public int? SearchFirst(ReadOnlySpan<byte> haystack)
-        {
-            if (Needle.Count == 0)
-            {
-                return null;
-            }
+    }
 
-            var end = Needle.Count - 1;
-
-            for (var i = end; i < haystack.Length;)
-            {
-                int j;
-
-                for (j = end; Needle[j] == haystack[i]; --i, --j)
-                {
-                    if (j != 0)
-                    {
-                        continue;
-                    }
-
-                    return i;
-                }
-
-                i += Math.Max(OffsetTable[end - j], SkipTable[haystack[i]]);
-            }
-
+    public int? SearchFirst(ReadOnlySpan<byte> haystack) {
+        if (_needle.Count == 0) {
             return null;
         }
 
-        private static int[] MakeSkipTable(IReadOnlyList<byte> Needle)
-        {
-            var ret = new int[byte.MaxValue + 1];
-            Array.Fill(ret, Needle.Count);
-            var end = Needle.Count - 1;
+        var end = _needle.Count - 1;
 
-            for (var i = 0; i < Needle.Count; ++i)
-            {
-                ret[Needle[i]] = end - i;
-            }
+        for (var i = end; i < haystack.Length;) {
+            int j;
 
-            return ret;
-        }
-
-        private static int[] MakeOffsetTable(IReadOnlyList<byte> needle)
-        {
-            var table = new int[needle.Count];
-            var lastPrefixPosition = needle.Count;
-            var end = needle.Count - 1;
-            for (var i = end; i >= 0; --i)
-            {
-                if (IsPrefix(needle, i + 1))
-                {
-                    lastPrefixPosition = i + 1;
+            for (j = end; _needle[j] == haystack[i]; --i, --j) {
+                if (j != 0) {
+                    continue;
                 }
 
-                table[end - i] = lastPrefixPosition - i + end;
+                return i;
             }
 
-            for (var i = 0; i < end; ++i)
-            {
-                var slen = SuffixLength(needle, i);
-                table[slen] = end - i + slen;
-            }
-
-            return table;
+            i += Math.Max(_offsetTable[end - j], _skipTable[haystack[i]]);
         }
 
-        private static bool IsPrefix(IReadOnlyList<byte> needle, int p)
-        {
-            for (int i = p, j = 0; i < needle.Count; ++i, ++j)
-            {
-                if (needle[i] != needle[j])
-                {
-                    return false;
-                }
-            }
+        return null;
+    }
 
-            return true;
+    private static int[] MakeSkipTable(IReadOnlyList<byte> needle) {
+        var ret = new int[byte.MaxValue + 1];
+        Array.Fill(ret, needle.Count);
+        var end = needle.Count - 1;
+
+        for (var i = 0; i < needle.Count; ++i) {
+            ret[needle[i]] = end - i;
         }
 
-        private static int SuffixLength(IReadOnlyList<byte> needle, int p)
-        {
-            var len = 0;
+        return ret;
+    }
 
-            for (int i = p, j = needle.Count - 1; i >= 0 && needle[i] == needle[j]; --i, --j)
-            {
-                ++len;
+    private static int[] MakeOffsetTable(IReadOnlyList<byte> needle) {
+        var table = new int[needle.Count];
+        var lastPrefixPosition = needle.Count;
+        var end = needle.Count - 1;
+        for (var i = end; i >= 0; --i) {
+            if (IsPrefix(needle, i + 1)) {
+                lastPrefixPosition = i + 1;
             }
 
-            return len;
+            table[end - i] = lastPrefixPosition - i + end;
         }
+
+        for (var i = 0; i < end; ++i) {
+            var slen = SuffixLength(needle, i);
+            table[slen] = end - i + slen;
+        }
+
+        return table;
+    }
+
+    private static bool IsPrefix(IReadOnlyList<byte> needle, int p) {
+        for (int i = p, j = 0; i < needle.Count; ++i, ++j) {
+            if (needle[i] != needle[j]) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private static int SuffixLength(IReadOnlyList<byte> needle, int p) {
+        var len = 0;
+
+        for (int i = p, j = needle.Count - 1; i >= 0 && needle[i] == needle[j]; --i, --j) {
+            ++len;
+        }
+
+        return len;
     }
 }

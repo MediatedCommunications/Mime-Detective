@@ -1,21 +1,17 @@
 ﻿using MimeDetective.Diagnostics;
 
-namespace MimeDetective.Storage {
-    /// <summary>
-    /// Contains information used to identify a file.
-    /// </summary>
-    public record Definition : DisplayRecord
-    {
-        public FileType File { get; init; } = new();
-        public Signature Signature { get; init; } = new();
+namespace MimeDetective.Storage;
 
-        public Meta? Meta { get; init; }
+/// <summary>
+///     Contains information used to identify a file.
+/// </summary>
+public record Definition : DisplayRecord {
+    public FileType File { get; init; } = new();
+    public Signature Signature { get; init; } = new();
 
-        public override string? GetDebuggerDisplay()
-        {
-            return $@"{File.GetDebuggerDisplay()}: {Signature.GetDebuggerDisplay()} [{Meta?.Id}]";
-        }
+    public Meta? Meta { get; init; }
 
+    public override string? GetDebuggerDisplay() {
+        return $@"{File.GetDebuggerDisplay()}: {Signature.GetDebuggerDisplay()} [{Meta?.Id}]";
     }
-
 }

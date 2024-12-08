@@ -2,16 +2,16 @@
 using System;
 using System.Collections.Immutable;
 
-namespace MimeDetective {
+namespace MimeDetective;
+
+/// <summary>
+///     Detect the type of file from a raw set of bytes.
+/// </summary>
+public interface IContentInspector {
     /// <summary>
-    /// Detect the type of file from a raw set of bytes.
+    ///     <see cref="Inspect(ReadOnlySpan{byte})" /> the type of content.
     /// </summary>
-    public interface ContentInspector {
-        /// <summary>
-        /// <see cref="Inspect(ReadOnlySpan{byte})"/> the type of content.
-        /// </summary>
-        /// <param name="Content"></param>
-        /// <returns></returns>
-        ImmutableArray<DefinitionMatch> Inspect(ReadOnlySpan<byte> Content);
-    }
+    /// <param name="content"></param>
+    /// <returns></returns>
+    ImmutableArray<DefinitionMatch> Inspect(ReadOnlySpan<byte> content);
 }

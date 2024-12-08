@@ -1,39 +1,26 @@
 ﻿using MimeDetective.Definitions.Licensing;
 using MimeDetective.Storage;
-using System;
-using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MimeDetective.Definitions
-{
-    public class CondensedBuilder : DefinitionBuilder
-    {
-        public UsageType UsageType { get; set; }
+namespace MimeDetective.Definitions;
 
-        public override ImmutableArray<Definition> Build()
-        {
-            var AllowedUsageTypes = new[] {
-                UsageType.CommercialPaid,
-                UsageType.PersonalNonCommercial
-            };
+public class CondensedBuilder : DefinitionBuilder {
+    public UsageType UsageType { get; set; }
 
-            var Error = "Please change your usage type or visit https://mark0.net/soft-tridnet-e.html to purchase a license.";
+    public override ImmutableArray<Definition> Build() {
+        var allowedUsageTypes = new[] { UsageType.CommercialPaid, UsageType.PersonalNonCommercial };
 
-            EnsureValidUsageType(UsageType, AllowedUsageTypes, Error);
+        var error = "Please change your usage type or visit https://mark0.net/soft-tridnet-e.html to purchase a license.";
 
-            var raw = MimeDetective.Definitions.Resources.data;
-            var ret = MimeDetective.Storage.DefinitionBinarySerializer
+        EnsureValidUsageType(UsageType, allowedUsageTypes, error);
+
+        var raw = Resources.data;
+        var ret = DefinitionBinarySerializer
                 .FromBinary(new MemoryStream(raw))
                 .ToImmutableArray()
-                ;
+            ;
 
-            return ret;
-
-        }
-
+        return ret;
     }
 }

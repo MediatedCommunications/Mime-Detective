@@ -4,179 +4,143 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 
-namespace MimeDetective.Engine {
+namespace MimeDetective.Engine;
 
-    /// <summary>
-    /// Handles evaluating a <see cref="Definition"/> against content and scoring it.
-    /// </summary>
-    internal class DefinitionMatchEvaluator
-    {
-        public DefinitionMatchEvaluatorOptions Options { get; init; } = new();
+/// <summary>
+///     Handles evaluating a <see cref="Definition" /> against content and scoring it.
+/// </summary>
+internal class DefinitionMatchEvaluator {
+    public DefinitionMatchEvaluatorOptions Options { get; init; } = new();
 
-        public virtual DefinitionMatch? Match(
-            DefinitionMatcher DefinitionMatcherCache, ReadOnlySpan<byte> Content, ImmutableArray<StringSegment> ContentStrings)
-        {
-            var ret = default(DefinitionMatch?);
+    public virtual DefinitionMatch? Match(
+        DefinitionMatcher definitionMatcherCache, ReadOnlySpan<byte> content, ImmutableArray<StringSegment> contentStrings) {
+        var ret = default(DefinitionMatch?);
 
-            var Valid = true;
-            var AllMatches = 0m;
-            var GoodMatches = 0m;
+        var valid = true;
+        var allMatches = 0m;
+        var goodMatches = 0m;
 
-            var PrefixSegmentMatches = new Dictionary<PrefixSegment, SegmentMatch>();
-            var StringSegmentMatches = new Dictionary<StringSegment, SegmentMatch>();
+        var prefixSegmentMatches = new Dictionary<PrefixSegment, SegmentMatch>();
+        var stringSegmentMatches = new Dictionary<StringSegment, SegmentMatch>();
 
-            if (Valid && Options.Include_Segments_Prefix)
-            {
+        if (valid && Options.IncludeSegmentsPrefix) {
+            foreach (var item in definitionMatcherCache.Prefixes) {
+                allMatches += 1;
 
+                var result = item.Match(content);
+                prefixSegmentMatches[item.Segment] = result;
 
-
-                foreach (var item in DefinitionMatcherCache.Prefixes)
-                {
-
-                    AllMatches += 1;
-
-                    var Result = item.Match(Content);
-                    PrefixSegmentMatches[item.Segment] = Result;
-
-                    if (Result == NoSegmentMatch.Instance)
-                    {
-                        if (Options.Include_Matches_Partial == false && Options.Include_Matches_Failed == false)
-                        {
-                            Valid = false;
-                            break;
-                        }
-                    } else
-                    {
-                        GoodMatches += 1;
+                if (result == NoSegmentMatch.Instance) {
+                    if (Options.IncludeMatchesPartial == false && Options.IncludeMatchesFailed == false) {
+                        valid = false;
+                        break;
                     }
-
+                } else {
+                    goodMatches += 1;
                 }
             }
-
-            if (Valid && Options.Include_Segments_Strings)
-            {
-                foreach (var item in DefinitionMatcherCache.Strings)
-                {
-                    
-                    AllMatches += 1;
-
-                    var Result = ContentStrings
-                        .Select(x => item.Match(x.Pattern.AsSpan()))
-                        .FirstOrDefault(x => x != NoSegmentMatch.Instance)
-                            ?? NoSegmentMatch.Instance
-                        ;
-
-                    StringSegmentMatches[item.Segment] = Result;
-
-                    if (Result == NoSegmentMatch.Instance)
-                    {
-                        if (Options.Include_Matches_Partial == false && Options.Include_Matches_Failed == false)
-                        {
-                            Valid = false;
-                            break;
-                        }
-                    } else
-                    {
-                        GoodMatches += 1;
-                    }
-
-                }
-            }
-
-            if (GoodMatches == 0 && Options.Include_Matches_Empty == false)
-            {
-                Valid = false;
-            }
-
-
-            if (Valid)
-            {
-                var Percentage = AllMatches == 0
-                    ? 1
-                    : GoodMatches / AllMatches
-                    ;
-
-                var Points = GetPoints(PrefixSegmentMatches, StringSegmentMatches);
-
-                var Type = (GoodMatches, AllMatches) switch {
-                    _ when GoodMatches == AllMatches && GoodMatches == 0 => DefinitionMatchType.Empty,
-                    _ when GoodMatches == AllMatches && GoodMatches != 0 => DefinitionMatchType.Complete,
-                    _ when GoodMatches != AllMatches && GoodMatches > 0 => DefinitionMatchType.Partial,
-                    _ => DefinitionMatchType.Failed,
-                };
-
-                Valid = false
-                    || (Type == DefinitionMatchType.Complete && Options.Include_Matches_Complete)
-                    || (Type == DefinitionMatchType.Partial && Options.Include_Matches_Partial)
-                    || (Type == DefinitionMatchType.Empty && Options.Include_Matches_Empty)
-                    || (Type == DefinitionMatchType.Failed && Options.Include_Matches_Failed)
-                    ;
-
-                if(Valid) {
-                    ret = new DefinitionMatch {
-                        Definition = DefinitionMatcherCache.Definition,
-                        Type = Type,
-                        PrefixSegmentMatches = PrefixSegmentMatches.ToImmutableDictionary(),
-                        StringSegmentMatches = StringSegmentMatches.ToImmutableDictionary(),
-
-                        Percentage = Percentage,
-                        Points = Points,
-                    };
-                }
-
-            }
-
-            return ret;
         }
 
-        protected virtual long GetPoints(IDictionary<PrefixSegment, SegmentMatch> PrefixSegmentMatches, IDictionary<StringSegment, SegmentMatch> StringSegmentMatches)
-        {
-            var PrefixSegmentStart = 0;
+        if (valid && Options.IncludeSegmentsStrings) {
+            foreach (var item in definitionMatcherCache.Strings) {
+                allMatches += 1;
 
-            var ret = 0;
-            var MatchSet = new[]
-            {
-                PrefixSegmentMatches.Values,
-                StringSegmentMatches.Values
+                var result = contentStrings
+                            .Select(x => item.Match(x.Pattern.AsSpan()))
+                            .FirstOrDefault(x => x != NoSegmentMatch.Instance)
+                        ?? NoSegmentMatch.Instance
+                    ;
+
+                stringSegmentMatches[item.Segment] = result;
+
+                if (result == NoSegmentMatch.Instance) {
+                    if (Options.IncludeMatchesPartial == false && Options.IncludeMatchesFailed == false) {
+                        valid = false;
+                        break;
+                    }
+                } else {
+                    goodMatches += 1;
+                }
+            }
+        }
+
+        if (goodMatches == 0 && Options.IncludeMatchesEmpty == false) {
+            valid = false;
+        }
+
+
+        if (valid) {
+            var percentage = allMatches == 0
+                    ? 1
+                    : goodMatches / allMatches
+                ;
+
+            var points = GetPoints(prefixSegmentMatches, stringSegmentMatches);
+
+            var type = (GoodMatches: goodMatches, AllMatches: allMatches) switch {
+                _ when goodMatches == allMatches && goodMatches == 0 => DefinitionMatchType.Empty,
+                _ when goodMatches == allMatches && goodMatches != 0 => DefinitionMatchType.Complete,
+                _ when goodMatches != allMatches && goodMatches > 0 => DefinitionMatchType.Partial,
+                _ => DefinitionMatchType.Failed
             };
 
-            var Matches = MatchSet.SelectMany(x => x);
+            valid = false
+                || (type == DefinitionMatchType.Complete && Options.IncludeMatchesComplete)
+                || (type == DefinitionMatchType.Partial && Options.IncludeMatchesPartial)
+                || (type == DefinitionMatchType.Empty && Options.IncludeMatchesEmpty)
+                || (type == DefinitionMatchType.Failed && Options.IncludeMatchesFailed)
+                ;
 
-            var Multiplier_Prefix_StartOfFile = 1000;
-            var Multiplier_Prefix_BeginningOfFile = 5;
-            var Multiplier_String_Anywhere = 1;
-
-
-            foreach (var Match in Matches)
-            {
-                var PointsToAdd = 0;
-                
-                if(Match is NoSegmentMatch V1)
-                {
-
-                } else if (Match is PrefixSegmentMatch V2)
-                {
-                    var Multiplier = Multiplier_Prefix_BeginningOfFile;
-                    if(V2.Segment.Start == PrefixSegmentStart) {
-                        Multiplier = Multiplier_Prefix_StartOfFile;
-                        PrefixSegmentStart = V2.Segment.ExclusiveEnd();
-                    }
-                    
-                    PointsToAdd = Multiplier * V2.Segment.Pattern.Length;
-
-                } else if (Match is StringSegmentMatch V3)
-                {
-                    var Multiplier = Multiplier_String_Anywhere;
-
-                    PointsToAdd = Multiplier * V3.Segment.Pattern.Length;
-                }
-                ret += PointsToAdd;
+            if (valid) {
+                ret = new() {
+                    Definition = definitionMatcherCache.Definition,
+                    Type = type,
+                    PrefixSegmentMatches = prefixSegmentMatches.ToImmutableDictionary(),
+                    StringSegmentMatches = stringSegmentMatches.ToImmutableDictionary(),
+                    Percentage = percentage,
+                    Points = points
+                };
             }
-
-
-
-            return ret;
         }
+
+        return ret;
     }
 
+    protected virtual long GetPoints(IDictionary<PrefixSegment, SegmentMatch> prefixSegmentMatches,
+        IDictionary<StringSegment, SegmentMatch> stringSegmentMatches) {
+        var prefixSegmentStart = 0;
+
+        var ret = 0;
+        var matchSet = new[] { prefixSegmentMatches.Values, stringSegmentMatches.Values };
+
+        var matches = matchSet.SelectMany(x => x);
+
+        var multiplierPrefixStartOfFile = 1000;
+        var multiplierPrefixBeginningOfFile = 5;
+        var multiplierStringAnywhere = 1;
+
+
+        foreach (var match in matches) {
+            var pointsToAdd = 0;
+
+            if (match is NoSegmentMatch v1) { } else if (match is PrefixSegmentMatch v2) {
+                var multiplier = multiplierPrefixBeginningOfFile;
+                if (v2.Segment.Start == prefixSegmentStart) {
+                    multiplier = multiplierPrefixStartOfFile;
+                    prefixSegmentStart = v2.Segment.ExclusiveEnd();
+                }
+
+                pointsToAdd = multiplier * v2.Segment.Pattern.Length;
+            } else if (match is StringSegmentMatch v3) {
+                var multiplier = multiplierStringAnywhere;
+
+                pointsToAdd = multiplier * v3.Segment.Pattern.Length;
+            }
+
+            ret += pointsToAdd;
+        }
+
+
+        return ret;
+    }
 }
