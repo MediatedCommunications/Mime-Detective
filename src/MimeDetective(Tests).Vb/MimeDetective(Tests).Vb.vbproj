@@ -1,10 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net462</TargetFrameworks>
     <RootNamespace>MimeDetective.Tests.Vb</RootNamespace>
     <Nullable>enable</Nullable>
-    <LangVersion>11.0</LangVersion>
+    <LangVersion>14.0</LangVersion>
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
     <SignAssembly>True</SignAssembly>
@@ -23,8 +23,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MimeDetective.Definitions.Condensed\MimeDetective.Definitions.Condensed.csproj" />
     <ProjectReference Include="..\MimeDetective.Definitions.Exhaustive\MimeDetective.Definitions.Exhaustive.csproj" />
     <ProjectReference Include="..\MimeDetective\MimeDetective.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\MimeDetective%28Tests%29\MicroTests\Data\Zip\empty.zip" Link="Data\empty.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 
