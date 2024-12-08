@@ -1,21 +1,22 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace MimeDetective.Storage;
 
 /// <summary>
-/// Read and write <see cref="Definition"/>s in a compressed binary form.
+///     Read and write <see cref="Definition" />s in a compressed binary form.
 /// </summary>
-public static partial class DefinitionBinarySerializer {
-
+public static class DefinitionBinarySerializer {
     private static JsonSerializerOptions SerializerOptions() {
-        var ret = new JsonSerializerOptions() {
+        var ret = new JsonSerializerOptions {
             AllowTrailingCommas = true,
             PropertyNameCaseInsensitive = true,
             WriteIndented = false,
-            DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingDefault,
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault,
 #if NET7_0_OR_GREATER
             TypeInfoResolver = MimeDetectiveSourceGeneratedSerializer.Default
 #endif
@@ -26,7 +27,7 @@ public static partial class DefinitionBinarySerializer {
 
 
     public static Definition[] FromBinary(Stream data) {
-        using var cs = new System.IO.Compression.GZipStream(data, System.IO.Compression.CompressionMode.Decompress, true);
+        using var cs = new GZipStream(data, CompressionMode.Decompress, true);
         using var bs = new BufferedStream(cs, 128 * 1024);
 
         var ret = DefinitionJsonSerializer.FromJson(bs);
@@ -47,7 +48,7 @@ public static partial class DefinitionBinarySerializer {
     }
 
     public static void ToBinary(Stream data, IEnumerable<Definition> values) {
-        using var cs = new System.IO.Compression.GZipStream(data, System.IO.Compression.CompressionLevel.Optimal, true);
+        using var cs = new GZipStream(data, CompressionLevel.Optimal, true);
 
         DefinitionJsonSerializer.ToJson(cs, values);
     }
@@ -61,5 +62,4 @@ public static partial class DefinitionBinarySerializer {
 
         ToBinary(content, values);
     }
-
 }

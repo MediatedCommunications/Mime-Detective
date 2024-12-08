@@ -52,5 +52,4 @@ public class MicroTestsAudio : MicroTests {
     public void wavVLC_wav() {
         Test("wavVLC.wav");
     }
-
 }

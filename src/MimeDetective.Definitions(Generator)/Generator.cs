@@ -12,8 +12,8 @@ namespace MimeDetective.Definitions;
 
 [TestClass]
 public class Generator {
-    private static readonly FrozenSet<string> Extensions = new[]
-    {
+    private static readonly FrozenSet<string> Extensions = new[] {
+        // @formatter:off
         "aif", "cda","mid", "midi","mp3", "mpa", "ogg","wav","wma", "wpl",
         "7z", "arj", "deb","pkg","rar","rpm","tar.gz","z","zip",
         "bin","dmg","iso","toast","vcd",
@@ -26,7 +26,8 @@ public class Generator {
         "ods", "xls", "xlsm", "xlsx",
         "cab", "cur", "icns", "ico", "lnk",
         "3g2","3gp","avi", "flv", "h264","m4v", "mkv", "mov","mp4","mpg", "mpeg", "rm", "swf", "vob","wmv",
-        "doc","docx","odt","pdf","rtf","tex","wpd",
+        "doc","docx","odt","pdf","rtf","tex","wpd"
+        // @formatter:on
     }.ToFrozenSet(StringComparer.OrdinalIgnoreCase);
 
     private static Storage.Definition[] MacroSourceData() {

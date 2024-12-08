@@ -3,7 +3,7 @@
 namespace MimeDetective.Storage;
 
 /// <summary>
-/// Contains information used to identify a file.
+///     Contains information used to identify a file.
 /// </summary>
 public record Definition : DisplayRecord {
     public FileType File { get; init; } = new();
@@ -14,5 +14,4 @@ public record Definition : DisplayRecord {
     public override string? GetDebuggerDisplay() {
         return $@"{File.GetDebuggerDisplay()}: {Signature.GetDebuggerDisplay()} [{Meta?.Id}]";
     }
-
 }

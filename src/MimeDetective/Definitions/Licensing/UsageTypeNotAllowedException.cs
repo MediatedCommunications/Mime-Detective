@@ -5,9 +5,8 @@ using System.Linq;
 namespace MimeDetective.Definitions.Licensing;
 
 public class UsageTypeNotAllowedException : Exception {
-    public UsageTypeNotAllowedException(UsageType invalidUsageType, UsageType[] allowedUsageTypes, string? message = default) : base(CreateMessage(invalidUsageType, allowedUsageTypes, message)) {
-
-    }
+    public UsageTypeNotAllowedException(UsageType invalidUsageType, UsageType[] allowedUsageTypes, string? message = default) :
+        base(CreateMessage(invalidUsageType, allowedUsageTypes, message)) { }
 
     private static string CreateMessage(UsageType usageType, UsageType[] allowedUsageTypes, string? message) {
         var allowedUsageString = string.Join(", ", allowedUsageTypes.Select(x => x.ToString()));

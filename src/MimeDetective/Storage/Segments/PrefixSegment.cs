@@ -4,20 +4,20 @@ using System.Collections.Immutable;
 namespace MimeDetective.Storage;
 
 /// <summary>
-/// Represents <see cref="Segment.Content"/> that occurs near the beginning of a file.
+///     Represents <see cref="Segment.Content" /> that occurs near the beginning of a file.
 /// </summary>
 public class PrefixSegment : PatternSegment {
     public static PrefixSegment None { get; } = new();
 
     /// <summary>
-    /// The offset of where <see cref="Segment.Content"/> is located, relative to the start of the file.
+    ///     The offset of where <see cref="Segment.Content" /> is located, relative to the start of the file.
     /// </summary>
     public int Start { get; init; }
 
     public static PrefixSegment Create(int start, ImmutableArray<byte> bytes) {
-        return new PrefixSegment() {
+        return new() {
             Start = start,
-            Pattern = bytes,
+            Pattern = bytes
         };
     }
 

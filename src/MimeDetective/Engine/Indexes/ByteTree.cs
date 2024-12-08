@@ -4,7 +4,7 @@ using System.Linq;
 namespace MimeDetective.Engine;
 
 /// <summary>
-/// A specialized tree that allows quick searching of a prefix.  Null indicates that any byte should match.
+///     A specialized tree that allows quick searching of a prefix.  Null indicates that any byte should match.
 /// </summary>
 /// <typeparam name="T"></typeparam>
 internal class ByteTree<T> {
@@ -17,6 +17,4 @@ internal class ByteTree<T> {
     public void Add(byte?[] key, T value) {
         Root.Add(key, value, 0);
     }
-
-
 }

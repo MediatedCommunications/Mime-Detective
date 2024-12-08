@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Text.Json;
@@ -7,23 +7,22 @@ using System.Text.Json.Serialization;
 namespace MimeDetective.Storage;
 
 /// <summary>
-/// Read and write <see cref="Definition"/>s in raw JSON form.
+///     Read and write <see cref="Definition" />s in raw JSON form.
 /// </summary>
-public static partial class DefinitionJsonSerializer {
+public static class DefinitionJsonSerializer {
     private static JsonSerializerOptions SerializerOptions() {
-        var ret = new JsonSerializerOptions() {
+        var ret = new JsonSerializerOptions {
             AllowTrailingCommas = true,
             PropertyNameCaseInsensitive = true,
             WriteIndented = true,
-            DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingDefault,
-            Converters =
-            {
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault,
+            Converters = {
                 new ImmutableByteArrayToHexStringConverter(),
 #if NET7_0_OR_GREATER
-                },
+            },
             TypeInfoResolver = MimeDetectiveSourceGeneratedSerializer.Default
 #else
-                new JsonStringEnumConverter(),
+                new JsonStringEnumConverter()
             }
 #endif
         };
@@ -42,7 +41,7 @@ public static partial class DefinitionJsonSerializer {
     }
 
 #if NET8_0_OR_GREATER
-    [RequiresDynamicCodeAttribute("The JSON deserializer may require dynamic code")]
+    [RequiresDynamicCode("The JSON deserializer may require dynamic code")]
     [RequiresUnreferencedCode("JSON deserialization may require types that cannot be statically analyzed.")]
 #endif
     public static Definition[] FromJson(JsonSerializerOptions? options, Stream content) {
@@ -89,5 +88,4 @@ public static partial class DefinitionJsonSerializer {
             JsonSerializer.Serialize(stream, values, options);
         }
     }
-
 }

@@ -3,7 +3,6 @@
 namespace MimeDetective.Storage;
 
 public class StringSegmentEqualityComparer : IEqualityComparer<StringSegment> {
-
     public static StringSegmentEqualityComparer Instance { get; } = new();
 
     public bool Equals(StringSegment? x, StringSegment? y) {

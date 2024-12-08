@@ -32,5 +32,5 @@ public enum Category {
     Video,
     Json,
     Xml,
-    Other,
+    Other
 }

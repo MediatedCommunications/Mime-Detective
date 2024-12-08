@@ -36,7 +36,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)..\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)" Visible="false" />
-    <None Include="$(MSBuildThisFileDirectory)__Shared\noun_data search_4033516.png" Pack="true" PackagePath="$(PackageIcon)" Visible="false" />
+    <None Include="$(MSBuildThisFileDirectory)..\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)"
+          Visible="false" />
+    <None Include="$(MSBuildThisFileDirectory)__Shared\noun_data search_4033516.png" Pack="true"
+          PackagePath="$(PackageIcon)" Visible="false" />
   </ItemGroup>
 </Project>

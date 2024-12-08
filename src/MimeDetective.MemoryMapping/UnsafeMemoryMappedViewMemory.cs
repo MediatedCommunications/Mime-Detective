@@ -19,30 +19,30 @@ internal sealed unsafe class UnsafeMemoryMappedViewMemory : MemoryManager<byte> 
     private int _disposed;
 
     public UnsafeMemoryMappedViewMemory(SafeMemoryMappedViewHandle handle, int length) {
-        this._handle = handle;
-        this._length = length;
-        this._handle.AcquirePointer(ref this._pointer);
+        _handle = handle;
+        _length = length;
+        _handle.AcquirePointer(ref _pointer);
     }
 
     public override Span<byte> GetSpan() {
-        return new(this._pointer, this._length);
+        return new(_pointer, _length);
     }
 
     public override MemoryHandle Pin(int elementIndex = 0) {
-        if (elementIndex < 0 || elementIndex >= this._length) {
+        if (elementIndex < 0 || elementIndex >= _length) {
             throw new ArgumentOutOfRangeException(nameof(elementIndex));
         }
 
-        return new(this._pointer + elementIndex);
+        return new(_pointer + elementIndex);
     }
 
     public override void Unpin() { }
 
     protected override void Dispose(bool disposing) {
-        if (0 != Interlocked.Exchange(ref this._disposed, 1)) {
+        if (0 != Interlocked.Exchange(ref _disposed, 1)) {
             return;
         }
 
-        this._handle.ReleasePointer();
+        _handle.ReleasePointer();
     }
 }

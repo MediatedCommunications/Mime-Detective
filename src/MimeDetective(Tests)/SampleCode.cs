@@ -1,20 +1,19 @@
-﻿using MimeDetective.Storage;
+﻿using MimeDetective.Definitions;
+using MimeDetective.Engine;
+using MimeDetective.Storage;
 using System.Collections.Generic;
 
 namespace MimeDetective.Tests;
 
 public class SampleCode {
-
     public static class CustomContentInspector {
-
         public static IContentInspector Instance { get; }
 
         static CustomContentInspector() {
-
             var myDefinitions = new List<Definition>();
 
             //Add a predefined definition
-            myDefinitions.AddRange(MimeDetective.Definitions.Default.FileTypes.Audio.MP3());
+            myDefinitions.AddRange(Default.FileTypes.Audio.MP3());
 
             //Add a custom definition
             myDefinitions.Add(new() {
@@ -22,23 +21,19 @@ public class SampleCode {
                     Categories = [Category.Other],
                     Description = "Magic File Type",
                     Extensions = ["magic"],
-                    MimeType = "application/octet-stream",
+                    MimeType = "application/octet-stream"
                 },
                 //All of these rules must match
                 Signature = SegmentExtensions.ToSignature<Segment>([
                     StringSegment.Create("MAGIC"), //anywhere in the file, expect "MAGIC" (exact case)
                     PrefixSegment.Create(100, "4d 41 47 49 43") //At offset 100 in the file, expect the bytes "MAGIC".
-                ]),
+                ])
             });
 
-            Instance = new ContentInspectorBuilder() {
+            Instance = new ContentInspectorBuilder {
                 Definitions = myDefinitions,
-                StringSegmentOptions = new() {
-                    OptimizeFor = Engine.StringSegmentResourceOptimization.HighSpeed,
-                },
+                StringSegmentOptions = new() { OptimizeFor = StringSegmentResourceOptimization.HighSpeed }
             }.Build();
         }
-
     }
-
 }

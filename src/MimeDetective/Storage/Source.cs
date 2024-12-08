@@ -9,5 +9,4 @@ public record Source : DisplayRecord {
     public override string? GetDebuggerDisplay() {
         return $"{Files?.ToString(CultureInfo.CurrentCulture) ?? "???"} Files";
     }
-
 }

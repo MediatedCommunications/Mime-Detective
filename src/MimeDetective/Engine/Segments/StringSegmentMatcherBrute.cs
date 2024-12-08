@@ -4,19 +4,17 @@ using System;
 namespace MimeDetective.Engine;
 
 /// <summary>
-/// An <see cref="ISegmentMatcher"/> that matches a <see cref="StringSegment"/> against content.
+///     An <see cref="ISegmentMatcher" /> that matches a <see cref="StringSegment" /> against content.
 /// </summary>
 internal class StringSegmentMatcherBrute : StringSegmentMatcher {
-    public StringSegmentMatcherBrute(StringSegment segment) : base(segment) {
-
-    }
+    public StringSegmentMatcherBrute(StringSegment segment) : base(segment) { }
 
     public override SegmentMatch Match(ReadOnlySpan<byte> haystack) {
         SegmentMatch ret = NoSegmentMatch.Instance;
 
         for (var i = 0; i <= haystack.Length - Segment.Pattern.Length; i++) {
             if (Match(haystack, Segment.Pattern.AsSpan(), i)) {
-                ret = new StringSegmentMatch() {
+                ret = new StringSegmentMatch {
                     Segment = Segment,
                     Index = i
                 };
@@ -38,7 +36,5 @@ internal class StringSegmentMatcherBrute : StringSegmentMatcher {
         }
 
         return ret;
-
     }
-
 }

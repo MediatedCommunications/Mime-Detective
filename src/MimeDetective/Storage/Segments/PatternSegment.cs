@@ -5,11 +5,13 @@ using System.Text;
 namespace MimeDetective.Storage;
 
 /// <summary>
-/// The base class representing <see cref="Pattern"/> that exists in the target file.
+///     The base class representing <see cref="Pattern" /> that exists in the target file.
 /// </summary>
 public abstract class PatternSegment : Segment {
+    private int? _getHashCodeValue;
+
     /// <summary>
-    /// The <see cref="Pattern"/> that must exist in the target file.
+    ///     The <see cref="Pattern" /> that must exist in the target file.
     /// </summary>
     public ImmutableArray<byte> Pattern { get; init; } = [];
 
@@ -42,7 +44,8 @@ public abstract class PatternSegment : Segment {
         if (apostropheIsNull) {
             text = text.Replace("'", "\0");
         }
-        var ret = System.Text.Encoding.UTF8
+
+        var ret = Encoding.UTF8
                 .GetBytes(text)
                 .ToImmutableArray()
             ;
@@ -51,19 +54,17 @@ public abstract class PatternSegment : Segment {
     }
 
     public override string? GetDebuggerDisplay() {
-        var hex = System.Convert.ToHexString([.. Pattern]);
-        var @string = System.Text.Encoding.UTF8.GetString([.. Pattern]);
+        var hex = Convert.ToHexString([.. Pattern]);
+        var @string = Encoding.UTF8.GetString([.. Pattern]);
         @string = @string.Replace("\0", "'");
 
         return $@"{@string} /// {hex}";
     }
 
-    private int? _getHashCodeValue;
-    public override sealed int GetHashCode() {
-
-        if (this._getHashCodeValue is not { } v1) {
+    public sealed override int GetHashCode() {
+        if (_getHashCodeValue is not { } v1) {
             v1 = GetHashCodeInternal();
-            this._getHashCodeValue = v1;
+            _getHashCodeValue = v1;
         }
 
         return v1;
@@ -72,5 +73,4 @@ public abstract class PatternSegment : Segment {
     protected virtual int GetHashCodeInternal() {
         return EnumerableComparer<byte>.Instance.GetHashCode(Pattern);
     }
-
 }

@@ -17,16 +17,16 @@ public class LoadFileBenchmarks {
 
     [Benchmark(Baseline = true)]
     public ImmutableArray<DefinitionMatch> ReadFromFile() {
-        return BenchmarkInspectors.Instance.Default.Inspect(ContentReader.Default.ReadFromFile(this.TestFile.Value));
+        return BenchmarkInspectors.Instance.Default.Inspect(ContentReader.Default.ReadFromFile(TestFile.Value));
     }
 
     [Benchmark]
     public ImmutableArray<DefinitionMatch> InspectFilePath() {
-        return BenchmarkInspectors.Instance.Default.Inspect(this.TestFile.Value);
+        return BenchmarkInspectors.Instance.Default.Inspect(TestFile.Value);
     }
 
     [Benchmark]
     public ImmutableArray<DefinitionMatch> MapFile() {
-        return BenchmarkInspectors.Instance.Default.InspectMemoryMapped(this.TestFile.Value);
+        return BenchmarkInspectors.Instance.Default.InspectMemoryMapped(TestFile.Value);
     }
 }

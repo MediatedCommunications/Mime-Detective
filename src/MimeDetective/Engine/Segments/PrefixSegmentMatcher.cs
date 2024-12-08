@@ -5,22 +5,14 @@ using System;
 namespace MimeDetective.Engine;
 
 /// <summary>
-/// An <see cref="ISegmentMatcher"/> that matches a <see cref="PrefixSegment"/> against content.
+///     An <see cref="ISegmentMatcher" /> that matches a <see cref="PrefixSegment" /> against content.
 /// </summary>
 internal class PrefixSegmentMatcher : DisplayClass, ISegmentMatcher {
-    public override string? GetDebuggerDisplay() {
-        return Segment.GetDebuggerDisplay();
-    }
-
-    public static PrefixSegmentMatcher Create(PrefixSegment segment) {
-        return new PrefixSegmentMatcher(segment);
-    }
+    public PrefixSegment Segment { get; }
 
     public PrefixSegmentMatcher(PrefixSegment segment) {
-        this.Segment = segment;
+        Segment = segment;
     }
-
-    public PrefixSegment Segment { get; }
 
     public SegmentMatch Match(ReadOnlySpan<byte> content) {
         SegmentMatch ret = NoSegmentMatch.Instance;
@@ -29,7 +21,9 @@ internal class PrefixSegmentMatcher : DisplayClass, ISegmentMatcher {
         matches &= content.Length >= Segment.ExclusiveEnd();
 
         if (matches) {
-            for (int patternIndex = 0, contentIndex = Segment.Start; contentIndex < Segment.ExclusiveEnd(); patternIndex++, contentIndex++) {
+            for (int patternIndex = 0, contentIndex = Segment.Start;
+                contentIndex < Segment.ExclusiveEnd();
+                patternIndex++, contentIndex++) {
                 if (Segment.Pattern[patternIndex] != content[contentIndex]) {
                     matches = false;
                     break;
@@ -38,11 +32,17 @@ internal class PrefixSegmentMatcher : DisplayClass, ISegmentMatcher {
         }
 
         if (matches) {
-            ret = new PrefixSegmentMatch() {
-                Segment = Segment,
-            };
+            ret = new PrefixSegmentMatch { Segment = Segment };
         }
 
         return ret;
+    }
+
+    public override string? GetDebuggerDisplay() {
+        return Segment.GetDebuggerDisplay();
+    }
+
+    public static PrefixSegmentMatcher Create(PrefixSegment segment) {
+        return new(segment);
     }
 }

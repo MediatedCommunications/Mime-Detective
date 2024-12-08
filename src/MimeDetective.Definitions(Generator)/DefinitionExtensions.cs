@@ -7,10 +7,6 @@ using System.Linq;
 namespace MimeDetective.Definitions;
 
 public static class DefinitionExtensions {
-
-
-
-
     public static IEnumerable<Definition> Minify(this IEnumerable<Definition> values) {
         var input = values.ToList();
         var any = true;
@@ -19,26 +15,20 @@ public static class DefinitionExtensions {
             any = false;
 
             for (var i = input.Count - 1; i >= 1; i--) {
-
                 for (var j = i - 1; j >= 0; j--) {
-
                     var v = Intersection(input[i], input[j]);
-                    if (v is { }) {
+                    if (v is not null) {
                         input.RemoveAt(i);
                         input.RemoveAt(j);
                         input.Add(v);
                         any = true;
                         break;
                     }
-
                 }
-
             }
-
         }
 
         return input;
-
     }
 
     public static Definition? Intersection(Definition a, Definition b) {
@@ -56,14 +46,14 @@ public static class DefinitionExtensions {
 
         var signature = Intersection(a.Signature, b.Signature);
 
-        if (signature is { } && extensions.Count > 0) {
-            ret = new Definition() {
+        if (signature is not null && extensions.Count > 0) {
+            ret = new() {
                 File = new() {
                     Description = string.Join("/", extensions),
                     Extensions = extensions.ToImmutableArray(),
-                    MimeType = mimeType,
+                    MimeType = mimeType
                 },
-                Signature = signature,
+                Signature = signature
             };
         }
 
@@ -77,9 +67,9 @@ public static class DefinitionExtensions {
         var front = Intersection(a.Prefix, b.Prefix);
 
         if (any.Length > 0 || front.Length > 0) {
-            ret = new Signature() {
+            ret = new() {
                 Strings = any,
-                Prefix = front,
+                Prefix = front
             };
         }
 
@@ -129,19 +119,14 @@ public static class DefinitionExtensions {
 
 
                 if (yield && found.Count > 0) {
-                    ret.Add(new PrefixSegment() {
+                    ret.Add(new() {
                         Pattern = found.ToImmutableArray(),
-                        Start = start - found.Count,
+                        Start = start - found.Count
                     });
 
-                    found = new();
+                    found = [];
                 }
-
             }
-
-
-
-
         }
 
         return ret.ToImmutableArray();
@@ -153,7 +138,7 @@ public static class DefinitionExtensions {
             from x in a
             from y in b
             let v = Intersection(x, y)
-            where v is { }
+            where v is not null
             select v
         ).ToImmutableArray();
 
@@ -169,5 +154,4 @@ public static class DefinitionExtensions {
 
         return ret;
     }
-
 }

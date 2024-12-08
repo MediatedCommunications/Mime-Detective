@@ -7,7 +7,7 @@ using System.Linq;
 namespace MimeDetective.Engine;
 
 /// <summary>
-/// Handles evaluating a <see cref="Definition"/> against content and scoring it.
+///     Handles evaluating a <see cref="Definition" /> against content and scoring it.
 /// </summary>
 internal class DefinitionMatchEvaluator {
     public DefinitionMatchEvaluatorOptions Options { get; init; } = new();
@@ -24,11 +24,7 @@ internal class DefinitionMatchEvaluator {
         var stringSegmentMatches = new Dictionary<StringSegment, SegmentMatch>();
 
         if (valid && Options.IncludeSegmentsPrefix) {
-
-
-
             foreach (var item in definitionMatcherCache.Prefixes) {
-
                 allMatches += 1;
 
                 var result = item.Match(content);
@@ -42,13 +38,11 @@ internal class DefinitionMatchEvaluator {
                 } else {
                     goodMatches += 1;
                 }
-
             }
         }
 
         if (valid && Options.IncludeSegmentsStrings) {
             foreach (var item in definitionMatcherCache.Strings) {
-
                 allMatches += 1;
 
                 var result = contentStrings
@@ -67,7 +61,6 @@ internal class DefinitionMatchEvaluator {
                 } else {
                     goodMatches += 1;
                 }
-
             }
         }
 
@@ -88,7 +81,7 @@ internal class DefinitionMatchEvaluator {
                 _ when goodMatches == allMatches && goodMatches == 0 => DefinitionMatchType.Empty,
                 _ when goodMatches == allMatches && goodMatches != 0 => DefinitionMatchType.Complete,
                 _ when goodMatches != allMatches && goodMatches > 0 => DefinitionMatchType.Partial,
-                _ => DefinitionMatchType.Failed,
+                _ => DefinitionMatchType.Failed
             };
 
             valid = false
@@ -99,31 +92,26 @@ internal class DefinitionMatchEvaluator {
                 ;
 
             if (valid) {
-                ret = new DefinitionMatch {
+                ret = new() {
                     Definition = definitionMatcherCache.Definition,
                     Type = type,
                     PrefixSegmentMatches = prefixSegmentMatches.ToImmutableDictionary(),
                     StringSegmentMatches = stringSegmentMatches.ToImmutableDictionary(),
-
                     Percentage = percentage,
-                    Points = points,
+                    Points = points
                 };
             }
-
         }
 
         return ret;
     }
 
-    protected virtual long GetPoints(IDictionary<PrefixSegment, SegmentMatch> prefixSegmentMatches, IDictionary<StringSegment, SegmentMatch> stringSegmentMatches) {
+    protected virtual long GetPoints(IDictionary<PrefixSegment, SegmentMatch> prefixSegmentMatches,
+        IDictionary<StringSegment, SegmentMatch> stringSegmentMatches) {
         var prefixSegmentStart = 0;
 
         var ret = 0;
-        var matchSet = new[]
-        {
-            prefixSegmentMatches.Values,
-            stringSegmentMatches.Values
-        };
+        var matchSet = new[] { prefixSegmentMatches.Values, stringSegmentMatches.Values };
 
         var matches = matchSet.SelectMany(x => x);
 
@@ -135,9 +123,7 @@ internal class DefinitionMatchEvaluator {
         foreach (var match in matches) {
             var pointsToAdd = 0;
 
-            if (match is NoSegmentMatch v1) {
-
-            } else if (match is PrefixSegmentMatch v2) {
+            if (match is NoSegmentMatch v1) { } else if (match is PrefixSegmentMatch v2) {
                 var multiplier = multiplierPrefixBeginningOfFile;
                 if (v2.Segment.Start == prefixSegmentStart) {
                     multiplier = multiplierPrefixStartOfFile;
@@ -145,15 +131,14 @@ internal class DefinitionMatchEvaluator {
                 }
 
                 pointsToAdd = multiplier * v2.Segment.Pattern.Length;
-
             } else if (match is StringSegmentMatch v3) {
                 var multiplier = multiplierStringAnywhere;
 
                 pointsToAdd = multiplier * v3.Segment.Pattern.Length;
             }
+
             ret += pointsToAdd;
         }
-
 
 
         return ret;

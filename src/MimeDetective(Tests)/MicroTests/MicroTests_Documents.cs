@@ -4,7 +4,6 @@ namespace MimeDetective.Tests;
 
 [TestClass]
 public class MicroTestsDocuments : MicroTests {
-
     protected override string RelativeRoot() {
         return base.RelativeRoot() + @"Documents\";
     }
@@ -138,5 +137,4 @@ public class MicroTestsDocuments : MicroTests {
     public void XlsxExcel2016_xlsx() {
         Test("XlsxExcel2016.xlsx");
     }
-
 }

@@ -6,9 +6,8 @@ using System.Linq;
 namespace MimeDetective.Storage;
 
 public static class DefinitionExtensions {
-
     /// <summary>
-    /// Returns a copy of <paramref name="This"/> with no <see cref="Definition.Meta"/>
+    ///     Returns a copy of <paramref name="This" /> with no <see cref="Definition.Meta" />
     /// </summary>
     /// <param name="This"></param>
     /// <returns></returns>
@@ -18,21 +17,18 @@ public static class DefinitionExtensions {
 
 
     /// <summary>
-    /// Returns a copy of <paramref name="This"/> with no <see cref="Definition.Meta"/>
+    ///     Returns a copy of <paramref name="This" /> with no <see cref="Definition.Meta" />
     /// </summary>
     /// <param name="This"></param>
     /// <returns></returns>
     public static Definition TrimMeta(this Definition This) {
-
-        var ret = This with {
-            Meta = default,
-        };
+        var ret = This with { Meta = default };
 
         return ret;
     }
 
     /// <summary>
-    /// Returns a copy of <paramref name="This"/> with no <see cref="FileType.Categories"/>
+    ///     Returns a copy of <paramref name="This" /> with no <see cref="FileType.Categories" />
     /// </summary>
     /// <param name="This"></param>
     /// <returns></returns>
@@ -42,23 +38,18 @@ public static class DefinitionExtensions {
 
 
     /// <summary>
-    /// Returns a copy of <paramref name="This"/> with no <see cref="FileType.Categories"/>
+    ///     Returns a copy of <paramref name="This" /> with no <see cref="FileType.Categories" />
     /// </summary>
     /// <param name="This"></param>
     /// <returns></returns>
     public static Definition TrimCategories(this Definition This) {
-
-        var ret = This with {
-            File = This.File with {
-                Categories = ImmutableHashSet<Category>.Empty,
-            }
-        };
+        var ret = This with { File = This.File with { Categories = ImmutableHashSet<Category>.Empty } };
 
         return ret;
     }
 
     /// <summary>
-    /// Returns a copy of <paramref name="This"/> with no <see cref="FileType.Description"/>
+    ///     Returns a copy of <paramref name="This" /> with no <see cref="FileType.Description" />
     /// </summary>
     /// <param name="This"></param>
     /// <returns></returns>
@@ -67,20 +58,16 @@ public static class DefinitionExtensions {
     }
 
     /// <summary>
-    /// Returns a copy of <paramref name="This"/> with no <see cref="FileType.Description"/>
+    ///     Returns a copy of <paramref name="This" /> with no <see cref="FileType.Description" />
     /// </summary>
     /// <param name="This"></param>
     /// <returns></returns>
     public static Definition TrimDescription(this Definition This) {
-        return This with {
-            File = This.File with {
-                Description = default,
-            }
-        };
+        return This with { File = This.File with { Description = default } };
     }
 
     /// <summary>
-    /// Returns a copy of <paramref name="This"/> with no <see cref="FileType.MimeType"/>
+    ///     Returns a copy of <paramref name="This" /> with no <see cref="FileType.MimeType" />
     /// </summary>
     /// <param name="This"></param>
     /// <returns></returns>
@@ -89,20 +76,18 @@ public static class DefinitionExtensions {
     }
 
     /// <summary>
-    /// Returns a copy of <paramref name="This"/> with no <see cref="FileType.MimeType"/>
+    ///     Returns a copy of <paramref name="This" /> with no <see cref="FileType.MimeType" />
     /// </summary>
     /// <param name="This"></param>
     /// <returns></returns>
     public static Definition TrimMimeType(this Definition This) {
-        return This with {
-            File = This.File with {
-                MimeType = default,
-            }
-        };
+        return This with { File = This.File with { MimeType = default } };
     }
 
     /// <summary>
-    /// Returns a copy of the <see cref="Definition"/>s whose <see cref="FileType.Extensions"/> are intersected with the provided <paramref name="extensions"/>.  If a <see cref="Definition"/> would contain no <see cref="FileType.Extensions"/>, it is still returned.
+    ///     Returns a copy of the <see cref="Definition" />s whose <see cref="FileType.Extensions" /> are intersected with the
+    ///     provided <paramref name="extensions" />.  If a <see cref="Definition" /> would contain no
+    ///     <see cref="FileType.Extensions" />, it is still returned.
     /// </summary>
     /// <param name="This"></param>
     /// <param name="extensions"></param>
@@ -112,7 +97,9 @@ public static class DefinitionExtensions {
     }
 
     /// <summary>
-    /// Returns a copy of the <see cref="Definition"/> whose <see cref="FileType.Extensions"/> are intersected with the provided <paramref name="extensions"/>.  If a <see cref="Definition"/> would contain no <see cref="FileType.Extensions"/>, it is still returned.
+    ///     Returns a copy of the <see cref="Definition" /> whose <see cref="FileType.Extensions" /> are intersected with the
+    ///     provided <paramref name="extensions" />.  If a <see cref="Definition" /> would contain no
+    ///     <see cref="FileType.Extensions" />, it is still returned.
     /// </summary>
     /// <param name="This"></param>
     /// <param name="extensions"></param>
@@ -128,7 +115,9 @@ public static class DefinitionExtensions {
     }
 
     /// <summary>
-    /// Returns a copy of the <see cref="Definition"/>s whose <see cref="FileType.Extensions"/> are intersected with the provided <paramref name="extensions"/>.  If a <see cref="Definition"/> would contain no <see cref="FileType.Extensions"/>, it is omitted from the results.
+    ///     Returns a copy of the <see cref="Definition" />s whose <see cref="FileType.Extensions" /> are intersected with the
+    ///     provided <paramref name="extensions" />.  If a <see cref="Definition" /> would contain no
+    ///     <see cref="FileType.Extensions" />, it is omitted from the results.
     /// </summary>
     /// <param name="This"></param>
     /// <param name="extensions"></param>
@@ -142,7 +131,8 @@ public static class DefinitionExtensions {
     }
 
     /// <summary>
-    /// Returns a copy of the <see cref="Definition"/> whose <see cref="FileType.Extensions"/> are intersected with the provided <paramref name="extensions"/>.  If this list would be empty, no value is returned.
+    ///     Returns a copy of the <see cref="Definition" /> whose <see cref="FileType.Extensions" /> are intersected with the
+    ///     provided <paramref name="extensions" />.  If this list would be empty, no value is returned.
     /// </summary>
     /// <param name="This"></param>
     /// <param name="extensions"></param>
@@ -173,7 +163,7 @@ public static class DefinitionExtensions {
         var mimeTypeCache = (
                 from x in definitions
                 let v = x.File.MimeType?.ToLowerInvariant()
-                where v is { }
+                where v is not null
                 select v
             )
             .Distinct(StringComparer.InvariantCultureIgnoreCase)
@@ -182,7 +172,7 @@ public static class DefinitionExtensions {
         var descriptionCache = (
                 from x in definitions
                 let v = x.File.Description
-                where v is { }
+                where v is not null
                 select v
             )
             .Distinct(StringComparer.InvariantCultureIgnoreCase)
@@ -250,56 +240,48 @@ public static class DefinitionExtensions {
 
         var newDefinitions = (
             from Definition in definitions
-
             let Description = Definition.File.Description is { } v1 ? descriptionCache[v1] : default
-
             let Extensions = (
                 from y in Definition.File.Extensions
                 select extensionCache[y]
             ).ToImmutableArray()
-
             let MimeType = Definition.File.MimeType is { } v1 ? mimeTypeCache[v1] : default
-
             let Categories = categoryCache[Definition.File.Categories]
-
             let Prefixes = (
                 from y in Definition.Signature.Prefix
                 from z in prefixCacheLookup[y]
                 select z
             ).ToImmutableArray()
-
             let Strings = (
                 from y in Definition.Signature.Strings
                 select stringCache[y]
             ).ToImmutableArray()
-
-            let NewDef = new Definition() {
-                File = new FileType() {
+            let NewDef = new Definition {
+                File = new() {
                     Description = Description,
                     Extensions = Extensions,
                     MimeType = MimeType,
-                    Categories = Categories,
+                    Categories = Categories
                 },
                 Meta = Definition.Meta,
-                Signature = new Signature() {
+                Signature = new() {
                     Prefix = Prefixes,
-                    Strings = Strings,
+                    Strings = Strings
                 }
             }
             select NewDef
         ).ToImmutableArray();
 
-        var ret = new DefinitionDeduplicateResults() {
+        var ret = new DefinitionDeduplicateResults {
             Definitions = newDefinitions,
             Extensions = extensionCache,
             MimeTypes = mimeTypeCache,
             Descriptions = descriptionCache,
             Prefixes = singularizedPrefixCache,
             Strings = stringCache,
-            Categories = categoryCache,
+            Categories = categoryCache
         };
 
         return ret;
     }
-
 }

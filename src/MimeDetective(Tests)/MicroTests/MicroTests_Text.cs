@@ -4,7 +4,6 @@ namespace MimeDetective.Tests;
 
 [TestClass]
 public class MicroTestsText : MicroTests {
-
     protected override string RelativeRoot() {
         return base.RelativeRoot() + @"Text\";
     }
@@ -43,5 +42,4 @@ public class MicroTestsText : MicroTests {
     public void TextFile1_txt() {
         Test("TextFile1.txt");
     }
-
 }

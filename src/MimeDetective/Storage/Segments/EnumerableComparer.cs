@@ -2,6 +2,4 @@
 
 namespace MimeDetective.Storage;
 
-internal class EnumerableComparer<TElement> : SequenceComparer<IEnumerable<TElement>, TElement> {
-
-}
+internal class EnumerableComparer<TElement> : SequenceComparer<IEnumerable<TElement>, TElement> { }

@@ -11,5 +11,4 @@ public record FileExtensionMatch : DisplayRecord {
     public override string? GetDebuggerDisplay() {
         return $@"{Extension} ({Points} Points)";
     }
-
 }

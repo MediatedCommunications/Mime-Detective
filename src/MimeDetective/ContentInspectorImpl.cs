@@ -16,13 +16,25 @@ internal class ContentInspectorImpl(
     protected StringSegmentMatcherProvider StringSegmentIndex { get; } = stringSegmentIndex;
 
     protected DefinitionMatchEvaluatorOptions MatchEvaluatorOptions { get; } = matchEvaluatorOptions;
-    protected ImmutableArray<DefinitionMatcher> DefinitionMatchers { get; } = GenerateDefinitionMatchers(stringSegmentIndex, definitions);
+
+    protected ImmutableArray<DefinitionMatcher> DefinitionMatchers { get; } =
+        GenerateDefinitionMatchers(stringSegmentIndex, definitions);
+
     protected bool Parallel { get; } = parallel;
 
-    private static ImmutableArray<DefinitionMatcher> GenerateDefinitionMatchers(StringSegmentMatcherProvider stringSegmentIndex, ImmutableArray<Definition> definitions) {
 
-        var prefixes = (from x in definitions from y in x.Signature.Prefix select y).Distinct(PrefixSegmentEqualityComparer.Instance);
-        var strings = (from x in definitions from y in x.Signature.Strings select y).Distinct(StringSegmentEqualityComparer.Instance);
+    public ImmutableArray<DefinitionMatch> Inspect(ReadOnlySpan<byte> content) {
+        var ret = Inspect_Current(content);
+
+        return ret;
+    }
+
+    private static ImmutableArray<DefinitionMatcher> GenerateDefinitionMatchers(StringSegmentMatcherProvider stringSegmentIndex,
+        ImmutableArray<Definition> definitions) {
+        var prefixes =
+            (from x in definitions from y in x.Signature.Prefix select y).Distinct(PrefixSegmentEqualityComparer.Instance);
+        var strings =
+            (from x in definitions from y in x.Signature.Strings select y).Distinct(StringSegmentEqualityComparer.Instance);
 
         var prefixMatcherCache = prefixes
             .ToImmutableDictionary(
@@ -40,82 +52,75 @@ internal class ContentInspectorImpl(
 
         var ret = (
             from Definition in definitions
-
             let PrefixMatchers = (
                 from y in Definition.Signature.Prefix
                 select prefixMatcherCache[y]
             ).ToImmutableArray()
-
             let StringMatchers = (
                 from y in Definition.Signature.Strings
                 select stringMatcherCache[y]
             ).ToImmutableArray()
-
             select new DefinitionMatcher(Definition) {
                 Prefixes = PrefixMatchers,
-                Strings = StringMatchers,
+                Strings = StringMatchers
             }).ToImmutableArray();
 
 
         return ret;
     }
 
-
-    public ImmutableArray<DefinitionMatch> Inspect(ReadOnlySpan<byte> content) {
-        var ret = Inspect_Current(content);
-
-        return ret;
-    }
-
     protected ImmutableArray<DefinitionMatch> Inspect_Current(ReadOnlySpan<byte> content) {
-
         var noContentStrings = ImmutableArray<StringSegment>.Empty;
 
         var tret = new List<(DefinitionMatch Match, DefinitionMatcher Matcher)>(32);
 
-        var useEmptyShortcut = this.MatchEvaluatorOptions is { IncludeSegmentsStrings: false, IncludeMatchesEmpty: false };
+        var useEmptyShortcut = MatchEvaluatorOptions is { IncludeSegmentsStrings: false, IncludeMatchesEmpty: false };
         var needsStrings = false;
 
         {
             var matchEvaluator1 = new DefinitionMatchEvaluator {
                 Options = MatchEvaluatorOptions with {
                     IncludeSegmentsStrings = false,
-                    IncludeMatchesEmpty = true,
+                    IncludeMatchesEmpty = true
                 }
             };
 
 
             //Get an initial list of matches that don't include string matches
-            foreach (var matcher in this.DefinitionMatchers) {
+            foreach (var matcher in DefinitionMatchers) {
                 var match = matchEvaluator1.Match(matcher, content, noContentStrings);
-                if (match is null)
+                if (match is null) {
                     continue;
+                }
 
                 //If we don't need strings, and we don't want empty, just shortcut.
-                if (useEmptyShortcut && match.Type == DefinitionMatchType.Empty)
+                if (useEmptyShortcut && match.Type == DefinitionMatchType.Empty) {
                     continue;
+                }
 
-                if (matcher.Strings.Length > 0)
+                if (matcher.Strings.Length > 0) {
                     needsStrings = true;
+                }
 
                 tret.Add((match, matcher));
             }
         }
 
         if (!useEmptyShortcut && needsStrings) {
-            var matchEvaluator2 = new DefinitionMatchEvaluator { Options = this.MatchEvaluatorOptions };
+            var matchEvaluator2 = new DefinitionMatchEvaluator { Options = MatchEvaluatorOptions };
 
             var contentStrings = StringSegmentExtrator.ExtractStrings(content);
 
             var output = 0;
             for (var i = 0; i < tret.Count; ++i) {
-                var item = tret[i];
+                var (_, matcher) = tret[i];
 
-                var match = matchEvaluator2.Match(item.Matcher, content, contentStrings);
-                if (match is null)
+                var match = matchEvaluator2.Match(matcher, content, contentStrings);
+                if (match is null) {
                     continue;
+                }
 
-                tret[output++] = (match, item.Matcher);
+                tret[output++] = (match, matcher);
             }
 
             tret.RemoveRange(output, tret.Count - output);
@@ -125,10 +130,10 @@ internal class ContentInspectorImpl(
 
         var ret = new DefinitionMatch[tret.Count];
 
-        for (var i = 0; i < tret.Count; ++i)
+        for (var i = 0; i < tret.Count; ++i) {
             ret[i] = tret[i].Match;
+        }
 
         return [.. ret];
     }
-
 }

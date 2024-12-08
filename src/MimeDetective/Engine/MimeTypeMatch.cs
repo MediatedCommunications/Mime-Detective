@@ -11,5 +11,4 @@ public record MimeTypeMatch : DisplayRecord {
     public override string? GetDebuggerDisplay() {
         return $@"{MimeType} ({Points} Points)";
     }
-
 }

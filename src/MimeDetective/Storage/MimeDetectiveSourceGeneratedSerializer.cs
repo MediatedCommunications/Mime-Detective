@@ -11,7 +11,7 @@ namespace MimeDetective.Storage;
     DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault,
     UseStringEnumConverter = true,
     Converters = [typeof(ImmutableByteArrayToHexStringConverter)]
-    )]
+)]
 [JsonSerializable(typeof(Definition[]))]
 [JsonSerializable(typeof(IEnumerable<Definition>))]
 internal partial class MimeDetectiveSourceGeneratedSerializer : JsonSerializerContext;

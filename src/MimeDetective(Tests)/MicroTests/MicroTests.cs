@@ -1,6 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MimeDetective.Definitions;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -9,29 +11,26 @@ namespace MimeDetective.Tests;
 [TestClass]
 public abstract class MicroTests {
     private static IContentInspector? _getEngineResult;
-    protected static IContentInspector GetEngine() {
+    private static readonly string _relativeRoot = Path.Combine("MicroTests", "Data");
 
+    protected static IContentInspector GetEngine() {
         var isDebug = false;
 
         if (_getEngineResult == default && isDebug) {
-            var inspector = new ContentInspectorBuilder() {
-                Definitions = {
-                    Definitions.Default.FileTypes.Email.EML(),
-                },
-                Parallel = false,
+            var inspector = new ContentInspectorBuilder {
+                Definitions = { Default.FileTypes.Email.EML() },
+                Parallel = false
             };
             _getEngineResult = inspector.Build();
         }
 
 
-
-
         if (_getEngineResult == default) {
-            var defintions = Definitions.Default.All();
+            var definitions = Default.All();
 
-            _getEngineResult = new ContentInspectorBuilder() {
-                Definitions = defintions,
-                Parallel = true,
+            _getEngineResult = new ContentInspectorBuilder {
+                Definitions = definitions,
+                Parallel = true
             }.Build();
             ;
         }
@@ -47,17 +46,18 @@ public abstract class MicroTests {
     protected string GenerateTests() {
         var tret = new StringBuilder();
 
-        var fullPath = System.IO.Path.GetFullPath(RelativeRoot());
+        var fullPath = Path.GetFullPath(RelativeRoot());
 
-        foreach (var item in System.IO.Directory.GetFiles(fullPath)) {
-            var fn = System.IO.Path.GetFileName(item);
+        foreach (var item in Directory.GetFiles(fullPath)) {
+            var fn = Path.GetFileName(item);
             var name = fn.Replace(".", "_");
 
-            var content = $@"
-[TestMethod]
-public void {name}(){{
-    Test(""{fn}"");
-}}";
+            var content = $$"""
+                            [TestMethod]
+                            public void {{name}}(){
+                                Test("{{fn}}");
+                            }
+                            """;
 
             tret.AppendLine(content);
         }
@@ -67,9 +67,9 @@ public void {name}(){{
     }
 
     protected void Test(string relativeFileName) {
-        var fn = $@"{RelativeRoot()}{relativeFileName}";
-        var fullPath = System.IO.Path.GetFullPath(fn);
-        var fileName = System.IO.Path.GetFileName(fullPath);
+        var fn = Path.Combine(RelativeRoot(), relativeFileName);
+        var fullPath = Path.GetFullPath(fn);
+        var fileName = Path.GetFileName(fullPath);
 
         var content = ContentReader.Default.ReadFromFile(fullPath);
 
@@ -95,10 +95,9 @@ public void {name}(){{
         if (!isValid) {
             Assert.AreNotEqual(expected, string.Join(",", results));
         }
-
     }
 
     protected virtual string RelativeRoot() {
-        return @".\MicroTests\Data\";
+        return _relativeRoot;
     }
 }

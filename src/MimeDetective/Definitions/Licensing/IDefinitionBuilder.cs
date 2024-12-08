@@ -5,13 +5,13 @@ using System.Linq;
 namespace MimeDetective.Definitions.Licensing;
 
 public interface IDefinitionBuilder {
-    public ImmutableArray<Definition> Build();
+    ImmutableArray<Definition> Build();
 }
 
 public abstract class DefinitionBuilder : IDefinitionBuilder {
+    public abstract ImmutableArray<Definition> Build();
 
     protected static void EnsureValidUsageType(UsageType type, UsageType[] allowedTypes, string error) {
-
         var allowed = false
                 || allowedTypes.Contains(type)
             ;
@@ -20,6 +20,4 @@ public abstract class DefinitionBuilder : IDefinitionBuilder {
             throw new UsageTypeNotAllowedException(type, allowedTypes, error);
         }
     }
-
-    public abstract ImmutableArray<Definition> Build();
 }

@@ -9,7 +9,7 @@ namespace MimeDetective.Benchmark;
 public class DefinitionBuilderBenchmarks {
     [Benchmark(Baseline = true)]
     public ImmutableArray<Definition> DefaultDefinitions() {
-        return Definitions.Default.All();
+        return Default.All();
     }
 
     [Benchmark]

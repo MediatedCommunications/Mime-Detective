@@ -4,7 +4,6 @@ namespace MimeDetective.Tests;
 
 [TestClass]
 public class MicroTestsZip : MicroTests {
-
     protected override string RelativeRoot() {
         return base.RelativeRoot() + @"\Zip\";
     }
@@ -53,5 +52,4 @@ public class MicroTestsZip : MicroTests {
     public void WinRar_rar() {
         Test("WinRar.rar");
     }
-
 }

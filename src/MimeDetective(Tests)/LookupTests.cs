@@ -4,12 +4,11 @@ namespace MimeDetective.Tests;
 
 [TestClass]
 public class LookupTests {
-
-    private string _applicationOctetstream = "application/octet-stream";
+    private readonly string _applicationOctetstream = "application/octet-stream";
 
     [TestMethod]
     public void FileExtension_AllowVariants() {
-        var expected = this._applicationOctetstream;
+        var expected = _applicationOctetstream;
 
         var v1 = ContentInspectors.Exhaustive.FileExtensionToMimeTypeLookup.TryGetValue("exe");
         var v2 = ContentInspectors.Exhaustive.FileExtensionToMimeTypeLookup.TryGetValue(".exe");
@@ -31,7 +30,5 @@ public class LookupTests {
 
         Assert.AreEqual(expected, v1);
         Assert.AreEqual(expected, v2);
-
     }
-
 }

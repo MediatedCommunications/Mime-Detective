@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Buffers;
 using System.Collections.Generic;
 using System.Text;
@@ -8,7 +8,7 @@ using System.Text.Json.Serialization;
 namespace MimeDetective.Storage;
 
 #if NET8_0_OR_GREATER
-static internal class ByteToHexUtility {
+internal static class ByteToHexUtility {
     public const int MaximumStackalloc = 512;
     public const int MaximumLength = 8 * 1024;
     private static readonly SearchValues<byte> HexSearchValues = SearchValues.Create("abcdefABCDEF0123456789"u8);
@@ -47,7 +47,6 @@ static internal class ByteToHexUtility {
 
 internal abstract class ByteToHexStringConverter<T> : JsonConverter<T>
     where T : IEnumerable<byte> {
-
     protected static byte[] ReadBytes(ref Utf8JsonReader reader, JsonSerializerOptions options) {
         //var xData = JsonSerializer.Deserialize<string>(ref reader, options)
         //        ?? string.Empty

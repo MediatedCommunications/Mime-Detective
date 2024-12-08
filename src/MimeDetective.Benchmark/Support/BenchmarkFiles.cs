@@ -16,7 +16,7 @@ public sealed class BenchmarkFiles {
         string fullPath;
 
         var basePath = Path.GetFullPath(".");
-        for (; ; ) {
+        for (;;) {
             fullPath = Path.Combine(basePath, DataRootPath);
             if (Directory.Exists(fullPath)) {
                 break;
@@ -28,14 +28,14 @@ public sealed class BenchmarkFiles {
             }
         }
 
-        this.FilePaths = Directory
+        FilePaths = Directory
             .EnumerateFiles(fullPath, "*", SearchOption.AllDirectories)
             .OrderByDescending(f => f.Length)
             .Where((_, i) => i % 10 == 0)
             .Select(f => new BenchmarkParameter<string>(Path.GetFileName(f), f))
             .ToArray();
 
-        this.FileContents = this.FilePaths
+        FileContents = FilePaths
             .Select(f => new BenchmarkParameter<byte[]>(f.Name, File.ReadAllBytes(f.Value)))
             .ToArray();
     }

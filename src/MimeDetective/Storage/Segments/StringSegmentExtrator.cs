@@ -6,10 +6,10 @@ using System.Linq;
 namespace MimeDetective.Storage;
 
 public static class StringSegmentExtrator {
-
-    private static ImmutableArray<bool> ValidBytes { get; }
     private static readonly byte Separator = (byte)'|';
     private static readonly int MinSegmentLength = 3;
+
+    private static ImmutableArray<bool> ValidBytes { get; }
 
 
     static StringSegmentExtrator() {
@@ -36,9 +36,7 @@ public static class StringSegmentExtrator {
 
         var segmentLength = 0;
 
-        var tret = new List<byte>(content.Length) {
-            Separator
-        };
+        var tret = new List<byte>(content.Length) { Separator };
 
         var segmentStart = tret.Count;
 
@@ -54,9 +52,7 @@ public static class StringSegmentExtrator {
                 tret.Add(v1);
 
                 segmentLength += 1;
-
             } else if (tret[^1] != Separator) {
-
                 if (segmentLength >= MinSegmentLength) {
                     tret.Add(Separator);
                     segmentStart = tret.Count;
@@ -66,7 +62,6 @@ public static class StringSegmentExtrator {
                 }
 
                 segmentLength = 0;
-
             }
         }
 
@@ -92,11 +87,7 @@ public static class StringSegmentExtrator {
 
         if (tret.Length > 0) {
             ret = [
-                ..new[] {
-                    new StringSegment() {
-                        Pattern = [..tret]
-                    }
-                }
+                ..new[] { new StringSegment { Pattern = [..tret] } }
             ];
         }
 
@@ -125,9 +116,7 @@ public static class StringSegmentExtrator {
 
         var ret = (
             from x in tret
-            let v = new StringSegment() {
-                Pattern = x
-            }
+            let v = new StringSegment { Pattern = x }
             orderby v.Pattern.Length descending
             select v
         ).ToImmutableArray();
@@ -135,5 +124,4 @@ public static class StringSegmentExtrator {
 
         return ret;
     }
-
 }

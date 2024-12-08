@@ -37,5 +37,4 @@ public class MicroTestsAssemblies : MicroTests {
     public void NativeExe_exe() {
         Test("NativeExe.exe");
     }
-
 }

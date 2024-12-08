@@ -1,7 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MimeDetective.Definitions;
+using MimeDetective.Definitions.Licensing;
 using MimeDetective.Engine;
 using MimeDetective.Storage;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 
 namespace MimeDetective.Tests;
@@ -12,9 +16,7 @@ public class PerfTests2 {
     public void Foo() {
         var maxLength = 5;
 
-        var data = new MimeDetective.Definitions.ExhaustiveBuilder() {
-            UsageType = Definitions.Licensing.UsageType.PersonalNonCommercial
-        }.Build();
+        var data = new ExhaustiveBuilder { UsageType = UsageType.PersonalNonCommercial }.Build();
 
         var sortedData = (
             from x in data
@@ -41,7 +43,8 @@ public class PerfTests2 {
         ).ToDictionary(x => x.Key, x => x.ToList()).OrderByDescending(x => x.Value.Count).ToList();
 
         var end = (
-            from x in byEnd where x.Key < startIndex + maxLength
+            from x in byEnd
+            where x.Key < startIndex + maxLength
             select x
         ).FirstOrDefault();
         var inclusiveEndIndex = end.Key;
@@ -54,35 +57,33 @@ public class PerfTests2 {
             var key = item.Signature.Prefix.TryGetRange(startIndex, length);
 
             tree.Add(key, item);
-
         }
 
-        var exe = System.IO.File.ReadAllBytes($@"C:\Windows\System32\Notepad.exe");
+        var exe = File.ReadAllBytes(@"C:\Windows\System32\Notepad.exe");
         var content = GetRange(exe, startIndex, length);
 
         var testCount = 10000;
 
-        var sw1 = System.Diagnostics.Stopwatch.StartNew();
+        var sw1 = Stopwatch.StartNew();
         for (var i = 0; i < testCount; i++) {
             var matches = tree.Find(content);
         }
+
         sw1.Stop();
 
 
-        var searcher = new MimeDetective.ContentInspectorBuilder() {
+        var searcher = new ContentInspectorBuilder {
             Definitions = data,
-            MatchEvaluatorOptions = new() {
-                IncludeSegmentsStrings = false
-            },
+            MatchEvaluatorOptions = new() { IncludeSegmentsStrings = false }
         }.Build();
 
-        var sw2 = System.Diagnostics.Stopwatch.StartNew();
+        var sw2 = Stopwatch.StartNew();
 
         for (var i = 0; i < testCount; i++) {
             var matches = searcher.Inspect(exe);
         }
-        sw2.Stop();
 
+        sw2.Stop();
     }
 
     private static byte[] GetRange(byte[] content, int startIndex, int length) {
@@ -158,7 +159,5 @@ public class PerfTests2 {
             Assert.AreEqual(1, test.Count);
             Assert.IsTrue(test.Contains(400));
         }
-
     }
-
 }

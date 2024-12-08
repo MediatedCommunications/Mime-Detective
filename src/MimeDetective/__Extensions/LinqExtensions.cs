@@ -2,7 +2,7 @@
 
 namespace System.Linq;
 
-static internal class LinqExtensions {
+internal static class LinqExtensions {
     public static ParallelQuery<T> AsParallel<T>(this IEnumerable<T> source, bool parallel) {
         var ret = source.AsParallel();
 
@@ -19,5 +19,4 @@ static internal class LinqExtensions {
 
         return ret;
     }
-
 }

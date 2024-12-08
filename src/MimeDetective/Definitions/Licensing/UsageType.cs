@@ -4,5 +4,5 @@ public enum UsageType {
     None,
     CommercialPaid,
     CommercialFree,
-    PersonalNonCommercial,
+    PersonalNonCommercial
 }

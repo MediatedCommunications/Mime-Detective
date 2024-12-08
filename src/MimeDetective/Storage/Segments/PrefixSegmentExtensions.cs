@@ -4,9 +4,8 @@ using System.Linq;
 namespace MimeDetective.Storage;
 
 public static class PrefixSegmentExtensions {
-
     /// <summary>
-    /// The exclusive upper bound of the <see cref="PrefixSegment"/>'s <see cref="Segment.Content"/>
+    ///     The exclusive upper bound of the <see cref="PrefixSegment" />'s <see cref="Segment.Content" />
     /// </summary>
     /// <param name="this"></param>
     /// <returns></returns>
@@ -22,14 +21,14 @@ public static class PrefixSegmentExtensions {
         for (var i = 0; i < length; i++) {
             var byteIndex = index + i;
 
-            while (segmentIndex < segments.Length && (byteIndex < segments[segmentIndex].Start || byteIndex >= segments[segmentIndex].ExclusiveEnd())) {
+            while (segmentIndex < segments.Length &&
+                (byteIndex < segments[segmentIndex].Start || byteIndex >= segments[segmentIndex].ExclusiveEnd())) {
                 segmentIndex += 1;
             }
 
             if (segmentIndex < segments.Length) {
                 ret[i] = segments[segmentIndex].TryGetPatternAt(byteIndex);
             }
-
         }
 
 
@@ -51,7 +50,7 @@ public static class PrefixSegmentExtensions {
 
         value = default;
 
-        if (@this is { } && index >= @this.Start && index < @this.ExclusiveEnd()) {
+        if (@this is not null && index >= @this.Start && index < @this.ExclusiveEnd()) {
             value = @this.GetPatternAt(index);
             ret = true;
         }
@@ -66,7 +65,7 @@ public static class PrefixSegmentExtensions {
     }
 
     /// <summary>
-    /// Break a Prefix segment into individual 1-byte segments.
+    ///     Break a Prefix segment into individual 1-byte segments.
     /// </summary>
     /// <param name="this"></param>
     /// <returns></returns>
@@ -77,5 +76,4 @@ public static class PrefixSegmentExtensions {
             yield return ret;
         }
     }
-
 }
