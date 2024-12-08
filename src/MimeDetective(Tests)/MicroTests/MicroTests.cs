@@ -13,6 +13,8 @@ public abstract class MicroTests {
     private static IContentInspector? _getEngineResult;
     private static readonly string _relativeRoot = Path.Combine("MicroTests", "Data");
 
+    protected virtual string RelativeRoot => _relativeRoot;
+
     protected static IContentInspector GetEngine() {
         var isDebug = false;
 
@@ -96,6 +98,4 @@ public abstract class MicroTests {
             Assert.AreNotEqual(expected, string.Join(",", results));
         }
     }
-
-    protected virtual string RelativeRoot => _relativeRoot;
 }
