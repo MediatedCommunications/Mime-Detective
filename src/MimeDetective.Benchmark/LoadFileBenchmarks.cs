@@ -1,10 +1,12 @@
-﻿using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Attributes;
 using MimeDetective.Benchmark.Support;
 using MimeDetective.Engine;
 using MimeDetective.MemoryMapping;
 using System.Collections.Immutable;
 
 namespace MimeDetective.Benchmark;
+
+#pragma warning disable CA1822
 
 public class LoadFileBenchmarks {
     public BenchmarkParameter<string>[] FilePaths => BenchmarkFiles.Instance.FilePaths;

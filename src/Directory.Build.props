@@ -9,11 +9,12 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-    <NoWarn>CS0436;CS1685</NoWarn>
+    <NoWarn>$(NoWarn);CS0436;CS1685</NoWarn>
   </PropertyGroup>
 
   <PropertyGroup>
     <AnalysisLevel>Latest-Recommended</AnalysisLevel>
+    <NoWarn>$(NoWarn);CA1707</NoWarn>
   </PropertyGroup>
 
   <PropertyGroup>

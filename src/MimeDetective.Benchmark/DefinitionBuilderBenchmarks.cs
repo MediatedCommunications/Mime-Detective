@@ -1,8 +1,10 @@
-﻿using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Attributes;
 using MimeDetective.Definitions;
 using MimeDetective.Definitions.Licensing;
 using MimeDetective.Storage;
 using System.Collections.Immutable;
+
+#pragma warning disable CA1822
 
 namespace MimeDetective.Benchmark;
 

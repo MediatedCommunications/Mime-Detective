@@ -1,4 +1,4 @@
-﻿#region
+#region
 
 using BenchmarkDotNet.Attributes;
 using MimeDetective.Benchmark.Support;
@@ -6,6 +6,8 @@ using System.Diagnostics;
 using System.Linq;
 
 #endregion
+
+#pragma warning disable CA1822
 
 namespace MimeDetective.Benchmark;
 
