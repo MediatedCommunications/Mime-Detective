@@ -21,6 +21,6 @@ Public Class VbTests
 
         Dim R = ContentInspector.Inspect(Path.Combine("Data", "empty.zip")).FirstOrDefault()
 
-        Assert.AreEqual("application/zip", R.Definition.File.MimeType)
+        Assert.AreEqual("APPLICATION/ZIP", R.Definition.File.MimeType)
     End Sub
 End Class

@@ -66,7 +66,7 @@ public void {Name}(){{
         }
 
         protected void Test(string RelativeFileName) {
-            var FN = $@"{RelativeRoot()}{RelativeFileName}";
+            var FN = System.IO.Path.Combine(RelativeRoot(), RelativeFileName);
             var FullPath = System.IO.Path.GetFullPath(FN);
             var FileName = System.IO.Path.GetFileName(FullPath);
 

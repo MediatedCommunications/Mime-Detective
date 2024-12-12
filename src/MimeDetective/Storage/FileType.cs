@@ -1,4 +1,4 @@
-﻿using MimeDetective.Diagnostics;
+using MimeDetective.Diagnostics;
 using System.Collections.Immutable;
 using System.Linq;
 
@@ -13,7 +13,7 @@ namespace MimeDetective.Storage {
 
         public override string? GetDebuggerDisplay()
         {
-            var Extension = string.Join(@"/", Extensions.Select(x => x.ToUpper()));
+            var Extension = string.Join(@"/", Extensions.Select(x => x.ToUpperInvariant()));
 
             return $@"{Extension} ({MimeType} /// {Description})";
         }

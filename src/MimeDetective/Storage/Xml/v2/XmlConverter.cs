@@ -25,7 +25,7 @@ namespace MimeDetective.Storage.Xml.v2 {
         }
 
         private static class CategoryExtractor {
-            private static ImmutableDictionary<string, Category[]> Lookup { get; }
+            private static ImmutableDictionary<string, ImmutableArray<Category>> Lookup { get; }
             
             public static string Tokenize(string Text) {
                 var sb = new StringBuilder();
@@ -81,8 +81,6 @@ namespace MimeDetective.Storage.Xml.v2 {
             
             static CategoryExtractor() {
                 Lookup = new Dictionary<string, Category[]>() {
-
-                    
                     ["archive"] = [Category.Archive],
                     ["backup"] = [Category.Archive],
                     ["bundle"] = [Category.Archive],
@@ -215,19 +213,19 @@ namespace MimeDetective.Storage.Xml.v2 {
                     ["playlist"] = [Category.Audio, Category.Database],
                     ["installer"] = [Category.Executable, Category.Archive],
 
-                    
+
                     ["3d"] = [Category.Image, Category.Vector],
                     ["2d"] = [Category.Image, Category.Vector],
                     ["3 d"] = [Category.Image, Category.Vector],
                     ["2 d"] = [Category.Image, Category.Vector],
-                    
+
                     ["disk image"] = [Category.DiskImage, Category.Archive],
-                    
+
                     ["raster"] = [Category.Bitmap, Category.Image],
                     ["bitmap"] = [Category.Bitmap, Category.Image],
-                   
 
-                }.ToImmutableDictionary();
+
+                }.ToImmutableDictionary(x => x.Key.ToUpperInvariant(), x => x.Value.ToImmutableArray());
             }
         }
 
@@ -242,7 +240,7 @@ namespace MimeDetective.Storage.Xml.v2 {
                 ;
 
             var Description = $@"{V1.Info?.FileType}";
-            var MimeType = $@"{V1.Info?.MimeType}";
+            var MimeType = $@"{V1.Info?.MimeType}".ToUpperInvariant();
 
             var Categories = CategoryExtractor.Extract(Description);
 

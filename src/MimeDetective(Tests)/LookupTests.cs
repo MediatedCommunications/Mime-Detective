@@ -1,10 +1,10 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MimeDetective.Tests;
 
 [TestClass]
 public class LookupTests {
-    private readonly string _applicationOctetstream = "application/octet-stream";
+    private readonly string _applicationOctetstream = "APPLICATION/OCTET-STREAM";
 
     [TestMethod]
     public void FileExtension_AllowVariants() {
@@ -23,7 +23,7 @@ public class LookupTests {
 
     [TestMethod]
     public void MimeType_AllowVariants() {
-        var expected = "exe";
+        var expected = "EXE";
 
         var v1 = ContentInspectors.Exhaustive.MimeTypeToFileExtensionLookup.TryGetValue("application/octet-stream");
         var v2 = ContentInspectors.Exhaustive.MimeTypeToFileExtensionLookup.TryGetValue("application/OCTET-stream");
