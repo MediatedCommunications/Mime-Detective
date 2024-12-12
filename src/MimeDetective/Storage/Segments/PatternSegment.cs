@@ -1,76 +1,79 @@
-﻿using System;
+using System;
 using System.Collections.Immutable;
+using System.Linq;
 using System.Text;
 
-namespace MimeDetective.Storage;
-
-/// <summary>
-///     The base class representing <see cref="Pattern" /> that exists in the target file.
-/// </summary>
-public abstract class PatternSegment : Segment {
-    private int? _getHashCodeValue;
-
+namespace MimeDetective.Storage {
     /// <summary>
-    ///     The <see cref="Pattern" /> that must exist in the target file.
+    /// The base class representing <see cref="Pattern"/> that exists in the target file.
     /// </summary>
-    public ImmutableArray<byte> Pattern { get; init; } = [];
+    public abstract class PatternSegment : Segment
+    {
+        /// <summary>
+        /// The <see cref="Pattern"/> that must exist in the target file.
+        /// </summary>
+        public ImmutableArray<byte> Pattern { get; init; } = [];
 
-    protected static ImmutableArray<byte> BytesFromHex(string hexString) {
-        const string validCharacters = "0123456789ABCDEF";
-        var trimmed = new StringBuilder(hexString.Length);
+        protected static ImmutableArray<byte> BytesFromHex(string HexString) {
+            var ValidCharacters = "0123456789ABCDEF";
+            var Trimmed = new StringBuilder();
 
-        hexString = hexString
+            HexString = HexString
                 .ToUpperInvariant()
                 .Replace("0X", "")
-            ;
+                ;
 
-        for (var i = 0; i < hexString.Length; i++) {
-            var @char = hexString[i..(i + 1)];
-
-            if (validCharacters.Contains(@char)) {
-                trimmed.Append(@char);
+            for (var i = 0; i < HexString.Length; i++) {
+                var Char = HexString[i..(i + 1)];
+                
+                if (ValidCharacters.Contains(Char)) {
+                    Trimmed.Append(Char);
+                }
             }
-        }
 
-        var ret = Convert
-                .FromHexString(trimmed.ToString())
+            var ret = Convert
+                .FromHexString(Trimmed.ToString())
                 .ToImmutableArray()
-            ;
+                ;
 
-        return ret;
-    }
-
-    protected static ImmutableArray<byte> BytesFromText(string text, bool apostropheIsNull = true) {
-        if (apostropheIsNull) {
-            text = text.Replace("'", "\0");
+            return ret;
         }
 
-        var ret = Encoding.UTF8
-                .GetBytes(text)
+        protected static ImmutableArray<byte> BytesFromText(string Text, bool ApostropheIsNull = true) {
+            if (ApostropheIsNull) {
+                Text = Text.Replace("'", "\0");
+            }
+            var ret = System.Text.Encoding.UTF8
+                .GetBytes(Text)
                 .ToImmutableArray()
-            ;
+                ;
 
-        return ret;
-    }
-
-    public override string? GetDebuggerDisplay() {
-        var hex = Convert.ToHexString([.. Pattern]);
-        var @string = Encoding.UTF8.GetString([.. Pattern]);
-        @string = @string.Replace("\0", "'");
-
-        return $@"{@string} /// {hex}";
-    }
-
-    public sealed override int GetHashCode() {
-        if (_getHashCodeValue is not { } v1) {
-            v1 = GetHashCodeInternal();
-            _getHashCodeValue = v1;
+            return ret;
         }
 
-        return v1;
-    }
+        public override string? GetDebuggerDisplay()
+        {
+            var Hex = System.Convert.ToHexString([.. Pattern]);
+            var String = System.Text.Encoding.UTF8.GetString([.. Pattern]);
+            String = String.Replace("\0", "'");
 
-    protected virtual int GetHashCodeInternal() {
-        return EnumerableComparer<byte>.Instance.GetHashCode(Pattern);
+            return $@"{String} /// {Hex}";
+        }
+
+        private int? GetHashCode_Value;
+        public override sealed int GetHashCode() {
+            
+            if (! (GetHashCode_Value is { } V1)) {
+                V1 = GetHashCodeInternal();
+                GetHashCode_Value = V1;
+            }
+
+            return V1;   
+        }
+
+        protected virtual int GetHashCodeInternal() {
+            return EnumerableComparer<byte>.Instance.GetHashCode(Pattern);
+        }
+
     }
 }

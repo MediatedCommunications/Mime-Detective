@@ -1,163 +1,173 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MimeDetective.Definitions;
-using MimeDetective.Definitions.Licensing;
-using MimeDetective.Engine;
-using MimeDetective.Storage;
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
+using System.Text;
 using System.Linq;
+using MimeDetective.Storage;
+using System.Security.Cryptography;
+using System.Net.Http.Headers;
+using MimeDetective.Engine;
 
-namespace MimeDetective.Tests;
+namespace MimeDetective.Tests
+{
 
-[TestClass]
-public class PerfTests2 {
-    [TestMethod]
-    public void Foo() {
-        var maxLength = 5;
 
-        var data = new ExhaustiveBuilder { UsageType = UsageType.PersonalNonCommercial }.Build();
+    [TestClass]
+    public class PerfTests2 {
+        [TestMethod]
+        public void Foo() {
+            var MaxLength = 5;
 
-        var sortedData = (
-            from x in data
-            let Values = x.Signature.Prefix.OrderBy(p => p.Start).ToList()
-            let ItemStart = Values.FirstOrDefault()?.Start ?? 0
-            let ItemEnd = Values.LastOrDefault()?.ExclusiveEnd() ?? 0
-            let v = new {
-                Signature = x,
-                Start = ItemStart,
-                End = ItemEnd
+            var Data = new MimeDetective.Definitions.ExhaustiveBuilder() {
+                UsageType = Definitions.Licensing.UsageType.PersonalNonCommercial
+            }.Build();
+
+            var SortedData = (
+                from x in Data
+                let Values = x.Signature.Prefix.OrderBy(p => p.Start).ToList()
+                let ItemStart = Values.FirstOrDefault()?.Start ?? 0
+                let ItemEnd = Values.LastOrDefault()?.ExclusiveEnd() ?? 0
+                let v = new {
+                    Signature = x,
+                    Start = ItemStart,
+                    End = ItemEnd
+                }
+                group v by v.Start
+                ).ToDictionary(x => x.Key, x => x.ToList());
+
+            var ByStart = SortedData.OrderByDescending(x => x.Value.Count).ToList();
+                
+            var Start = ByStart.FirstOrDefault();
+            var StartIndex = Start.Key;
+
+            var ByEnd = (
+                from x in Start.Value
+                let v = x
+                group v by v.End
+                ).ToDictionary(x => x.Key, x => x.ToList()).OrderByDescending(x => x.Value.Count).ToList();
+
+            var End = (
+                from x in ByEnd where x.Key < StartIndex + MaxLength
+                select x
+                ).FirstOrDefault();
+            var InclusiveEndIndex = End.Key;
+
+            var ExclusiveEndIndex = 1 + InclusiveEndIndex;
+            var Length = ExclusiveEndIndex - StartIndex ;
+
+            var Tree = new ByteTree<Definition>();
+            foreach (var item in Data) {
+                var Key = item.Signature.Prefix.TryGetRange(StartIndex, Length);
+
+                Tree.Add(Key, item);
+
             }
-            group v by v.Start
-        ).ToDictionary(x => x.Key, x => x.ToList());
 
-        var byStart = sortedData.OrderByDescending(x => x.Value.Count).ToList();
+            var EXE = System.IO.File.ReadAllBytes($@"C:\Windows\System32\Notepad.exe");
+            var Content = GetRange(EXE, StartIndex, Length);
 
-        var start = byStart.FirstOrDefault();
-        var startIndex = start.Key;
+            var TestCount = 10000;
 
-        var byEnd = (
-            from x in start.Value
-            let v = x
-            group v by v.End
-        ).ToDictionary(x => x.Key, x => x.ToList()).OrderByDescending(x => x.Value.Count).ToList();
-
-        var end = (
-            from x in byEnd
-            where x.Key < startIndex + maxLength
-            select x
-        ).FirstOrDefault();
-        var inclusiveEndIndex = end.Key;
-
-        var exclusiveEndIndex = 1 + inclusiveEndIndex;
-        var length = exclusiveEndIndex - startIndex;
-
-        var tree = new ByteTree<Definition>();
-        foreach (var item in data) {
-            var key = item.Signature.Prefix.TryGetRange(startIndex, length);
-
-            tree.Add(key, item);
-        }
-
-        var exe = File.ReadAllBytes(@"C:\Windows\System32\Notepad.exe");
-        var content = GetRange(exe, startIndex, length);
-
-        var testCount = 10000;
-
-        var sw1 = Stopwatch.StartNew();
-        for (var i = 0; i < testCount; i++) {
-            var matches = tree.Find(content);
-        }
-
-        sw1.Stop();
-
-
-        var searcher = new ContentInspectorBuilder {
-            Definitions = data,
-            MatchEvaluatorOptions = new() { IncludeSegmentsStrings = false }
-        }.Build();
-
-        var sw2 = Stopwatch.StartNew();
-
-        for (var i = 0; i < testCount; i++) {
-            var matches = searcher.Inspect(exe);
-        }
-
-        sw2.Stop();
-    }
-
-    private static byte[] GetRange(byte[] content, int startIndex, int length) {
-        var ret = new List<byte>();
-
-        for (var i = 0; i < length; i++) {
-            var position = startIndex + i;
-
-            if (position >= 0 && position < content.Length) {
-                ret.Add(content[position]);
+            var SW1 = System.Diagnostics.Stopwatch.StartNew();
+            for (var i = 0; i < TestCount; i++) {
+                var Matches = Tree.Find(Content);
             }
+            SW1.Stop();
+
+
+            var Searcher = new MimeDetective.ContentInspectorBuilder() {
+                Definitions = Data,
+                MatchEvaluatorOptions = new() {
+                    IncludeSegmentsStrings = false
+                },
+            }.Build();
+
+            var SW2 = System.Diagnostics.Stopwatch.StartNew();
+
+            for (var i = 0; i < TestCount; i++) {
+                var Matches = Searcher.Inspect(EXE);
+            }
+            SW2.Stop();
+
         }
 
+        private static byte[] GetRange(byte[] Content, int StartIndex, int Length) {
+            var ret = new List<byte>();
 
-        return ret.ToArray();
+            for (var i = 0; i < Length; i++) {
+                var Position = StartIndex + i;
+
+                if(Position >= 0 && Position < Content.Length) {
+                    ret.Add(Content[Position]);
+                }
+            }
+
+
+            return [.. ret];
+        }
+
+        [TestMethod]
+        public void ByteTree_Test1() {
+            var Tree = new ByteTree<int>();
+
+            Tree.Add([0, 0, 0], 0);
+            Tree.Add([0, 0, 1], 1);
+            Tree.Add([0, 1, 0], 2);
+            Tree.Add([0, 1, 1], 3);
+            Tree.Add([1, 0, 0], 4);
+            Tree.Add([1, 0, 1], 5);
+            Tree.Add([1, 1, 0], 6);
+            Tree.Add([1, 1, 1], 7);
+
+            Tree.Add([4, 5, 6], 456);
+            Tree.Add([4, 5, null], 450);
+            Tree.Add([4, null, 6], 406);
+            Tree.Add([4, null, null], 400);
+
+
+            {
+                var Test = Tree.Find();
+                Assert.AreEqual(12, Test.Count);
+            }
+
+            {
+                var Test = Tree.Find(0, 0, 0);
+                Assert.AreEqual(1, Test.Count);
+                Assert.IsTrue(Test.Contains(0));
+            }
+
+            {
+                var Test = Tree.Find(0, 0);
+                Assert.AreEqual(2, Test.Count);
+                Assert.IsTrue(Test.Contains(0));
+                Assert.IsTrue(Test.Contains(1));
+            }
+
+            {
+                var Test = Tree.Find(4, 5, 6);
+                Assert.AreEqual(4, Test.Count);
+                Assert.IsTrue(Test.Contains(456));
+                Assert.IsTrue(Test.Contains(450));
+                Assert.IsTrue(Test.Contains(406));
+                Assert.IsTrue(Test.Contains(400));
+            }
+
+            {
+                var Test = Tree.Find(4, 6, 6);
+                Assert.AreEqual(2, Test.Count);
+                Assert.IsTrue(Test.Contains(406));
+                Assert.IsTrue(Test.Contains(400));
+            }
+
+            {
+                var Test = Tree.Find(4, 9, 9);
+                Assert.AreEqual(1, Test.Count);
+                Assert.IsTrue(Test.Contains(400));
+            }
+
+        }
+
     }
 
-    [TestMethod]
-    public void ByteTree_Test1() {
-        var tree = new ByteTree<int>();
-
-        tree.Add([0, 0, 0], 0);
-        tree.Add([0, 0, 1], 1);
-        tree.Add([0, 1, 0], 2);
-        tree.Add([0, 1, 1], 3);
-        tree.Add([1, 0, 0], 4);
-        tree.Add([1, 0, 1], 5);
-        tree.Add([1, 1, 0], 6);
-        tree.Add([1, 1, 1], 7);
-
-        tree.Add([4, 5, 6], 456);
-        tree.Add([4, 5, null], 450);
-        tree.Add([4, null, 6], 406);
-        tree.Add([4, null, null], 400);
-
-
-        {
-            var test = tree.Find();
-            Assert.AreEqual(12, test.Count);
-        }
-
-        {
-            var test = tree.Find(0, 0, 0);
-            Assert.AreEqual(1, test.Count);
-            Assert.IsTrue(test.Contains(0));
-        }
-
-        {
-            var test = tree.Find(0, 0);
-            Assert.AreEqual(2, test.Count);
-            Assert.IsTrue(test.Contains(0));
-            Assert.IsTrue(test.Contains(1));
-        }
-
-        {
-            var test = tree.Find(4, 5, 6);
-            Assert.AreEqual(4, test.Count);
-            Assert.IsTrue(test.Contains(456));
-            Assert.IsTrue(test.Contains(450));
-            Assert.IsTrue(test.Contains(406));
-            Assert.IsTrue(test.Contains(400));
-        }
-
-        {
-            var test = tree.Find(4, 6, 6);
-            Assert.AreEqual(2, test.Count);
-            Assert.IsTrue(test.Contains(406));
-            Assert.IsTrue(test.Contains(400));
-        }
-
-        {
-            var test = tree.Find(4, 9, 9);
-            Assert.AreEqual(1, test.Count);
-            Assert.IsTrue(test.Contains(400));
-        }
-    }
+    
 }

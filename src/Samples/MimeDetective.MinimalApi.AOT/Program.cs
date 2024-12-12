@@ -13,7 +13,7 @@ builder.Services.ConfigureHttpJsonOptions(options => {
 
 var app = builder.Build();
 
-var inspector = new ContentInspectorBuilder { Definitions = Default.All() }.Build();
+var inspector = new ContentInspectorBuilder { Definitions = DefaultDefinitions.All() }.Build();
 
 // This can be tested with
 //   curl --data-binary @example.jpg http://localhost:5016/upload

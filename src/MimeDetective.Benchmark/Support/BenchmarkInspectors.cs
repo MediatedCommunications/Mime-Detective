@@ -1,4 +1,4 @@
-﻿using MimeDetective.Definitions;
+using MimeDetective.Definitions;
 using MimeDetective.Definitions.Licensing;
 using MimeDetective.Storage;
 using System.Collections.Immutable;
@@ -12,7 +12,7 @@ public sealed class BenchmarkInspectors {
         = new CondensedBuilder { UsageType = UsageType.PersonalNonCommercial }.Build();
 
     public ImmutableArray<Definition> DefaultDefinitions { get; }
-        = MimeDetective.Definitions.Default.All();
+        = MimeDetective.Definitions.DefaultDefinitions.All();
 
     public ImmutableArray<Definition> ExhaustiveDefinitions { get; }
         = new ExhaustiveBuilder { UsageType = UsageType.PersonalNonCommercial }.Build();
@@ -28,20 +28,20 @@ public sealed class BenchmarkInspectors {
     public BenchmarkParameter<IContentInspector>[] Inspectors { get; }
 
     public BenchmarkInspectors() {
-        Definitions = [
-            new("Default", DefaultDefinitions),
-            new("Condensed", CondensedDefinitions),
-            new("Exhaustive", ExhaustiveDefinitions)
+        this.Definitions = [
+            new("Default", this.DefaultDefinitions),
+            new("Condensed", this.CondensedDefinitions),
+            new("Exhaustive", this.ExhaustiveDefinitions)
         ];
 
-        Condensed = new ContentInspectorBuilder { Definitions = CondensedDefinitions }.Build();
-        Exhaustive = new ContentInspectorBuilder { Definitions = ExhaustiveDefinitions }.Build();
-        Default = new ContentInspectorBuilder { Definitions = DefaultDefinitions }.Build();
+        this.Condensed = new ContentInspectorBuilder { Definitions = this.CondensedDefinitions }.Build();
+        this.Exhaustive = new ContentInspectorBuilder { Definitions = this.ExhaustiveDefinitions }.Build();
+        this.Default = new ContentInspectorBuilder { Definitions = this.DefaultDefinitions }.Build();
 
-        Inspectors = [
-            new("Default", Default),
-            new("Condensed", Condensed),
-            new("Exhaustive", Exhaustive)
+        this.Inspectors = [
+            new("Default", this.Default),
+            new("Condensed", this.Condensed),
+            new("Exhaustive", this.Exhaustive)
         ];
     }
 }

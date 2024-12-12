@@ -8,7 +8,7 @@ using System.Text.Json.Serialization;
 namespace MimeDetective.Storage;
 
 #if NET8_0_OR_GREATER
-internal static class ByteToHexUtility {
+static internal class ByteToHexUtility {
     public const int MaximumStackalloc = 512;
     public const int MaximumLength = 8 * 1024;
     private static readonly SearchValues<byte> HexSearchValues = SearchValues.Create("abcdefABCDEF0123456789"u8);
@@ -47,6 +47,7 @@ internal static class ByteToHexUtility {
 
 internal abstract class ByteToHexStringConverter<T> : JsonConverter<T>
     where T : IEnumerable<byte> {
+
     protected static byte[] ReadBytes(ref Utf8JsonReader reader, JsonSerializerOptions options) {
         //var xData = JsonSerializer.Deserialize<string>(ref reader, options)
         //        ?? string.Empty
@@ -82,15 +83,18 @@ internal abstract class ByteToHexStringConverter<T> : JsonConverter<T>
             }
         }
 #else
-        var data = reader.GetString()
-            ?? throw new JsonException("Expected string");
+        var Data = reader.GetString();
 
-        return Convert.FromHexString(data);
+        if (Data is null) {
+            throw new JsonException("Expected string");
+        }
+
+        return Convert.FromHexString(Data);
 #endif
     }
 
     protected static void WriteBytes(Utf8JsonWriter writer, ReadOnlySpan<byte> value, JsonSerializerOptions options) {
-        var data = Convert.ToHexString(
+        var Data = Convert.ToHexString(
 #if NET5_0_OR_GREATER
             value
 #else
@@ -99,9 +103,9 @@ internal abstract class ByteToHexStringConverter<T> : JsonConverter<T>
         );
 
 #if NET8_0_OR_GREATER
-        JsonSerializer.Serialize(writer, data, MimeDetectiveSourceGeneratedSerializer.Default.String);
+        JsonSerializer.Serialize(writer, Data, MimeDetectiveSourceGeneratedSerializer.Default.String);
 #else
-        JsonSerializer.Serialize(writer, data, options);
+        JsonSerializer.Serialize(writer, Data, options);
 #endif
         //writer.WriteStringValue(Data);
     }

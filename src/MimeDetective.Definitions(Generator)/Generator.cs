@@ -55,7 +55,7 @@ public class Generator {
         //        where x.File.Categories.IsEmpty
         //        from y in (x.File.Description ?? "").Split(" ",
         //            StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries)
-        //        select y.ToLowerInvariant()
+        //        select y.ToUpperInvariant()
         //    ).GroupBy(x => x)
         //    .Select(x => (Key: x, Value: x.Count()))
         //    .OrderByDescending(x => x.Value)

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
@@ -43,7 +43,7 @@ public static class DefinitionExtensions {
     /// <param name="This"></param>
     /// <returns></returns>
     public static Definition TrimCategories(this Definition This) {
-        var ret = This with { File = This.File with { Categories = ImmutableHashSet<Category>.Empty } };
+        var ret = This with { File = This.File with { Categories = [] } };
 
         return ret;
     }
@@ -155,14 +155,14 @@ public static class DefinitionExtensions {
         var extensionCache = (
                 from x in definitions
                 from y in x.File.Extensions
-                select y.ToLowerInvariant()
+                select y.ToUpperInvariant()
             )
             .Distinct(StringComparer.InvariantCultureIgnoreCase)
             .ToImmutableDictionary(x => x, x => x, StringComparer.InvariantCultureIgnoreCase);
 
         var mimeTypeCache = (
                 from x in definitions
-                let v = x.File.MimeType?.ToLowerInvariant()
+                let v = x.File.MimeType?.ToUpperInvariant()
                 where v is not null
                 select v
             )

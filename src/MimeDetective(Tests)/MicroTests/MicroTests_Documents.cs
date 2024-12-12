@@ -5,7 +5,7 @@ namespace MimeDetective.Tests;
 
 [TestClass]
 public class MicroTestsDocuments : MicroTests {
-    protected override string RelativeRoot => Path.Combine(base.RelativeRoot, "Documents");
+    protected override string RelativeRoot() => Path.Combine(base.RelativeRoot(), "Documents");
 
     [TestMethod]
     public void DocWord2016_doc() {

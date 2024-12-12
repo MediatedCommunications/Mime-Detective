@@ -1,6 +1,6 @@
-﻿namespace MimeDetective.Storage.Xml.v2;
+namespace MimeDetective.Storage.Xml.v2;
 
-public class Time {
+public class HmsTime {
     public int Hour { get; set; }
     public int Min { get; set; }
     public int Sec { get; set; }

@@ -5,7 +5,7 @@ namespace MimeDetective.Tests;
 
 [TestClass]
 public class MicroTestsAssemblies : MicroTests {
-    protected override string RelativeRoot => Path.Combine(base.RelativeRoot, "Assemblies");
+    protected override string RelativeRoot() => Path.Combine(base.RelativeRoot(), "Assemblies");
 
     [TestMethod]
     public void ManagedDLL_dll() {

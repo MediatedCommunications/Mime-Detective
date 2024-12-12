@@ -18,11 +18,11 @@ using System.IO;
 namespace MimeDetective.Benchmark;
 
 public static class BenchmarkConfig {
-    private static readonly IAnalyser[] Analysers = {
+    private static readonly IAnalyser[] Analysers = [
         EnvironmentAnalyser.Default, OutliersAnalyser.Default, MinIterationTimeAnalyser.Default,
         MultimodalDistributionAnalyzer.Default, RuntimeErrorAnalyser.Default, ZeroMeasurementAnalyser.Default,
         BaselineCustomAnalyzer.Default
-    };
+    ];
 
     public static IConfig Get() {
 #if DEBUG

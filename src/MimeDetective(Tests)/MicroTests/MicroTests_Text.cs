@@ -5,7 +5,7 @@ namespace MimeDetective.Tests;
 
 [TestClass]
 public class MicroTestsText : MicroTests {
-    protected override string RelativeRoot => Path.Combine(base.RelativeRoot, "Text");
+    protected override string RelativeRoot() => Path.Combine(base.RelativeRoot(), "Text");
 
     [TestMethod]
     public void MindMap_NoBOM_smmx_xml() {

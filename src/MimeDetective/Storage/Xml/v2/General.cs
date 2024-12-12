@@ -1,4 +1,4 @@
-﻿using System.Xml.Serialization;
+using System.Xml.Serialization;
 
 namespace MimeDetective.Storage.Xml.v2;
 
@@ -10,9 +10,9 @@ public class General {
 
     [XmlElement("CheckStrings")] public string CheckStrings { get; set; } = string.Empty;
 
-    public Date Date { get; } = new();
+    public YmdDate Date { get; } = new();
 
-    public Time Time { get; } = new();
+    public HmsTime Time { get; } = new();
 
     [XmlElement("Creator")] public string Creator { get; set; } = string.Empty;
 }

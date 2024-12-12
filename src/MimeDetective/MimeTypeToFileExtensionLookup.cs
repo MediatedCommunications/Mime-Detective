@@ -1,4 +1,4 @@
-﻿using MimeDetective.Engine;
+using MimeDetective.Engine;
 using MimeDetective.Storage;
 using System;
 using System.Collections.Immutable;
@@ -13,14 +13,14 @@ public class MimeTypeToFileExtensionLookup {
     internal MimeTypeToFileExtensionLookup(ImmutableArray<Definition> definitions) {
         Values = (
             from x1 in definitions
-            let mimetype = x1.File.MimeType?.ToLowerInvariant()
+            let mimetype = x1.File.MimeType?.ToUpperInvariant()
             where !string.IsNullOrWhiteSpace(mimetype)
             group x1 by mimetype
             into G1
             let FileExtensions = (
                 from x2 in G1
                 from y2 in x2.File.Extensions
-                let extension = y2.ToLowerInvariant()
+                let extension = y2.ToUpperInvariant()
                 where !string.IsNullOrWhiteSpace(extension)
                 group x2 by extension
                 into G2

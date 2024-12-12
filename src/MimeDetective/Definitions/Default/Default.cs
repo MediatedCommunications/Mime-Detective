@@ -1,9 +1,9 @@
-﻿using MimeDetective.Storage;
+using MimeDetective.Storage;
 using System.Collections.Immutable;
 
 namespace MimeDetective.Definitions;
 
-public static partial class Default {
+public static partial class DefaultDefinitions {
     public static ImmutableArray<Definition> All() {
         return [
             .. FileTypes.Archives.All(),

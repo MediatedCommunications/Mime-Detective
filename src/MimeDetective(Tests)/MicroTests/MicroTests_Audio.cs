@@ -5,7 +5,7 @@ namespace MimeDetective.Tests;
 
 [TestClass]
 public class MicroTestsAudio : MicroTests {
-    protected override string RelativeRoot => Path.Combine(base.RelativeRoot, "Audio");
+    protected override string RelativeRoot() => Path.Combine(base.RelativeRoot(), "Audio");
 
     [TestMethod]
     public void flacVLC_flac() {

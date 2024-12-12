@@ -1,9 +1,9 @@
-﻿using System.Xml.Serialization;
+using System.Xml.Serialization;
 
 namespace MimeDetective.Storage.Xml.v2;
 
 [XmlType("Date")]
-public class Date {
+public class YmdDate {
     [XmlElement("Year")] public int Year { get; set; }
 
     [XmlElement("Month")] public int Month { get; set; }

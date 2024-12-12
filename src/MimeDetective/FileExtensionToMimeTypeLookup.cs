@@ -1,4 +1,4 @@
-﻿using MimeDetective.Engine;
+using MimeDetective.Engine;
 using MimeDetective.Storage;
 using System;
 using System.Collections.Immutable;
@@ -16,12 +16,12 @@ public class FileExtensionToMimeTypeLookup {
             where !string.IsNullOrWhiteSpace(x1.File.MimeType)
             from y1 in x1.File.Extensions
             where !string.IsNullOrWhiteSpace(y1)
-            group x1 by y1.ToLowerInvariant()
+            group x1 by y1.ToUpperInvariant()
             into G1
             let MimeTypes = (
                 //Group the items by mime type and sort the m descending.
                 from x2 in G1
-                group x2 by x2.File.MimeType?.ToLowerInvariant()
+                group x2 by x2.File.MimeType?.ToUpperInvariant()
                 into G2
                 let Matches = (
                     from y in G2

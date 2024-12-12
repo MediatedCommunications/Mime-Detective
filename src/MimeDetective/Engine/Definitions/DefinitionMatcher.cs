@@ -2,18 +2,20 @@
 using MimeDetective.Storage;
 using System.Collections.Immutable;
 
-namespace MimeDetective.Engine;
+namespace MimeDetective.Engine {
+    internal class DefinitionMatcher : DisplayClass {
 
-internal class DefinitionMatcher : DisplayClass {
-    public Definition Definition { get; }
-    public ImmutableArray<PrefixSegmentMatcher> Prefixes { get; init; } = ImmutableArray<PrefixSegmentMatcher>.Empty;
-    public ImmutableArray<StringSegmentMatcher> Strings { get; init; } = ImmutableArray<StringSegmentMatcher>.Empty;
+        public override string? GetDebuggerDisplay() {
+            return Definition.GetDebuggerDisplay();
+        }
 
-    public DefinitionMatcher(Definition definition) {
-        Definition = definition;
-    }
+        public DefinitionMatcher(Definition Definition) {
+            this.Definition = Definition;
+        }
 
-    public override string? GetDebuggerDisplay() {
-        return Definition.GetDebuggerDisplay();
+        public Definition Definition { get; }
+        public ImmutableArray<PrefixSegmentMatcher> Prefixes { get; init; } = [];
+        public ImmutableArray<StringSegmentMatcher> Strings { get; init; } = [];
+
     }
 }
