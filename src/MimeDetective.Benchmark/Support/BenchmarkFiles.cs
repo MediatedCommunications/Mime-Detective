@@ -1,11 +1,10 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 
 namespace MimeDetective.Benchmark.Support;
 
 public sealed class BenchmarkFiles {
-    public const string DATA_ROOT_PATH = @"MimeDetective(Tests)\MicroTests\Data";
+    public const string DataRootPath = @"MimeDetective(Tests)\MicroTests\Data";
 
     public static BenchmarkFiles Instance { get; } = new();
 
@@ -18,7 +17,7 @@ public sealed class BenchmarkFiles {
 
         var basePath = Path.GetFullPath(".");
         for (;;) {
-            fullPath = Path.Combine(basePath, DATA_ROOT_PATH);
+            fullPath = Path.Combine(basePath, DataRootPath);
             if (Directory.Exists(fullPath)) {
                 break;
             }
@@ -29,14 +28,14 @@ public sealed class BenchmarkFiles {
             }
         }
 
-        this.FilePaths = Directory
+        FilePaths = Directory
             .EnumerateFiles(fullPath, "*", SearchOption.AllDirectories)
             .OrderByDescending(f => f.Length)
             .Where((_, i) => i % 10 == 0)
             .Select(f => new BenchmarkParameter<string>(Path.GetFileName(f), f))
             .ToArray();
 
-        this.FileContents = this.FilePaths
+        FileContents = FilePaths
             .Select(f => new BenchmarkParameter<byte[]>(f.Name, File.ReadAllBytes(f.Value)))
             .ToArray();
     }

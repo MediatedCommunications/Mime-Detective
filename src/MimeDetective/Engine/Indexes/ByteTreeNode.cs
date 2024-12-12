@@ -1,72 +1,62 @@
 ﻿using System.Collections.Generic;
 
-namespace MimeDetective.Engine {
-    internal class ByteTreeNode<T> {
-        public const short NullStandinValue = byte.MaxValue + 1;
+namespace MimeDetective.Engine;
 
-        public List<T> ChildValues { get; } = new();
+internal class ByteTreeNode<T> {
+    public const short NullStandinValue = byte.MaxValue + 1;
 
-        public ByteTreeNode<T>[] ChildNodes { get; } = new ByteTreeNode<T>[NullStandinValue + 1];
+    public List<T> ChildValues { get; } = [];
 
-        public IEnumerable<T> Find(byte[] Key, int Index) {
-            if (Index >= Key.Length) {
-                var Query = ChildValues;
+    public ByteTreeNode<T>[] ChildNodes { get; } = new ByteTreeNode<T>[NullStandinValue + 1];
 
-                foreach (var Result in Query) {
-                    yield return Result;
-                }
+    public IEnumerable<T> Find(byte[] key, int index) {
+        if (index >= key.Length) {
+            var query = ChildValues;
 
-            } else {
-
-
-                var NewValue = Key[Index];
+            foreach (var result in query) {
+                yield return result;
+            }
+        } else {
+            var newValue = key[index];
 
 
-                {
-                    if (ChildNodes[NewValue] is { } V1) {
-                        var Query = V1.Find(Key, Index + 1);
+            {
+                if (ChildNodes[newValue] is { } v1) {
+                    var query = v1.Find(key, index + 1);
 
-                        foreach (var Result in Query) {
-                            yield return Result;
-                        }
-                    }
-                }
-
-                {
-                    if (ChildNodes[NullStandinValue] is { } V1) {
-                        var Query = V1.Find(Key, Index + 1);
-
-                        foreach (var Result in Query) {
-                            yield return Result;
-                        }
+                    foreach (var result in query) {
+                        yield return result;
                     }
                 }
             }
-            
-        }
 
-        public void Add(byte?[] Key, T Value, int Index) {
+            {
+                if (ChildNodes[NullStandinValue] is { } v1) {
+                    var query = v1.Find(key, index + 1);
 
-            ChildValues.Add(Value);
-
-            if (Index < Key.Length) {
-                var NewValue = Key[Index] ?? NullStandinValue;
-                Add(Key, Value, Index, NewValue);
+                    foreach (var result in query) {
+                        yield return result;
+                    }
+                }
             }
         }
-
-        private void Add(byte?[] Key, T Value, int Index, short KeyValue) {
-            if (!(ChildNodes[KeyValue] is { } NextNode)) {
-                NextNode = new();
-                ChildNodes[KeyValue] = NextNode;
-            }
-
-            NextNode.Add(Key, Value, Index + 1);
-
-        }
-
-
-
     }
 
+    public void Add(byte?[] key, T value, int index) {
+        ChildValues.Add(value);
+
+        if (index < key.Length) {
+            var newValue = key[index] ?? NullStandinValue;
+            Add(key, value, index, newValue);
+        }
+    }
+
+    private void Add(byte?[] key, T value, int index, short keyValue) {
+        if (!(ChildNodes[keyValue] is { } nextNode)) {
+            nextNode = new();
+            ChildNodes[keyValue] = nextNode;
+        }
+
+        nextNode.Add(key, value, index + 1);
+    }
 }

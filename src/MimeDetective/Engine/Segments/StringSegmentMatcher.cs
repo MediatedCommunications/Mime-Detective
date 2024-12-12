@@ -1,38 +1,32 @@
-﻿
-using MimeDetective.Diagnostics;
+﻿using MimeDetective.Diagnostics;
 using MimeDetective.Storage;
 using System;
 
-namespace MimeDetective.Engine
-{
+namespace MimeDetective.Engine;
 
-    public abstract class StringSegmentMatcher : DisplayClass, ISegmentMatcher {
-        public override string? GetDebuggerDisplay() {
-            return Segment.GetDebuggerDisplay();
-        }
+public abstract class StringSegmentMatcher : DisplayClass, ISegmentMatcher {
+    public StringSegment Segment { get; }
 
-        public StringSegment Segment { get; }
+    public StringSegmentMatcher(StringSegment segment) {
+        Segment = segment;
+    }
 
-        public StringSegmentMatcher(StringSegment Segment) {
-            this.Segment = Segment;
-        }
+    public abstract SegmentMatch Match(ReadOnlySpan<byte> content);
 
-        public abstract SegmentMatch Match(ReadOnlySpan<byte> Content);
+    public override string? GetDebuggerDisplay() {
+        return Segment.GetDebuggerDisplay();
+    }
 
 
-        public static StringSegmentMatcher Create(StringSegment Segment)
-        {
-            return CreateHighSpeed(Segment);
-        }
+    public static StringSegmentMatcher Create(StringSegment segment) {
+        return CreateHighSpeed(segment);
+    }
 
-        public static StringSegmentMatcher CreateLowMemory(StringSegment Segment) {
-            return new StringSegmentMatcherBrute(Segment);
-        }
+    public static StringSegmentMatcher CreateLowMemory(StringSegment segment) {
+        return new StringSegmentMatcherBrute(segment);
+    }
 
-        public static StringSegmentMatcher CreateHighSpeed(StringSegment Segment) {
-            return new StringSegmentMatcherBoyerMoore(Segment);
-        }
-
-        
+    public static StringSegmentMatcher CreateHighSpeed(StringSegment segment) {
+        return new StringSegmentMatcherBoyerMoore(segment);
     }
 }

@@ -1,26 +1,20 @@
 ﻿using System.Collections.Generic;
 using System.Collections.Immutable;
 
-namespace MimeDetective.Storage {
-    /// <summary>
-    /// Represents a <see cref="Segment"/> that can occur anywhere in the content.
-    /// </summary>
-    public class StringSegment : PatternSegment
-    {
-        public static StringSegment None { get; } = new();
+namespace MimeDetective.Storage;
 
-        public static StringSegment Create(string Text, bool ApostropheIsNull = true) {
-            var ret = new Storage.StringSegment() {
-                Pattern = BytesFromText(Text, ApostropheIsNull),
-            };
-            return ret;
+/// <summary>
+///     Represents a <see cref="Segment" /> that can occur anywhere in the content.
+/// </summary>
+public class StringSegment : PatternSegment {
+    public static StringSegment None { get; } = new();
 
-        }
+    public static StringSegment Create(string text, bool apostropheIsNull = true) {
+        var ret = new StringSegment { Pattern = BytesFromText(text, apostropheIsNull) };
+        return ret;
+    }
 
-        public static StringSegment Create(IEnumerable<byte> Bytes) {
-            return new StringSegment() {
-                Pattern = Bytes.ToImmutableArray(),
-            };
-        }
+    public static StringSegment Create(IEnumerable<byte> bytes) {
+        return new() { Pattern = bytes.ToImmutableArray() };
     }
 }

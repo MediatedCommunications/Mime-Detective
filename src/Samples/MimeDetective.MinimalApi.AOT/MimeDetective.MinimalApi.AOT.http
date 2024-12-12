@@ -1,0 +1,7 @@
+@MimeDetective.MinimalApi.AOT_HostAddress = http://localhost:5016
+
+###
+POST {{MimeDetective.MinimalApi.AOT_HostAddress}}/upload
+
+< ../../__Shared/noun_data search_4033516.png
+###

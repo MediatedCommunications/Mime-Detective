@@ -1,10 +1,5 @@
 ﻿using MimeDetective.Diagnostics;
 
-namespace MimeDetective.Engine
-{
-    public abstract record SegmentMatch : DisplayRecord
-    {
-        
-    }
+namespace MimeDetective.Engine;
 
-}
+public abstract record SegmentMatch : DisplayRecord { }

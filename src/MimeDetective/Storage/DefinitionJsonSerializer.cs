@@ -1,96 +1,91 @@
-﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
-using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace MimeDetective.Storage {
+namespace MimeDetective.Storage;
 
-    /// <summary>
-    /// Read and write <see cref="Definition"/>s in raw JSON form.
-    /// </summary>
-    public static partial class DefinitionJsonSerializer {
-        private static JsonSerializerOptions SerializerOptions() {
-            var ret = new JsonSerializerOptions() {
-                AllowTrailingCommas = true,
-                PropertyNameCaseInsensitive = true,
-                WriteIndented = true,
-                DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingDefault,
-                Converters =
-                {
-                    new ImmutableByteArrayToHexStringConverter(),
+/// <summary>
+///     Read and write <see cref="Definition" />s in raw JSON form.
+/// </summary>
+public static class DefinitionJsonSerializer {
+    private static JsonSerializerOptions SerializerOptions() {
+        var ret = new JsonSerializerOptions {
+            AllowTrailingCommas = true,
+            PropertyNameCaseInsensitive = true,
+            WriteIndented = true,
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault,
+            Converters = {
+                new ImmutableByteArrayToHexStringConverter(),
 #if NET7_0_OR_GREATER
-                },
-                TypeInfoResolver = MimeDetectiveSourceGeneratedSerializer.Default
+            },
+            TypeInfoResolver = MimeDetectiveSourceGeneratedSerializer.Default
 #else
-                    new JsonStringEnumConverter(),
-                }
+                new JsonStringEnumConverter()
+            }
 #endif
-            };
+        };
 
-            return ret;
-        }
+        return ret;
+    }
 
-        public static Definition[] FromJson(Stream Content) {
-            var ret =
+    public static Definition[] FromJson(Stream content) {
+        var ret =
 #if NET7_0_OR_GREATER
-            JsonSerializer.Deserialize(Content, MimeDetectiveSourceGeneratedSerializer.Default.DefinitionArray);
+            JsonSerializer.Deserialize(content, MimeDetectiveSourceGeneratedSerializer.Default.DefinitionArray);
 #else
-            JsonSerializer.Deserialize<Definition[]>(Content, SerializerOptions());
+            JsonSerializer.Deserialize<Definition[]>(content, SerializerOptions());
 #endif
-            return ret ?? [];
-        }
+        return ret ?? [];
+    }
 
 #if NET8_0_OR_GREATER
-        [RequiresDynamicCodeAttribute("The JSON deserializer may require dynamic code")]
-        [RequiresUnreferencedCode("JSON deserialization may require types that cannot be statically analyzed.")]
+    [RequiresDynamicCode("The JSON deserializer may require dynamic code")]
+    [RequiresUnreferencedCode("JSON deserialization may require types that cannot be statically analyzed.")]
 #endif
-        public static Definition[] FromJson(JsonSerializerOptions? Options, Stream Content) {
-            if (Options is null) {
-                return FromJson(Content);
-            }
-
-            var ret = JsonSerializer.Deserialize<Definition[]>(Content, Options) ?? [];
-
-            return ret;
+    public static Definition[] FromJson(JsonSerializerOptions? options, Stream content) {
+        if (options is null) {
+            return FromJson(content);
         }
 
+        var ret = JsonSerializer.Deserialize<Definition[]>(content, options) ?? [];
 
-        public static void ToJson(Stream Data, IEnumerable<Definition> Values) {
+        return ret;
+    }
+
+
+    public static void ToJson(Stream data, IEnumerable<Definition> values) {
 #if NET7_0_OR_GREATER
-            JsonSerializer.Serialize(Data, Values, MimeDetectiveSourceGeneratedSerializer.Default.IEnumerableDefinition);
+        JsonSerializer.Serialize(data, values, MimeDetectiveSourceGeneratedSerializer.Default.IEnumerableDefinition);
 #else
-            JsonSerializer.Serialize(Data, Values, SerializerOptions());
+        JsonSerializer.Serialize(data, values, SerializerOptions());
 #endif
-        }
+    }
 
 #if NET7_0_OR_GREATER
-        [RequiresDynamicCode("JSON serialization may require dynamic code.")]
-        [RequiresUnreferencedCode("JSON serialization may require types that cannot be statically analyzed.")]
+    [RequiresDynamicCode("JSON serialization may require dynamic code.")]
+    [RequiresUnreferencedCode("JSON serialization may require types that cannot be statically analyzed.")]
 #endif
-        public static void ToJson(JsonSerializerOptions? Options, Stream Data, IEnumerable<Definition> Values) {
-            if (Options is null) {
-                ToJson(Data, Values);
-            } else {
-                JsonSerializer.Serialize(Data, Values, Options);
-            }
+    public static void ToJson(JsonSerializerOptions? options, Stream data, IEnumerable<Definition> values) {
+        if (options is null) {
+            ToJson(data, values);
+        } else {
+            JsonSerializer.Serialize(data, values, options);
         }
+    }
 
 #if NET7_0_OR_GREATER
-        [RequiresDynamicCode("JSON serialization may require dynamic code.")]
-        [RequiresUnreferencedCode("JSON serialization may require types that cannot be statically analyzed.")]
+    [RequiresDynamicCode("JSON serialization may require dynamic code.")]
+    [RequiresUnreferencedCode("JSON serialization may require types that cannot be statically analyzed.")]
 #endif
-        public static void ToJsonFile(string FileName, IEnumerable<Definition> Values, JsonSerializerOptions? Options = default) {
-            using var Stream = new FileStream(FileName, FileMode.Create, FileAccess.Write, FileShare.Read, 64 * 1024);
+    public static void ToJsonFile(string fileName, IEnumerable<Definition> values, JsonSerializerOptions? options = default) {
+        using var stream = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.Read, 64 * 1024);
 
-            if (Options is null) {
-                ToJson(Stream, Values);
-            } else {
-                JsonSerializer.Serialize(Stream, Values, Options);
-            }
+        if (options is null) {
+            ToJson(stream, values);
+        } else {
+            JsonSerializer.Serialize(stream, values, options);
         }
-
     }
 }

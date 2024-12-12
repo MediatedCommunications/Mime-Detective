@@ -1,86 +1,76 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using System.Text;
+using System.Xml;
 
-namespace MimeDetective.Storage.Xml.v2 {
+namespace MimeDetective.Storage.Xml.v2;
 
-    /// <summary>
-    /// Read and write xml file definitions
-    /// </summary>
-    public static class XmlSerializer
-    {
+/// <summary>
+///     Read and write xml file definitions
+/// </summary>
+public static class XmlSerializer {
+#if NET8_0_OR_GREATER
+    [RequiresUnreferencedCode("XmlSerializer deserializes Definition")]
+#endif
+    public static Definition? FromXml(string input) {
+        var bytes = Encoding.UTF8.GetBytes(input);
+
+        using var ms = new MemoryStream(bytes);
+
+        return FromXmlStream(ms);
+    }
 
 #if NET8_0_OR_GREATER
-        [RequiresUnreferencedCode("XmlSerializer deserializes Definition")]
+    [RequiresUnreferencedCode("XmlSerializer deserializes Definition")]
+    [DynamicDependency(DynamicallyAccessedMemberTypes.All, typeof(Definition))]
 #endif
-        public static Definition? FromXml(string Input)
-        {
-            var Bytes = System.Text.Encoding.UTF8.GetBytes(Input);
+    public static Definition? FromXmlStream(Stream input) {
+        var serializer = new System.Xml.Serialization.XmlSerializer(typeof(Definition));
 
-            using var MS = new MemoryStream(Bytes);
+        var ret = serializer.Deserialize(XmlReader.Create(input)) as Definition;
 
-            return FromXmlStream(MS);
-        }
+        return ret;
+    }
 
 #if NET8_0_OR_GREATER
-        [RequiresUnreferencedCode("XmlSerializer deserializes Definition")]
+    [RequiresUnreferencedCode("XmlSerializer deserializes Definition")]
 #endif
-        public static Definition? FromXmlStream(Stream Input) {
-            
-            var Serializer = new System.Xml.Serialization.XmlSerializer(typeof(Definition));
-
-            var ret = Serializer.Deserialize(Input) as Definition;
-
-            return ret;
-        }
-
-#if NET8_0_OR_GREATER
-        [RequiresUnreferencedCode("XmlSerializer deserializes Definition")]
-#endif
-        public static Definition? FromXmlFile(string FileName)
-        {
-            using var fs = System.IO.File.OpenRead(FileName);
-            return FromXmlStream(fs);
-        }
+    public static Definition? FromXmlFile(string fileName) {
+        using var fs = File.OpenRead(fileName);
+        return FromXmlStream(fs);
+    }
 
 
 #if NET8_0_OR_GREATER
-        [RequiresUnreferencedCode("XmlSerializer serializes Definition")]
+    [RequiresUnreferencedCode("XmlSerializer serializes Definition")]
 #endif
-        public static string ToXml(Xml.v2.Definition Definition)
-        {
-            using var ms = new MemoryStream();
-            ToXmlStream(ms, Definition);
+    public static string ToXml(Definition definition) {
+        using var ms = new MemoryStream();
+        ToXmlStream(ms, definition);
 
-            ms.Position = 0;
+        ms.Position = 0;
 
-            using var sr = new System.IO.StreamReader(ms);
-            
-            var ret = sr.ReadToEnd();
+        using var sr = new StreamReader(ms);
 
-            return ret;
+        var ret = sr.ReadToEnd();
 
-        }
+        return ret;
+    }
 
 #if NET8_0_OR_GREATER
-        [RequiresUnreferencedCode("XmlSerializer serializes Definition")]
+    [RequiresUnreferencedCode("XmlSerializer serializes Definition")]
 #endif
-        public static void ToXmlFile(string FileName, Xml.v2.Definition Definition)
-        {
-            using var fs = System.IO.File.OpenWrite(FileName);
-            ToXmlStream(fs, Definition);
-        }
+    public static void ToXmlFile(string fileName, Definition definition) {
+        using var fs = File.OpenWrite(fileName);
+        ToXmlStream(fs, definition);
+    }
 
 #if NET8_0_OR_GREATER
-        [RequiresUnreferencedCode("XmlSerializer serializes Definition")]
+    [RequiresUnreferencedCode("XmlSerializer serializes Definition")]
 #endif
-        public static void  ToXmlStream(Stream Output, Xml.v2.Definition Definition)
-        {
-            var Serializer = new System.Xml.Serialization.XmlSerializer(typeof(Definition));
+    public static void ToXmlStream(Stream output, Definition definition) {
+        var serializer = new System.Xml.Serialization.XmlSerializer(typeof(Definition));
 
-            Serializer.Serialize(Output, Definition);
-
-        }
-
-
+        serializer.Serialize(output, definition);
     }
 }

@@ -1,73 +1,65 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
-namespace MimeDetective.Storage {
-    /// <summary>
-    /// Read and write <see cref="Definition"/>s in a compressed binary form.
-    /// </summary>
-    public static partial class DefinitionBinarySerializer
-    {
+namespace MimeDetective.Storage;
 
-        private static JsonSerializerOptions SerializerOptions()
-        {
-            var ret = new JsonSerializerOptions()
-            {
-                AllowTrailingCommas = true,
-                PropertyNameCaseInsensitive = true,
-                WriteIndented = false,
-                DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingDefault,
+/// <summary>
+///     Read and write <see cref="Definition" />s in a compressed binary form.
+/// </summary>
+public static class DefinitionBinarySerializer {
+    private static JsonSerializerOptions SerializerOptions() {
+        var ret = new JsonSerializerOptions {
+            AllowTrailingCommas = true,
+            PropertyNameCaseInsensitive = true,
+            WriteIndented = false,
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault,
 #if NET7_0_OR_GREATER
-                TypeInfoResolver = MimeDetectiveSourceGeneratedSerializer.Default
+            TypeInfoResolver = MimeDetectiveSourceGeneratedSerializer.Default
 #endif
-            };
+        };
 
-            return ret;
-        }
+        return ret;
+    }
 
 
-        public static Definition[] FromBinary(Stream Data)
-        {
-            using var CS = new System.IO.Compression.GZipStream(Data, System.IO.Compression.CompressionMode.Decompress, true);
-            using var BS = new BufferedStream(CS, 128 * 1024);
+    public static Definition[] FromBinary(Stream data) {
+        using var cs = new GZipStream(data, CompressionMode.Decompress, true);
+        using var bs = new BufferedStream(cs, 128 * 1024);
 
-            var ret = DefinitionJsonSerializer.FromJson(BS);
+        var ret = DefinitionJsonSerializer.FromJson(bs);
 
-            return ret;
-        }
+        return ret;
+    }
 
-        public static Definition[] FromBinaryFile(string FileName)
-        {
-            using var Content = new FileStream(FileName, FileMode.Open, FileAccess.Read, FileShare.Read, 128 * 1024);
+    public static Definition[] FromBinaryFile(string fileName) {
+        using var content = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.Read, 128 * 1024);
 
-            var ret = FromBinary(Content);
+        var ret = FromBinary(content);
 
-            return ret;
-        }
+        return ret;
+    }
 
-        public static void ToBinary(Stream Content, params Definition[] Values)
-        {
-            ToBinary(Content, Values.AsEnumerable());
-        }
+    public static void ToBinary(Stream content, params Definition[] values) {
+        ToBinary(content, values.AsEnumerable());
+    }
 
-        public static void ToBinary(Stream Data, IEnumerable<Definition> Values)
-        {
-            using var CS = new System.IO.Compression.GZipStream(Data, System.IO.Compression.CompressionLevel.Optimal, true);
+    public static void ToBinary(Stream data, IEnumerable<Definition> values) {
+        using var cs = new GZipStream(data, CompressionLevel.Optimal, true);
 
-            DefinitionJsonSerializer.ToJson(CS, Values);
-        }
+        DefinitionJsonSerializer.ToJson(cs, values);
+    }
 
-        public static void ToBinaryFile(string FileName, params Definition[] Values) {
-            ToBinaryFile(FileName, Values.AsEnumerable());
-        }
+    public static void ToBinaryFile(string fileName, params Definition[] values) {
+        ToBinaryFile(fileName, values.AsEnumerable());
+    }
 
-        public static void ToBinaryFile(string FileName, IEnumerable<Definition> Values)
-        {
-            using var Content = new FileStream(FileName, FileMode.Create, FileAccess.Write, FileShare.Read, 128 * 1024);
+    public static void ToBinaryFile(string fileName, IEnumerable<Definition> values) {
+        using var content = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.Read, 128 * 1024);
 
-            ToBinary(Content, Values);
-        }
-
+        ToBinary(content, values);
     }
 }

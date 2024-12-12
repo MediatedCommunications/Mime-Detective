@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "MimeDetective.Console.AOT": {
+      "commandName": "Project",
+      "commandLineArgs": "\"../../__Shared/noun_data search_4033516.png\"",
+      "workingDirectory": "$(ProjectDir)"
+    }
+  }
+}

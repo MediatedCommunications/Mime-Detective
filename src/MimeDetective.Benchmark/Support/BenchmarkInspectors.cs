@@ -19,29 +19,29 @@ public sealed class BenchmarkInspectors {
 
     public BenchmarkParameter<ImmutableArray<Definition>>[] Definitions { get; }
 
-    public ContentInspector Default { get; }
+    public IContentInspector Default { get; }
 
-    public ContentInspector Condensed { get; }
+    public IContentInspector Condensed { get; }
 
-    public ContentInspector Exhaustive { get; }
+    public IContentInspector Exhaustive { get; }
 
-    public BenchmarkParameter<ContentInspector>[] Inspectors { get; }
+    public BenchmarkParameter<IContentInspector>[] Inspectors { get; }
 
     public BenchmarkInspectors() {
-        this.Definitions = [
-            new("Default", this.DefaultDefinitions),
-            new("Condensed", this.CondensedDefinitions),
-            new("Exhaustive", this.ExhaustiveDefinitions)
+        Definitions = [
+            new("Default", DefaultDefinitions),
+            new("Condensed", CondensedDefinitions),
+            new("Exhaustive", ExhaustiveDefinitions)
         ];
 
-        this.Condensed = new ContentInspectorBuilder { Definitions = this.CondensedDefinitions }.Build();
-        this.Exhaustive = new ContentInspectorBuilder { Definitions = this.ExhaustiveDefinitions }.Build();
-        this.Default = new ContentInspectorBuilder { Definitions = this.DefaultDefinitions }.Build();
+        Condensed = new ContentInspectorBuilder { Definitions = CondensedDefinitions }.Build();
+        Exhaustive = new ContentInspectorBuilder { Definitions = ExhaustiveDefinitions }.Build();
+        Default = new ContentInspectorBuilder { Definitions = DefaultDefinitions }.Build();
 
-        this.Inspectors = [
-            new("Default", this.Default),
-            new("Condensed", this.Condensed),
-            new("Exhaustive", this.Exhaustive)
+        Inspectors = [
+            new("Default", Default),
+            new("Condensed", Condensed),
+            new("Exhaustive", Exhaustive)
         ];
     }
 }

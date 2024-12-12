@@ -1,21 +1,23 @@
-﻿using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Attributes;
 using MimeDetective.Benchmark.Support;
 
 namespace MimeDetective.Benchmark;
 
+#pragma warning disable CA1822
+
 public class InspectorBuilderBenchmarks {
     [Benchmark(Baseline = true)]
-    public ContentInspector BuildDefault() {
+    public IContentInspector BuildDefault() {
         return new ContentInspectorBuilder { Definitions = BenchmarkInspectors.Instance.DefaultDefinitions }.Build();
     }
 
     [Benchmark]
-    public ContentInspector BuildCondensed() {
+    public IContentInspector BuildCondensed() {
         return new ContentInspectorBuilder { Definitions = BenchmarkInspectors.Instance.CondensedDefinitions }.Build();
     }
 
     [Benchmark]
-    public ContentInspector BuildExhaustive() {
+    public IContentInspector BuildExhaustive() {
         return new ContentInspectorBuilder { Definitions = BenchmarkInspectors.Instance.ExhaustiveDefinitions }.Build();
     }
 }

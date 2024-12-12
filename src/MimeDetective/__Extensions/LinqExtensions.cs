@@ -1,23 +1,22 @@
 ﻿using System.Collections.Generic;
 
-namespace System.Linq {
-    static internal class LinqExtensions {
-        public static ParallelQuery<T> AsParallel<T>(this IEnumerable<T> Source, bool Parallel) {
-            var ret = Source.AsParallel();
+namespace System.Linq;
 
-            if (Parallel) {
-                ret = ret
+internal static class LinqExtensions {
+    public static ParallelQuery<T> AsParallel<T>(this IEnumerable<T> source, bool parallel) {
+        var ret = source.AsParallel();
+
+        if (parallel) {
+            ret = ret
                     .WithExecutionMode(ParallelExecutionMode.ForceParallelism)
                     .WithMergeOptions(ParallelMergeOptions.FullyBuffered)
-                    ;
-            } else {
-                ret = ret.WithExecutionMode(ParallelExecutionMode.Default)
+                ;
+        } else {
+            ret = ret.WithExecutionMode(ParallelExecutionMode.Default)
                     .WithDegreeOfParallelism(1)
-                    ;
-            }
-
-            return ret;
+                ;
         }
 
+        return ret;
     }
 }

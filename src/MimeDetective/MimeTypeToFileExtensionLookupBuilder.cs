@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using System.Collections.Immutable;
 
-namespace MimeDetective {
-    public class MimeTypeToFileExtensionLookupBuilder {
-        public IList<Definition> Definitions { get; set; } = new List<Definition>();
+namespace MimeDetective;
 
-        public MimeTypeToFileExtensionLookup Build() {
-            var defs = Definitions.ToImmutableArray();
+public class MimeTypeToFileExtensionLookupBuilder {
+    public IList<Definition> Definitions { get; set; } = [];
 
-            return new MimeTypeToFileExtensionLookup(defs);
-        }
+    public MimeTypeToFileExtensionLookup Build() {
+        var defs = Definitions.ToImmutableArray();
 
+        return new(defs);
     }
 }

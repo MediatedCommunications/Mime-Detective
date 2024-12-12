@@ -2,27 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MimeDetective.Definitions.Licensing {
-    public class UsageTypeNotAllowedException : Exception {
-        public UsageTypeNotAllowedException(UsageType InvalidUsageType, UsageType[] AllowedUsageTypes, string? Message = default) : base(CreateMessage(InvalidUsageType, AllowedUsageTypes, Message)) {
+namespace MimeDetective.Definitions.Licensing;
 
-        }
+public class UsageTypeNotAllowedException : Exception {
+    public UsageTypeNotAllowedException(UsageType invalidUsageType, UsageType[] allowedUsageTypes, string? message = default) :
+        base(CreateMessage(invalidUsageType, allowedUsageTypes, message)) { }
 
-        private static string CreateMessage(UsageType UsageType, UsageType[] AllowedUsageTypes, string? Message) {
-            var AllowedUsageString = string.Join(", ", AllowedUsageTypes.Select(x => x.ToString()));
+    private static string CreateMessage(UsageType usageType, UsageType[] allowedUsageTypes, string? message) {
+        var allowedUsageString = string.Join(", ", allowedUsageTypes.Select(x => x.ToString()));
 
-            var Lines = new List<string?> {
-                $@"{UsageType.GetType().Name} '{UsageType}' is not allowed.",
-                $@"Acceptable usage types are: {{ {AllowedUsageString} }}",
-                Message
-            };
+        var lines = new List<string?> {
+            $@"{usageType.GetType().Name} '{usageType}' is not allowed.",
+            $@"Acceptable usage types are: {{ {allowedUsageString} }}",
+            message
+        };
 
-            Lines = Lines.Where(x => !string.IsNullOrWhiteSpace(x)).ToList();
+        lines = lines.Where(x => !string.IsNullOrWhiteSpace(x)).ToList();
 
-            var ret = string.Join("\n", Lines);
+        var ret = string.Join("\n", lines);
 
-            return ret;
-        }
+        return ret;
     }
-
 }

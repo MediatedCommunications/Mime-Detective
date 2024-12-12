@@ -1,81 +1,72 @@
 ﻿using System;
 using System.IO;
 
-namespace MimeDetective {
-    public class ContentReader {
+namespace MimeDetective;
 
-        /// <summary>
-        /// The default <see cref="ContentReader"/> which will load up to 10MB from a stream.
-        /// </summary>
-        public static ContentReader Default { get; }
+public class ContentReader {
+    /// <summary>
+    ///     The default <see cref="ContentReader" /> which will load up to 10MB from a stream.
+    /// </summary>
+    public static ContentReader Default { get; }
 
-        /// <summary>
-        /// An alternative <see cref="ContentReader"/>  which will load up to 2GB from a stream.
-        /// </summary>
-        public static ContentReader Max { get; }
+    /// <summary>
+    ///     An alternative <see cref="ContentReader" />  which will load up to 2GB from a stream.
+    /// </summary>
+    public static ContentReader Max { get; }
 
-        /// <summary>
-        /// An alternative <see cref="ContentReader"/>  which will load up to 1KB from a stream.
-        /// </summary>
-        public static ContentReader Min { get; }
+    /// <summary>
+    ///     An alternative <see cref="ContentReader" />  which will load up to 1KB from a stream.
+    /// </summary>
+    public static ContentReader Min { get; }
 
-        static ContentReader() {
-            Default = new ContentReader() {
-                MaxFileSize = 10 * 1024 * 1024,
-            };
+    public int MaxFileSize { get; init; }
 
-            Min = new ContentReader() { 
-                MaxFileSize = 1024,
-            };
+    static ContentReader() {
+        Default = new() { MaxFileSize = 10 * 1024 * 1024 };
 
-            Max = new ContentReader() { 
-                MaxFileSize = int.MaxValue,
-            };
+        Min = new() { MaxFileSize = 1024 };
 
-        }
+        Max = new() { MaxFileSize = int.MaxValue };
+    }
 
-        public int MaxFileSize { get; init; }
+    public byte[] ReadFromFile(string fileName) {
+        using var fs = File.OpenRead(fileName);
 
-        public byte[] ReadFromFile(string FileName) {
-            using var FS = System.IO.File.OpenRead(FileName);
+        return ReadFromStream(fs);
+    }
 
-            return ReadFromStream(FS, false);
-        }
+    public byte[] ReadFromStream(Stream input, bool resetPosition = false) {
+        var ret = resetPosition
+                ? FromStream_Reset_True(input)
+                : FromStream_Reset_False(input)
+            ;
 
-        public byte[] ReadFromStream(Stream Input, bool ResetPosition = false) {
-            var ret = ResetPosition
-                ? FromStream_Reset_True(Input)
-                : FromStream_Reset_False(Input)
-                ;
+        return ret;
+    }
 
-            return ret;
-        }
+    public byte[] ReadFromStream(Func<Stream> input) {
+        using var stream = input();
 
-        public byte[] ReadFromStream(Func<Stream> Input) {
-            using var Stream = Input();
-            
-            var ret = FromStream_Reset_False(Stream);
+        var ret = FromStream_Reset_False(stream);
 
-            return ret;
-        }
+        return ret;
+    }
 
-        protected byte[] FromStream_Reset_True(Stream Input) {
-            var Position = Input.Position;
+    protected byte[] FromStream_Reset_True(Stream input) {
+        var position = input.Position;
 
-            var R = new BinaryReader(Input);
-            var ret = R.ReadBytes(MaxFileSize);
+        var r = new BinaryReader(input);
+        var ret = r.ReadBytes(MaxFileSize);
 
-            Input.Position = Position;
+        input.Position = position;
 
-            return ret;
-        }
+        return ret;
+    }
 
-        protected byte[] FromStream_Reset_False(Stream Input) {
-            var R = new BinaryReader(Input);
-            var ret = R.ReadBytes(MaxFileSize);
+    protected byte[] FromStream_Reset_False(Stream input) {
+        var r = new BinaryReader(input);
+        var ret = r.ReadBytes(MaxFileSize);
 
-            return ret;
-        }
-
+        return ret;
     }
 }

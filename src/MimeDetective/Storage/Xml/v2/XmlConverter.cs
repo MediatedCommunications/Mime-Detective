@@ -4,347 +4,281 @@ using System.Collections.Immutable;
 using System.Linq;
 using System.Text;
 
-namespace MimeDetective.Storage.Xml.v2 {
+namespace MimeDetective.Storage.Xml.v2;
 
-    /// <summary>
-    /// Convert XML definitions into <see cref="Engine.Definition"/>s.
-    /// </summary>
-    public static class XmlConverter
-    {
+/// <summary>
+///     Convert XML definitions into <see cref="Engine.Definition" />s.
+/// </summary>
+public static class XmlConverter {
+    public static Storage.Definition Convert(Definition v1) {
+        var ret = new Storage.Definition {
+            File = ConvertFile(v1),
+            Meta = ConvertMeta(v1),
+            Signature = ConvertSignature(v1)
+        };
 
-        public static Storage.Definition Convert(Definition V1)
-        {
-            var ret = new Storage.Definition()
-            {
-                File = ConvertFile(V1),
-                Meta = ConvertMeta(V1),
-                Signature = ConvertSignature(V1),
-            };
-
-            return ret;
-        }
-
-        private static class CategoryExtractor {
-            private static ImmutableDictionary<string, Category[]> Lookup { get; }
-            
-            public static string Tokenize(string Text) {
-                var sb = new StringBuilder();
-
-                var Space = (char)32;
-                var Last = 0;
-                foreach (var c in Text.ToLower()) {
-                    var Next = c;
-                    if (!char.IsLetterOrDigit(c)) {
-                        Next = Space;
-                    }
-
-                    if (Next == Space && Last == Space) {
-                        //Ignore it.
-                    } else {
-                        sb.Append(Next);
-                    }
-
-                    Last = Next;
-                }
-
-                var ret = sb.ToString();
-                while (true) {
-                    var New = ret.Replace("  ", " ");
-
-                    if(New == ret) {
-                        break;
-                    }
-
-                    ret = New;
-                }
-
-                return ret;
-            }
-
-            public static ImmutableHashSet<Category> Extract(string Text) {
-                var ret = new List<Category>();
-
-                var Input = Tokenize(Text);
-
-                foreach (var item in Lookup) {
-                    if (Input.Contains(item.Key)) {
-                        ret.AddRange(item.Value);
-                    }
-                }
-
-                if(ret.Count == 0) {
-
-                }
-
-                return ret.ToImmutableHashSet();
-            }
-            
-            static CategoryExtractor() {
-                Lookup = new Dictionary<string, Category[]>() {
-
-                    
-                    ["archive"] = new[] { Category.Archive },
-                    ["backup"] = new[] { Category.Archive },
-                    ["bundle"] = new[] { Category.Archive },
-                    ["cabinet"] = new[] { Category.Archive },
-                    ["collection"] = new[] { Category.Archive },
-                    ["composite"] = new[] { Category.Archive },
-                    ["compound"] = new[] { Category.Archive },
-                    ["container"] = new[] { Category.Archive },
-                    ["export"] = new[] { Category.Archive },
-                    ["library"] = new[] { Category.Archive },
-                    ["package"] = new[] { Category.Archive },
-                    ["set"] = new[] { Category.Archive },
-                    ["sets"] = new[] { Category.Archive },
-                    ["zip"] = new[] { Category.Archive },
-
-                    ["audio"] = new[] { Category.Audio },
-                    ["instrument"] = new[] { Category.Audio },
-                    ["music"] = new[] { Category.Audio },
-                    ["sample"] = new[] { Category.Audio },
-                    ["song"] = new[] { Category.Audio },
-                    ["sound"] = new[] { Category.Audio },
-                    ["track"] = new[] { Category.Audio },
-                    ["voice"] = new[] { Category.Audio },
-                    ["waveform"] = new[] { Category.Audio },
-
-                    ["big endian"] = new[] { Category.BigEndian },
-
-                    ["compress"] = new[] { Category.Compressed },
-                    ["packed"] = new[] { Category.Compressed },
-
-                    ["config"] = new[] { Category.Configuration },
-                    ["profile"] = new[] { Category.Configuration },
-                    ["preference"] = new[] { Category.Configuration },
-                    ["setting"] = new[] { Category.Configuration },
-
-                    ["bank"] = new[] { Category.Database },
-                    ["cache"] = new[] {Category.Database},
-                    ["dictionary"] = new[] { Category.Database },
-                    ["database"] = new[] { Category.Database },
-                    ["data base"] = new[] { Category.Database },
-                    ["db"] = new[] { Category.Database },
-                    ["index"] = new[] { Category.Database },
-                    ["table"] = new[] { Category.Database },
-
-                    ["document"] = new[] { Category.Document },
-
-                    ["email"] = new[] { Category.Email },
-                    ["e mail"] = new[] { Category.Email },
-
-                    ["encrypted"] = new[] { Category.Encrypted },
-                    ["password"] = new[] { Category.Encrypted },
-                    ["protected"] = new[] { Category.Encrypted },
-
-                    ["applet"] = new[] { Category.Executable },
-                    ["application"] = new[] { Category.Executable },
-                    ["assembly"] = new[] { Category.Executable },
-                    ["bitcode"] = new[] { Category.Executable },
-                    ["bytecode"] = new[] { Category.Executable },
-                    ["codec"] = new[] { Category.Executable },
-                    ["compiled"] = new[] { Category.Executable },
-                    ["driver"] = new[] { Category.Executable },
-                    ["executable"] = new[] { Category.Executable },
-                    ["plug in"] = new[] { Category.Executable },
-                    ["plugin"] = new[] { Category.Executable },
-                    ["program"] = new[] { Category.Executable },
-
-                    ["font"] = new[] { Category.Font },
-
-                    ["drawing"] = new[] { Category.Image },
-                    ["graphic"] = new[] { Category.Image },
-                    ["icon"] = new[] { Category.Image },
-                    ["image"] = new[] { Category.Image },
-                    ["photo"] = new[] { Category.Image },
-                    ["picture"] = new[] { Category.Image },
-                    ["skin"] = new[] { Category.Image },
-                    ["theme"] = new[] { Category.Image },
-                    ["thumbnail"] = new[] { Category.Image },
-
-                    ["little endian"] = new[] { Category.LittleEndian },
-
-                    ["log"] = new[] { Category.Log },
-
-                    ["lossless"] = new[] { Category.Lossless },
-
-                    ["lossy"] = new[] { Category.Lossy },
-
-                    ["powerpoint"] = new[] { Category.Presentation },
-
-                    ["project"] = new[] {Category.Project},
-                    ["workspace"] = new[] { Category.Project },
-
-                    ["macro"] = new[] { Category.Script },
-                    ["script"] = new[] { Category.Script },
-                    ["source"] = new[] { Category.Script },
-
-                    ["spreadsheet"] = new[] { Category.Spreadsheet },
-                    ["workbook"] = new[] { Category.Spreadsheet },
-                    ["worksheet"] = new[] { Category.Spreadsheet },
-
-                    ["preset"] = new[] { Category.Template },
-                    ["template"] = new[] {Category.Template},
-
-                    ["utf8"] = new[] { Category.Utf8 },
-                    ["utf 8"] = new[] { Category.Utf8 },
-
-                    ["utf16"] = new[] { Category.Utf16 },
-                    ["utf 16"] = new[] { Category.Utf16 },
-
-                    ["utf32"] = new[] { Category.Utf32 },
-                    ["utf 32"] = new[] { Category.Utf32 },
-
-                    ["diagram"] = new[] { Category.Vector },
-                    ["geometry"] = new[] { Category.Vector },
-                    ["model"] = new[] { Category.Vector },
-                    ["shape"] = new[] { Category.Vector },
-                    ["vector"] = new[] { Category.Vector },
-                    ["voxel"] = new[] {Category.Vector },
-
-                    ["animation"] = new[] { Category.Video },
-                    ["animated"] = new[] { Category.Video },
-                    ["movie"] = new[] { Category.Video },
-                    ["multimedia"] = new[] { Category.Video },
-                    ["sprite"] = new[] { Category.Video },
-                    ["video"] = new[] { Category.Video },
-
-                    ["firmware"] = new[] { Category.Executable, Category.DiskImage },
-                    ["rom"] = new[] { Category.Executable, Category.DiskImage },
+        return ret;
+    }
 
 
-                    ["playlist"] = new[] { Category.Audio, Category.Database },
-                    ["installer"] = new[] { Category.Executable, Category.Archive },
-
-                    
-                    ["3d"] = new[] { Category.Image, Category.Vector },
-                    ["2d"] = new[] { Category.Image, Category.Vector },
-                    ["3 d"] = new[] { Category.Image, Category.Vector },
-                    ["2 d"] = new[] { Category.Image, Category.Vector },
-                    
-                    ["disk image"] = new[] { Category.DiskImage, Category.Archive },
-                    
-                    ["raster"] = new[] { Category.Bitmap, Category.Image },
-                    ["bitmap"] = new[] { Category.Bitmap, Category.Image },
-                   
-
-                }.ToImmutableDictionary();
-            }
-        }
-
-
-        private static Storage.FileType ConvertFile(Definition V1)
-        {
-            var Extensions = $@"{V1.Info?.FileExtension}"
-                .Split(new[] { @"/" }, StringSplitOptions.RemoveEmptyEntries)
-                .Select(x => x.Trim().ToLower())
+    private static FileType ConvertFile(Definition v1) {
+        var extensions = $@"{v1.Info?.FileExtension}"
+                .Split([@"/"], StringSplitOptions.RemoveEmptyEntries)
+                .Select(x => x.Trim().ToLowerInvariant())
                 .Where(x => !string.IsNullOrWhiteSpace(x))
                 .ToImmutableArray()
-                ;
+            ;
 
-            var Description = $@"{V1.Info?.FileType}";
-            var MimeType = $@"{V1.Info?.MimeType}";
+        var description = $@"{v1.Info?.FileType}";
+        var mimeType = $@"{v1.Info?.MimeType}";
 
-            var Categories = CategoryExtractor.Extract(Description);
+        var categories = CategoryExtractor.Extract(description);
 
-            var ret = new Storage.FileType()
-            {
-                Description = Description,
-                Extensions = Extensions,
-                MimeType = MimeType,
-                Categories = Categories,
-            };
+        var ret = new FileType {
+            Description = description,
+            Extensions = extensions,
+            MimeType = mimeType,
+            Categories = categories
+        };
 
-            return ret;
-        }
+        return ret;
+    }
 
-        private static Storage.Meta ConvertMeta(Definition V1)
-        {
-            var ret = new Storage.Meta()
-            {
-                Created = new()
-                {
-                    At = new DateTime(
-                            Math.Max(V1.General?.Date?.Year ?? 0, 1901),
-                            Math.Max(V1.General?.Date?.Month ?? 0, 1),
-                            Math.Max(V1.General?.Date?.Day ?? 0, 1),
-                            V1.General?.Time?.Hour ?? 0,
-                            V1.General?.Time?.Min ?? 0,
-                            V1.General?.Time?.Sec ?? 0
-                            ),
-                    By = new Storage.Author()
-                    {
-                        Name = $@"{V1.Info?.Author}",
-                        Email = $@"{V1.Info?.AuthorEmail}",
-                        Website = $@"{V1.Info?.Website}",
-                    },
-                    Source = new Storage.Source()
-                    {
-                        Files = V1.General?.FileNum ?? 0,
-                    },
-                    Using = new Storage.Generator()
-                    {
-                        Application = $@"{V1.General?.Creator}"
-                    },
+    private static Meta ConvertMeta(Definition v1) {
+        var ret = new Meta {
+            Created = new() {
+                At = new DateTime(
+                    Math.Max(v1.General?.Date?.Year ?? 0, 1901),
+                    Math.Max(v1.General?.Date?.Month ?? 0, 1),
+                    Math.Max(v1.General?.Date?.Day ?? 0, 1),
+                    v1.General?.Time?.Hour ?? 0,
+                    v1.General?.Time?.Min ?? 0,
+                    v1.General?.Time?.Sec ?? 0
+                ),
+                By = new() {
+                    Name = $@"{v1.Info?.Author}",
+                    Email = $@"{v1.Info?.AuthorEmail}",
+                    Website = $@"{v1.Info?.Website}"
                 },
-                Reference = new Storage.Reference()
-                {
-                    Text = $@"{V1.Info?.ExtraInfo?.Remark}",
-                    Uri = $@"{V1.Info?.ExtraInfo?.ReferenceUrl}",
-                },
-            };
+                Source = new() { Files = v1.General?.FileNum ?? 0 },
+                Using = new() { Application = $@"{v1.General?.Creator}" }
+            },
+            Reference = new() {
+                Text = $@"{v1.Info?.ExtraInfo?.Remark}",
+                Uri = $@"{v1.Info?.ExtraInfo?.ReferenceUrl}"
+            }
+        };
 
-            return ret;
-        }
+        return ret;
+    }
 
-        private static Storage.Signature ConvertSignature(Definition V1)
-        {
-            var ret = new Storage.Signature()
-            {
-                Prefix = V1
+    private static Signature ConvertSignature(Definition v1) {
+        var ret = new Signature {
+            Prefix = [
+                ..v1
                     .FrontBlock
-                    .Select(x => ConvertPattern(x))
+                    .Select(ConvertPattern)
                     .OrderBy(x => x.Start)
-                    .ToImmutableArray()
-                    ,
-
-                Strings = V1
+            ],
+            Strings = [
+                ..v1
                     .GlobalStrings
-                    .Select(x => ConvertGlobalString(x))
+                    .Select(ConvertGlobalString)
                     .OrderByDescending(x => x.Pattern.Length)
-                    .ToImmutableArray()
-                    ,
+            ]
+        };
 
-            };
+        return ret;
+    }
 
-            return ret;
+    private static StringSegment ConvertGlobalString(string v1) {
+        return StringSegment.Create(v1);
+    }
+
+    private static PrefixSegment ConvertPattern(Pattern v1) {
+        var position = v1.Position;
+
+        var bytes = v1.Bytes ?? string.Empty;
+        while (bytes.Length % 2 != 0) {
+            bytes = "0" + bytes;
         }
 
-        private static Storage.StringSegment ConvertGlobalString(string V1)
-        {
-            return StringSegment.Create(V1, true);
+        var content = System.Convert.FromHexString(bytes).ToImmutableArray();
+
+        var ret = new PrefixSegment {
+            Start = position,
+            Pattern = content
+        };
+
+        return ret;
+    }
+
+    private static class CategoryExtractor {
+        private static ImmutableDictionary<string, Category[]> Lookup { get; }
+
+        static CategoryExtractor() {
+            Lookup = new Dictionary<string, Category[]> {
+                ["archive"] = [Category.Archive],
+                ["backup"] = [Category.Archive],
+                ["bundle"] = [Category.Archive],
+                ["cabinet"] = [Category.Archive],
+                ["collection"] = [Category.Archive],
+                ["composite"] = [Category.Archive],
+                ["compound"] = [Category.Archive],
+                ["container"] = [Category.Archive],
+                ["export"] = [Category.Archive],
+                ["library"] = [Category.Archive],
+                ["package"] = [Category.Archive],
+                ["set"] = [Category.Archive],
+                ["sets"] = [Category.Archive],
+                ["zip"] = [Category.Archive],
+                ["audio"] = [Category.Audio],
+                ["instrument"] = [Category.Audio],
+                ["music"] = [Category.Audio],
+                ["sample"] = [Category.Audio],
+                ["song"] = [Category.Audio],
+                ["sound"] = [Category.Audio],
+                ["track"] = [Category.Audio],
+                ["voice"] = [Category.Audio],
+                ["waveform"] = [Category.Audio],
+                ["big endian"] = [Category.BigEndian],
+                ["compress"] = [Category.Compressed],
+                ["packed"] = [Category.Compressed],
+                ["config"] = [Category.Configuration],
+                ["profile"] = [Category.Configuration],
+                ["preference"] = [Category.Configuration],
+                ["setting"] = [Category.Configuration],
+                ["bank"] = [Category.Database],
+                ["cache"] = [Category.Database],
+                ["dictionary"] = [Category.Database],
+                ["database"] = [Category.Database],
+                ["data base"] = [Category.Database],
+                ["db"] = [Category.Database],
+                ["index"] = [Category.Database],
+                ["table"] = [Category.Database],
+                ["document"] = [Category.Document],
+                ["email"] = [Category.Email],
+                ["e mail"] = [Category.Email],
+                ["encrypted"] = [Category.Encrypted],
+                ["password"] = [Category.Encrypted],
+                ["protected"] = [Category.Encrypted],
+                ["applet"] = [Category.Executable],
+                ["application"] = [Category.Executable],
+                ["assembly"] = [Category.Executable],
+                ["bitcode"] = [Category.Executable],
+                ["bytecode"] = [Category.Executable],
+                ["codec"] = [Category.Executable],
+                ["compiled"] = [Category.Executable],
+                ["driver"] = [Category.Executable],
+                ["executable"] = [Category.Executable],
+                ["plug in"] = [Category.Executable],
+                ["plugin"] = [Category.Executable],
+                ["program"] = [Category.Executable],
+                ["font"] = [Category.Font],
+                ["drawing"] = [Category.Image],
+                ["graphic"] = [Category.Image],
+                ["icon"] = [Category.Image],
+                ["image"] = [Category.Image],
+                ["photo"] = [Category.Image],
+                ["picture"] = [Category.Image],
+                ["skin"] = [Category.Image],
+                ["theme"] = [Category.Image],
+                ["thumbnail"] = [Category.Image],
+                ["little endian"] = [Category.LittleEndian],
+                ["log"] = [Category.Log],
+                ["lossless"] = [Category.Lossless],
+                ["lossy"] = [Category.Lossy],
+                ["powerpoint"] = [Category.Presentation],
+                ["project"] = [Category.Project],
+                ["workspace"] = [Category.Project],
+                ["macro"] = [Category.Script],
+                ["script"] = [Category.Script],
+                ["source"] = [Category.Script],
+                ["spreadsheet"] = [Category.Spreadsheet],
+                ["workbook"] = [Category.Spreadsheet],
+                ["worksheet"] = [Category.Spreadsheet],
+                ["preset"] = [Category.Template],
+                ["template"] = [Category.Template],
+                ["utf8"] = [Category.Utf8],
+                ["utf 8"] = [Category.Utf8],
+                ["utf16"] = [Category.Utf16],
+                ["utf 16"] = [Category.Utf16],
+                ["utf32"] = [Category.Utf32],
+                ["utf 32"] = [Category.Utf32],
+                ["diagram"] = [Category.Vector],
+                ["geometry"] = [Category.Vector],
+                ["model"] = [Category.Vector],
+                ["shape"] = [Category.Vector],
+                ["vector"] = [Category.Vector],
+                ["voxel"] = [Category.Vector],
+                ["animation"] = [Category.Video],
+                ["animated"] = [Category.Video],
+                ["movie"] = [Category.Video],
+                ["multimedia"] = [Category.Video],
+                ["sprite"] = [Category.Video],
+                ["video"] = [Category.Video],
+                ["firmware"] = [Category.Executable, Category.DiskImage],
+                ["rom"] = [Category.Executable, Category.DiskImage],
+                ["playlist"] = [Category.Audio, Category.Database],
+                ["installer"] = [Category.Executable, Category.Archive],
+                ["3d"] = [Category.Image, Category.Vector],
+                ["2d"] = [Category.Image, Category.Vector],
+                ["3 d"] = [Category.Image, Category.Vector],
+                ["2 d"] = [Category.Image, Category.Vector],
+                ["disk image"] = [Category.DiskImage, Category.Archive],
+                ["raster"] = [Category.Bitmap, Category.Image],
+                ["bitmap"] = [Category.Bitmap, Category.Image]
+            }.ToImmutableDictionary();
         }
 
-        private static Storage.PrefixSegment ConvertPattern(Pattern V1)
-        {
-            var Position = V1.Position;
+        public static string Tokenize(string text) {
+            var sb = new StringBuilder();
 
-            var Bytes = V1.Bytes ?? string.Empty;
-            while (Bytes.Length % 2 != 0)
-            {
-                Bytes = "0" + Bytes;
+            var space = (char)32;
+            var last = 0;
+            foreach (var c in text.ToLowerInvariant()) {
+                var next = c;
+                if (!char.IsLetterOrDigit(c)) {
+                    next = space;
+                }
+
+                if (next == space && last == space) {
+                    //Ignore it.
+                } else {
+                    sb.Append(next);
+                }
+
+                last = next;
             }
 
-            var Content = System.Convert.FromHexString(Bytes).ToImmutableArray();
+            var ret = sb.ToString();
+            while (true) {
+                var @new = ret.Replace("  ", " ");
 
-            var ret = new Storage.PrefixSegment()
-            {
-                Start = Position,
-                Pattern = Content,
-            };
+                if (@new == ret) {
+                    break;
+                }
+
+                ret = @new;
+            }
 
             return ret;
-
         }
 
+        public static ImmutableHashSet<Category> Extract(string text) {
+            var ret = new List<Category>();
+
+            var input = Tokenize(text);
+
+            foreach (var item in Lookup) {
+                if (input.Contains(item.Key)) {
+                    ret.AddRange(item.Value);
+                }
+            }
+
+            if (ret.Count == 0) { }
+
+            return [.. ret];
+        }
     }
 }
