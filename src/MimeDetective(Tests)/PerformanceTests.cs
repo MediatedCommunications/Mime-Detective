@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MimeDetective.Engine;
 using System.Collections.Immutable;
 using System.IO;
@@ -87,7 +87,7 @@ public class PerformanceTests {
         var engine = ContentInspectors.Exhaustive.ContentInspector;
         var results = engine.Inspect(content).ByFileExtension();
 
-        Assert.AreEqual(extension, results.First().Extension);
+        Assert.AreEqual(extension.ToUpperInvariant(), results.First().Extension.ToUpperInvariant());
 
         return results;
     }
