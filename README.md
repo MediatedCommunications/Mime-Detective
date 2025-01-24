@@ -47,7 +47,7 @@ install-package Mime-Detective.Definitions.Exhaustive
 ```csharp
 using MimeDetective;
 var Inspector = new ContentInspectorBuilder() {
-    Definitions = MimeDetective.Definitions.Default.All()
+    Definitions = MimeDetective.Definitions.DefaultDefinitions.All()
 }.Build();
 ```
 
@@ -94,9 +94,9 @@ subset of a definition pack, or create entirely new definition packs from scratc
 ## ```Default``` Definitions
 
 The default definitions are included with the Mime-Detective nuget package
-and are located in the ```MimeDetective.Definitions.Default``` static class.
-You can create a copy of all definitions by calling ```MimeDetective.Definitions.Default.All()```
-or just a limited subset by calling something like ```MimeDetective.Definitions.Default.FileTypes.Documents.All()```.
+and are located in the ```MimeDetective.Definitions.DefaultDefinitions``` static class.
+You can create a copy of all definitions by calling ```MimeDetective.Definitions.DefaultDefinitions.All()```
+or just a limited subset by calling something like ```MimeDetective.Definitions.DefaultDefinitions.FileTypes.Documents.All()```.
 
 It can be used by anyone for any purpose and requires no additional licensing.
 
@@ -178,7 +178,7 @@ internal static class CustomContentInspector {
         var MyDefinitions = new List<Definition>();
                 
         //Add a predefined definition
-        MyDefinitions.AddRange(MimeDetective.Definitions.Default.FileTypes.Audio.MP3());
+        MyDefinitions.AddRange(MimeDetective.Definitions.DefaultDefinitions.FileTypes.Audio.MP3());
 
         //Add a custom definition
         MyDefinitions.Add(new() {
