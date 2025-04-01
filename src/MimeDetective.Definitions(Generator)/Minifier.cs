@@ -1,12 +1,7 @@
-using MimeDetective.Definitions;
-using MimeDetective.Storage;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.Linq;
+using MimeDetective.Storage;
 
-namespace MimeDetective.Definitions
+namespace MimeDetective.Definitions.Generator
 {
     [TestClass]
     public class Minifier

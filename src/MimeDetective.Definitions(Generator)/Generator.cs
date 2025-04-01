@@ -8,27 +8,28 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace MimeDetective.Definitions;
+namespace MimeDetective.Definitions.Generator;
 
 [TestClass]
 public class Generator {
-    private static readonly FrozenSet<string> Extensions = new[] {
+    private static readonly FrozenSet<string> Extensions = FrozenSet.Create(
+        StringComparer.OrdinalIgnoreCase, [
         // @formatter:off
-        "aif", "cda","mid", "midi","mp3", "mpa", "ogg","wav","wma", "wpl",
-        "7z", "arj", "deb","pkg","rar","rpm","tar.gz","z","zip",
-        "bin","dmg","iso","toast","vcd",
+        "aif", "cda", "mid", "midi", "mp3", "mpa", "ogg", "wav", "wma", "wpl",
+        "7z", "arj", "deb", "pkg", "rar", "rpm", "tar.gz", "z", "zip",
+        "bin", "dmg", "iso", "toast", "vcd",
         "mdb", "xml",
-        "eml","emlx","msg","oft","ost","pst", "vcf",
-        "apk", "exe", "com","jar", "msi",
-        "fnt", "fon", "otf","ttf",
-        "ai", "bmp","gif", "ico","jpg","jpeg","png", "ps","psd","svg","tif", "tiff",
+        "eml", "emlx", "msg", "oft", "ost", "pst", "vcf",
+        "apk", "exe", "com", "jar", "msi",
+        "fnt", "fon", "otf", "ttf",
+        "ai", "bmp", "gif", "ico", "jpg", "jpeg", "png", "ps", "psd", "svg", "tif", "tiff",
         "key", "odp", "pps", "ppt", "pptx",
         "ods", "xls", "xlsm", "xlsx",
         "cab", "cur", "icns", "ico", "lnk",
-        "3g2","3gp","avi", "flv", "h264","m4v", "mkv", "mov","mp4","mpg", "mpeg", "rm", "swf", "vob","wmv",
-        "doc","docx","odt","pdf","rtf","tex","wpd"
+        "3g2", "3gp", "avi", "flv", "h264", "m4v", "mkv", "mov", "mp4", "mpg", "mpeg", "rm", "swf", "vob", "wmv",
+        "doc", "docx", "odt", "pdf", "rtf", "tex", "wpd"
         // @formatter:on
-    }.ToFrozenSet(StringComparer.OrdinalIgnoreCase);
+    ]);
 
     private static Storage.Definition[] MacroSourceData() {
         var folder = SourceDefinitions.DefinitionRoot();
@@ -72,7 +73,7 @@ public class Generator {
 
 
         var i1 = allItems
-                .Where(x => x.File.Extensions.Any(ext => Extensions.Contains(ext)))
+                .Where(x => x.File.Extensions.Any(Extensions.Contains))
 #if DEBUG
                 .ToArray()
 #endif
