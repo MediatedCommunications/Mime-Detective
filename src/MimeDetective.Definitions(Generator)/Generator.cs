@@ -15,18 +15,31 @@ public class Generator {
     private static readonly FrozenSet<string> Extensions = FrozenSet.Create(
         StringComparer.OrdinalIgnoreCase, [
         // @formatter:off
-        "aif", "cda", "mid", "midi", "mp3", "mpa", "ogg", "wav", "wma", "wpl",
-        "7z", "arj", "deb", "pkg", "rar", "rpm", "tar.gz", "z", "zip",
+        // Audio
+        "aif", "aiff", "aac", "cda", "flac", "m4a", "mid", "midi", "mp3", "mpa", "ogg", "wav", "wma", "wpl",
+        // Archive
+        "7z", "arj", "bz", "bz2", "deb", "pkg", "rar", "rpm", "tar", "tar.gz", "xz", "z", "zip",
+        // Binary images
         "bin", "dmg", "iso", "toast", "vcd",
-        "mdb", "xml",
+        // Data
+        "accdb", "json", "mdb", "odb", "xml",
+        // EMail
         "eml", "emlx", "msg", "oft", "ost", "pst", "vcf",
-        "apk", "exe", "com", "jar", "msi",
+        // Installers
+        "apk", "appx", "exe", "com", "jar", "msi", "msix",
+        // Fonts
         "fnt", "fon", "otf", "ttf",
-        "ai", "bmp", "gif", "ico", "jpg", "jpeg", "png", "ps", "psd", "svg", "tif", "tiff",
+        // Images
+        "ai", "avif", "bmp", "gif", "heic", "heif", "ico", "jpg", "jpeg", "png", "ps", "psd", "svg", "tif", "tiff", "webp",
+        // Presentation
         "key", "odp", "pps", "ppt", "pptx",
+        // Spreadsheet
         "ods", "xls", "xlsm", "xlsx",
+        // Windows
         "cab", "cur", "icns", "ico", "lnk",
-        "3g2", "3gp", "avi", "flv", "h264", "m4v", "mkv", "mov", "mp4", "mpg", "mpeg", "rm", "swf", "vob", "wmv",
+        // Videos
+        "3g2", "3gp", "avi", "flv", "h264", "m4v", "mkv", "mov", "mp4", "mpg", "mpeg", "rm", "swf", "vob", "webm", "wmv",
+        // Documents
         "doc", "docx", "odt", "pdf", "rtf", "tex", "wpd"
         // @formatter:on
     ]);
