@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MimeDetective.Tests;
 using SharpCompress.Archives.SevenZip;
 using SharpCompress.Readers;
@@ -10,7 +10,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace MimeDetective.Definitions;
+namespace MimeDetective.Definitions.Generator;
 
 [TestClass]
 public class Updater {

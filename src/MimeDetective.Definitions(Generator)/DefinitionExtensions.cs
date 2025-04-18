@@ -1,11 +1,10 @@
-﻿using MimeDetective.Engine;
 using MimeDetective.Storage;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 
-namespace MimeDetective.Definitions
+namespace MimeDetective.Definitions.Generator
 {
     public static class DefinitionExtensions
     {
