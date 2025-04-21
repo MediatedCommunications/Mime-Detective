@@ -90,7 +90,7 @@ namespace MimeDetective.Definitions {
                         new() {
                             File = new() {
                                 Extensions = ["mp3"],
-                                MimeType = "audio/mpeg3",
+                                MimeType = "audio/mpeg",
                                 Categories = [
                                     Category.Compressed,
                                     Category.Lossy,
@@ -110,7 +110,7 @@ namespace MimeDetective.Definitions {
                         new() {
                             File = new() {
                                 Extensions = ["mp3"],
-                                MimeType = "audio/mpeg3",
+                                MimeType = "audio/mpeg",
                                 Categories = [
                                     Category.Compressed,
                                     Category.Lossy,
