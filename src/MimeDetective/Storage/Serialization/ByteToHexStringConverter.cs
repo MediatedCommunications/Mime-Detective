@@ -15,7 +15,7 @@ static internal class ByteToHexUtility {
 
     public static byte[] FromHex(ReadOnlySpan<byte> input) {
         if (input.Length > MaximumLength) {
-            throw new FormatException("Input too long");
+        //    throw new FormatException("Input too long");
         }
 
         if (-1 != input.IndexOfAnyExcept(HexSearchValues)) {
@@ -65,7 +65,7 @@ internal abstract class ByteToHexStringConverter<T> : JsonConverter<T>
         }
 
         if (reader.ValueSequence.Length > ByteToHexUtility.MaximumLength) {
-            throw new JsonException("Input too long");
+        //    throw new JsonException("Input too long");
         }
 
         byte[]? poolBuffer = null;
