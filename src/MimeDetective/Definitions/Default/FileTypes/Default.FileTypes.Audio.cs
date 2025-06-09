@@ -86,19 +86,46 @@ namespace MimeDetective.Definitions {
                 }
 
                 public static ImmutableArray<Definition> MP3_ID3v1() {
+
+                    ImmutableArray<string> Extensions = ["mp3"];
+                    var MimeType = "audio/mpeg";
+                    ImmutableHashSet<Category> Categories = [
+                        Category.Compressed,
+                        Category.Lossy,
+                        Category.Audio,
+                    ];
+
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["mp3"],
-                                MimeType = "audio/mpeg",
-                                Categories = [
-                                    Category.Compressed,
-                                    Category.Lossy,
-                                    Category.Audio,
-                                ],
+                                Extensions = Extensions,
+                                MimeType = MimeType,
+                                Categories = Categories,
                             },
                             Signature = new Segment[] {
-                                PrefixSegment.Create(0, "FF"),
+                                PrefixSegment.Create(0, "FF FB"),
+                                StringSegment.Create("TAG"),
+                            }.ToSignature(),
+                        },
+                        new() {
+                            File = new() {
+                                Extensions = Extensions,
+                                MimeType = MimeType,
+                                Categories = Categories,
+                            },
+                            Signature = new Segment[] {
+                                PrefixSegment.Create(0, "FF F2"),
+                                StringSegment.Create("TAG"),
+                            }.ToSignature(),
+                        },
+                        new() {
+                            File = new() {
+                                Extensions = Extensions,
+                                MimeType = MimeType,
+                                Categories = Categories,
+                            },
+                            Signature = new Segment[] {
+                                PrefixSegment.Create(0, "FF F3"),
                                 StringSegment.Create("TAG"),
                             }.ToSignature(),
                         },
