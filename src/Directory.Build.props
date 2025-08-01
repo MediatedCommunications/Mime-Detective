@@ -29,9 +29,9 @@
     <Authors>Tony Valenti, Joshua Clark, Max Vasilyev, Neil Harvey</Authors>
     <Company />
     <Product />
-    <AssemblyVersion>25.04.25.0</AssemblyVersion>
-    <FileVersion>25.04.25.0</FileVersion>
-    <Version>25.04.25</Version>
+    <AssemblyVersion>25.08.01.0</AssemblyVersion>
+    <FileVersion>25.08.01.0</FileVersion>
+    <Version>25.08.01</Version>
     <PackageIcon>noun_data search_4033516.png</PackageIcon>
     <PackageIconUrl />
   </PropertyGroup>

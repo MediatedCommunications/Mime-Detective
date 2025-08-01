@@ -1,5 +1,8 @@
 #!/usr/bin/env pwsh
 
+# This script requires GIT to be installed from:
+# https://git-scm.com/downloads/win
+
 #Set-PSDebug -Trace 2
 $PSNativeCommandUseErrorActionPreference = $true
 $ErrorActionPreference = 'Stop'
