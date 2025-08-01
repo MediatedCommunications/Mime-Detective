@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 
 namespace MimeDetective;
@@ -55,7 +55,7 @@ public class ContentReader {
     protected byte[] FromStream_Reset_True(Stream input) {
         var position = input.Position;
 
-        var r = new BinaryReader(input);
+        using var r = new BinaryReader(input);
         var ret = r.ReadBytes(MaxFileSize);
 
         input.Position = position;
@@ -64,7 +64,7 @@ public class ContentReader {
     }
 
     protected byte[] FromStream_Reset_False(Stream input) {
-        var r = new BinaryReader(input);
+        using var r = new BinaryReader(input);
         var ret = r.ReadBytes(MaxFileSize);
 
         return ret;
