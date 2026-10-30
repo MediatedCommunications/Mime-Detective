@@ -505,12 +505,14 @@ tr.open td {
 
 .segment-text {
     overflow-wrap: anywhere;
+    white-space: pre;
 }
 
 .segment-hex {
     grid-column: 2;
     color: var(--ink-soft);
     overflow-wrap: anywhere;
+    white-space: pre;
 }
 
 .colophon {

@@ -1,5 +1,6 @@
 <section class="segment-block">
     <h4>@Title</h4>
+    <h5>@Description</h5>
     @if (Segments.Count == 0) {
         <p class="segment-empty">@Empty</p>
     } else {
@@ -22,6 +23,9 @@
     public required string Title { get; set; }
 
     [Parameter, EditorRequired]
+    public required string Description { get; set; }
+
+    [Parameter, EditorRequired]
     public required string Empty { get; set; }
 
     [Parameter, EditorRequired]
@@ -31,15 +35,9 @@
     public bool Prefix { get; set; }
 
     private string Locate(SegmentDetail segment) {
-        if (Prefix) {
-            var place = $"@{segment.Offset:X}";
-            return segment.Matched ? place : $"{place}, not found";
-        }
+        var place = $"@{segment.Offset:X4}";
+        var ret = segment.Matched ? place : $"{place}, not found";
 
-        if (segment.FoundAt is { } at) {
-            return $"@{at:X}";
-        }
-
-        return segment.Matched ? "found" : "not found";
+        return ret;
     }
 }

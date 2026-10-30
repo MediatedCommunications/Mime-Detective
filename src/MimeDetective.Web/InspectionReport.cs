@@ -2,6 +2,7 @@ using MimeDetective.Engine;
 using MimeDetective.Storage;
 using System.Collections.Immutable;
 using System.Text;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MimeDetective.Web;
 
@@ -96,7 +97,7 @@ public sealed record MatchResult(
         var mimeType = string.IsNullOrWhiteSpace(file.MimeType) ? "(none)" : file.MimeType;
         var signature = match.Definition.Signature;
 
-        return new MatchResult(
+        var ret = new MatchResult(
             description,
             mimeType,
             file.Extensions,
@@ -106,6 +107,8 @@ public sealed record MatchResult(
             match.Type.ToString(),
             [.. signature.Prefix.Select(prefix => SegmentDetail.FromPrefix(prefix, match)),],
             [.. signature.Strings.Select(segment => SegmentDetail.FromString(segment, match)),]);
+
+        return ret;
     }
 
     public static string FormatCategory(Category category) {
@@ -128,7 +131,7 @@ public sealed record MatchResult(
     }
 }
 
-public sealed record SegmentDetail(int? Offset, string Text, string Hex, bool Matched, int? FoundAt) {
+public sealed record SegmentDetail(int? Offset, string Text, string Hex, bool Matched) {
     public static SegmentDetail FromPrefix(PrefixSegment segment, DefinitionMatch match) {
         var matched = false;
         foreach (var (key, result) in match.PrefixSegmentMatches) {
@@ -140,7 +143,8 @@ public sealed record SegmentDetail(int? Offset, string Text, string Hex, bool Ma
             break;
         }
 
-        return new(segment.Start, Readable(segment.Pattern), HexOf(segment.Pattern), matched, null);
+        var ret = new SegmentDetail(segment.Start, Readable(segment.Pattern), HexOf(segment.Pattern), matched);
+        return ret;
     }
 
     public static SegmentDetail FromString(StringSegment segment, DefinitionMatch match) {
@@ -157,7 +161,8 @@ public sealed record SegmentDetail(int? Offset, string Text, string Hex, bool Ma
             break;
         }
 
-        return new(null, Readable(segment.Pattern), HexOf(segment.Pattern), foundAt is not null, foundAt);
+        var ret = new SegmentDetail(foundAt, Readable(segment.Pattern), HexOf(segment.Pattern), foundAt is not null);
+        return ret;
     }
 
     private static string Readable(ImmutableArray<byte> pattern) {
@@ -165,18 +170,32 @@ public sealed record SegmentDetail(int? Offset, string Text, string Hex, bool Ma
             return string.Empty;
         }
 
-        var chars = new char[pattern.Length];
-        for (var i = 0; i < pattern.Length; i++) {
-            var value = pattern[i];
-            chars[i] = value switch {
-                0 => '\'',
-                >= 32 and < 127 => (char)value,
-                _ => '·',
+        var sb = new StringBuilder(pattern.Length * 4);
+
+        foreach (var b in pattern) {
+
+            var Text = b switch {
+                (byte)'\\' => @"   \\",
+                (byte)'\0' => @"   \0",
+                (byte)'\a' => @"   \a",
+                (byte)'\b' => @"   \b",
+                (byte)'\f' => @"   \f",
+                (byte)'\n' => @"   \n",
+                (byte)'\r' => @"   \r",
+                (byte)'\t' => @"   \t",
+                (byte)'\v' => @"   \v",
+                (byte)'\"' => "   \\\"",
+                >= 0x20 and < 0x7F => $@"    {(char)b}",
+                _ => $@"\\x{b:X2}",
             };
+
+            sb.Append(Text);
         }
 
-        return new string(chars);
+        var ret = sb.ToString();
+        return ret;
     }
+
 
     private static string HexOf(ImmutableArray<byte> pattern) {
         if (pattern.IsDefaultOrEmpty) {
@@ -185,13 +204,13 @@ public sealed record SegmentDetail(int? Offset, string Text, string Hex, bool Ma
 
         var builder = new StringBuilder(pattern.Length * 3);
         for (var i = 0; i < pattern.Length; i++) {
-            if (i > 0) {
-                builder.Append(' ');
-            }
-
-            builder.Append(pattern[i].ToString("X2"));
+            var Hex = pattern[i].ToString("X2");
+            builder.Append("   ");
+            builder.Append(Hex);
         }
 
-        return builder.ToString();
+        var ret = builder.ToString();
+
+        return ret;
     }
 }

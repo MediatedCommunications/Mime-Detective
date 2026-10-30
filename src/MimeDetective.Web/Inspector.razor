@@ -34,7 +34,7 @@
                    @ondrop="OnDrop"
                    @ondrop:preventDefault>
                 <InputFile OnChange="OnFile" disabled="@_busy" aria-label="Choose a file to inspect" />
-                <span class="drop-kicker">Upload</span>
+                <span class="drop-kicker">Identify</span>
                 <span class="drop-title">@(_content is null ? "Drop a file here" : _fileName)</span>
                 <span class="drop-detail">@(_content is null ? "or browse this computer" : "Drop another file to replace it")</span>
             </label>

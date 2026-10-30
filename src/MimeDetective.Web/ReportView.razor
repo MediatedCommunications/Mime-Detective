@@ -34,11 +34,12 @@
     }
 
     @if (Report.Matches.Count == 0) {
-        <p class="empty-copy">No definition in the @Report.DefinitionSet.ToString().ToLowerInvariant() set matched these bytes. Plain text and some container-less formats have no signature.</p>
+        <p class="empty-copy">No definition in the @Report.DefinitionSet.ToString().ToLowerInvariant() set matched these bytes.<br/>
+            Plain text and some container-less formats have no signature.</p>
     } else {
         <div class="rank-grid">
             <section>
-                <h3>Extensions</h3>
+                <h3>Possible Extensions:</h3>
                 <ol>
                     @foreach (var ranked in Report.Extensions) {
                         <li>
@@ -49,7 +50,7 @@
                 </ol>
             </section>
             <section>
-                <h3>Mime types</h3>
+                <h3>Possible Mime Types:</h3>
                 <ol>
                     @foreach (var mime in Report.MimeTypes) {
                         <li>
@@ -62,7 +63,7 @@
         </div>
 
         <section class="matches">
-            <h3>Definitions <span>@Report.Matches.Count</span></h3>
+            <h3>Matching Definitions: <span>@Report.Matches.Count</span></h3>
             <div class="match-table-wrap">
                 <table>
                     <thead>
@@ -101,8 +102,8 @@
                             @if (open) {
                                 <tr class="segment-row">
                                     <td id="@panelId" colspan="6">
-                                        <SegmentList Title="Prefix segments" Empty="No prefix segments." Segments="match.Prefixes" Prefix="true" />
-                                        <SegmentList Title="String segments" Empty="No string segments." Segments="match.Strings" Prefix="false" />
+                                        <SegmentList Title="Prefix Segments" Description="These matches must occur at exact byte offsets" Empty="No prefix segments." Segments="match.Prefixes" Prefix="true" />
+                                        <SegmentList Title="String Segments" Description="These matches must occur but can be anywhere" Empty="No string segments." Segments="match.Strings" Prefix="false" />
                                     </td>
                                 </tr>
                             }
