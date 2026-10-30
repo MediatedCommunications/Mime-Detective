@@ -1,15 +1,16 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 
 namespace MimeDetective.Engine;
 
 internal sealed class StringSegmentMatcherBoyerMooreProvider {
-    private readonly IReadOnlyList<byte> _needle;
+    private readonly ImmutableArray<byte> _needle;
     private readonly int[] _offsetTable;
     private readonly int[] _skipTable;
 
-    public StringSegmentMatcherBoyerMooreProvider(IReadOnlyList<byte> needle) {
+    public StringSegmentMatcherBoyerMooreProvider(ImmutableArray<byte> needle) {
         _needle = needle;
         _skipTable = MakeSkipTable(_needle);
         _offsetTable = MakeOffsetTable(_needle);
@@ -20,11 +21,11 @@ internal sealed class StringSegmentMatcherBoyerMooreProvider {
     }
 
     public IEnumerable<int> Search(ReadOnlyMemory<byte> haystack, bool multipleResults = true) {
-        if (_needle.Count == 0) {
+        if (_needle.Length == 0) {
             yield break;
         }
 
-        var end = _needle.Count - 1;
+        var end = _needle.Length - 1;
 
         var found = false;
 
@@ -50,11 +51,11 @@ internal sealed class StringSegmentMatcherBoyerMooreProvider {
     }
 
     public int? SearchFirst(ReadOnlySpan<byte> haystack) {
-        if (_needle.Count == 0) {
+        if (_needle.Length == 0) {
             return null;
         }
 
-        var end = _needle.Count - 1;
+        var end = _needle.Length - 1;
 
         for (var i = end; i < haystack.Length;) {
             int j;
@@ -73,22 +74,22 @@ internal sealed class StringSegmentMatcherBoyerMooreProvider {
         return null;
     }
 
-    private static int[] MakeSkipTable(IReadOnlyList<byte> needle) {
+    private static int[] MakeSkipTable(ImmutableArray<byte> needle) {
         var ret = new int[byte.MaxValue + 1];
-        Array.Fill(ret, needle.Count);
-        var end = needle.Count - 1;
+        Array.Fill(ret, needle.Length);
+        var end = needle.Length - 1;
 
-        for (var i = 0; i < needle.Count; ++i) {
+        for (var i = 0; i < needle.Length; ++i) {
             ret[needle[i]] = end - i;
         }
 
         return ret;
     }
 
-    private static int[] MakeOffsetTable(IReadOnlyList<byte> needle) {
-        var table = new int[needle.Count];
-        var lastPrefixPosition = needle.Count;
-        var end = needle.Count - 1;
+    private static int[] MakeOffsetTable(ImmutableArray<byte> needle) {
+        var table = new int[needle.Length];
+        var lastPrefixPosition = needle.Length;
+        var end = needle.Length - 1;
         for (var i = end; i >= 0; --i) {
             if (IsPrefix(needle, i + 1)) {
                 lastPrefixPosition = i + 1;
@@ -105,20 +106,15 @@ internal sealed class StringSegmentMatcherBoyerMooreProvider {
         return table;
     }
 
-    private static bool IsPrefix(IReadOnlyList<byte> needle, int p) {
-        for (int i = p, j = 0; i < needle.Count; ++i, ++j) {
-            if (needle[i] != needle[j]) {
-                return false;
-            }
-        }
-
-        return true;
+    private static bool IsPrefix(ImmutableArray<byte> needle, int p) {
+        var length = needle.Length - p;
+        return needle.AsSpan(p, length).SequenceEqual(needle.AsSpan(0, length));
     }
 
-    private static int SuffixLength(IReadOnlyList<byte> needle, int p) {
+    private static int SuffixLength(ImmutableArray<byte> needle, int p) {
         var len = 0;
 
-        for (int i = p, j = needle.Count - 1; i >= 0 && needle[i] == needle[j]; --i, --j) {
+        for (int i = p, j = needle.Length - 1; i >= 0 && needle[i] == needle[j]; --i, --j) {
             ++len;
         }
 
