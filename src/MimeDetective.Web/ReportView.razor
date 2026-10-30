@@ -104,8 +104,8 @@
                             @if (open) {
                                 <tr class="segment-row">
                                     <td id="@panelId" colspan="5">
-                                        <SegmentList Title="Offset Segments" Description="These matches must occur at exact byte offsets" Empty="No prefix segments." Segments="match.Prefixes" Prefix="true" />
-                                        <SegmentList Title="Wildcard Segments" Description="These matches must occur but can be anywhere" Empty="No string segments." Segments="match.Strings" Prefix="false" />
+                                        <SegmentList Title="Offset Rules" Description="These matches must occur at exact byte offsets" Empty="No offset rules." Segments="match.Offset" Prefix="true" />
+                                        <SegmentList Title="Wildcard Rules" Description="These matches must occur anywhere in the file" Empty="No wildcard rules." Segments="match.Wildcard" Prefix="false" />
                                     </td>
                                 </tr>
                             }

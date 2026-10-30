@@ -111,8 +111,8 @@ public sealed record MatchResult(
     long Points,
     long Bytes,
     decimal Percentage,
-    IReadOnlyList<SegmentDetail> Prefixes,
-    IReadOnlyList<SegmentDetail> Strings) {
+    IReadOnlyList<SegmentDetail> Offset,
+    IReadOnlyList<SegmentDetail> Wildcard) {
 
     public static MatchResult From(Definition definition, int points, int bytes, ReadOnlySpan<byte> content) {
         var file = definition.File;
@@ -198,7 +198,7 @@ public sealed record SegmentDetail(int? Offset, string Text, string Hex) {
                 (byte)'\v' => @"   \v",
                 (byte)'\"' => "   \\\"",
                 >= 0x20 and < 0x7F => $@"    {(char)b}",
-                _ => $@"\\x{b:X2}",
+                _ => $@" \x{b:X2}",
             };
 
             sb.Append(Text);
