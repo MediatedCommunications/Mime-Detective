@@ -43,7 +43,7 @@ public class FormatTests {
         CollectionAssert.AreEqual(ms1.ToArray(), ms2.ToArray());
     }
 
-#if NET5_0_OR_GREATER
+#if NET10_0_OR_GREATER
     [RequiresUnreferencedCode("This uses XML")]
 #endif
     [TestMethod]
@@ -53,7 +53,7 @@ public class FormatTests {
         Assert.IsNotNull(xml);
     }
 
-#if NET5_0_OR_GREATER
+#if NET10_0_OR_GREATER
     [RequiresUnreferencedCode("This uses XML")]
 #endif
     [TestMethod]

@@ -18,7 +18,7 @@ public static class DefinitionJsonSerializer {
             DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault,
             Converters = {
                 new ImmutableByteArrayToHexStringConverter(),
-#if NET7_0_OR_GREATER
+#if NET10_0_OR_GREATER
             },
             TypeInfoResolver = MimeDetectiveSourceGeneratedSerializer.Default
 #else
@@ -32,7 +32,7 @@ public static class DefinitionJsonSerializer {
 
     public static Definition[] FromJson(Stream content) {
         var ret =
-#if NET7_0_OR_GREATER
+#if NET10_0_OR_GREATER
             JsonSerializer.Deserialize(content, MimeDetectiveSourceGeneratedSerializer.Default.DefinitionArray);
 #else
             JsonSerializer.Deserialize<Definition[]>(content, SerializerOptions());
@@ -40,7 +40,7 @@ public static class DefinitionJsonSerializer {
         return ret ?? [];
     }
 
-#if NET8_0_OR_GREATER
+#if NET10_0_OR_GREATER
     [RequiresDynamicCode("The JSON deserializer may require dynamic code")]
     [RequiresUnreferencedCode("JSON deserialization may require types that cannot be statically analyzed.")]
 #endif
@@ -56,14 +56,14 @@ public static class DefinitionJsonSerializer {
 
 
     public static void ToJson(Stream data, IEnumerable<Definition> values) {
-#if NET7_0_OR_GREATER
+#if NET10_0_OR_GREATER
         JsonSerializer.Serialize(data, values, MimeDetectiveSourceGeneratedSerializer.Default.IEnumerableDefinition);
 #else
         JsonSerializer.Serialize(data, values, SerializerOptions());
 #endif
     }
 
-#if NET7_0_OR_GREATER
+#if NET10_0_OR_GREATER
     [RequiresDynamicCode("JSON serialization may require dynamic code.")]
     [RequiresUnreferencedCode("JSON serialization may require types that cannot be statically analyzed.")]
 #endif
@@ -75,7 +75,7 @@ public static class DefinitionJsonSerializer {
         }
     }
 
-#if NET7_0_OR_GREATER
+#if NET10_0_OR_GREATER
     [RequiresDynamicCode("JSON serialization may require dynamic code.")]
     [RequiresUnreferencedCode("JSON serialization may require types that cannot be statically analyzed.")]
 #endif

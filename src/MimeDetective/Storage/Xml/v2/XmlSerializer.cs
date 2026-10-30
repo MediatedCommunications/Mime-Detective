@@ -9,7 +9,7 @@ namespace MimeDetective.Storage.Xml.v2;
 ///     Read and write xml file definitions
 /// </summary>
 public static class XmlSerializer {
-#if NET8_0_OR_GREATER
+#if NET10_0_OR_GREATER
     [RequiresUnreferencedCode("XmlSerializer deserializes Definition")]
 #endif
     public static Definition? FromXml(string input) {
@@ -20,7 +20,7 @@ public static class XmlSerializer {
         return FromXmlStream(ms);
     }
 
-#if NET8_0_OR_GREATER
+#if NET10_0_OR_GREATER
     [RequiresUnreferencedCode("XmlSerializer deserializes Definition")]
     [DynamicDependency(DynamicallyAccessedMemberTypes.All, typeof(Definition))]
 #endif
@@ -32,7 +32,7 @@ public static class XmlSerializer {
         return ret;
     }
 
-#if NET8_0_OR_GREATER
+#if NET10_0_OR_GREATER
     [RequiresUnreferencedCode("XmlSerializer deserializes Definition")]
 #endif
     public static Definition? FromXmlFile(string fileName) {
@@ -41,7 +41,7 @@ public static class XmlSerializer {
     }
 
 
-#if NET8_0_OR_GREATER
+#if NET10_0_OR_GREATER
     [RequiresUnreferencedCode("XmlSerializer serializes Definition")]
 #endif
     public static string ToXml(Definition definition) {
@@ -57,7 +57,7 @@ public static class XmlSerializer {
         return ret;
     }
 
-#if NET8_0_OR_GREATER
+#if NET10_0_OR_GREATER
     [RequiresUnreferencedCode("XmlSerializer serializes Definition")]
 #endif
     public static void ToXmlFile(string fileName, Definition definition) {
@@ -65,7 +65,7 @@ public static class XmlSerializer {
         ToXmlStream(fs, definition);
     }
 
-#if NET8_0_OR_GREATER
+#if NET10_0_OR_GREATER
     [RequiresUnreferencedCode("XmlSerializer serializes Definition")]
 #endif
     public static void ToXmlStream(Stream output, Definition definition) {

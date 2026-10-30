@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Collections.Immutable;
 
 namespace MimeDetective.Storage;
@@ -21,11 +21,7 @@ public class PrefixSegment : PatternSegment {
         };
     }
 
-    public static PrefixSegment Create(int start, params byte[] bytes) {
-        return Create(start, bytes.ToImmutableArray());
-    }
-
-    public static PrefixSegment Create(int start, IEnumerable<byte> bytes) {
+    public static PrefixSegment Create(int start, params IEnumerable<byte> bytes) {
         return Create(start, bytes.ToImmutableArray());
     }
 

@@ -1,11 +1,11 @@
 <Project>
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net8.0;net9.0</TargetFrameworks>
-    <LangVersion>12.0</LangVersion>
+    <TargetFrameworks>netstandard2.0;net10.0;</TargetFrameworks>
+    <LangVersion>14.0</LangVersion>
     <Nullable>enable</Nullable>
     <NoWarn>IDE1006</NoWarn>
     <NeutralLanguage>en</NeutralLanguage>
-    <IsAotCompatible Condition="'$(TargetFramework)' == 'net8.0' OR '$(TargetFramework)' == 'net9.0'">true</IsAotCompatible>
+    <IsAotCompatible Condition="'$(TargetFramework)' == 'net10.0' OR '$(TargetFramework)' == 'net11.0'">true</IsAotCompatible>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
@@ -29,9 +29,9 @@
     <Authors>Tony Valenti, Joshua Clark, Max Vasilyev, Neil Harvey</Authors>
     <Company />
     <Product />
-    <AssemblyVersion>25.08.01.0</AssemblyVersion>
-    <FileVersion>25.08.01.0</FileVersion>
-    <Version>25.08.01</Version>
+    <AssemblyVersion>26.11.15.0</AssemblyVersion>
+    <FileVersion>26.11.15.0</FileVersion>
+    <Version>26.11.15</Version>
     <PackageIcon>noun_data search_4033516.png</PackageIcon>
     <PackageIconUrl />
   </PropertyGroup>

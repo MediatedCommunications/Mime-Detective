@@ -42,7 +42,7 @@ public class Updater {
 
             Trace.WriteLine($"Downloaded {stream.Length} bytes in {clock.Elapsed}");
 
-            using var archive = SevenZipArchive.Open(stream);
+            using var archive = SevenZipArchive.OpenArchive(stream);
             var archiveEntry = archive.Entries.FirstOrDefault(
                 e => e is { IsDirectory: true, Key: not null }
                     && e.Key.EndsWith(DefsDir, StringComparison.OrdinalIgnoreCase));

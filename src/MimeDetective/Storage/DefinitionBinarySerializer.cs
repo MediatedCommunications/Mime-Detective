@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
@@ -17,7 +17,7 @@ public static class DefinitionBinarySerializer {
             PropertyNameCaseInsensitive = true,
             WriteIndented = false,
             DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault,
-#if NET7_0_OR_GREATER
+#if NET10_0_OR_GREATER
             TypeInfoResolver = MimeDetectiveSourceGeneratedSerializer.Default
 #endif
         };
@@ -43,21 +43,13 @@ public static class DefinitionBinarySerializer {
         return ret;
     }
 
-    public static void ToBinary(Stream content, params Definition[] values) {
-        ToBinary(content, values.AsEnumerable());
-    }
-
-    public static void ToBinary(Stream data, IEnumerable<Definition> values) {
+    public static void ToBinary(Stream data, params IEnumerable<Definition> values) {
         using var cs = new GZipStream(data, CompressionLevel.Optimal, true);
 
         DefinitionJsonSerializer.ToJson(cs, values);
     }
 
-    public static void ToBinaryFile(string fileName, params Definition[] values) {
-        ToBinaryFile(fileName, values.AsEnumerable());
-    }
-
-    public static void ToBinaryFile(string fileName, IEnumerable<Definition> values) {
+    public static void ToBinaryFile(string fileName, params IEnumerable<Definition> values) {
         using var content = new FileStream(fileName, FileMode.Create, FileAccess.Write, FileShare.Read, 128 * 1024);
 
         ToBinary(content, values);

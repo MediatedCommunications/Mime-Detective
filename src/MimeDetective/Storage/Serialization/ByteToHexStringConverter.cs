@@ -7,7 +7,7 @@ using System.Text.Json.Serialization;
 
 namespace MimeDetective.Storage;
 
-#if NET8_0_OR_GREATER
+#if NET10_0_OR_GREATER
 static internal class ByteToHexUtility {
     public const int MaximumStackalloc = 512;
     public const int MaximumLength = 8 * 1024;
@@ -55,7 +55,7 @@ internal abstract class ByteToHexStringConverter<T> : JsonConverter<T>
         //    ;
         //return Convert.FromHexString(xData);
 
-#if NET8_0_OR_GREATER
+#if NET10_0_OR_GREATER
         if (reader.TokenType != JsonTokenType.String) {
             throw new JsonException("Expected string");
         }
@@ -95,14 +95,14 @@ internal abstract class ByteToHexStringConverter<T> : JsonConverter<T>
 
     protected static void WriteBytes(Utf8JsonWriter writer, ReadOnlySpan<byte> value, JsonSerializerOptions options) {
         var Data = Convert.ToHexString(
-#if NET5_0_OR_GREATER
+#if NET10_0_OR_GREATER
             value
 #else
             value.ToArray()
 #endif
         );
 
-#if NET8_0_OR_GREATER
+#if NET10_0_OR_GREATER
         JsonSerializer.Serialize(writer, Data, MimeDetectiveSourceGeneratedSerializer.Default.String);
 #else
         JsonSerializer.Serialize(writer, Data, options);
