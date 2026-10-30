@@ -11,7 +11,7 @@ public sealed class BenchmarkInspectors {
     public ImmutableArray<Definition> CondensedDefinitions { get; }
         = new CondensedBuilder { UsageType = UsageType.PersonalNonCommercial }.Build();
 
-    public ImmutableArray<Definition> DefaultDefinitions { get; }
+    public ImmutableArray<Definition> MinimalDefinitions { get; }
         = MimeDetective.Definitions.MinimalDefinitions.All();
 
     public ImmutableArray<Definition> ExhaustiveDefinitions { get; }
@@ -29,14 +29,14 @@ public sealed class BenchmarkInspectors {
 
     public BenchmarkInspectors() {
         this.Definitions = [
-            new("Default", this.DefaultDefinitions),
+            new("Default", this.MinimalDefinitions),
             new("Condensed", this.CondensedDefinitions),
             new("Exhaustive", this.ExhaustiveDefinitions)
         ];
 
         this.Condensed = new ContentInspectorBuilder { Definitions = this.CondensedDefinitions }.Build();
         this.Exhaustive = new ContentInspectorBuilder { Definitions = this.ExhaustiveDefinitions }.Build();
-        this.Default = new ContentInspectorBuilder { Definitions = this.DefaultDefinitions }.Build();
+        this.Default = new ContentInspectorBuilder { Definitions = this.MinimalDefinitions }.Build();
 
         this.Inspectors = [
             new("Default", this.Default),

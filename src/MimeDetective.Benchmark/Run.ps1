@@ -15,4 +15,4 @@ if (Test-Path $artefacts)
 # Run benchmarks
 & dotnet restore
 & dotnet build -c Release --no-restore
-& dotnet run -c Release --no-build --framework net8.0
+& dotnet run -c Release --no-build --framework net10.0

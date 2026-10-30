@@ -9,19 +9,19 @@ namespace MimeDetective.Benchmark
     public class DefinitionBuilderBenchmarks
     {
         [Benchmark(Baseline = true)]
-        public static ImmutableArray<Definition> DefaultDefinitions()
+        public ImmutableArray<Definition> MinimalDefinitions()
         {
             return Definitions.MinimalDefinitions.All();
         }
 
         [Benchmark]
-        public static ImmutableArray<Definition> CondensedDefinitions()
+        public ImmutableArray<Definition> CondensedDefinitions()
         {
             return new CondensedBuilder { UsageType = UsageType.PersonalNonCommercial }.Build();
         }
 
         [Benchmark]
-        public static ImmutableArray<Definition> ExhaustiveDefinitions()
+        public ImmutableArray<Definition> ExhaustiveDefinitions()
         {
             return new ExhaustiveBuilder { UsageType = UsageType.PersonalNonCommercial }.Build();
         }

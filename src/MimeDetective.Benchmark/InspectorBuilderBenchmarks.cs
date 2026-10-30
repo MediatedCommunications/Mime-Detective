@@ -8,7 +8,7 @@ namespace MimeDetective.Benchmark;
 public class InspectorBuilderBenchmarks {
     [Benchmark(Baseline = true)]
     public IContentInspector BuildDefault() {
-        return new ContentInspectorBuilder { Definitions = BenchmarkInspectors.Instance.DefaultDefinitions }.Build();
+        return new ContentInspectorBuilder { Definitions = BenchmarkInspectors.Instance.MinimalDefinitions }.Build();
     }
 
     [Benchmark]
