@@ -4,6 +4,8 @@ It uses Magic-Number and Magic-Word signatures to accurately identify over
 14,000 different file variants by analyzing a raw stream or array of bytes.
 It also allows you to easily convert between file extensions and mime types.
 
+[**🔍 Try Mime-Detective Online**](https://mediatedcommunications.github.io/Mime-Detective/)
+
 ## How Does it Work?
 Mime-Detective is a signature-based detection library that looks for
 patterns within the raw content of a file.  Based on the presence (or absence)
@@ -18,14 +20,14 @@ able to predict the file type.
 
 # Getting Started
 There are three main ways you can use Mime-Detective.
-* The ```Default``` definition pack which includes a very small set of detection rules.
+* The ```Minimal``` (formerly ```Default```) definition pack which includes a very small set of detection rules.
 * The ```Condensed``` definition pack which includes an expanded set of detection rules.
 * The ```Exhaustive``` definition pack which includes over 14,000 detection rules.
 
 More information on these definitions is included toward the end of this file.
 
 ## Installing from Nuget
-### Installing the ```Default``` (Small) Definition Pack
+### Installing the ```Minimal``` (Small) Definition Pack
 ```bash
 install-package Mime-Detective
 ```
