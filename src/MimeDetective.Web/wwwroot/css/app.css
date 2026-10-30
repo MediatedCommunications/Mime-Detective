@@ -424,6 +424,95 @@ tbody th {
     min-width: 12rem;
 }
 
+.disclose {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.45rem;
+    max-width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+}
+
+.disclose:focus-visible {
+    outline: 2px solid var(--stamp);
+    outline-offset: 2px;
+}
+
+.disclose .mark {
+    flex: 0 0 auto;
+    width: 0.8rem;
+    color: var(--stamp);
+    font-family: var(--mono);
+}
+
+tr.open th,
+tr.open td {
+    border-bottom-color: transparent;
+}
+
+.segment-row td {
+    padding: 0 0 0.9rem;
+    background: var(--paper);
+}
+
+.segment-block + .segment-block {
+    margin-top: 0.85rem;
+}
+
+.segment-block h4 {
+    margin: 0 0 0.3rem;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+}
+
+.segment-empty,
+.segment-list {
+    margin: 0;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+}
+
+.segment-empty {
+    color: var(--ink-soft);
+}
+
+.segment-list {
+    list-style: none;
+    padding: 0;
+}
+
+.segment-list li {
+    display: grid;
+    grid-template-columns: 7.5rem minmax(0, 1fr);
+    gap: 0.15rem 0.8rem;
+    padding: 0.4rem 0;
+    border-top: 1px solid var(--line);
+}
+
+.segment-where {
+    color: var(--ink-soft);
+}
+
+.segment-text {
+    overflow-wrap: anywhere;
+}
+
+.segment-hex {
+    grid-column: 2;
+    color: var(--ink-soft);
+    overflow-wrap: anywhere;
+}
+
 .colophon {
     display: flex;
     justify-content: space-between;

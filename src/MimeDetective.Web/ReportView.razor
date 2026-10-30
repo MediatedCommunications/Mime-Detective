@@ -76,15 +76,36 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var match in Report.Matches) {
-                            <tr>
-                                <th scope="row">@match.Description</th>
+                        @for (var index = 0; index < Report.Matches.Count; index++) {
+                            var row = index;
+                            var match = Report.Matches[row];
+                            var open = _open.Contains(row);
+                            var panelId = $"definition-{row}";
+                            <tr class="@(open ? "open" : null)">
+                                <th scope="row">
+                                    <button type="button"
+                                            class="disclose"
+                                            aria-expanded="@open"
+                                            aria-controls="@panelId"
+                                            @onclick="() => Toggle(row)">
+                                        <span class="mark" aria-hidden="true">@(open ? "–" : "+")</span>
+                                        <span>@match.Description</span>
+                                    </button>
+                                </th>
                                 <td>@string.Join(", ", match.Extensions.Select(static name => "." + name))</td>
                                 <td>@match.MimeType</td>
                                 <td>@(match.Categories.Count == 0 ? "—" : string.Join(", ", match.Categories))</td>
                                 <td>@match.MatchType @match.Percentage.ToString("0.#%")</td>
                                 <td class="points">@match.Points.ToString("N0")</td>
                             </tr>
+                            @if (open) {
+                                <tr class="segment-row">
+                                    <td id="@panelId" colspan="6">
+                                        <SegmentList Title="Prefix segments" Empty="No prefix segments." Segments="match.Prefixes" Prefix="true" />
+                                        <SegmentList Title="String segments" Empty="No string segments." Segments="match.Strings" Prefix="false" />
+                                    </td>
+                                </tr>
+                            }
                         }
                     </tbody>
                 </table>
@@ -94,6 +115,22 @@
 </section>
 
 @code {
+    private readonly HashSet<int> _open = [];
+    private InspectionReport? _seen;
+
     [Parameter, EditorRequired]
     public required InspectionReport Report { get; set; }
+
+    protected override void OnParametersSet() {
+        if (!ReferenceEquals(_seen, Report)) {
+            _seen = Report;
+            _open.Clear();
+        }
+    }
+
+    private void Toggle(int index) {
+        if (!_open.Add(index)) {
+            _open.Remove(index);
+        }
+    }
 }

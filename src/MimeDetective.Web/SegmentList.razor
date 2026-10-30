@@ -1,0 +1,45 @@
+<section class="segment-block">
+    <h4>@Title</h4>
+    @if (Segments.Count == 0) {
+        <p class="segment-empty">@Empty</p>
+    } else {
+        <ol class="segment-list">
+            @foreach (var segment in Segments) {
+                <li>
+                    <span class="segment-where">@Locate(segment)</span>
+                    <span class="segment-text">@(string.IsNullOrEmpty(segment.Text) ? "(empty)" : segment.Text)</span>
+                    @if (!string.IsNullOrEmpty(segment.Hex)) {
+                        <span class="segment-hex">@segment.Hex</span>
+                    }
+                </li>
+            }
+        </ol>
+    }
+</section>
+
+@code {
+    [Parameter, EditorRequired]
+    public required string Title { get; set; }
+
+    [Parameter, EditorRequired]
+    public required string Empty { get; set; }
+
+    [Parameter, EditorRequired]
+    public required IReadOnlyList<SegmentDetail> Segments { get; set; }
+
+    [Parameter]
+    public bool Prefix { get; set; }
+
+    private string Locate(SegmentDetail segment) {
+        if (Prefix) {
+            var place = $"@{segment.Offset:X}";
+            return segment.Matched ? place : $"{place}, not found";
+        }
+
+        if (segment.FoundAt is { } at) {
+            return $"@{at:X}";
+        }
+
+        return segment.Matched ? "found" : "not found";
+    }
+}
