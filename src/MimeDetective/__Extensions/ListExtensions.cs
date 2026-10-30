@@ -1,9 +1,9 @@
-﻿namespace System.Collections.Generic;
+namespace System.Collections.Generic;
 
 internal static class ListExtensions {
-    public static void Add<T>(this IList<T> @this, IEnumerable<T> items) {
+    public static void Add<T>(this IList<T> This, IEnumerable<T> items) {
         foreach (var item in items) {
-            @this.Add(item);
+            This.Add(item);
         }
     }
 }
