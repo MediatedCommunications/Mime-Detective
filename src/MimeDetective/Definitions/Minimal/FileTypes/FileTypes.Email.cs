@@ -26,8 +26,8 @@ namespace MimeDetective.Definitions {
                                     Category.Document,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                StringSegment.Create("FROM"),
+                            Signature = new Rule[] {
+                                WildCardRule.Create("FROM"),
                             }.ToSignature(),
                         },
                     ];
@@ -44,8 +44,8 @@ namespace MimeDetective.Definitions {
                                     Category.Archive,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                    PrefixSegment.Create(0, [0x21, 0x42, 0x44, 0x4E,]),
+                            Signature = new Rule[] {
+                                    OffsetRule.Create(0, [0x21, 0x42, 0x44, 0x4E,]),
                             }.ToSignature(),
                         },
                     ];

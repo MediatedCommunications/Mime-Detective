@@ -99,7 +99,7 @@ namespace MimeDetective.Definitions.Generator
             return ret;
         }
 
-        public static ImmutableArray<PrefixSegment> Intersection(ImmutableArray<PrefixSegment> A, ImmutableArray<PrefixSegment> B)
+        public static ImmutableArray<OffsetRule> Intersection(ImmutableArray<OffsetRule> A, ImmutableArray<OffsetRule> B)
         {
             var Values = (
                 from x in A
@@ -111,9 +111,9 @@ namespace MimeDetective.Definitions.Generator
             return Values;
         }
 
-        public static ImmutableArray<PrefixSegment> Intersection(PrefixSegment A, PrefixSegment B)
+        public static ImmutableArray<OffsetRule> Intersection(OffsetRule A, OffsetRule B)
         {
-            var ret = new List<PrefixSegment>();
+            var ret = new List<OffsetRule>();
 
             var Start1 = A.Start;
             var End1 = A.ExclusiveEnd();
@@ -134,8 +134,8 @@ namespace MimeDetective.Definitions.Generator
 
                     if (!Terminal)
                     {
-                        var AS = A.Pattern[Start - A.Start];
-                        var BS = B.Pattern[Start - B.Start];
+                        var AS = A.Value[Start - A.Start];
+                        var BS = B.Value[Start - B.Start];
 
                         if (AS == BS)
                         {
@@ -148,9 +148,9 @@ namespace MimeDetective.Definitions.Generator
 
 
                     if(Yield && Found.Count > 0) {
-                        ret.Add(new PrefixSegment()
+                        ret.Add(new OffsetRule()
                         {
-                            Pattern = [.. Found,],
+                            Value = [.. Found,],
                             Start = Start - Found.Count,
                         });
 
@@ -168,7 +168,7 @@ namespace MimeDetective.Definitions.Generator
         }
 
 
-        public static ImmutableArray<StringSegment> Intersection(ImmutableArray<StringSegment> A, ImmutableArray<StringSegment> B)
+        public static ImmutableArray<WildCardRule> Intersection(ImmutableArray<WildCardRule> A, ImmutableArray<WildCardRule> B)
         {
             var Values = (
                 from x in A
@@ -181,11 +181,11 @@ namespace MimeDetective.Definitions.Generator
             return Values;
         }
 
-        private static StringSegment? Intersection(StringSegment A, StringSegment B)
+        private static WildCardRule? Intersection(WildCardRule A, WildCardRule B)
         {
-            var ret = default(StringSegment?);
+            var ret = default(WildCardRule?);
 
-            if (A.Pattern.SequenceEqual(B.Pattern))
+            if (A.Value.SequenceEqual(B.Value))
             {
                 ret = A;
             }

@@ -47,8 +47,8 @@ namespace MimeDetective.Definitions {
                                     Category.Video,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                PrefixSegment.Create(0, [0x46, 0x4C, 0x56, 0x01,]),
+                            Signature = new Rule[] {
+                                OffsetRule.Create(0, [0x46, 0x4C, 0x56, 0x01,]),
                             }.ToSignature(),
                         },
                     ];
@@ -68,8 +68,8 @@ namespace MimeDetective.Definitions {
                                     Category.Video,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                PrefixSegment.Create(4, [0x66, 0x74, 0x79, 0x70, 0x71, 0x74, 0x20, 0x20,]), 
+                            Signature = new Rule[] {
+                                OffsetRule.Create(4, [0x66, 0x74, 0x79, 0x70, 0x71, 0x74, 0x20, 0x20,]), 
                             }.ToSignature(),
                         },
                     ];
@@ -87,8 +87,8 @@ namespace MimeDetective.Definitions {
                                     Category.Video,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                PrefixSegment.Create(4, [0x66, 0x74, 0x79, 0x70, 0x33, 0x67, 0x70, 0x35,]),
+                            Signature = new Rule[] {
+                                OffsetRule.Create(4, [0x66, 0x74, 0x79, 0x70, 0x33, 0x67, 0x70, 0x35,]),
                             }.ToSignature(),
                         },
                     ];
@@ -106,8 +106,8 @@ namespace MimeDetective.Definitions {
                                     Category.Video,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                PrefixSegment.Create(4, [0x66, 0x74, 0x79, 0x70,]),
+                            Signature = new Rule[] {
+                                OffsetRule.Create(4, [0x66, 0x74, 0x79, 0x70,]),
                             }.ToSignature(),
                         },
                     ];
@@ -125,8 +125,8 @@ namespace MimeDetective.Definitions {
                                     Category.Video,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                PrefixSegment.Create(4, [0x66, 0x74, 0x79, 0x70, 0x69, 0x73, 0x6F, 0x6D,]),
+                            Signature = new Rule[] {
+                                OffsetRule.Create(4, [0x66, 0x74, 0x79, 0x70, 0x69, 0x73, 0x6F, 0x6D,]),
                             }.ToSignature(),
                         },
                     ];
@@ -143,8 +143,8 @@ namespace MimeDetective.Definitions {
                                     Category.Video,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                PrefixSegment.Create(4, [0x66, 0x74, 0x79, 0x70, 0x6D, 0x70, 0x34, 0x32,]),
+                            Signature = new Rule[] {
+                                OffsetRule.Create(4, [0x66, 0x74, 0x79, 0x70, 0x6D, 0x70, 0x34, 0x32,]),
                             }.ToSignature(),
                         },
                     ];
@@ -162,8 +162,8 @@ namespace MimeDetective.Definitions {
                                     Category.Video,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                PrefixSegment.Create(4, [0x66, 0x74, 0x79, 0x70, 0x4D, 0x53, 0x4E, 0x56,]),
+                            Signature = new Rule[] {
+                                OffsetRule.Create(4, [0x66, 0x74, 0x79, 0x70, 0x4D, 0x53, 0x4E, 0x56,]),
                             }.ToSignature(),
                         },
                     ];
@@ -181,8 +181,8 @@ namespace MimeDetective.Definitions {
                                     Category.Video,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                PrefixSegment.Create(4, [0x66, 0x74, 0x79, 0x70, 0x33, 0x67, 0x70,]),
+                            Signature = new Rule[] {
+                                OffsetRule.Create(4, [0x66, 0x74, 0x79, 0x70, 0x33, 0x67, 0x70,]),
                             }.ToSignature(),
                         },
                     ];

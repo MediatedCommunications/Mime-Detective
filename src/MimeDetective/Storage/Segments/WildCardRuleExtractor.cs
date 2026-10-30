@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 
-namespace MimeDetective.Storage {
-    public static class StringSegmentExtrator {
+namespace MimeDetective.Storage;
+
+public static class WildCardRuleExtractor {
 
         private static ImmutableArray<bool> ValidBytes { get; }
         private static readonly byte Separator = (byte)'|';
         private static readonly int MinSegmentLength = 3;
 
 
-        static StringSegmentExtrator() {
+        static WildCardRuleExtractor() {
             const string Valid = ""
                 + "abcdefghijklmnopqrstuvwxyz"
                 + "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -24,7 +25,7 @@ namespace MimeDetective.Storage {
                 ValidBytesArray[(byte)item] = true;
             }
 
-            ValidBytes = [..ValidBytesArray,];
+            ValidBytes = [.. ValidBytesArray,];
         }
 
 
@@ -69,7 +70,7 @@ namespace MimeDetective.Storage {
                 }
             }
 
-            if(SegmentLength >= MinSegmentLength) {
+            if (SegmentLength >= MinSegmentLength) {
                 tret.Add(Separator);
             } else {
                 var AmountToRemove = tret.Count - SegmentStart;
@@ -84,16 +85,16 @@ namespace MimeDetective.Storage {
             return ret;
         }
 
-        public static ImmutableArray<StringSegment> ExtractBytesString(ReadOnlySpan<byte> Content) {
-            var ret = ImmutableArray<StringSegment>.Empty;
+        public static ImmutableArray<WildCardRule> ExtractBytesString(ReadOnlySpan<byte> Content) {
+            var ret = ImmutableArray<WildCardRule>.Empty;
 
             var tret = ExtractBytes(Content);
 
-            if(tret.Length > 0) {
+            if (tret.Length > 0) {
                 ret = [
                     ..new[] {
-                        new StringSegment() {
-                            Pattern = [..tret,],
+                        new WildCardRule() {
+                            Value = [..tret,],
                         },
                     },
                 ];
@@ -102,21 +103,21 @@ namespace MimeDetective.Storage {
             return ret;
         }
 
-        public static ImmutableArray<StringSegment> ExtractStrings(ReadOnlySpan<byte> Content) {
+        public static ImmutableArray<WildCardRule> ExtractStrings(ReadOnlySpan<byte> Content) {
             return ExtractBytesString(Content);
         }
 
-        public static ImmutableArray<StringSegment> ExtractAllStrings(ReadOnlySpan<byte> Content) {
+        public static ImmutableArray<WildCardRule> ExtractAllStrings(ReadOnlySpan<byte> Content) {
             var tret = new List<ImmutableArray<byte>>();
 
             var Bytes = ExtractBytes(Content);
 
             var Start = 1;
-            
-            while(Start < Bytes.Length) {
+
+            while (Start < Bytes.Length) {
                 var NextEnd = Array.IndexOf(Bytes, Separator, Start);
 
-                tret.Add([..Bytes.AsSpan(Start, NextEnd - Start),]);
+                tret.Add([.. Bytes.AsSpan(Start, NextEnd - Start),]);
 
                 Start = NextEnd + 1;
             }
@@ -124,10 +125,10 @@ namespace MimeDetective.Storage {
 
             var ret = (
                 from x in tret
-                let v = new StringSegment() {
-                    Pattern = x,
+                let v = new WildCardRule() {
+                    Value = x,
                 }
-                orderby v.Pattern.Length descending
+                orderby v.Value.Length descending
                 select v
                 ).ToImmutableArray();
 
@@ -137,4 +138,3 @@ namespace MimeDetective.Storage {
 
     }
 
-}

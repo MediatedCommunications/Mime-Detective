@@ -30,8 +30,8 @@ namespace MimeDetective.Definitions
                                     Category.Xml,
                                 ],
                             },
-                            Signature = new Segment[]{
-                                PrefixSegment.Create(0, [0x3C, 0x3F, 0x78, 0x6D, 0x6C, 0x20,]),
+                            Signature = new Rule[]{
+                                OffsetRule.Create(0, [0x3C, 0x3F, 0x78, 0x6D, 0x6C, 0x20,]),
                             }.ToSignature(),
                         },
                     ];
@@ -49,8 +49,8 @@ namespace MimeDetective.Definitions
                                     Category.Xml,
                                 ],
                             },
-                            Signature = new Segment[]{
-                                PrefixSegment.Create(0, [0xEF, 0xBB, 0xBF, 0x3C, 0x3F, 0x78, 0x6D, 0x6C, 0x20,]),
+                            Signature = new Rule[]{
+                                OffsetRule.Create(0, [0xEF, 0xBB, 0xBF, 0x3C, 0x3F, 0x78, 0x6D, 0x6C, 0x20,]),
                             }.ToSignature(),
                         },
                     ];
@@ -68,8 +68,8 @@ namespace MimeDetective.Definitions
                                     Category.Xml,
                                 ],
                             },
-                            Signature = new Segment[]{
-                                PrefixSegment.Create(0, [0xFF, 0xFE, 0x3C, 0x00, 0x3F, 0x00, 0x78, 0x00, 0x6D, 0x00, 0x6C, 0x00, 0x20, 0x00,]),
+                            Signature = new Rule[]{
+                                OffsetRule.Create(0, [0xFF, 0xFE, 0x3C, 0x00, 0x3F, 0x00, 0x78, 0x00, 0x6D, 0x00, 0x6C, 0x00, 0x20, 0x00,]),
                             }.ToSignature(),
                         },
                     ];
@@ -87,8 +87,8 @@ namespace MimeDetective.Definitions
                                     Category.Xml,
                                 ],
                             },
-                            Signature = new Segment[]{
-                                PrefixSegment.Create(0, [0xFE, 0xFF, 0x00, 0x3C, 0x00, 0x3F, 0x00, 0x78, 0x00, 0x6D, 0x00, 0x6C, 0x00, 0x20,]),
+                            Signature = new Rule[]{
+                                OffsetRule.Create(0, [0xFE, 0xFF, 0x00, 0x3C, 0x00, 0x3F, 0x00, 0x78, 0x00, 0x6D, 0x00, 0x6C, 0x00, 0x20,]),
                             }.ToSignature(),
                         },
                     ];

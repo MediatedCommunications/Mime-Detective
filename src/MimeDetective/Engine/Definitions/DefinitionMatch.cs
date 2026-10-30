@@ -19,17 +19,17 @@ public record DefinitionMatch : DisplayRecord {
     public long Points { get; init; }
 
     /// <summary>
-    ///     What <see cref="Percentage" /> of this <see cref="DefinitionMatch" />'s <see cref="SegmentMatch" />s were
+    ///     What <see cref="Percentage" /> of this <see cref="DefinitionMatch" />'s <see cref="Match" />s were
     ///     successful.
     /// </summary>
     public decimal Percentage { get; init; }
 
 
-    public ImmutableDictionary<PrefixSegment, SegmentMatch> PrefixSegmentMatches { get; init; } =
-        ImmutableDictionary<PrefixSegment, SegmentMatch>.Empty;
+    public ImmutableDictionary<OffsetRule, Match> OffsetMatches { get; init; } =
+        ImmutableDictionary<OffsetRule, Match>.Empty;
 
-    public ImmutableDictionary<StringSegment, SegmentMatch> StringSegmentMatches { get; init; } =
-        ImmutableDictionary<StringSegment, SegmentMatch>.Empty;
+    public ImmutableDictionary<WildCardRule, Match> WildCardMatches { get; init; } =
+        ImmutableDictionary<WildCardRule, Match>.Empty;
 
     public override string? GetDebuggerDisplay() {
         return

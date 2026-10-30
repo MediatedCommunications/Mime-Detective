@@ -50,8 +50,8 @@ namespace MimeDetective.Definitions {
                                     Category.Image,
                                 ],
                             },
-                            Signature = new Segment[]{
-                                PrefixSegment.Create(0, [0x42, 0x4D,]),
+                            Signature = new Rule[]{
+                                OffsetRule.Create(0, [0x42, 0x4D,]),
                             }.ToSignature(),
                         },
                     ];
@@ -70,9 +70,9 @@ namespace MimeDetective.Definitions {
                                     Category.Bitmap,
                                 ],
                             },
-                            Signature = new Segment[]{
-                                PrefixSegment.Create(0, [0x47, 0x49, 0x46, 0x38,]),
-                                PrefixSegment.Create(5, [0x61,]),
+                            Signature = new Rule[]{
+                                OffsetRule.Create(0, [0x47, 0x49, 0x46, 0x38,]),
+                                OffsetRule.Create(5, [0x61,]),
                             }.ToSignature(),
                         },
                     ];
@@ -90,8 +90,8 @@ namespace MimeDetective.Definitions {
                                     Category.Bitmap,
                                 ],
                             },
-                            Signature = new Segment[]{
-                                PrefixSegment.Create(0, [0x00, 0x00, 0x01, 0x00,]),
+                            Signature = new Rule[]{
+                                OffsetRule.Create(0, [0x00, 0x00, 0x01, 0x00,]),
                             }.ToSignature(),
                         },
                     ];
@@ -110,8 +110,8 @@ namespace MimeDetective.Definitions {
                                     Category.Bitmap,
                                 ],
                             },
-                            Signature = new Segment[]{
-                                PrefixSegment.Create(0, [0xFF, 0xD8, 0xFF,]), 
+                            Signature = new Rule[]{
+                                OffsetRule.Create(0, [0xFF, 0xD8, 0xFF,]), 
                             }.ToSignature(),
                         },
                     ];
@@ -130,8 +130,8 @@ namespace MimeDetective.Definitions {
                                     Category.Bitmap,
                                 ],
                             },
-                            Signature = new Segment[]{
-                                PrefixSegment.Create(0, [0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A,]),
+                            Signature = new Rule[]{
+                                OffsetRule.Create(0, [0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A,]),
                             }.ToSignature(),
                         },
                     ];
@@ -148,8 +148,8 @@ namespace MimeDetective.Definitions {
                                     Category.Image,
                                 ],
                             },
-                            Signature = new Segment[]{
-                                PrefixSegment.Create(0, [0x38, 0x42, 0x50, 0x53,]),
+                            Signature = new Rule[]{
+                                OffsetRule.Create(0, [0x38, 0x42, 0x50, 0x53,]),
                             }.ToSignature(),
                         },
                     ];
@@ -167,8 +167,8 @@ namespace MimeDetective.Definitions {
                                     Category.BigEndian,
                                 ],
                             },
-                            Signature = new Segment[]{
-                                PrefixSegment.Create(0, [0x4D, 0x4D, 0x00, 0x2A,]),
+                            Signature = new Rule[]{
+                                OffsetRule.Create(0, [0x4D, 0x4D, 0x00, 0x2A,]),
                             }.ToSignature(),
                         },
                     ];
@@ -186,8 +186,8 @@ namespace MimeDetective.Definitions {
                                     Category.BigEndian,
                                 ],
                             },
-                            Signature = new Segment[]{
-                                PrefixSegment.Create(0, [0x4D, 0x4D, 0x00, 0x2B,]),
+                            Signature = new Rule[]{
+                                OffsetRule.Create(0, [0x4D, 0x4D, 0x00, 0x2B,]),
                             }.ToSignature(),
                         },
                     ];
@@ -205,8 +205,8 @@ namespace MimeDetective.Definitions {
                                     Category.LittleEndian,
                                 ],
                             },
-                            Signature = new Segment[]{
-                                PrefixSegment.Create(0, [0x49, 0x49, 0x2A, 0x00,]),
+                            Signature = new Rule[]{
+                                OffsetRule.Create(0, [0x49, 0x49, 0x2A, 0x00,]),
                             }.ToSignature(),
                         },
                     ];
@@ -223,8 +223,8 @@ namespace MimeDetective.Definitions {
                                     Category.Document,
                                 ],
                             },
-                            Signature = new Segment[]{
-                                PrefixSegment.Create(0, [0x49, 0x20, 0x49,]),
+                            Signature = new Rule[]{
+                                OffsetRule.Create(0, [0x49, 0x20, 0x49,]),
                             }.ToSignature(),
                         },
                     ];
@@ -242,9 +242,9 @@ namespace MimeDetective.Definitions {
                                     Category.Compressed,
                                 ],
                             },
-                            Signature = new Segment[]{
-                                PrefixSegment.Create(0, [0x52, 0x49, 0x46, 0x46,]), //At offset 0 in the file, expect the bytes "RIFF".
-                                PrefixSegment.Create(8, [0x57, 0x45, 0x42, 0x50,]), //At offset 8 in the file, expect the bytes "WEBP".
+                            Signature = new Rule[]{
+                                OffsetRule.Create(0, [0x52, 0x49, 0x46, 0x46,]), //At offset 0 in the file, expect the bytes "RIFF".
+                                OffsetRule.Create(8, [0x57, 0x45, 0x42, 0x50,]), //At offset 8 in the file, expect the bytes "WEBP".
                             }.ToSignature(),
                         },
                     ];

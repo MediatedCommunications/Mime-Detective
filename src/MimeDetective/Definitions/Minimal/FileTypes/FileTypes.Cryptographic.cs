@@ -34,8 +34,8 @@ namespace MimeDetective.Definitions {
                                     Category.Encrypted,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                PrefixSegment.Create(0, [0x41, 0x45, 0x53,]),
+                            Signature = new Rule[] {
+                                OffsetRule.Create(0, [0x41, 0x45, 0x53,]),
                             }.ToSignature(),
                         },
                     ];
@@ -51,8 +51,8 @@ namespace MimeDetective.Definitions {
                                     Category.Encrypted,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                PrefixSegment.Create(0, [0x99, 0x01,]),
+                            Signature = new Rule[] {
+                                OffsetRule.Create(0, [0x99, 0x01,]),
                             }.ToSignature(),
                         },
                     ];
@@ -68,8 +68,8 @@ namespace MimeDetective.Definitions {
                                     Category.Encrypted,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                PrefixSegment.Create(0, [0x95, 0x00,]), 
+                            Signature = new Rule[] {
+                                OffsetRule.Create(0, [0x95, 0x00,]), 
                             }.ToSignature(),
                         },
                     ];
@@ -85,8 +85,8 @@ namespace MimeDetective.Definitions {
                                     Category.Encrypted,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                PrefixSegment.Create(0, [0x95, 0x01,]), 
+                            Signature = new Rule[] {
+                                OffsetRule.Create(0, [0x95, 0x01,]), 
                             }.ToSignature(),
                         },
                     ];

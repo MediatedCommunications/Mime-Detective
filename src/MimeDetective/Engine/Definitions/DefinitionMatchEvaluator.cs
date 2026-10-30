@@ -13,24 +13,24 @@ internal class DefinitionMatchEvaluator {
     public DefinitionMatchEvaluatorOptions Options { get; init; } = new();
 
     public virtual DefinitionMatch? Match(
-        DefinitionMatcher definitionMatcherCache, ReadOnlySpan<byte> content, ImmutableArray<StringSegment> contentStrings) {
+        DefinitionMatcher definitionMatcherCache, ReadOnlySpan<byte> content, ImmutableArray<WildCardRule> contentStrings) {
         var ret = default(DefinitionMatch?);
 
         var valid = true;
         var allMatches = 0m;
         var goodMatches = 0m;
 
-        var prefixSegmentMatches = new Dictionary<PrefixSegment, SegmentMatch>();
-        var stringSegmentMatches = new Dictionary<StringSegment, SegmentMatch>();
+        var OffsetMatches = new Dictionary<OffsetRule, Match>();
+        var WildCardMatches = new Dictionary<WildCardRule, Match>();
 
-        if (valid && Options.IncludeSegmentsPrefix) {
+        if (valid && Options.IncludeOffsetRules) {
             foreach (var item in definitionMatcherCache.Prefixes) {
                 allMatches += 1;
 
                 var result = item.Match(content);
-                prefixSegmentMatches[item.Segment] = result;
+                OffsetMatches[item.Segment] = result;
 
-                if (result == NoSegmentMatch.Instance) {
+                if (result == NoMatch.Instance) {
                     if (Options.IncludeMatchesPartial == false && Options.IncludeMatchesFailed == false) {
                         valid = false;
                         break;
@@ -41,19 +41,19 @@ internal class DefinitionMatchEvaluator {
             }
         }
 
-        if (valid && Options.IncludeSegmentsStrings) {
+        if (valid && Options.IncludeWildcardRules) {
             foreach (var item in definitionMatcherCache.Strings) {
                 allMatches += 1;
 
                 var result = contentStrings
-                            .Select(x => item.Match(x.Pattern.AsSpan()))
-                            .FirstOrDefault(x => x != NoSegmentMatch.Instance)
-                        ?? NoSegmentMatch.Instance
+                            .Select(x => item.Match(x.Value.AsSpan()))
+                            .FirstOrDefault(x => x != NoMatch.Instance)
+                        ?? NoMatch.Instance
                     ;
 
-                stringSegmentMatches[item.Segment] = result;
+                WildCardMatches[item.Segment] = result;
 
-                if (result == NoSegmentMatch.Instance) {
+                if (result == NoMatch.Instance) {
                     if (Options.IncludeMatchesPartial == false && Options.IncludeMatchesFailed == false) {
                         valid = false;
                         break;
@@ -75,7 +75,7 @@ internal class DefinitionMatchEvaluator {
                     : goodMatches / allMatches
                 ;
 
-            var points = GetPoints(prefixSegmentMatches, stringSegmentMatches);
+            var points = GetPoints(OffsetMatches, WildCardMatches);
 
             var type = (GoodMatches: goodMatches, AllMatches: allMatches) switch {
                 _ when goodMatches == allMatches && goodMatches == 0 => DefinitionMatchType.Empty,
@@ -95,8 +95,8 @@ internal class DefinitionMatchEvaluator {
                 ret = new() {
                     Definition = definitionMatcherCache.Definition,
                     Type = type,
-                    PrefixSegmentMatches = prefixSegmentMatches.ToImmutableDictionary(),
-                    StringSegmentMatches = stringSegmentMatches.ToImmutableDictionary(),
+                    OffsetMatches = OffsetMatches.ToImmutableDictionary(),
+                    WildCardMatches = WildCardMatches.ToImmutableDictionary(),
                     Percentage = percentage,
                     Points = points,
                 };
@@ -106,12 +106,12 @@ internal class DefinitionMatchEvaluator {
         return ret;
     }
 
-    protected virtual long GetPoints(IDictionary<PrefixSegment, SegmentMatch> prefixSegmentMatches,
-        IDictionary<StringSegment, SegmentMatch> stringSegmentMatches) {
-        var prefixSegmentStart = 0;
+    protected virtual long GetPoints(IDictionary<OffsetRule, Match> OffsetMatches,
+        IDictionary<WildCardRule, Match> WildCardMatches) {
+        var OffsetRuleStart = 0;
 
         var ret = 0;
-        var matchSet = new[] { prefixSegmentMatches.Values, stringSegmentMatches.Values, };
+        var matchSet = new[] { OffsetMatches.Values, WildCardMatches.Values, };
 
         var matches = matchSet.SelectMany(x => x);
 
@@ -123,18 +123,18 @@ internal class DefinitionMatchEvaluator {
         foreach (var match in matches) {
             var pointsToAdd = 0;
 
-            if (match is NoSegmentMatch v1) { } else if (match is PrefixSegmentMatch v2) {
+            if (match is NoMatch v1) { } else if (match is OffsetMatch v2) {
                 var multiplier = multiplierPrefixBeginningOfFile;
-                if (v2.Segment.Start == prefixSegmentStart) {
+                if (v2.Rule.Start == OffsetRuleStart) {
                     multiplier = multiplierPrefixStartOfFile;
-                    prefixSegmentStart = v2.Segment.ExclusiveEnd();
+                    OffsetRuleStart = v2.Rule.ExclusiveEnd();
                 }
 
-                pointsToAdd = multiplier * v2.Segment.Pattern.Length;
-            } else if (match is StringSegmentMatch v3) {
+                pointsToAdd = multiplier * v2.Rule.Value.Length;
+            } else if (match is WildCardMatch v3) {
                 var multiplier = multiplierStringAnywhere;
 
-                pointsToAdd = multiplier * v3.Segment.Pattern.Length;
+                pointsToAdd = multiplier * v3.Rule.Value.Length;
             }
 
             ret += pointsToAdd;

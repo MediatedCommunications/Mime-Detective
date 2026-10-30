@@ -132,36 +132,36 @@ public sealed record MatchResult(
 }
 
 public sealed record SegmentDetail(int? Offset, string Text, string Hex, bool Matched) {
-    public static SegmentDetail FromPrefix(PrefixSegment segment, DefinitionMatch match) {
+    public static SegmentDetail FromPrefix(OffsetRule segment, DefinitionMatch match) {
         var matched = false;
-        foreach (var (key, result) in match.PrefixSegmentMatches) {
-            if (!PrefixSegmentEqualityComparer.Instance.Equals(key, segment)) {
+        foreach (var (key, result) in match.OffsetMatches) {
+            if (!OffsetRuleEqualityComparer.Instance.Equals(key, segment)) {
                 continue;
             }
 
-            matched = result is not NoSegmentMatch;
+            matched = result is not NoMatch;
             break;
         }
 
-        var ret = new SegmentDetail(segment.Start, Readable(segment.Pattern), HexOf(segment.Pattern), matched);
+        var ret = new SegmentDetail(segment.Start, Readable(segment.Value), HexOf(segment.Value), matched);
         return ret;
     }
 
-    public static SegmentDetail FromString(StringSegment segment, DefinitionMatch match) {
+    public static SegmentDetail FromString(WildCardRule segment, DefinitionMatch match) {
         int? foundAt = null;
-        foreach (var (key, result) in match.StringSegmentMatches) {
-            if (!StringSegmentEqualityComparer.Instance.Equals(key, segment)) {
+        foreach (var (key, result) in match.WildCardMatches) {
+            if (!WildCardRuleEqualityComparer.Instance.Equals(key, segment)) {
                 continue;
             }
 
-            if (result is StringSegmentMatch hit) {
+            if (result is WildCardMatch hit) {
                 foundAt = hit.Index;
             }
 
             break;
         }
 
-        var ret = new SegmentDetail(foundAt, Readable(segment.Pattern), HexOf(segment.Pattern), foundAt is not null);
+        var ret = new SegmentDetail(foundAt, Readable(segment.Value), HexOf(segment.Value), foundAt is not null);
         return ret;
     }
 

@@ -5,4 +5,4 @@ namespace MimeDetective.Storage;
 /// <summary>
 ///     The base segment type.
 /// </summary>
-public abstract class Segment : DisplayClass { }
+public abstract class Rule : DisplayClass { }

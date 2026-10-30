@@ -25,16 +25,16 @@ namespace MimeDetective.Tests {
                         MimeType = "application/octet-stream",
                     },
                     //All of these rules must match
-                    Signature = new Segment[] {
-                        StringSegment.Create("MAGIC"), //anywhere in the file, expect "MAGIC" (exact case)
-                        PrefixSegment.Create(100, [0x4D, 0x41, 0x47, 0x49, 0x43,]), //At offset 100 in the file, expect the bytes "MAGIC".
+                    Signature = new Rule[] {
+                        WildCardRule.Create("MAGIC"), //anywhere in the file, expect "MAGIC" (exact case)
+                        OffsetRule.Create(100, [0x4D, 0x41, 0x47, 0x49, 0x43,]), //At offset 100 in the file, expect the bytes "MAGIC".
                     }.ToSignature(),
                 });
 
                 Instance = new ContentInspectorBuilder() {
                     Definitions = MyDefinitions,
-                    StringSegmentOptions = new() {
-                        OptimizeFor = Engine.StringSegmentResourceOptimization.HighSpeed,
+                    WildCardRuleOptions = new() {
+                        OptimizeFor = Engine.WildCardRuleResourceOptimization.HighSpeed,
                     },
                 }.Build();
             }

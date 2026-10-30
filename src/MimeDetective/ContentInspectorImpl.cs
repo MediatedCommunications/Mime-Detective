@@ -13,39 +13,39 @@ namespace MimeDetective {
         public ContentInspectorImpl(
             ImmutableArray<Definition> Definitions,
             DefinitionMatchEvaluatorOptions MatchEvaluatorOptions,
-            StringSegmentMatcherProvider StringSegmentIndex,
+            WildCardMatcherProvider WildCardRuleIndex,
             bool Parallel
             ) {
 
-            this.StringSegmentIndex = StringSegmentIndex;
+            this.WildCardRuleIndex = WildCardRuleIndex;
             this.MatchEvaluatorOptions = MatchEvaluatorOptions;
             this.Parallel = Parallel;
-            this.DefinitionMatchers = GenerateDefinitionMatchers(StringSegmentIndex, Definitions);
+            this.DefinitionMatchers = GenerateDefinitionMatchers(WildCardRuleIndex, Definitions);
         }
 
-        protected StringSegmentMatcherProvider StringSegmentIndex { get; }
+        protected WildCardMatcherProvider WildCardRuleIndex { get; }
 
         protected DefinitionMatchEvaluatorOptions MatchEvaluatorOptions { get; }
         protected ImmutableArray<DefinitionMatcher> DefinitionMatchers { get; }
         protected bool Parallel { get; }
 
-        private static ImmutableArray<DefinitionMatcher> GenerateDefinitionMatchers(StringSegmentMatcherProvider StringSegmentIndex, ImmutableArray<Definition> Definitions) {
+        private static ImmutableArray<DefinitionMatcher> GenerateDefinitionMatchers(WildCardMatcherProvider WildCardRuleIndex, ImmutableArray<Definition> Definitions) {
 
-            var Prefixes = (from x in Definitions from y in x.Signature.Prefix select y).Distinct(PrefixSegmentEqualityComparer.Instance);
-            var Strings = (from x in Definitions from y in x.Signature.Strings select y).Distinct(StringSegmentEqualityComparer.Instance);
+            var Prefixes = (from x in Definitions from y in x.Signature.Prefix select y).Distinct(OffsetRuleEqualityComparer.Instance);
+            var Strings = (from x in Definitions from y in x.Signature.Strings select y).Distinct(WildCardRuleEqualityComparer.Instance);
 
             var PrefixMatcherCache = Prefixes
                 .ToImmutableDictionary(
                 x => x,
-                PrefixSegmentMatcher.Create,
-                PrefixSegmentEqualityComparer.Instance
+                OffsetMatcher.Create,
+                OffsetRuleEqualityComparer.Instance
                 );
 
             var StringMatcherCache = Strings
                 .ToImmutableDictionary(
                 x => x,
-                StringSegmentIndex.CreateMatcher,
-                StringSegmentEqualityComparer.Instance
+                WildCardRuleIndex.CreateMatcher,
+                WildCardRuleEqualityComparer.Instance
                 );
 
             var ret = (
@@ -79,17 +79,17 @@ namespace MimeDetective {
 
         protected ImmutableArray<DefinitionMatch> Inspect_Current(ReadOnlySpan<byte> Content) {
 
-            var NoContentStrings = ImmutableArray<StringSegment>.Empty;
+            var NoContentStrings = ImmutableArray<WildCardRule>.Empty;
 
             var tret = new List<(DefinitionMatch Match, DefinitionMatcher Matcher)>(32);
 
-            var useEmptyShortcut = this.MatchEvaluatorOptions is { IncludeSegmentsStrings: false, IncludeMatchesEmpty: false, };
+            var useEmptyShortcut = this.MatchEvaluatorOptions is { IncludeWildcardRules: false, IncludeMatchesEmpty: false, };
             var needsStrings = false;
 
             {
                 var MatchEvaluator1 = new DefinitionMatchEvaluator {
                     Options = MatchEvaluatorOptions with {
-                        IncludeSegmentsStrings = false,
+                        IncludeWildcardRules = false,
                         IncludeMatchesEmpty = true,
                     },
                 };
@@ -118,7 +118,7 @@ namespace MimeDetective {
             if (!useEmptyShortcut && needsStrings) {
                 var MatchEvaluator2 = new DefinitionMatchEvaluator { Options = this.MatchEvaluatorOptions, };
 
-                var ContentStrings = StringSegmentExtrator.ExtractStrings(Content);
+                var ContentStrings = WildCardRuleExtractor.ExtractStrings(Content);
 
                 var output = 0;
                 for (var i = 0; i < tret.Count; ++i) {

@@ -50,8 +50,8 @@ namespace MimeDetective.Definitions {
                                     Category.Archive,
                                 ],
                             },
-                            Signature = new Segment[]{
-                                PrefixSegment.Create(0, [0x42, 0x5A, 0x68,]),
+                            Signature = new Rule[]{
+                                OffsetRule.Create(0, [0x42, 0x5A, 0x68,]),
                             }.ToSignature(),
                         },
                     ];
@@ -68,8 +68,8 @@ namespace MimeDetective.Definitions {
                                     Category.Archive,
                                 ],
                             },
-                            Signature = new Segment[]{
-                                PrefixSegment.Create(0, [0x1F, 0x8B, 0x08,]),
+                            Signature = new Rule[]{
+                                OffsetRule.Create(0, [0x1F, 0x8B, 0x08,]),
                             }.ToSignature(),
                         },
                     ];
@@ -86,8 +86,8 @@ namespace MimeDetective.Definitions {
                                     Category.Archive,
                                 ],
                             },
-                            Signature = new Segment[]{
-                                PrefixSegment.Create(0, [0x52, 0x61, 0x72, 0x21,]),
+                            Signature = new Rule[]{
+                                OffsetRule.Create(0, [0x52, 0x61, 0x72, 0x21,]),
                             }.ToSignature(),
                         },
                     ];
@@ -104,8 +104,8 @@ namespace MimeDetective.Definitions {
                                     Category.Archive,
                                 ],
                             },
-                            Signature = new Segment[]{ 
-                                PrefixSegment.Create(0, [0x37, 0x7A, 0xBC, 0xAF, 0x27, 0x1C,]),
+                            Signature = new Rule[]{ 
+                                OffsetRule.Create(0, [0x37, 0x7A, 0xBC, 0xAF, 0x27, 0x1C,]),
                             }.ToSignature(),
                         },
                     ];
@@ -122,8 +122,8 @@ namespace MimeDetective.Definitions {
                                     Category.Archive,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                PrefixSegment.Create(257, [0x75, 0x73, 0x74, 0x61, 0x72,]),
+                            Signature = new Rule[] {
+                                OffsetRule.Create(257, [0x75, 0x73, 0x74, 0x61, 0x72,]),
                             }.ToSignature(),
                         },
                     ];
@@ -140,8 +140,8 @@ namespace MimeDetective.Definitions {
                                     Category.Archive,
                                 ],
                             },
-                            Signature = new Segment[]{
-                                PrefixSegment.Create(0, [0x1F, 0xA0,]),
+                            Signature = new Rule[]{
+                                OffsetRule.Create(0, [0x1F, 0xA0,]),
                             }.ToSignature(),
                         },
                     ];
@@ -158,8 +158,8 @@ namespace MimeDetective.Definitions {
                                     Category.Archive,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                PrefixSegment.Create(0, [0x1F, 0x9D,]),
+                            Signature = new Rule[] {
+                                OffsetRule.Create(0, [0x1F, 0x9D,]),
                             }.ToSignature(),
                         },
                     ];
@@ -176,8 +176,8 @@ namespace MimeDetective.Definitions {
                                     Category.Archive,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                PrefixSegment.Create(0, [0x50, 0x4B, 0x03, 0x04,]),
+                            Signature = new Rule[] {
+                                OffsetRule.Create(0, [0x50, 0x4B, 0x03, 0x04,]),
                             }.ToSignature(),
                         },
                     ];
@@ -194,8 +194,8 @@ namespace MimeDetective.Definitions {
                                     Category.Archive,
                                 ],
                             },
-                            Signature = new Segment[]{
-                                PrefixSegment.Create(0, [0x50, 0x4B, 0x05, 0x06,]),
+                            Signature = new Rule[]{
+                                OffsetRule.Create(0, [0x50, 0x4B, 0x05, 0x06,]),
                             }.ToSignature(),
                         },
                     ];

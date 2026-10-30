@@ -1,6 +1,6 @@
 ﻿namespace MimeDetective.Engine;
 
-public enum StringSegmentResourceOptimization {
+public enum WildCardRuleResourceOptimization {
     Any,
     HighSpeed,
     LowMemory,

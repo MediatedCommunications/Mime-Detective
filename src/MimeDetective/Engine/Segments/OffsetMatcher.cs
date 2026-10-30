@@ -5,17 +5,17 @@ using System;
 namespace MimeDetective.Engine;
 
 /// <summary>
-///     An <see cref="ISegmentMatcher" /> that matches a <see cref="PrefixSegment" /> against content.
+///     An <see cref="IMatcher" /> that matches a <see cref="OffsetRule" /> against content.
 /// </summary>
-internal class PrefixSegmentMatcher : DisplayClass, ISegmentMatcher {
-    public PrefixSegment Segment { get; }
+internal class OffsetMatcher : DisplayClass, IMatcher {
+    public OffsetRule Segment { get; }
 
-    public PrefixSegmentMatcher(PrefixSegment segment) {
+    public OffsetMatcher(OffsetRule segment) {
         Segment = segment;
     }
 
-    public SegmentMatch Match(ReadOnlySpan<byte> content) {
-        SegmentMatch ret = NoSegmentMatch.Instance;
+    public Match Match(ReadOnlySpan<byte> content) {
+        Match ret = NoMatch.Instance;
 
         var matches = true;
         matches &= content.Length >= Segment.ExclusiveEnd();
@@ -24,7 +24,7 @@ internal class PrefixSegmentMatcher : DisplayClass, ISegmentMatcher {
             for (int patternIndex = 0, contentIndex = Segment.Start;
                 contentIndex < Segment.ExclusiveEnd();
                 patternIndex++, contentIndex++) {
-                if (Segment.Pattern[patternIndex] != content[contentIndex]) {
+                if (Segment.Value[patternIndex] != content[contentIndex]) {
                     matches = false;
                     break;
                 }
@@ -32,7 +32,7 @@ internal class PrefixSegmentMatcher : DisplayClass, ISegmentMatcher {
         }
 
         if (matches) {
-            ret = new PrefixSegmentMatch { Segment = Segment, };
+            ret = new OffsetMatch { Rule = Segment, };
         }
 
         return ret;
@@ -42,7 +42,7 @@ internal class PrefixSegmentMatcher : DisplayClass, ISegmentMatcher {
         return Segment.GetDebuggerDisplay();
     }
 
-    public static PrefixSegmentMatcher Create(PrefixSegment segment) {
+    public static OffsetMatcher Create(OffsetRule segment) {
         return new(segment);
     }
 }

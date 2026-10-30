@@ -307,7 +307,7 @@ namespace MimeDetective.Storage.Xml.v2 {
                 Strings = [.. V1
                     .GlobalStrings
                     .Select(x => ConvertGlobalString(x))
-                    .OrderByDescending(x => x.Pattern.Length),]
+                    .OrderByDescending(x => x.Value.Length),]
                     ,
 
             };
@@ -315,12 +315,12 @@ namespace MimeDetective.Storage.Xml.v2 {
             return ret;
         }
 
-        private static Storage.StringSegment ConvertGlobalString(string V1)
+        private static Storage.WildCardRule ConvertGlobalString(string V1)
         {
-            return StringSegment.Create(V1, true);
+            return WildCardRule.Create(V1, true);
         }
 
-        private static Storage.PrefixSegment ConvertPattern(Pattern V1)
+        private static Storage.OffsetRule ConvertPattern(Pattern V1)
         {
             var Position = V1.Position;
 
@@ -332,10 +332,10 @@ namespace MimeDetective.Storage.Xml.v2 {
 
             var Content = System.Convert.FromHexString(Bytes).ToImmutableArray();
 
-            var ret = new Storage.PrefixSegment()
+            var ret = new Storage.OffsetRule()
             {
                 Start = Position,
-                Pattern = Content,
+                Value = Content,
             };
 
             return ret;

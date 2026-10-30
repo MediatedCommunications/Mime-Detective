@@ -9,7 +9,7 @@ namespace MimeDetective;
 ///     Use this class to create a new <see cref="IContentInspector" />.
 /// </summary>
 public class ContentInspectorBuilder {
-    public StringSegmentOptionsBuilder StringSegmentOptions { get; set; } = new();
+    public WildCardRuleOptionsBuilder WildCardRuleOptions { get; set; } = new();
 
 
     /// <summary>
@@ -32,14 +32,14 @@ public class ContentInspectorBuilder {
         var options = MatchEvaluatorOptions;
         var defs = Definitions.ToImmutableArray();
 
-        StringSegmentMatcherProvider stringSegmentIndex = StringSegmentOptions.OptimizeFor switch {
-            StringSegmentResourceOptimization.HighSpeed => new StringSegmentMatcherProviderHighSpeed(),
-            StringSegmentResourceOptimization.LowMemory => new StringSegmentMatcherProviderLowMemory(),
-            _ => new StringSegmentMatcherProviderHighSpeed(),
-            //_ => new StringSegmentMatcherProviderLowMemory()
+        WildCardMatcherProvider WildCardRuleIndex = WildCardRuleOptions.OptimizeFor switch {
+            WildCardRuleResourceOptimization.HighSpeed => new WildCardMatcherProviderHighSpeed(),
+            WildCardRuleResourceOptimization.LowMemory => new WildCardMatcherProviderLowMemory(),
+            _ => new WildCardMatcherProviderHighSpeed(),
+            //_ => new WildCardMatcherProviderLowMemory()
         };
 
-        var ret = new ContentInspectorImpl(defs, options, stringSegmentIndex, Parallel);
+        var ret = new ContentInspectorImpl(defs, options, WildCardRuleIndex, Parallel);
 
         return ret;
     }

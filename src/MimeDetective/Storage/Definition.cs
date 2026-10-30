@@ -3,7 +3,7 @@ using MimeDetective.Diagnostics;
 namespace MimeDetective.Storage;
 
 /// <summary>
-///     Contains information used to identify a file.
+///     WildCard information used to identify a file.
 /// </summary>
 public record Definition : DisplayRecord {
     public FileType File { get; init; } = new();

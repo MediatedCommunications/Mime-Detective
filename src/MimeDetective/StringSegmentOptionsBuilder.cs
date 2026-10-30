@@ -2,6 +2,6 @@
 
 namespace MimeDetective;
 
-public class StringSegmentOptionsBuilder {
-    public StringSegmentResourceOptimization OptimizeFor { get; set; }
+public class WildCardRuleOptionsBuilder {
+    public WildCardRuleResourceOptimization OptimizeFor { get; set; }
 }

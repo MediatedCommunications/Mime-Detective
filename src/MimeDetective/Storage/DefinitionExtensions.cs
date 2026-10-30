@@ -187,11 +187,11 @@ public static class DefinitionExtensions {
                 from y in x.Signature.Prefix
                 select y
             )
-            .Distinct(PrefixSegmentEqualityComparer.Instance)
+            .Distinct(OffsetRuleEqualityComparer.Instance)
             .ToImmutableDictionary(
                 x => x,
                 x => x,
-                PrefixSegmentEqualityComparer.Instance
+                OffsetRuleEqualityComparer.Instance
             );
 
         var singularizedPrefixCache = (
@@ -199,11 +199,11 @@ public static class DefinitionExtensions {
                 from y in x.Singularize()
                 select y
             )
-            .Distinct(PrefixSegmentEqualityComparer.Instance)
+            .Distinct(OffsetRuleEqualityComparer.Instance)
             .ToImmutableDictionary(
                 x => x,
                 x => x,
-                PrefixSegmentEqualityComparer.Instance
+                OffsetRuleEqualityComparer.Instance
             );
 
         var prefixCacheLookup =
@@ -211,7 +211,7 @@ public static class DefinitionExtensions {
                 .ToImmutableDictionary(
                     x => x,
                     x => x.Singularize().Select(y => singularizedPrefixCache[y]).ToImmutableArray(),
-                    PrefixSegmentEqualityComparer.Instance
+                    OffsetRuleEqualityComparer.Instance
                 );
 
         var stringCache = (
@@ -219,11 +219,11 @@ public static class DefinitionExtensions {
                 from y in x.Signature.Strings
                 select y
             )
-            .Distinct(StringSegmentEqualityComparer.Instance)
+            .Distinct(WildCardRuleEqualityComparer.Instance)
             .ToImmutableDictionary(
                 x => x,
                 x => x,
-                StringSegmentEqualityComparer.Instance
+                WildCardRuleEqualityComparer.Instance
             );
 
 

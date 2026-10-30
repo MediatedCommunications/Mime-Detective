@@ -6,15 +6,15 @@ using System;
 namespace MimeDetective.Tests;
 
 [TestClass]
-public class StringSegmentMatcherBruteTests {
+public class WildCardMatcherBruteTests {
     [TestMethod]
     public void Match_FindsFirstOccurrence() {
         var result = Match([0x01, 0x02, 0x03, 0x02, 0x03,], [0x02, 0x03,]);
 
-        var match = result as StringSegmentMatch;
+        var match = result as WildCardMatch;
         Assert.IsNotNull(match);
         Assert.AreEqual(1, match.Index);
-        Assert.AreSame(NoSegmentMatch.Instance, Match([0x01, 0x02, 0x02,], [0x02, 0x03,]));
+        Assert.AreSame(NoMatch.Instance, Match([0x01, 0x02, 0x02,], [0x02, 0x03,]));
     }
 
     [TestMethod]
@@ -60,11 +60,11 @@ public class StringSegmentMatcherBruteTests {
 
     private static int IndexOf(byte[] haystack, byte[] needle) {
         var result = Match(haystack, needle);
-        return result is StringSegmentMatch match ? match.Index : -1;
+        return result is WildCardMatch match ? match.Index : -1;
     }
 
-    private static SegmentMatch Match(byte[] haystack, byte[] needle) {
-        return new StringSegmentMatcherBrute(StringSegment.Create(needle)).Match(haystack);
+    private static Match Match(byte[] haystack, byte[] needle) {
+        return new WildCardMatcherBrute(WildCardRule.Create(needle)).Match(haystack);
     }
 
     private static int Naive(ReadOnlySpan<byte> haystack, ReadOnlySpan<byte> needle) {

@@ -27,8 +27,8 @@ namespace MimeDetective.Definitions {
                                     Category.Document,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                PrefixSegment.Create(0, [0xEF, 0xBB, 0xBF,]),
+                            Signature = new Rule[] {
+                                OffsetRule.Create(0, [0xEF, 0xBB, 0xBF,]),
                             }.ToSignature(),
                         },
                     ];
@@ -45,8 +45,8 @@ namespace MimeDetective.Definitions {
                                     Category.BigEndian,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                PrefixSegment.Create(0, [0xFE, 0xFF,]),
+                            Signature = new Rule[] {
+                                OffsetRule.Create(0, [0xFE, 0xFF,]),
                             }.ToSignature(),
                         },
                     ];
@@ -63,8 +63,8 @@ namespace MimeDetective.Definitions {
                                     Category.LittleEndian,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                PrefixSegment.Create(0, [0xFF, 0xFE,]),
+                            Signature = new Rule[] {
+                                OffsetRule.Create(0, [0xFF, 0xFE,]),
                             }.ToSignature(),
                         },
                     ];
@@ -81,8 +81,8 @@ namespace MimeDetective.Definitions {
                                     Category.BigEndian,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                PrefixSegment.Create(0, [0x00, 0x00, 0xFE, 0xFF,]),
+                            Signature = new Rule[] {
+                                OffsetRule.Create(0, [0x00, 0x00, 0xFE, 0xFF,]),
                             }.ToSignature(),
                         },
                     ];
@@ -99,8 +99,8 @@ namespace MimeDetective.Definitions {
                                     Category.LittleEndian,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                PrefixSegment.Create(0, [0xFF, 0xFE, 0x00, 0x00,]),
+                            Signature = new Rule[] {
+                                OffsetRule.Create(0, [0xFF, 0xFE, 0x00, 0x00,]),
                             }.ToSignature(),
                         },
                     ];

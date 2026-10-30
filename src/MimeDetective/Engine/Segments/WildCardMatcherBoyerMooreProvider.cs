@@ -5,12 +5,12 @@ using System.Linq;
 
 namespace MimeDetective.Engine;
 
-internal sealed class StringSegmentMatcherBoyerMooreProvider {
+internal sealed class WildCardMatcherBoyerMooreProvider {
     private readonly ImmutableArray<byte> _needle;
     private readonly int[] _offsetTable;
     private readonly int[] _skipTable;
 
-    public StringSegmentMatcherBoyerMooreProvider(ImmutableArray<byte> needle) {
+    public WildCardMatcherBoyerMooreProvider(ImmutableArray<byte> needle) {
         _needle = needle;
         _skipTable = MakeSkipTable(_needle);
         _offsetTable = MakeOffsetTable(_needle);

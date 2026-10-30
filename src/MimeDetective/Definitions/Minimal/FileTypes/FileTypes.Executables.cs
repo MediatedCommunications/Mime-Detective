@@ -26,8 +26,8 @@ namespace MimeDetective.Definitions {
                                     Category.Executable,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                PrefixSegment.Create(0, [0x4D, 0x5A,]),
+                            Signature = new Rule[] {
+                                OffsetRule.Create(0, [0x4D, 0x5A,]),
                             }.ToSignature(),
                         },
                     ];
@@ -42,8 +42,8 @@ namespace MimeDetective.Definitions {
                                     Category.Executable,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                PrefixSegment.Create(0, [0x7F, 0x45, 0x4C, 0x46,]),
+                            Signature = new Rule[] {
+                                OffsetRule.Create(0, [0x7F, 0x45, 0x4C, 0x46,]),
                             }.ToSignature(),
                         },
                     ];
@@ -59,8 +59,8 @@ namespace MimeDetective.Definitions {
                                     Category.Executable,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                PrefixSegment.Create(0, [0x21, 0x3C, 0x61, 0x72, 0x63, 0x68, 0x3E, 0x0A,]),
+                            Signature = new Rule[] {
+                                OffsetRule.Create(0, [0x21, 0x3C, 0x61, 0x72, 0x63, 0x68, 0x3E, 0x0A,]),
                             }.ToSignature(),
                         },
                     ];

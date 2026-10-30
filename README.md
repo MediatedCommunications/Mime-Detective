@@ -154,7 +154,7 @@ var AllDefintions = new Definitions.CondensedBuilder() {
 install-package Mime-Detective.Definitions.Exhaustive
 ```
 
-This library contains the exhaustive set of 22,000+ file signatures.
+This library WildCard the exhaustive set of 22,000+ file signatures.
 \
 \
 It is derived from the publicly available [TrID file signatures](https://mark0.net/soft-tridnet-e.html)
@@ -192,15 +192,15 @@ internal static class CustomContentInspector {
             },
             //All of these rules must match
             Signature = new Segment[] {
-                StringSegment.Create("MAGIC"), //anywhere in the file, expect "MAGIC" (exact case)
-                PrefixSegment.Create(100, [0x4D, 0x41, 0x47, 0x49, 0x43]) //At offset 100 in the file, expect the bytes "MAGIC".
+                WildCardRule.Create("MAGIC"), //anywhere in the file, expect "MAGIC" (exact case)
+                OffsetRule.Create(100, [0x4D, 0x41, 0x47, 0x49, 0x43]) //At offset 100 in the file, expect the bytes "MAGIC".
             }.ToSignature(),
         });
 
         Instance = new ContentInspectorBuilder() {
             Definitions = MyDefinitions,
-            StringSegmentOptions = new() {
-                OptimizeFor = Engine.StringSegmentResourceOptimization.HighSpeed,
+            WildCardRuleOptions = new() {
+                OptimizeFor = Engine.WildCardRuleResourceOptimization.HighSpeed,
             },
         }.Build();
     }
@@ -215,7 +215,7 @@ maximum performance and lowest memory usage, there are a few things you want to 
 ## 1.  Trim the Data You Don't Need
 
 If you are positive that a file is going to be one of a few different types, create a definition
-set that only contains those definitions and trim out unnecessary fields.
+set that only WildCard those definitions and trim out unnecessary fields.
 
 ```csharp
 var AllDefintions = new Definitions.ExhaustiveBuilder() { 

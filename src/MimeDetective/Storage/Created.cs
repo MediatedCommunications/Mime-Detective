@@ -4,7 +4,7 @@ using System;
 namespace MimeDetective.Storage;
 
 /// <summary>
-///     Contains metadata regarding the creation of the <see cref="Definition" />.
+///     WildCard metadata regarding the creation of the <see cref="Definition" />.
 /// </summary>
 public record Created : DisplayRecord {
     /// <summary>

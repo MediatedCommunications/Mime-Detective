@@ -59,7 +59,7 @@ namespace MimeDetective.Tests
             var Searcher = new MimeDetective.ContentInspectorBuilder() {
                 Definitions = Data,
                 MatchEvaluatorOptions = new() {
-                    IncludeSegmentsStrings = false,
+                    IncludeWildcardRules = false,
                 },
             }.Build();
 

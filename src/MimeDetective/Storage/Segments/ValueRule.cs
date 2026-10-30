@@ -3,14 +3,14 @@ using System.Collections.Immutable;
 
 namespace MimeDetective.Storage {
     /// <summary>
-    /// The base class representing <see cref="Pattern"/> that exists in the target file.
+    /// The base class representing <see cref="Value"/> that exists in the target file.
     /// </summary>
-    public abstract class PatternSegment : Segment
+    public abstract class ValueRule : Rule
     {
         /// <summary>
-        /// The <see cref="Pattern"/> that must exist in the target file.
+        /// The <see cref="Value"/> that must exist in the target file.
         /// </summary>
-        public required ImmutableArray<byte> Pattern { get; init; } = [];
+        public required ImmutableArray<byte> Value { get; init; }
 
         protected static ImmutableArray<byte> BytesFromText(string Text, bool ApostropheIsNull = true) {
             if (ApostropheIsNull) {
@@ -26,8 +26,8 @@ namespace MimeDetective.Storage {
 
         public override string? GetDebuggerDisplay()
         {
-            var Hex = System.Convert.ToHexString([.. Pattern,]);
-            var String = System.Text.Encoding.UTF8.GetString([.. Pattern,]);
+            var Hex = System.Convert.ToHexString([.. Value,]);
+            var String = System.Text.Encoding.UTF8.GetString([.. Value,]);
             String = String.Replace("\0", "'");
 
             return $@"{String} /// {Hex}";
@@ -45,7 +45,7 @@ namespace MimeDetective.Storage {
         }
 
         protected virtual int GetHashCodeInternal() {
-            return EnumerableComparer<byte>.Instance.GetHashCode(Pattern);
+            return EnumerableComparer<byte>.Instance.GetHashCode(Value);
         }
 
     }

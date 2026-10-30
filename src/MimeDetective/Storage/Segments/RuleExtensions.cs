@@ -4,19 +4,19 @@ using System.Diagnostics;
 
 namespace MimeDetective.Storage;
 
-public static class SegmentExtensions {
+public static class RuleExtensions {
     public static Signature ToSignature<T>(this IEnumerable<T> segments)
-        where T : Segment {
-        List<PrefixSegment>? prefixes = null;
-        List<StringSegment>? strings = null;
+        where T : Rule {
+        List<OffsetRule>? prefixes = null;
+        List<WildCardRule>? strings = null;
 
         foreach (var segment in segments) {
             switch (segment) {
-                case PrefixSegment prefix:
+                case OffsetRule prefix:
                     prefixes ??= [];
                     prefixes.Add(prefix);
                     break;
-                case StringSegment str:
+                case WildCardRule str:
                     strings ??= [];
                     strings.Add(str);
                     break;
@@ -29,7 +29,7 @@ public static class SegmentExtensions {
         prefixes?.Sort(static (a, b)
             => a.Start.CompareTo(b.Start));
         strings?.Sort(static (a, b)
-            => b.Pattern.Length.CompareTo(a.Pattern.Length));
+            => b.Value.Length.CompareTo(a.Value.Length));
 
         var ret = new Signature {
             Prefix = prefixes?.ToImmutableArray() ?? [],

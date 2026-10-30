@@ -2,4 +2,4 @@
 
 namespace MimeDetective.Engine;
 
-public abstract record SegmentMatch : DisplayRecord { }
+public abstract record Match : DisplayRecord { }

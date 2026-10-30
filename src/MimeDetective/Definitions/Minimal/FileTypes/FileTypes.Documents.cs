@@ -53,9 +53,9 @@ namespace MimeDetective.Definitions {
                                     Category.Document,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                PrefixSegment.Create(0, [0xD0, 0xCF, 0x11, 0xE0, 0xA1, 0xB1, 0x1A, 0xE1,]),
-                                StringSegment.Create("W'O'R'D'D'O'C'U'M'E'N'T"),
+                            Signature = new Rule[] {
+                                OffsetRule.Create(0, [0xD0, 0xCF, 0x11, 0xE0, 0xA1, 0xB1, 0x1A, 0xE1,]),
+                                WildCardRule.Create("W'O'R'D'D'O'C'U'M'E'N'T"),
                             }.ToSignature(),
                         },
                     ];
@@ -73,13 +73,13 @@ namespace MimeDetective.Definitions {
                                     Category.Archive,
                                 ],
                             },
-                            Signature = new Segment[] {                                
-                                PrefixSegment.Create(0, [0x50, 0x4B, 0x03, 0x04,]),
+                            Signature = new Rule[] {                                
+                                OffsetRule.Create(0, [0x50, 0x4B, 0x03, 0x04,]),
                                 
-                                StringSegment.Create("_RELS"),
-                                StringSegment.Create("CONTENT_TYPES"),
-                                StringSegment.Create("XML.REL"),            
-                                StringSegment.Create("WORD"),
+                                WildCardRule.Create("_RELS"),
+                                WildCardRule.Create("CONTENT_TYPES"),
+                                WildCardRule.Create("XML.REL"),            
+                                WildCardRule.Create("WORD"),
                             }.ToSignature(),
                         },
                     ];
@@ -96,8 +96,8 @@ namespace MimeDetective.Definitions {
                                     Category.Vector,
                                 ],
                             },
-                            Signature = new Segment[]{
-                                PrefixSegment.Create(0, [0x41, 0x43, 0x31, 0x30,]),
+                            Signature = new Rule[]{
+                                OffsetRule.Create(0, [0x41, 0x43, 0x31, 0x30,]),
                             }.ToSignature(),
                         },
                     ];
@@ -115,8 +115,8 @@ namespace MimeDetective.Definitions {
                                     Category.Image,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                PrefixSegment.Create(0, [0x25, 0x50, 0x44, 0x46,]),
+                            Signature = new Rule[] {
+                                OffsetRule.Create(0, [0x25, 0x50, 0x44, 0x46,]),
                             }.ToSignature(),
                         },
                     ];
@@ -133,9 +133,9 @@ namespace MimeDetective.Definitions {
                                     Category.Document,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                PrefixSegment.Create(0, [0x50, 0x4B, 0x03, 0x04,]),
-                                StringSegment.Create("VND.OASIS.OPENDOCUMENT.TEXTPK"),
+                            Signature = new Rule[] {
+                                OffsetRule.Create(0, [0x50, 0x4B, 0x03, 0x04,]),
+                                WildCardRule.Create("VND.OASIS.OPENDOCUMENT.TEXTPK"),
                             }.ToSignature(),
                         },
                     ];
@@ -152,9 +152,9 @@ namespace MimeDetective.Definitions {
                                     Category.Compressed,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                PrefixSegment.Create(0, [0x50, 0x4B, 0x03, 0x04,]),
-                                StringSegment.Create("VND.OASIS.OPENDOCUMENT.PRESENTATIONPK"),
+                            Signature = new Rule[] {
+                                OffsetRule.Create(0, [0x50, 0x4B, 0x03, 0x04,]),
+                                WildCardRule.Create("VND.OASIS.OPENDOCUMENT.PRESENTATIONPK"),
                             }.ToSignature(),
                         },
                     ];
@@ -171,9 +171,9 @@ namespace MimeDetective.Definitions {
                                     Category.Compressed,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                PrefixSegment.Create(0, [0x50, 0x4B, 0x03, 0x04,]),
-                                StringSegment.Create("VND.OASIS.OPENDOCUMENT.SPREADSHEETPK"),
+                            Signature = new Rule[] {
+                                OffsetRule.Create(0, [0x50, 0x4B, 0x03, 0x04,]),
+                                WildCardRule.Create("VND.OASIS.OPENDOCUMENT.SPREADSHEETPK"),
                             }.ToSignature(),
                         },
                     ];
@@ -189,9 +189,9 @@ namespace MimeDetective.Definitions {
                                     Category.Presentation,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                PrefixSegment.Create(0, [0xD0, 0xCF, 0x11, 0xE0, 0xA1, 0xB1, 0x1A, 0xE1,]),
-                                StringSegment.Create("POWERPOINT"),
+                            Signature = new Rule[] {
+                                OffsetRule.Create(0, [0xD0, 0xCF, 0x11, 0xE0, 0xA1, 0xB1, 0x1A, 0xE1,]),
+                                WildCardRule.Create("POWERPOINT"),
                             }.ToSignature(),
                         },
                     ];
@@ -209,14 +209,14 @@ namespace MimeDetective.Definitions {
                                     Category.Presentation,
                                 ],
                             },
-                            Signature = new Segment[]{
-                                PrefixSegment.Create(0, [0x50, 0x4B, 0x03, 0x04,]),
+                            Signature = new Rule[]{
+                                OffsetRule.Create(0, [0x50, 0x4B, 0x03, 0x04,]),
 
-                                StringSegment.Create("_RELS"),
-                                StringSegment.Create("CONTENT_TYPES"),
-                                StringSegment.Create("XML.RELS"),
+                                WildCardRule.Create("_RELS"),
+                                WildCardRule.Create("CONTENT_TYPES"),
+                                WildCardRule.Create("XML.RELS"),
 
-                                StringSegment.Create("SLIDES"),
+                                WildCardRule.Create("SLIDES"),
                             }.ToSignature(),
                         },
                     ];
@@ -232,8 +232,8 @@ namespace MimeDetective.Definitions {
                                     Category.Document,
                                 ],
                             },
-                            Signature = new Segment[]{ 
-                                PrefixSegment.Create(0, [0x7B, 0x5C, 0x72, 0x74, 0x66, 0x31,]),
+                            Signature = new Rule[]{ 
+                                OffsetRule.Create(0, [0x7B, 0x5C, 0x72, 0x74, 0x66, 0x31,]),
                             }.ToSignature(),
                         },
                     ];
@@ -249,9 +249,9 @@ namespace MimeDetective.Definitions {
                                     Category.Spreadsheet,
                                 ],
                             },
-                            Signature = new Segment[] {
-                                PrefixSegment.Create(0, [0xD0, 0xCF, 0x11, 0xE0, 0xA1, 0xB1, 0x1A, 0xE1,]),
-                                StringSegment.Create("EXCEL"),
+                            Signature = new Rule[] {
+                                OffsetRule.Create(0, [0xD0, 0xCF, 0x11, 0xE0, 0xA1, 0xB1, 0x1A, 0xE1,]),
+                                WildCardRule.Create("EXCEL"),
                             }.ToSignature(),
                         },
                     ];
@@ -269,14 +269,14 @@ namespace MimeDetective.Definitions {
                                     Category.Spreadsheet,
                                 ],
                             },
-                            Signature = new Segment[]{
-                                PrefixSegment.Create(0, [0x50, 0x4B, 0x03, 0x04,]),
+                            Signature = new Rule[]{
+                                OffsetRule.Create(0, [0x50, 0x4B, 0x03, 0x04,]),
                     
-                                StringSegment.Create("_RELS"),
-                                StringSegment.Create("CONTENT_TYPES"),
-                                StringSegment.Create("XML.REL"),
+                                WildCardRule.Create("_RELS"),
+                                WildCardRule.Create("CONTENT_TYPES"),
+                                WildCardRule.Create("XML.REL"),
 
-                                StringSegment.Create("WORKBOOK"),
+                                WildCardRule.Create("WORKBOOK"),
                             }.ToSignature(),
                         },
                     ];

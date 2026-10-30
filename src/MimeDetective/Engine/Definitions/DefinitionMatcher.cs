@@ -14,8 +14,8 @@ namespace MimeDetective.Engine {
         }
 
         public Definition Definition { get; }
-        public ImmutableArray<PrefixSegmentMatcher> Prefixes { get; init; } = [];
-        public ImmutableArray<StringSegmentMatcher> Strings { get; init; } = [];
+        public ImmutableArray<OffsetMatcher> Prefixes { get; init; } = [];
+        public ImmutableArray<WildCardMatcher> Strings { get; init; } = [];
 
     }
 }

@@ -7,14 +7,14 @@ namespace MimeDetective.Engine;
 /// </summary>
 public record DefinitionMatchEvaluatorOptions : DisplayRecord {
     /// <summary>
-    ///     Analyze <see cref="MimeDetective.Storage.PrefixSegment" />s
+    ///     Analyze <see cref="MimeDetective.Storage.OffsetRule" />s
     /// </summary>
-    public bool IncludeSegmentsPrefix { get; init; } = true;
+    public bool IncludeOffsetRules { get; init; } = true;
 
     /// <summary>
-    ///     Analyze <see cref="MimeDetective.Storage.StringSegment" />s
+    ///     Analyze <see cref="MimeDetective.Storage.WildCardRule" />s
     /// </summary>
-    public bool IncludeSegmentsStrings { get; init; } = true;
+    public bool IncludeWildcardRules { get; init; } = true;
 
     /// <summary>
     ///     Should <see cref="DefinitionMatch" />es with <see cref="DefinitionMatch.Percentage" /> = 1 be returned.
