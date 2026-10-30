@@ -1,7 +1,7 @@
 # Mime-Detective
 Mime-Detective is a blazing-fast, low-memory file type detector for .NET.
 It uses Magic-Number and Magic-Word signatures to accurately identify over
-14,000 different file variants by analyzing a raw stream or array of bytes.
+22,000 different file variants by analyzing a raw stream or array of bytes.
 It also allows you to easily convert between file extensions and mime types.
 
 [**🔍 Try Mime-Detective Online**](https://mediatedcommunications.github.io/Mime-Detective/)
@@ -22,7 +22,7 @@ able to predict the file type.
 There are three main ways you can use Mime-Detective.
 * The ```Minimal``` (formerly ```Default```) definition pack which includes a very small set of detection rules.
 * The ```Condensed``` definition pack which includes an expanded set of detection rules.
-* The ```Exhaustive``` definition pack which includes over 14,000 detection rules.
+* The ```Exhaustive``` definition pack which includes over 22,000 detection rules.
 
 More information on these definitions is included toward the end of this file.
 
@@ -154,7 +154,7 @@ var AllDefintions = new Definitions.CondensedBuilder() {
 install-package Mime-Detective.Definitions.Exhaustive
 ```
 
-This library contains the exhaustive set of 14,000+ file signatures.
+This library contains the exhaustive set of 22,000+ file signatures.
 \
 \
 It is derived from the publicly available [TrID file signatures](https://mark0.net/soft-tridnet-e.html)

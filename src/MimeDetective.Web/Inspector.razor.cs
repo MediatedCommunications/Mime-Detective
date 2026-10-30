@@ -183,7 +183,7 @@ public sealed partial class Inspector : ComponentBase {
     private static string Describe(DefinitionSet set) => set switch {
         DefinitionSet.Minimal => "A small built-in set: archives, documents, images, audio, video, and executables.",
         DefinitionSet.Condensed => "The most common file signatures, for personal, non-commercial use.",
-        DefinitionSet.Exhaustive => "More than 14,000 signatures, for personal, non-commercial use. The first run loads the full library.",
+        DefinitionSet.Exhaustive => "More than 22,000 signatures, for personal, non-commercial use. The first run loads the full library.",
         _ => string.Empty,
     };
 }
