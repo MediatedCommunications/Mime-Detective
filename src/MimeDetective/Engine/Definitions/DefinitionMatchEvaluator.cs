@@ -81,7 +81,7 @@ internal class DefinitionMatchEvaluator {
                 _ when goodMatches == allMatches && goodMatches == 0 => DefinitionMatchType.Empty,
                 _ when goodMatches == allMatches && goodMatches != 0 => DefinitionMatchType.Complete,
                 _ when goodMatches != allMatches && goodMatches > 0 => DefinitionMatchType.Partial,
-                _ => DefinitionMatchType.Failed
+                _ => DefinitionMatchType.Failed,
             };
 
             valid = false
@@ -98,7 +98,7 @@ internal class DefinitionMatchEvaluator {
                     PrefixSegmentMatches = prefixSegmentMatches.ToImmutableDictionary(),
                     StringSegmentMatches = stringSegmentMatches.ToImmutableDictionary(),
                     Percentage = percentage,
-                    Points = points
+                    Points = points,
                 };
             }
         }
@@ -111,7 +111,7 @@ internal class DefinitionMatchEvaluator {
         var prefixSegmentStart = 0;
 
         var ret = 0;
-        var matchSet = new[] { prefixSegmentMatches.Values, stringSegmentMatches.Values };
+        var matchSet = new[] { prefixSegmentMatches.Values, stringSegmentMatches.Values, };
 
         var matches = matchSet.SelectMany(x => x);
 

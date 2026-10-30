@@ -9,24 +9,24 @@ namespace MimeDetective.Tests;
 public class StringSegmentMatcherBruteTests {
     [TestMethod]
     public void Match_FindsFirstOccurrence() {
-        var result = Match([0x01, 0x02, 0x03, 0x02, 0x03], [0x02, 0x03]);
+        var result = Match([0x01, 0x02, 0x03, 0x02, 0x03,], [0x02, 0x03,]);
 
         var match = result as StringSegmentMatch;
         Assert.IsNotNull(match);
         Assert.AreEqual(1, match.Index);
-        Assert.AreSame(NoSegmentMatch.Instance, Match([0x01, 0x02, 0x02], [0x02, 0x03]));
+        Assert.AreSame(NoSegmentMatch.Instance, Match([0x01, 0x02, 0x02,], [0x02, 0x03,]));
     }
 
     [TestMethod]
     public void Match_HandlesEdges() {
         Assert.AreEqual(0, IndexOf([], []));
-        Assert.AreEqual(0, IndexOf([0x01, 0x02], []));
-        Assert.AreEqual(-1, IndexOf([], [0x01]));
-        Assert.AreEqual(-1, IndexOf([0x01, 0x02], [0x01, 0x02, 0x03]));
-        Assert.AreEqual(0, IndexOf([0x00], [0x00]));
-        Assert.AreEqual(2, IndexOf([0x01, 0x02, 0x00, 0x03], [0x00, 0x03]));
-        Assert.AreEqual(2, IndexOf([0x61, 0x61, 0x61, 0x62], [0x61, 0x62]));
-        Assert.AreEqual(4, IndexOf([0x01, 0x02, 0x03, 0x04, 0x05], [0x05]));
+        Assert.AreEqual(0, IndexOf([0x01, 0x02,], []));
+        Assert.AreEqual(-1, IndexOf([], [0x01,]));
+        Assert.AreEqual(-1, IndexOf([0x01, 0x02,], [0x01, 0x02, 0x03,]));
+        Assert.AreEqual(0, IndexOf([0x00,], [0x00,]));
+        Assert.AreEqual(2, IndexOf([0x01, 0x02, 0x00, 0x03,], [0x00, 0x03,]));
+        Assert.AreEqual(2, IndexOf([0x61, 0x61, 0x61, 0x62,], [0x61, 0x62,]));
+        Assert.AreEqual(4, IndexOf([0x01, 0x02, 0x03, 0x04, 0x05,], [0x05,]));
     }
 
     [TestMethod]

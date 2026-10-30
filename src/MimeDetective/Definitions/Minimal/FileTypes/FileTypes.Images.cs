@@ -1,5 +1,4 @@
 using MimeDetective.Storage;
-using System.Collections.Generic;
 using System.Collections.Immutable;
 
 namespace MimeDetective.Definitions {
@@ -23,7 +22,7 @@ namespace MimeDetective.Definitions {
                         .. TIFF_Le(),
                         .. TIFF_NoBom(),
 
-                        .. WEBP()
+                        .. WEBP(),
 
                     ];
                 }
@@ -43,7 +42,7 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["bmp"],
+                                Extensions = ["bmp",],
                                 MimeType = "image/bmp",
                                 Categories = [
                                     Category.Bitmap,
@@ -52,7 +51,7 @@ namespace MimeDetective.Definitions {
                                 ],
                             },
                             Signature = new Segment[]{
-                                PrefixSegment.Create(0, "42 4D")
+                                PrefixSegment.Create(0, [0x42, 0x4D,]),
                             }.ToSignature(),
                         },
                     ];
@@ -62,7 +61,7 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["gif"],
+                                Extensions = ["gif",],
                                 MimeType = "image/gif",
                                 Categories = [
                                     Category.Image,
@@ -72,8 +71,8 @@ namespace MimeDetective.Definitions {
                                 ],
                             },
                             Signature = new Segment[]{
-                                PrefixSegment.Create(0, "47 49 46 38"),
-                                PrefixSegment.Create(5, "61")
+                                PrefixSegment.Create(0, [0x47, 0x49, 0x46, 0x38,]),
+                                PrefixSegment.Create(5, [0x61,]),
                             }.ToSignature(),
                         },
                     ];
@@ -83,7 +82,7 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["ico"],
+                                Extensions = ["ico",],
                                 MimeType = "image/x-icon",
                                 Categories = [
                                     Category.Lossless,
@@ -92,7 +91,7 @@ namespace MimeDetective.Definitions {
                                 ],
                             },
                             Signature = new Segment[]{
-                                PrefixSegment.Create(0, "00 00 01 00")
+                                PrefixSegment.Create(0, [0x00, 0x00, 0x01, 0x00,]),
                             }.ToSignature(),
                         },
                     ];
@@ -102,7 +101,7 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["jpg", "jpeg"],
+                                Extensions = ["jpg", "jpeg",],
                                 MimeType = "image/jpeg",
                                 Categories = [
                                     Category.Compressed,
@@ -112,7 +111,7 @@ namespace MimeDetective.Definitions {
                                 ],
                             },
                             Signature = new Segment[]{
-                                PrefixSegment.Create(0, "FF D8 FF") 
+                                PrefixSegment.Create(0, [0xFF, 0xD8, 0xFF,]), 
                             }.ToSignature(),
                         },
                     ];
@@ -122,7 +121,7 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["png"],
+                                Extensions = ["png",],
                                 MimeType = "image/png",
                                 Categories = [
                                     Category.Compressed,
@@ -132,7 +131,7 @@ namespace MimeDetective.Definitions {
                                 ],
                             },
                             Signature = new Segment[]{
-                                PrefixSegment.Create(0, "89 50 4E 47 0D 0A 1A 0A")
+                                PrefixSegment.Create(0, [0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A,]),
                             }.ToSignature(),
                         },
                     ];
@@ -142,7 +141,7 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["psd"],
+                                Extensions = ["psd",],
                                 MimeType = ApplicationOctetStream,
                                 Categories = [
                                     Category.Vector,
@@ -150,7 +149,7 @@ namespace MimeDetective.Definitions {
                                 ],
                             },
                             Signature = new Segment[]{
-                                PrefixSegment.Create(0, "38 42 50 53")
+                                PrefixSegment.Create(0, [0x38, 0x42, 0x50, 0x53,]),
                             }.ToSignature(),
                         },
                     ];
@@ -160,7 +159,7 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["tif", "tiff"],
+                                Extensions = ["tif", "tiff",],
                                 MimeType = "image/tiff",
                                 Categories = [
                                     Category.Image,
@@ -169,7 +168,7 @@ namespace MimeDetective.Definitions {
                                 ],
                             },
                             Signature = new Segment[]{
-                                PrefixSegment.Create(0, "4D 4D 00 2A")
+                                PrefixSegment.Create(0, [0x4D, 0x4D, 0x00, 0x2A,]),
                             }.ToSignature(),
                         },
                     ];
@@ -179,7 +178,7 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["tif", "tiff"],
+                                Extensions = ["tif", "tiff",],
                                 MimeType = "image/tiff",
                                 Categories = [
                                     Category.Image,
@@ -188,7 +187,7 @@ namespace MimeDetective.Definitions {
                                 ],
                             },
                             Signature = new Segment[]{
-                                PrefixSegment.Create(0, "4D 4D 00 2B")
+                                PrefixSegment.Create(0, [0x4D, 0x4D, 0x00, 0x2B,]),
                             }.ToSignature(),
                         },
                     ];
@@ -198,7 +197,7 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["tif", "tiff"],
+                                Extensions = ["tif", "tiff",],
                                 MimeType = "image/tiff",
                                 Categories = [
                                     Category.Image,
@@ -207,7 +206,7 @@ namespace MimeDetective.Definitions {
                                 ],
                             },
                             Signature = new Segment[]{
-                                PrefixSegment.Create(0, "49 49 2A 00")
+                                PrefixSegment.Create(0, [0x49, 0x49, 0x2A, 0x00,]),
                             }.ToSignature(),
                         },
                     ];
@@ -217,7 +216,7 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["tif", "tiff"],
+                                Extensions = ["tif", "tiff",],
                                 MimeType = "image/tiff",
                                 Categories = [
                                     Category.Image,
@@ -225,7 +224,7 @@ namespace MimeDetective.Definitions {
                                 ],
                             },
                             Signature = new Segment[]{
-                                PrefixSegment.Create(0, "49 20 49")
+                                PrefixSegment.Create(0, [0x49, 0x20, 0x49,]),
                             }.ToSignature(),
                         },
                     ];
@@ -235,7 +234,7 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["webp"],
+                                Extensions = ["webp",],
                                 MimeType = "image/webp",
                                 Categories = [
                                     Category.Image,
@@ -244,8 +243,8 @@ namespace MimeDetective.Definitions {
                                 ],
                             },
                             Signature = new Segment[]{
-                                PrefixSegment.Create(0, "52 49 46 46"), //At offset 0 in the file, expect the bytes "RIFF".
-                                PrefixSegment.Create(8, "57 45 42 50") //At offset 8 in the file, expect the bytes "WEBP".
+                                PrefixSegment.Create(0, [0x52, 0x49, 0x46, 0x46,]), //At offset 0 in the file, expect the bytes "RIFF".
+                                PrefixSegment.Create(8, [0x57, 0x45, 0x42, 0x50,]), //At offset 8 in the file, expect the bytes "WEBP".
                             }.ToSignature(),
                         },
                     ];

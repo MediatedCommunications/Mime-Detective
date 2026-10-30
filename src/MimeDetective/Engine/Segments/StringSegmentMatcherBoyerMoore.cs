@@ -19,7 +19,7 @@ internal class StringSegmentMatcherBoyerMoore : StringSegmentMatcher {
         if (Bm.SearchFirst(haystack) is { } i) {
             ret = new StringSegmentMatch {
                 Segment = Segment,
-                Index = i
+                Index = i,
             };
         }
 

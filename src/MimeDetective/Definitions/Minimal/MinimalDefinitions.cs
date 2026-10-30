@@ -15,7 +15,7 @@ public static partial class MinimalDefinitions {
             .. FileTypes.Images.All(),
             .. FileTypes.Text.All(),
             .. FileTypes.Video.All(),
-            .. FileTypes.Xml.All()
+            .. FileTypes.Xml.All(),
         ];
     }
 }

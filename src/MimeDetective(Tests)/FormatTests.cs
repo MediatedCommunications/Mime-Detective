@@ -14,7 +14,7 @@ public class FormatTests {
         var data1 = EngineData.Example();
         using var ms1 = new MemoryStream();
 
-        DefinitionJsonSerializer.ToJson(ms1, [data1]);
+        DefinitionJsonSerializer.ToJson(ms1, [data1,]);
         var json1 = Encoding.UTF8.GetString(ms1.ToArray());
 
         ms1.Position = 0;

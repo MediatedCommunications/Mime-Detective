@@ -13,7 +13,7 @@ builder.Services.ConfigureHttpJsonOptions(options => {
 
 var app = builder.Build();
 
-var inspector = new ContentInspectorBuilder { Definitions = MinimalDefinitions.All() }.Build();
+var inspector = new ContentInspectorBuilder { Definitions = MinimalDefinitions.All(), }.Build();
 
 // This can be tested with
 //   curl --data-binary @example.jpg http://localhost:5016/upload
@@ -49,7 +49,7 @@ IEnumerable<MimeTypeResult> GetMimeTypes(IReadOnlyCollection<DefinitionMatch> ma
             continue;
         }
 
-        yield return new(file.MimeType, [.. file.Extensions]);
+        yield return new(file.MimeType, [.. file.Extensions,]);
     }
 }
 

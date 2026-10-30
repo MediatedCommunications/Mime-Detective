@@ -22,11 +22,11 @@ public class ContentReader {
     public int MaxFileSize { get; init; }
 
     static ContentReader() {
-        Default = new() { MaxFileSize = 10 * 1024 * 1024 };
+        Default = new() { MaxFileSize = 10 * 1024 * 1024, };
 
-        Min = new() { MaxFileSize = 1024 };
+        Min = new() { MaxFileSize = 1024, };
 
-        Max = new() { MaxFileSize = int.MaxValue };
+        Max = new() { MaxFileSize = int.MaxValue, };
     }
 
     public byte[] ReadFromFile(string fileName) {

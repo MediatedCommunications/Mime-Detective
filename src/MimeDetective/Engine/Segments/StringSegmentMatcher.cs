@@ -28,7 +28,7 @@ public abstract class StringSegmentMatcher : DisplayClass, ISegmentMatcher {
 
     public static StringSegmentMatcher CreateHighSpeed(StringSegment segment) {
 
-        if(segment.Pattern.Length <= 16) {
+        if(segment.Pattern.Length <= 32) {
             return new StringSegmentMatcherBrute(segment);
         } else {
             return new StringSegmentMatcherBoyerMoore(segment);

@@ -1,4 +1,3 @@
-using MimeDetective;
 using MimeDetective.Definitions;
 using MimeDetective.Definitions.Licensing;
 
@@ -23,17 +22,17 @@ public sealed class InspectorCatalog {
         var definitions = set switch {
             DefinitionSet.Minimal => MinimalDefinitions.All(),
             DefinitionSet.Condensed => new CondensedBuilder {
-                UsageType = UsageType.PersonalNonCommercial
+                UsageType = UsageType.PersonalNonCommercial,
             }.Build(),
             DefinitionSet.Exhaustive => new ExhaustiveBuilder {
-                UsageType = UsageType.PersonalNonCommercial
+                UsageType = UsageType.PersonalNonCommercial,
             }.Build(),
-            _ => throw new ArgumentOutOfRangeException(nameof(set), set, "Unknown definition set.")
+            _ => throw new ArgumentOutOfRangeException(nameof(set), set, "Unknown definition set."),
         };
 
         return new ContentInspectorBuilder {
             Definitions = definitions,
-            Parallel = false
+            Parallel = false,
         }.Build();
     }
 }

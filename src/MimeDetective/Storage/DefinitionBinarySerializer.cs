@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
-using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -18,7 +17,7 @@ public static class DefinitionBinarySerializer {
             WriteIndented = false,
             DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault,
 #if NET10_0_OR_GREATER
-            TypeInfoResolver = MimeDetectiveSourceGeneratedSerializer.Default
+            TypeInfoResolver = MimeDetectiveSourceGeneratedSerializer.Default,
 #endif
         };
 

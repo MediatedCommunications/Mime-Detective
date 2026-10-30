@@ -10,7 +10,7 @@ namespace MimeDetective.Storage;
     WriteIndented = true,
     DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault,
     UseStringEnumConverter = true,
-    Converters = [typeof(ImmutableByteArrayToHexStringConverter)]
+    Converters = [typeof(ImmutableByteArrayToHexStringConverter),]
 )]
 [JsonSerializable(typeof(Definition[]))]
 [JsonSerializable(typeof(IEnumerable<Definition>))]

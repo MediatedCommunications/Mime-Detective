@@ -22,7 +22,7 @@ public static class DefinitionExtensions {
     /// <param name="This"></param>
     /// <returns></returns>
     public static Definition TrimMeta(this Definition This) {
-        var ret = This with { Meta = default };
+        var ret = This with { Meta = default, };
 
         return ret;
     }
@@ -43,7 +43,7 @@ public static class DefinitionExtensions {
     /// <param name="This"></param>
     /// <returns></returns>
     public static Definition TrimCategories(this Definition This) {
-        var ret = This with { File = This.File with { Categories = [] } };
+        var ret = This with { File = This.File with { Categories = [], }, };
 
         return ret;
     }
@@ -63,7 +63,7 @@ public static class DefinitionExtensions {
     /// <param name="This"></param>
     /// <returns></returns>
     public static Definition TrimDescription(this Definition This) {
-        return This with { File = This.File with { Description = default } };
+        return This with { File = This.File with { Description = default, }, };
     }
 
     /// <summary>
@@ -81,7 +81,7 @@ public static class DefinitionExtensions {
     /// <param name="This"></param>
     /// <returns></returns>
     public static Definition TrimMimeType(this Definition This) {
-        return This with { File = This.File with { MimeType = default } };
+        return This with { File = This.File with { MimeType = default, }, };
     }
 
     /// <summary>
@@ -109,8 +109,8 @@ public static class DefinitionExtensions {
             File = This.File with {
                 Extensions = This.File.Extensions
                     .Where(extensions.Contains)
-                    .ToImmutableArray()
-            }
+                    .ToImmutableArray(),
+            },
         };
     }
 
@@ -261,13 +261,13 @@ public static class DefinitionExtensions {
                     Description = Description,
                     Extensions = Extensions,
                     MimeType = MimeType,
-                    Categories = Categories
+                    Categories = Categories,
                 },
                 Meta = Definition.Meta,
                 Signature = new() {
                     Prefix = Prefixes,
-                    Strings = Strings
-                }
+                    Strings = Strings,
+                },
             }
             select NewDef
         ).ToImmutableArray();
@@ -279,7 +279,7 @@ public static class DefinitionExtensions {
             Descriptions = descriptionCache,
             Prefixes = singularizedPrefixCache,
             Strings = stringCache,
-            Categories = categoryCache
+            Categories = categoryCache,
         };
 
         return ret;

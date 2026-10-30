@@ -1,5 +1,4 @@
 using MimeDetective.Storage;
-using System.Collections.Generic;
 using System.Collections.Immutable;
 
 namespace MimeDetective.Definitions {
@@ -29,14 +28,14 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["aes"],
+                                Extensions = ["aes",],
                                 MimeType = ApplicationOctetStream,
                                 Categories = [
                                     Category.Encrypted,
                                 ],
                             },
                             Signature = new Segment[] {
-                                PrefixSegment.Create(0, "41 45 53")
+                                PrefixSegment.Create(0, [0x41, 0x45, 0x53,]),
                             }.ToSignature(),
                         },
                     ];
@@ -46,14 +45,14 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["pkr"],
+                                Extensions = ["pkr",],
                                 MimeType = ApplicationOctetStream,
                                 Categories = [
                                     Category.Encrypted,
                                 ],
                             },
                             Signature = new Segment[] {
-                                PrefixSegment.Create(0, "99 01")
+                                PrefixSegment.Create(0, [0x99, 0x01,]),
                             }.ToSignature(),
                         },
                     ];
@@ -63,14 +62,14 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["skr"],
+                                Extensions = ["skr",],
                                 MimeType = ApplicationOctetStream,
                                 Categories = [
                                     Category.Encrypted,
                                 ],
                             },
                             Signature = new Segment[] {
-                                PrefixSegment.Create(0, "95 00") 
+                                PrefixSegment.Create(0, [0x95, 0x00,]), 
                             }.ToSignature(),
                         },
                     ];
@@ -80,14 +79,14 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["skr"],
+                                Extensions = ["skr",],
                                 MimeType = ApplicationOctetStream,
                                 Categories = [
                                     Category.Encrypted,
                                 ],
                             },
                             Signature = new Segment[] {
-                                PrefixSegment.Create(0, "95 01") 
+                                PrefixSegment.Create(0, [0x95, 0x01,]), 
                             }.ToSignature(),
                         },
                     ];

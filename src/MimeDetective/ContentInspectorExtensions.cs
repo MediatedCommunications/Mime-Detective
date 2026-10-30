@@ -130,7 +130,7 @@ public static class ContentInspectorExtensions {
             let v = new FileExtensionMatch {
                 Extension = Extension,
                 Matches = Matches,
-                Points = Points
+                Points = Points,
             }
             orderby v.Points descending
             select v
@@ -155,7 +155,7 @@ public static class ContentInspectorExtensions {
             let v = new MimeTypeMatch {
                 MimeType = MimeType,
                 Matches = Matches,
-                Points = Points
+                Points = Points,
             }
             orderby v.Points descending
             select v

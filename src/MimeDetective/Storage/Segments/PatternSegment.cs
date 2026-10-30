@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Immutable;
-using System.Linq;
-using System.Text;
 
 namespace MimeDetective.Storage {
     /// <summary>
@@ -13,31 +11,6 @@ namespace MimeDetective.Storage {
         /// The <see cref="Pattern"/> that must exist in the target file.
         /// </summary>
         public required ImmutableArray<byte> Pattern { get; init; } = [];
-
-        protected static ImmutableArray<byte> BytesFromHex(string HexString) {
-            var ValidCharacters = "0123456789ABCDEF";
-            var Trimmed = new StringBuilder();
-
-            HexString = HexString
-                .ToUpperInvariant()
-                .Replace("0X", "")
-                ;
-
-            for (var i = 0; i < HexString.Length; i++) {
-                var Char = HexString[i..(i + 1)];
-                
-                if (ValidCharacters.Contains(Char)) {
-                    Trimmed.Append(Char);
-                }
-            }
-
-            var ret = Convert
-                .FromHexString(Trimmed.ToString())
-                .ToImmutableArray()
-                ;
-
-            return ret;
-        }
 
         protected static ImmutableArray<byte> BytesFromText(string Text, bool ApostropheIsNull = true) {
             if (ApostropheIsNull) {
@@ -53,8 +26,8 @@ namespace MimeDetective.Storage {
 
         public override string? GetDebuggerDisplay()
         {
-            var Hex = System.Convert.ToHexString([.. Pattern]);
-            var String = System.Text.Encoding.UTF8.GetString([.. Pattern]);
+            var Hex = System.Convert.ToHexString([.. Pattern,]);
+            var String = System.Text.Encoding.UTF8.GetString([.. Pattern,]);
             String = String.Replace("\0", "'");
 
             return $@"{String} /// {Hex}";

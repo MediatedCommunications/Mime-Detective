@@ -3,7 +3,7 @@ using MimeDetective.Definitions;
 using MimeDetective.Engine;
 using MimeDetective.MemoryMapping;
 
-var inspector = new ContentInspectorBuilder { Definitions = MinimalDefinitions.All() }.Build();
+var inspector = new ContentInspectorBuilder { Definitions = MinimalDefinitions.All(), }.Build();
 
 foreach (var file in args) {
     Console.WriteLine($"File: {file}");

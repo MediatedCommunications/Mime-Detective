@@ -14,13 +14,13 @@ namespace MimeDetective.Definitions.Generator
             var A = new PrefixSegment()
             {
                 Start = 1,
-                Pattern = [2, 3, 4, 5, 6, 7, 8, 9, 10]
+                Pattern = [2, 3, 4, 5, 6, 7, 8, 9, 10,],
             };
 
             var B = new PrefixSegment()
             {
                 Start = 2,
-                Pattern = [3, 4, 0, 0, 7, 8, 9]
+                Pattern = [3, 4, 0, 0, 7, 8, 9,],
             };
 
             var Data = DefinitionExtensions.Intersection(A, B);

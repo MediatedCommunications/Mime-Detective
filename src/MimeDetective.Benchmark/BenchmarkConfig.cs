@@ -21,7 +21,7 @@ public static class BenchmarkConfig {
     private static readonly IAnalyser[] Analysers = [
         EnvironmentAnalyser.Default, OutliersAnalyser.Default, MinIterationTimeAnalyser.Default,
         MultimodalDistributionAnalyzer.Default, RuntimeErrorAnalyser.Default, ZeroMeasurementAnalyser.Default,
-        BaselineCustomAnalyzer.Default
+        BaselineCustomAnalyzer.Default,
     ];
 
     public static IConfig Get() {
@@ -49,7 +49,7 @@ public class DebugQuickInProcessConfig : DebugConfig {
                 .WithToolchain(
                     new InProcessEmitToolchain(
                         TimeSpan.FromHours(1), // 1h should be enough to debug the benchmark
-                        true))
+                        true)),
         ];
     }
 }

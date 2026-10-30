@@ -6,5 +6,5 @@ public enum BenchmarkCategory {
     Documents,
     Images,
     Text,
-    Zip
+    Zip,
 }

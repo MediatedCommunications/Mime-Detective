@@ -16,7 +16,7 @@ internal class StringSegmentMatcherBrute : StringSegmentMatcher {
         if (index >= 0) {
             ret = new StringSegmentMatch {
                 Segment = Segment,
-                Index = index
+                Index = index,
             };
         }
 

@@ -25,7 +25,7 @@ public class Updater {
 
         using var client = new HttpClient {
             DefaultRequestVersion = HttpVersion.Version20,
-            DefaultVersionPolicy = HttpVersionPolicy.RequestVersionOrLower
+            DefaultVersionPolicy = HttpVersionPolicy.RequestVersionOrLower,
         };
 
         var clock = Stopwatch.StartNew();
@@ -44,7 +44,7 @@ public class Updater {
 
             using var archive = SevenZipArchive.OpenArchive(stream);
             var archiveEntry = archive.Entries.FirstOrDefault(
-                e => e is { IsDirectory: true, Key: not null }
+                e => e is { IsDirectory: true, Key: not null, }
                     && e.Key.EndsWith(DefsDir, StringComparison.OrdinalIgnoreCase));
 
             if (archiveEntry is null) {
@@ -63,7 +63,7 @@ public class Updater {
                         ExtractFullPath = true,
                         Overwrite = true,
                         PreserveAttributes = true,
-                        PreserveFileTime = true
+                        PreserveFileTime = true,
                     });
             }
         }

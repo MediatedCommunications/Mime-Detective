@@ -28,19 +28,19 @@ public class MimeTypeToFileExtensionLookup {
                     from y in G2
                     select new DefinitionMatch {
                         Definition = y,
-                        Type = DefinitionMatchType.Unknown
+                        Type = DefinitionMatchType.Unknown,
                     }).ToImmutableArray()
                 let v2 = new FileExtensionMatch {
                     Extension = G2.Key,
                     Matches = Matches,
-                    Points = Matches.Length
+                    Points = Matches.Length,
                 }
                 orderby v2.Points descending
                 select v2
             ).ToImmutableArray()
             select new {
                 G1.Key,
-                FileExtensions
+                FileExtensions,
             }
         ).ToImmutableDictionary(x => x.Key, x => x.FileExtensions, StringComparer.InvariantCultureIgnoreCase);
     }

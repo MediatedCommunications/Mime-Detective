@@ -1,5 +1,4 @@
 using MimeDetective.Storage;
-using System.Collections.Generic;
 using System.Collections.Immutable;
 
 namespace MimeDetective.Definitions {
@@ -20,7 +19,7 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["eml"],
+                                Extensions = ["eml",],
                                 MimeType = "message/rfc822",
                                 Categories = [
                                     Category.Email,
@@ -38,7 +37,7 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["pst"],
+                                Extensions = ["pst",],
                                 MimeType = ApplicationOctetStream,
                                 Categories = [
                                     Category.Email,
@@ -46,7 +45,7 @@ namespace MimeDetective.Definitions {
                                 ],
                             },
                             Signature = new Segment[] {
-                                    PrefixSegment.Create(0, "21 42 44 4E")
+                                    PrefixSegment.Create(0, [0x21, 0x42, 0x44, 0x4E,]),
                             }.ToSignature(),
                         },
                     ];

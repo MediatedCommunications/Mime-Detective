@@ -1,4 +1,3 @@
-using MimeDetective;
 using MimeDetective.Engine;
 using MimeDetective.Storage;
 using System.Collections.Immutable;
@@ -46,9 +45,9 @@ public sealed record InspectionReport(
             string.IsNullOrWhiteSpace(browserContentType) ? null : browserContentType,
             definitionSet,
             elapsed,
-            [.. ordered.ByFileExtension().Select(static match => new ExtensionResult(match.Extension, match.Points))],
-            [.. ordered.ByMimeType().Select(static match => new MimeResult(match.MimeType, match.Points))],
-            [.. ordered.Select(static match => MatchResult.From(match))]);
+            [.. ordered.ByFileExtension().Select(static match => new ExtensionResult(match.Extension, match.Points)),],
+            [.. ordered.ByMimeType().Select(static match => new MimeResult(match.MimeType, match.Points)),],
+            [.. ordered.Select(static match => MatchResult.From(match)),]);
     }
 
     public static string FormatSize(long bytes) {
@@ -60,7 +59,7 @@ public sealed record InspectionReport(
             < 1024 => $"{bytes} B",
             < 1024 * 1024 => $"{bytes / kilobyte:0.#} KB",
             < 1024L * 1024 * 1024 => $"{bytes / megabyte:0.#} MB",
-            _ => $"{bytes / gigabyte:0.#} GB"
+            _ => $"{bytes / gigabyte:0.#} GB",
         };
     }
 
@@ -69,7 +68,7 @@ public sealed record InspectionReport(
         return milliseconds switch {
             < 1 => "<1 ms",
             < 1000 => $"{milliseconds:0} ms",
-            _ => $"{elapsed.TotalSeconds:0.00} s"
+            _ => $"{elapsed.TotalSeconds:0.00} s",
         };
     }
 }
@@ -98,7 +97,7 @@ public sealed record MatchResult(
             description,
             mimeType,
             file.Extensions,
-            [.. file.Categories.Where(static category => category != Category.None).Select(FormatCategory)],
+            [.. file.Categories.Where(static category => category != Category.None).Select(FormatCategory),],
             match.Points,
             match.Percentage,
             match.Type.ToString());

@@ -1,11 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
 using MimeDetective.Storage;
-using System.Security.Cryptography;
-using System.Net.Http.Headers;
 using MimeDetective.Engine;
 
 namespace MimeDetective.Tests
@@ -19,7 +15,7 @@ namespace MimeDetective.Tests
             var MaxLength = 5;
 
             var Data = new MimeDetective.Definitions.ExhaustiveBuilder() {
-                UsageType = Definitions.Licensing.UsageType.PersonalNonCommercial
+                UsageType = Definitions.Licensing.UsageType.PersonalNonCommercial,
             }.Build();
 
             var SortedData = (
@@ -30,7 +26,7 @@ namespace MimeDetective.Tests
                 let v = new {
                     Signature = x,
                     Start = ItemStart,
-                    End = ItemEnd
+                    End = ItemEnd,
                 }
                 group v by v.Start
                 ).ToDictionary(x => x.Key, x => x.ToList());
@@ -55,30 +51,15 @@ namespace MimeDetective.Tests
             var ExclusiveEndIndex = 1 + InclusiveEndIndex;
             var Length = ExclusiveEndIndex - StartIndex ;
 
-            var Tree = new ByteTree<Definition>();
-            foreach (var item in Data) {
-                var Key = item.Signature.Prefix.TryGetRange(StartIndex, Length);
-
-                Tree.Add(Key, item);
-
-            }
-
             var EXE = System.IO.File.ReadAllBytes($@"C:\Windows\System32\Notepad.exe");
             var Content = GetRange(EXE, StartIndex, Length);
 
             var TestCount = 10000;
 
-            var SW1 = System.Diagnostics.Stopwatch.StartNew();
-            for (var i = 0; i < TestCount; i++) {
-                var Matches = Tree.Find(Content);
-            }
-            SW1.Stop();
-
-
             var Searcher = new MimeDetective.ContentInspectorBuilder() {
                 Definitions = Data,
                 MatchEvaluatorOptions = new() {
-                    IncludeSegmentsStrings = false
+                    IncludeSegmentsStrings = false,
                 },
             }.Build();
 
@@ -103,68 +84,7 @@ namespace MimeDetective.Tests
             }
 
 
-            return [.. ret];
-        }
-
-        [TestMethod]
-        public void ByteTree_Test1() {
-            var Tree = new ByteTree<int>();
-
-            Tree.Add([0, 0, 0], 0);
-            Tree.Add([0, 0, 1], 1);
-            Tree.Add([0, 1, 0], 2);
-            Tree.Add([0, 1, 1], 3);
-            Tree.Add([1, 0, 0], 4);
-            Tree.Add([1, 0, 1], 5);
-            Tree.Add([1, 1, 0], 6);
-            Tree.Add([1, 1, 1], 7);
-
-            Tree.Add([4, 5, 6], 456);
-            Tree.Add([4, 5, null], 450);
-            Tree.Add([4, null, 6], 406);
-            Tree.Add([4, null, null], 400);
-
-
-            {
-                var Test = Tree.Find();
-                Assert.AreEqual(12, Test.Count);
-            }
-
-            {
-                var Test = Tree.Find(0, 0, 0);
-                Assert.AreEqual(1, Test.Count);
-                Assert.IsTrue(Test.Contains(0));
-            }
-
-            {
-                var Test = Tree.Find(0, 0);
-                Assert.AreEqual(2, Test.Count);
-                Assert.IsTrue(Test.Contains(0));
-                Assert.IsTrue(Test.Contains(1));
-            }
-
-            {
-                var Test = Tree.Find(4, 5, 6);
-                Assert.AreEqual(4, Test.Count);
-                Assert.IsTrue(Test.Contains(456));
-                Assert.IsTrue(Test.Contains(450));
-                Assert.IsTrue(Test.Contains(406));
-                Assert.IsTrue(Test.Contains(400));
-            }
-
-            {
-                var Test = Tree.Find(4, 6, 6);
-                Assert.AreEqual(2, Test.Count);
-                Assert.IsTrue(Test.Contains(406));
-                Assert.IsTrue(Test.Contains(400));
-            }
-
-            {
-                var Test = Tree.Find(4, 9, 9);
-                Assert.AreEqual(1, Test.Count);
-                Assert.IsTrue(Test.Contains(400));
-            }
-
+            return [.. ret,];
         }
 
     }

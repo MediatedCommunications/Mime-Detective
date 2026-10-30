@@ -24,7 +24,7 @@ namespace MimeDetective.Storage {
                 ValidBytesArray[(byte)item] = true;
             }
 
-            ValidBytes = [..ValidBytesArray];
+            ValidBytes = [..ValidBytesArray,];
         }
 
 
@@ -36,7 +36,7 @@ namespace MimeDetective.Storage {
             var SegmentLength = 0;
 
             var tret = new List<byte>(Content.Length) {
-                Separator
+                Separator,
             };
 
             var SegmentStart = tret.Count;
@@ -78,7 +78,7 @@ namespace MimeDetective.Storage {
 
             //Must be > because it contains a | at the start
             if (tret.Count > MinSegmentLength) {
-                ret = [.. tret];
+                ret = [.. tret,];
             }
 
             return ret;
@@ -93,9 +93,9 @@ namespace MimeDetective.Storage {
                 ret = [
                     ..new[] {
                         new StringSegment() {
-                            Pattern = [..tret]
-                        }
-                    }
+                            Pattern = [..tret,],
+                        },
+                    },
                 ];
             }
 
@@ -116,7 +116,7 @@ namespace MimeDetective.Storage {
             while(Start < Bytes.Length) {
                 var NextEnd = Array.IndexOf(Bytes, Separator, Start);
 
-                tret.Add([..Bytes.AsSpan(Start, NextEnd - Start)]);
+                tret.Add([..Bytes.AsSpan(Start, NextEnd - Start),]);
 
                 Start = NextEnd + 1;
             }
@@ -125,7 +125,7 @@ namespace MimeDetective.Storage {
             var ret = (
                 from x in tret
                 let v = new StringSegment() {
-                    Pattern = x
+                    Pattern = x,
                 }
                 orderby v.Pattern.Length descending
                 select v

@@ -35,7 +35,7 @@ public class ContentInspectorBuilder {
         StringSegmentMatcherProvider stringSegmentIndex = StringSegmentOptions.OptimizeFor switch {
             StringSegmentResourceOptimization.HighSpeed => new StringSegmentMatcherProviderHighSpeed(),
             StringSegmentResourceOptimization.LowMemory => new StringSegmentMatcherProviderLowMemory(),
-            _ => new StringSegmentMatcherProviderHighSpeed()
+            _ => new StringSegmentMatcherProviderHighSpeed(),
             //_ => new StringSegmentMatcherProviderLowMemory()
         };
 

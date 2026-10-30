@@ -37,17 +37,17 @@ public static class XmlData {
                 new() {
                     ASCII = Pattern1Ascii,
                     Bytes = Pattern1Bytes,
-                    Position = Pattern1Position
+                    Position = Pattern1Position,
                 },
                 new() {
                     ASCII = Pattern2Ascii,
                     Bytes = Pattern2Bytes,
-                    Position = Pattern2Position
-                }
+                    Position = Pattern2Position,
+                },
             },
             GlobalStrings = {
                 GlobalString1,
-                GlobalString2
+                GlobalString2,
             },
             General = {
                 CheckStrings = CheckStrings,
@@ -55,27 +55,27 @@ public static class XmlData {
                 Date = {
                     Year = DateYear,
                     Month = DateMonth,
-                    Day = DateDay
+                    Day = DateDay,
                 },
                 Time = {
                     Hour = DateHour,
                     Min = DateMinute,
-                    Sec = DateSecond
+                    Sec = DateSecond,
                 },
                 FileNum = 12,
-                Refine = "asd"
+                Refine = "asd",
             },
             Info = {
                 AuthorEmail = "Email",
                 FileExtension = FileExtension,
                 ExtraInfo = {
                     ReferenceUrl = "URL",
-                    Remark = "Remark"
+                    Remark = "Remark",
                 },
                 FileType = FileDescription,
                 MimeType = FileMimeType,
-                Author = "asdf"
-            }
+                Author = "asdf",
+            },
         };
 
         return example;

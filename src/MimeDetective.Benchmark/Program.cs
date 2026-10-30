@@ -19,7 +19,7 @@ public class Program {
             [
                 typeof(DefinitionBuilderBenchmarks),
                 typeof(InspectorBuilderBenchmarks),
-                typeof(PreloadedFileInspectorBenchmarks)
+                typeof(PreloadedFileInspectorBenchmarks),
             ],
             BenchmarkConfig.Get());
     }

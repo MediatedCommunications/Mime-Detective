@@ -9,11 +9,11 @@ namespace MimeDetective.Storage;
 public class StringSegment : PatternSegment {
 
     public static StringSegment Create(string text, bool apostropheIsNull = true) {
-        var ret = new StringSegment { Pattern = BytesFromText(text, apostropheIsNull) };
+        var ret = new StringSegment { Pattern = BytesFromText(text, apostropheIsNull), };
         return ret;
     }
 
     public static StringSegment Create(IEnumerable<byte> bytes) {
-        return new() { Pattern = bytes.ToImmutableArray() };
+        return new() { Pattern = bytes.ToImmutableArray(), };
     }
 }

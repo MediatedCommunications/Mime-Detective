@@ -14,7 +14,7 @@ public class UsageTypeNotAllowedException : Exception {
         var lines = new List<string?> {
             $@"{usageType.GetType().Name} '{usageType}' is not allowed.",
             $@"Acceptable usage types are: {{ {allowedUsageString} }}",
-            message
+            message,
         };
 
         lines = lines.Where(x => !string.IsNullOrWhiteSpace(x)).ToList();

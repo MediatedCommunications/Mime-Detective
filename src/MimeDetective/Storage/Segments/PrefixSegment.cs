@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.Text;
 
 namespace MimeDetective.Storage;
 
@@ -16,12 +16,16 @@ public class PrefixSegment : PatternSegment {
     public static PrefixSegment Create(int start, params ImmutableArray<byte> bytes) {
         return new() {
             Start = start,
-            Pattern = bytes
+            Pattern = bytes,
         };
     }
 
-    public static PrefixSegment Create(int start, string hexString) {
-        return Create(start, BytesFromHex(hexString));
+    public static PrefixSegment FromAscii(int Start, string Text) {
+        return FromText(Start, Text, Encoding.ASCII);
+    }
+
+    public static PrefixSegment FromText(int start, string Text, Encoding Encoding) {
+        return Create(start, [.. Encoding.GetBytes(Text),]);
     }
 
     public override string? GetDebuggerDisplay() {

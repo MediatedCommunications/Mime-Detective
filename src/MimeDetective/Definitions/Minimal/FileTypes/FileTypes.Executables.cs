@@ -1,5 +1,4 @@
 using MimeDetective.Storage;
-using System.Collections.Generic;
 using System.Collections.Immutable;
 
 namespace MimeDetective.Definitions {
@@ -21,14 +20,14 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["dll", "exe"],
+                                Extensions = ["dll", "exe",],
                                 MimeType = ApplicationOctetStream,
                                 Categories = [
                                     Category.Executable,
                                 ],
                             },
                             Signature = new Segment[] {
-                                PrefixSegment.Create(0, "4D 5A")
+                                PrefixSegment.Create(0, [0x4D, 0x5A,]),
                             }.ToSignature(),
                         },
                     ];
@@ -44,7 +43,7 @@ namespace MimeDetective.Definitions {
                                 ],
                             },
                             Signature = new Segment[] {
-                                PrefixSegment.Create(0, "7F 45 4C 46")
+                                PrefixSegment.Create(0, [0x7F, 0x45, 0x4C, 0x46,]),
                             }.ToSignature(),
                         },
                     ];
@@ -54,14 +53,14 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["lib"],
+                                Extensions = ["lib",],
                                 MimeType = ApplicationOctetStream,
                                 Categories = [
                                     Category.Executable,
                                 ],
                             },
                             Signature = new Segment[] {
-                                PrefixSegment.Create(0, "21 3C 61 72 63 68 3E 0A")
+                                PrefixSegment.Create(0, [0x21, 0x3C, 0x61, 0x72, 0x63, 0x68, 0x3E, 0x0A,]),
                             }.ToSignature(),
                         },
                     ];

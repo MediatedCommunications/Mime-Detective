@@ -8,16 +8,16 @@ namespace MimeDetective.Benchmark;
 public class InspectorBuilderBenchmarks {
     [Benchmark(Baseline = true)]
     public IContentInspector BuildDefault() {
-        return new ContentInspectorBuilder { Definitions = BenchmarkInspectors.Instance.MinimalDefinitions }.Build();
+        return new ContentInspectorBuilder { Definitions = BenchmarkInspectors.Instance.MinimalDefinitions, }.Build();
     }
 
     [Benchmark]
     public IContentInspector BuildCondensed() {
-        return new ContentInspectorBuilder { Definitions = BenchmarkInspectors.Instance.CondensedDefinitions }.Build();
+        return new ContentInspectorBuilder { Definitions = BenchmarkInspectors.Instance.CondensedDefinitions, }.Build();
     }
 
     [Benchmark]
     public IContentInspector BuildExhaustive() {
-        return new ContentInspectorBuilder { Definitions = BenchmarkInspectors.Instance.ExhaustiveDefinitions }.Build();
+        return new ContentInspectorBuilder { Definitions = BenchmarkInspectors.Instance.ExhaustiveDefinitions, }.Build();
     }
 }

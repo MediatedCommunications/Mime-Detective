@@ -42,5 +42,5 @@ public enum DefinitionMatchType {
     Complete,
     Partial,
     Empty,
-    Failed
+    Failed,
 }

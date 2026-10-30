@@ -3,5 +3,5 @@
 public enum StringSegmentResourceOptimization {
     Any,
     HighSpeed,
-    LowMemory
+    LowMemory,
 }

@@ -1,5 +1,4 @@
 using MimeDetective.Storage;
-using System.Collections.Generic;
 using System.Collections.Immutable;
 
 namespace MimeDetective.Definitions {
@@ -44,15 +43,15 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["bz2","tar","tbz2","tb2"],
+                                Extensions = ["bz2","tar","tbz2","tb2",],
                                 MimeType = "application/x-bzip2",
                                 Categories = [
                                     Category.Compressed, 
-                                    Category.Archive
+                                    Category.Archive,
                                 ],
                             },
                             Signature = new Segment[]{
-                                PrefixSegment.Create(0, "42 5A 68")
+                                PrefixSegment.Create(0, [0x42, 0x5A, 0x68,]),
                             }.ToSignature(),
                         },
                     ];
@@ -62,15 +61,15 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["gz", "tgz"],
+                                Extensions = ["gz", "tgz",],
                                 MimeType = "application/x-gz",
                                 Categories = [
                                     Category.Compressed,
-                                    Category.Archive
+                                    Category.Archive,
                                 ],
                             },
                             Signature = new Segment[]{
-                                PrefixSegment.Create(0, "1F 8B 08"),
+                                PrefixSegment.Create(0, [0x1F, 0x8B, 0x08,]),
                             }.ToSignature(),
                         },
                     ];
@@ -80,15 +79,15 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["rar"],
+                                Extensions = ["rar",],
                                 MimeType = ApplicationXCompressed,
                                 Categories = [
                                     Category.Compressed,
-                                    Category.Archive
+                                    Category.Archive,
                                 ],
                             },
                             Signature = new Segment[]{
-                                PrefixSegment.Create(0, "52 61 72 21"),
+                                PrefixSegment.Create(0, [0x52, 0x61, 0x72, 0x21,]),
                             }.ToSignature(),
                         },
                     ];
@@ -98,15 +97,15 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["7z"],
+                                Extensions = ["7z",],
                                 MimeType = ApplicationXCompressed,
                                 Categories = [
                                     Category.Compressed,
-                                    Category.Archive
+                                    Category.Archive,
                                 ],
                             },
                             Signature = new Segment[]{ 
-                                PrefixSegment.Create(0, "37 7A BC AF 27 1C")
+                                PrefixSegment.Create(0, [0x37, 0x7A, 0xBC, 0xAF, 0x27, 0x1C,]),
                             }.ToSignature(),
                         },
                     ];
@@ -116,15 +115,15 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["tar"],
+                                Extensions = ["tar",],
                                 MimeType = ApplicationXTar,
                                 Categories = [
                                     Category.Compressed,
-                                    Category.Archive
+                                    Category.Archive,
                                 ],
                             },
                             Signature = new Segment[] {
-                                PrefixSegment.Create(257, "75 73 74 61 72")
+                                PrefixSegment.Create(257, [0x75, 0x73, 0x74, 0x61, 0x72,]),
                             }.ToSignature(),
                         },
                     ];
@@ -134,15 +133,15 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["tar"],
+                                Extensions = ["tar",],
                                 MimeType = ApplicationXTar,
                                 Categories = [
                                     Category.Compressed,
-                                    Category.Archive
+                                    Category.Archive,
                                 ],
                             },
                             Signature = new Segment[]{
-                                PrefixSegment.Create(0, "1F A0")
+                                PrefixSegment.Create(0, [0x1F, 0xA0,]),
                             }.ToSignature(),
                         },
                     ];
@@ -152,15 +151,15 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["tar"],
+                                Extensions = ["tar",],
                                 MimeType = ApplicationXTar,
                                 Categories = [
                                     Category.Compressed,
-                                    Category.Archive
+                                    Category.Archive,
                                 ],
                             },
                             Signature = new Segment[] {
-                                PrefixSegment.Create(0, "1F 9D")
+                                PrefixSegment.Create(0, [0x1F, 0x9D,]),
                             }.ToSignature(),
                         },
                     ];
@@ -170,15 +169,15 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["zip"],
+                                Extensions = ["zip",],
                                 MimeType = ApplicationXCompressed,
                                 Categories = [
                                     Category.Compressed,
-                                    Category.Archive
+                                    Category.Archive,
                                 ],
                             },
                             Signature = new Segment[] {
-                                PrefixSegment.Create(0, "50 4B 03 04")
+                                PrefixSegment.Create(0, [0x50, 0x4B, 0x03, 0x04,]),
                             }.ToSignature(),
                         },
                     ];
@@ -188,15 +187,15 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["zip"],
+                                Extensions = ["zip",],
                                 MimeType = ApplicationXCompressed,
                                 Categories = [
                                     Category.Compressed,
-                                    Category.Archive
+                                    Category.Archive,
                                 ],
                             },
                             Signature = new Segment[]{
-                                PrefixSegment.Create(0, "50 4B 05 06")
+                                PrefixSegment.Create(0, [0x50, 0x4B, 0x05, 0x06,]),
                             }.ToSignature(),
                         },
                     ];

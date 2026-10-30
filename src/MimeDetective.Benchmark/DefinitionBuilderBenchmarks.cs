@@ -17,13 +17,13 @@ namespace MimeDetective.Benchmark
         [Benchmark]
         public ImmutableArray<Definition> CondensedDefinitions()
         {
-            return new CondensedBuilder { UsageType = UsageType.PersonalNonCommercial }.Build();
+            return new CondensedBuilder { UsageType = UsageType.PersonalNonCommercial, }.Build();
         }
 
         [Benchmark]
         public ImmutableArray<Definition> ExhaustiveDefinitions()
         {
-            return new ExhaustiveBuilder { UsageType = UsageType.PersonalNonCommercial }.Build();
+            return new ExhaustiveBuilder { UsageType = UsageType.PersonalNonCommercial, }.Build();
         }
     }
 }

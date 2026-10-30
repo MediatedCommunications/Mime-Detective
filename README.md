@@ -193,7 +193,7 @@ internal static class CustomContentInspector {
             //All of these rules must match
             Signature = new Segment[] {
                 StringSegment.Create("MAGIC"), //anywhere in the file, expect "MAGIC" (exact case)
-                PrefixSegment.Create(100, "4d 41 47 49 43") //At offset 100 in the file, expect the bytes "MAGIC".
+                PrefixSegment.Create(100, [0x4D, 0x41, 0x47, 0x49, 0x43]) //At offset 100 in the file, expect the bytes "MAGIC".
             }.ToSignature(),
         });
 

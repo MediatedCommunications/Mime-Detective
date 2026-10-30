@@ -9,13 +9,13 @@ public sealed class BenchmarkInspectors {
     public static BenchmarkInspectors Instance { get; } = new();
 
     public ImmutableArray<Definition> CondensedDefinitions { get; }
-        = new CondensedBuilder { UsageType = UsageType.PersonalNonCommercial }.Build();
+        = new CondensedBuilder { UsageType = UsageType.PersonalNonCommercial, }.Build();
 
     public ImmutableArray<Definition> MinimalDefinitions { get; }
         = MimeDetective.Definitions.MinimalDefinitions.All();
 
     public ImmutableArray<Definition> ExhaustiveDefinitions { get; }
-        = new ExhaustiveBuilder { UsageType = UsageType.PersonalNonCommercial }.Build();
+        = new ExhaustiveBuilder { UsageType = UsageType.PersonalNonCommercial, }.Build();
 
     public BenchmarkParameter<ImmutableArray<Definition>>[] Definitions { get; }
 
@@ -31,17 +31,17 @@ public sealed class BenchmarkInspectors {
         this.Definitions = [
             new("Default", this.MinimalDefinitions),
             new("Condensed", this.CondensedDefinitions),
-            new("Exhaustive", this.ExhaustiveDefinitions)
+            new("Exhaustive", this.ExhaustiveDefinitions),
         ];
 
-        this.Condensed = new ContentInspectorBuilder { Definitions = this.CondensedDefinitions }.Build();
-        this.Exhaustive = new ContentInspectorBuilder { Definitions = this.ExhaustiveDefinitions }.Build();
-        this.Default = new ContentInspectorBuilder { Definitions = this.MinimalDefinitions }.Build();
+        this.Condensed = new ContentInspectorBuilder { Definitions = this.CondensedDefinitions, }.Build();
+        this.Exhaustive = new ContentInspectorBuilder { Definitions = this.ExhaustiveDefinitions, }.Build();
+        this.Default = new ContentInspectorBuilder { Definitions = this.MinimalDefinitions, }.Build();
 
         this.Inspectors = [
             new("Default", this.Default),
             new("Condensed", this.Condensed),
-            new("Exhaustive", this.Exhaustive)
+            new("Exhaustive", this.Exhaustive),
         ];
     }
 }

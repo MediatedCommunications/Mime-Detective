@@ -40,7 +40,7 @@ public class Generator {
         // Videos
         "3g2", "3gp", "avi", "flv", "h264", "m4v", "mkv", "mov", "mp4", "mpg", "mpeg", "rm", "swf", "vob", "webm", "wmv",
         // Documents
-        "doc", "docx", "odt", "pdf", "rtf", "tex", "wpd"
+        "doc", "docx", "odt", "pdf", "rtf", "tex", "wpd",
         // @formatter:on
     ]);
 
@@ -53,9 +53,9 @@ public class Generator {
             let Item = XmlSerializer.FromXmlFile(FileName)
                 ?? throw new InvalidOperationException($"Unable to deserialize {FileName}")
             let Modern = Item.Modernize()
-            select Modern with { Meta = (Modern.Meta ?? new()) with { Id = Id } };
+            select Modern with { Meta = (Modern.Meta ?? new()) with { Id = Id, }, };
 
-        return [.. definitions.OrderBy(item => item.Meta?.Id, StringComparer.OrdinalIgnoreCase)];
+        return [.. definitions.OrderBy(item => item.Meta?.Id, StringComparer.OrdinalIgnoreCase),];
     }
 
     [TestMethod]

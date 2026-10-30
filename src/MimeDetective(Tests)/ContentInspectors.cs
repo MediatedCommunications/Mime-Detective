@@ -13,13 +13,13 @@ public static class ContentInspectors {
         public static FileExtensionToMimeTypeLookup FileExtensionToMimeTypeLookup { get; }
 
         static Exhaustive() {
-            Definitions = new ExhaustiveBuilder { UsageType = UsageType.CommercialPaid }.Build();
+            Definitions = new ExhaustiveBuilder { UsageType = UsageType.CommercialPaid, }.Build();
 
-            ContentInspector = new ContentInspectorBuilder { Definitions = Definitions }.Build();
+            ContentInspector = new ContentInspectorBuilder { Definitions = Definitions, }.Build();
 
-            MimeTypeToFileExtensionLookup = new MimeTypeToFileExtensionLookupBuilder { Definitions = Definitions }.Build();
+            MimeTypeToFileExtensionLookup = new MimeTypeToFileExtensionLookupBuilder { Definitions = Definitions, }.Build();
 
-            FileExtensionToMimeTypeLookup = new FileExtensionToMimeTypeLookupBuilder { Definitions = Definitions }.Build();
+            FileExtensionToMimeTypeLookup = new FileExtensionToMimeTypeLookupBuilder { Definitions = Definitions, }.Build();
         }
     }
 }

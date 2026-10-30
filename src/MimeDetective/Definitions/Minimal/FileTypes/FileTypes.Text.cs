@@ -1,5 +1,4 @@
 using MimeDetective.Storage;
-using System.Collections.Generic;
 using System.Collections.Immutable;
 
 namespace MimeDetective.Definitions {
@@ -22,14 +21,14 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["txt"],
+                                Extensions = ["txt",],
                                 MimeType = "text/plain",
                                 Categories = [
                                     Category.Document,
                                 ],
                             },
                             Signature = new Segment[] {
-                                PrefixSegment.Create(0, "EF BB BF")
+                                PrefixSegment.Create(0, [0xEF, 0xBB, 0xBF,]),
                             }.ToSignature(),
                         },
                     ];
@@ -39,7 +38,7 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["txt"],
+                                Extensions = ["txt",],
                                 MimeType = "text/plain",
                                 Categories = [
                                     Category.Document,
@@ -47,7 +46,7 @@ namespace MimeDetective.Definitions {
                                 ],
                             },
                             Signature = new Segment[] {
-                                PrefixSegment.Create(0, "FE FF")
+                                PrefixSegment.Create(0, [0xFE, 0xFF,]),
                             }.ToSignature(),
                         },
                     ];
@@ -57,7 +56,7 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["txt"],
+                                Extensions = ["txt",],
                                 MimeType = "text/plain",
                                 Categories = [
                                     Category.Document,
@@ -65,7 +64,7 @@ namespace MimeDetective.Definitions {
                                 ],
                             },
                             Signature = new Segment[] {
-                                PrefixSegment.Create(0, "FF FE")
+                                PrefixSegment.Create(0, [0xFF, 0xFE,]),
                             }.ToSignature(),
                         },
                     ];
@@ -75,7 +74,7 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["txt"],
+                                Extensions = ["txt",],
                                 MimeType = "text/plain",
                                 Categories = [
                                     Category.Document,
@@ -83,7 +82,7 @@ namespace MimeDetective.Definitions {
                                 ],
                             },
                             Signature = new Segment[] {
-                                PrefixSegment.Create(0, "00 00 FE FF")
+                                PrefixSegment.Create(0, [0x00, 0x00, 0xFE, 0xFF,]),
                             }.ToSignature(),
                         },
                     ];
@@ -93,7 +92,7 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["txt"],
+                                Extensions = ["txt",],
                                 MimeType = "text/plain",
                                 Categories = [
                                     Category.Document,
@@ -101,7 +100,7 @@ namespace MimeDetective.Definitions {
                                 ],
                             },
                             Signature = new Segment[] {
-                                PrefixSegment.Create(0, "FF FE 00 00")
+                                PrefixSegment.Create(0, [0xFF, 0xFE, 0x00, 0x00,]),
                             }.ToSignature(),
                         },
                     ];

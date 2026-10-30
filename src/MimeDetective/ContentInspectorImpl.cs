@@ -83,7 +83,7 @@ namespace MimeDetective {
 
             var tret = new List<(DefinitionMatch Match, DefinitionMatcher Matcher)>(32);
 
-            var useEmptyShortcut = this.MatchEvaluatorOptions is { IncludeSegmentsStrings: false, IncludeMatchesEmpty: false };
+            var useEmptyShortcut = this.MatchEvaluatorOptions is { IncludeSegmentsStrings: false, IncludeMatchesEmpty: false, };
             var needsStrings = false;
 
             {
@@ -91,7 +91,7 @@ namespace MimeDetective {
                     Options = MatchEvaluatorOptions with {
                         IncludeSegmentsStrings = false,
                         IncludeMatchesEmpty = true,
-                    }
+                    },
                 };
 
 
@@ -116,7 +116,7 @@ namespace MimeDetective {
             }
 
             if (!useEmptyShortcut && needsStrings) {
-                var MatchEvaluator2 = new DefinitionMatchEvaluator { Options = this.MatchEvaluatorOptions };
+                var MatchEvaluator2 = new DefinitionMatchEvaluator { Options = this.MatchEvaluatorOptions, };
 
                 var ContentStrings = StringSegmentExtrator.ExtractStrings(Content);
 
@@ -143,7 +143,7 @@ namespace MimeDetective {
                 ret[i] = tret[i].Match;
             }
 
-            return [.. ret];
+            return [.. ret,];
         }
 
     }

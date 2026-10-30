@@ -1,6 +1,4 @@
 using MimeDetective.Storage;
-using System;
-using System.Collections.Generic;
 using System.Collections.Immutable;
 
 namespace MimeDetective.Definitions
@@ -25,7 +23,7 @@ namespace MimeDetective.Definitions
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["xml"],
+                                Extensions = ["xml",],
                                 MimeType = "application/xml",
                                 Categories = [
                                     Category.Document,
@@ -33,7 +31,7 @@ namespace MimeDetective.Definitions
                                 ],
                             },
                             Signature = new Segment[]{
-                                PrefixSegment.Create(0, "3C 3F 78 6D 6C 20")
+                                PrefixSegment.Create(0, [0x3C, 0x3F, 0x78, 0x6D, 0x6C, 0x20,]),
                             }.ToSignature(),
                         },
                     ];
@@ -43,7 +41,7 @@ namespace MimeDetective.Definitions
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["xml"],
+                                Extensions = ["xml",],
                                 MimeType = "application/xml",
                                 Categories = [
                                     Category.Document,
@@ -52,7 +50,7 @@ namespace MimeDetective.Definitions
                                 ],
                             },
                             Signature = new Segment[]{
-                                PrefixSegment.Create(0, "EF BB BF 3C 3F 78 6D 6C 20"),
+                                PrefixSegment.Create(0, [0xEF, 0xBB, 0xBF, 0x3C, 0x3F, 0x78, 0x6D, 0x6C, 0x20,]),
                             }.ToSignature(),
                         },
                     ];
@@ -62,7 +60,7 @@ namespace MimeDetective.Definitions
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["xml"],
+                                Extensions = ["xml",],
                                 MimeType = "application/xml",
                                 Categories = [
                                     Category.Document,
@@ -71,7 +69,7 @@ namespace MimeDetective.Definitions
                                 ],
                             },
                             Signature = new Segment[]{
-                                PrefixSegment.Create(0,"FF FE 3C 00 3F 00 78 00 6D 00 6C 00 20 00"),
+                                PrefixSegment.Create(0, [0xFF, 0xFE, 0x3C, 0x00, 0x3F, 0x00, 0x78, 0x00, 0x6D, 0x00, 0x6C, 0x00, 0x20, 0x00,]),
                             }.ToSignature(),
                         },
                     ];
@@ -81,7 +79,7 @@ namespace MimeDetective.Definitions
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["xml"],
+                                Extensions = ["xml",],
                                 MimeType = "application/xml",
                                 Categories = [
                                     Category.Document,
@@ -90,7 +88,7 @@ namespace MimeDetective.Definitions
                                 ],
                             },
                             Signature = new Segment[]{
-                                PrefixSegment.Create(0, "FE FF 00 3C 00 3F 00 78 00 6D 00 6C 00 20")
+                                PrefixSegment.Create(0, [0xFE, 0xFF, 0x00, 0x3C, 0x00, 0x3F, 0x00, 0x78, 0x00, 0x6D, 0x00, 0x6C, 0x00, 0x20,]),
                             }.ToSignature(),
                         },
                     ];

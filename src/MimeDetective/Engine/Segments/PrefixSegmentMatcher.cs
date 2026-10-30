@@ -32,7 +32,7 @@ internal class PrefixSegmentMatcher : DisplayClass, ISegmentMatcher {
         }
 
         if (matches) {
-            ret = new PrefixSegmentMatch { Segment = Segment };
+            ret = new PrefixSegmentMatch { Segment = Segment, };
         }
 
         return ret;

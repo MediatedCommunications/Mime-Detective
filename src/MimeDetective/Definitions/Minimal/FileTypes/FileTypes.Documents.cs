@@ -1,5 +1,4 @@
 using MimeDetective.Storage;
-using System.Collections.Generic;
 using System.Collections.Immutable;
 
 namespace MimeDetective.Definitions {
@@ -48,14 +47,14 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["doc"],
+                                Extensions = ["doc",],
                                 MimeType = "application/msword",
                                 Categories = [
                                     Category.Document,
                                 ],
                             },
                             Signature = new Segment[] {
-                                PrefixSegment.Create(0, "D0 CF 11 E0 A1 B1 1A E1"),
+                                PrefixSegment.Create(0, [0xD0, 0xCF, 0x11, 0xE0, 0xA1, 0xB1, 0x1A, 0xE1,]),
                                 StringSegment.Create("W'O'R'D'D'O'C'U'M'E'N'T"),
                             }.ToSignature(),
                         },
@@ -66,7 +65,7 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["docx"],
+                                Extensions = ["docx",],
                                 MimeType = "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
                                 Categories = [
                                     Category.Compressed,
@@ -75,7 +74,7 @@ namespace MimeDetective.Definitions {
                                 ],
                             },
                             Signature = new Segment[] {                                
-                                PrefixSegment.Create(0, "50 4B 03 04"),
+                                PrefixSegment.Create(0, [0x50, 0x4B, 0x03, 0x04,]),
                                 
                                 StringSegment.Create("_RELS"),
                                 StringSegment.Create("CONTENT_TYPES"),
@@ -90,7 +89,7 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["dwg"],
+                                Extensions = ["dwg",],
                                 MimeType = "application/acad",
                                 Categories = [
                                     Category.Document,
@@ -98,7 +97,7 @@ namespace MimeDetective.Definitions {
                                 ],
                             },
                             Signature = new Segment[]{
-                                PrefixSegment.Create(0, "41 43 31 30")
+                                PrefixSegment.Create(0, [0x41, 0x43, 0x31, 0x30,]),
                             }.ToSignature(),
                         },
                     ];
@@ -108,7 +107,7 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["pdf"],
+                                Extensions = ["pdf",],
                                 MimeType = "application/pdf",
                                 Categories = [
                                     Category.Bitmap,
@@ -117,9 +116,9 @@ namespace MimeDetective.Definitions {
                                 ],
                             },
                             Signature = new Segment[] {
-                                PrefixSegment.Create(0, "25 50 44 46")
+                                PrefixSegment.Create(0, [0x25, 0x50, 0x44, 0x46,]),
                             }.ToSignature(),
-                        }
+                        },
                     ];
                 }
 
@@ -127,7 +126,7 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["odt"],
+                                Extensions = ["odt",],
                                 MimeType = "application/vnd.oasis.opendocument.text",
                                 Categories = [
                                     Category.Compressed,
@@ -135,7 +134,7 @@ namespace MimeDetective.Definitions {
                                 ],
                             },
                             Signature = new Segment[] {
-                                PrefixSegment.Create(0, "50 4B 03 04"),
+                                PrefixSegment.Create(0, [0x50, 0x4B, 0x03, 0x04,]),
                                 StringSegment.Create("VND.OASIS.OPENDOCUMENT.TEXTPK"),
                             }.ToSignature(),
                         },
@@ -146,7 +145,7 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["odp"],
+                                Extensions = ["odp",],
                                 MimeType = "application/vnd.oasis.opendocument.presentation",
                                 Categories = [
                                     Category.Presentation,
@@ -154,7 +153,7 @@ namespace MimeDetective.Definitions {
                                 ],
                             },
                             Signature = new Segment[] {
-                                PrefixSegment.Create(0, "50 4B 03 04"),
+                                PrefixSegment.Create(0, [0x50, 0x4B, 0x03, 0x04,]),
                                 StringSegment.Create("VND.OASIS.OPENDOCUMENT.PRESENTATIONPK"),
                             }.ToSignature(),
                         },
@@ -165,7 +164,7 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["ods"],
+                                Extensions = ["ods",],
                                 MimeType = "application/vnd.oasis.opendocument.spreadsheet",
                                 Categories = [
                                     Category.Spreadsheet,
@@ -173,7 +172,7 @@ namespace MimeDetective.Definitions {
                                 ],
                             },
                             Signature = new Segment[] {
-                                PrefixSegment.Create(0, "50 4B 03 04"),
+                                PrefixSegment.Create(0, [0x50, 0x4B, 0x03, 0x04,]),
                                 StringSegment.Create("VND.OASIS.OPENDOCUMENT.SPREADSHEETPK"),
                             }.ToSignature(),
                         },
@@ -184,14 +183,14 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["ppt"],
+                                Extensions = ["ppt",],
                                 MimeType = "application/mspowerpoint",
                                 Categories = [
                                     Category.Presentation,
                                 ],
                             },
                             Signature = new Segment[] {
-                                PrefixSegment.Create(0, "D0 CF 11 E0 A1 B1 1A E1"),
+                                PrefixSegment.Create(0, [0xD0, 0xCF, 0x11, 0xE0, 0xA1, 0xB1, 0x1A, 0xE1,]),
                                 StringSegment.Create("POWERPOINT"),
                             }.ToSignature(),
                         },
@@ -202,7 +201,7 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["pptx"],
+                                Extensions = ["pptx",],
                                 MimeType = "application/vnd.openxmlformats-officedocument.presentationml.presentation",
                                 Categories = [
                                     Category.Compressed,
@@ -211,7 +210,7 @@ namespace MimeDetective.Definitions {
                                 ],
                             },
                             Signature = new Segment[]{
-                                PrefixSegment.Create(0, "50 4B 03 04"),
+                                PrefixSegment.Create(0, [0x50, 0x4B, 0x03, 0x04,]),
 
                                 StringSegment.Create("_RELS"),
                                 StringSegment.Create("CONTENT_TYPES"),
@@ -227,15 +226,15 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["rtf"],
+                                Extensions = ["rtf",],
                                 MimeType = "application/rtf",
                                 Categories = [
                                     Category.Document,
                                 ],
                             },
                             Signature = new Segment[]{ 
-                                PrefixSegment.Create(0, "7B 5C 72 74 66 31")
-                            }.ToSignature()
+                                PrefixSegment.Create(0, [0x7B, 0x5C, 0x72, 0x74, 0x66, 0x31,]),
+                            }.ToSignature(),
                         },
                     ];
                 }
@@ -244,14 +243,14 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["xls"],
+                                Extensions = ["xls",],
                                 MimeType = "application/excel",
                                 Categories = [
                                     Category.Spreadsheet,
                                 ],
                             },
                             Signature = new Segment[] {
-                                PrefixSegment.Create(0, "D0 CF 11 E0 A1 B1 1A E1"),
+                                PrefixSegment.Create(0, [0xD0, 0xCF, 0x11, 0xE0, 0xA1, 0xB1, 0x1A, 0xE1,]),
                                 StringSegment.Create("EXCEL"),
                             }.ToSignature(),
                         },
@@ -262,7 +261,7 @@ namespace MimeDetective.Definitions {
                     return [
                         new() {
                             File = new() {
-                                Extensions = ["xlsx"],
+                                Extensions = ["xlsx",],
                                 MimeType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
                                 Categories = [
                                     Category.Compressed,
@@ -271,7 +270,7 @@ namespace MimeDetective.Definitions {
                                 ],
                             },
                             Signature = new Segment[]{
-                                PrefixSegment.Create(0, "50 4B 03 04"),
+                                PrefixSegment.Create(0, [0x50, 0x4B, 0x03, 0x04,]),
                     
                                 StringSegment.Create("_RELS"),
                                 StringSegment.Create("CONTENT_TYPES"),
@@ -279,7 +278,7 @@ namespace MimeDetective.Definitions {
 
                                 StringSegment.Create("WORKBOOK"),
                             }.ToSignature(),
-                        }
+                        },
                     ];
                 }
 

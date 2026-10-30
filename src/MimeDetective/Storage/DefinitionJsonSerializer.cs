@@ -20,10 +20,10 @@ public static class DefinitionJsonSerializer {
                 new ImmutableByteArrayToHexStringConverter(),
 #if NET10_0_OR_GREATER
             },
-            TypeInfoResolver = MimeDetectiveSourceGeneratedSerializer.Default
+            TypeInfoResolver = MimeDetectiveSourceGeneratedSerializer.Default,
 #else
-                new JsonStringEnumConverter()
-            }
+                new JsonStringEnumConverter(),
+            },
 #endif
         };
 

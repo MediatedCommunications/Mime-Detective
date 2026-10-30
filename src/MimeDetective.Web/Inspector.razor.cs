@@ -25,7 +25,7 @@ public sealed partial class Inspector : ComponentBase {
     private string WorkingDetail => _set switch {
         DefinitionSet.Exhaustive => "The exhaustive library is loaded once, then kept for the rest of this visit.",
         DefinitionSet.Condensed => "Common signatures are being prepared.",
-        _ => "The built-in signatures are being prepared."
+        _ => "The built-in signatures are being prepared.",
     };
 
     private async Task ChangeSet(DefinitionSet set) {
@@ -104,7 +104,7 @@ public sealed partial class Inspector : ComponentBase {
         _status = _set switch {
             DefinitionSet.Exhaustive => "Preparing exhaustive definitions…",
             DefinitionSet.Condensed => "Preparing condensed definitions…",
-            _ => "Preparing default definitions…"
+            _ => "Preparing default definitions…",
         };
 
         await InvokeAsync(StateHasChanged);
@@ -184,6 +184,6 @@ public sealed partial class Inspector : ComponentBase {
         DefinitionSet.Minimal => "A small built-in set: archives, documents, images, audio, video, and executables.",
         DefinitionSet.Condensed => "The most common file signatures, for personal, non-commercial use.",
         DefinitionSet.Exhaustive => "More than 14,000 signatures, for personal, non-commercial use. The first run loads the full library.",
-        _ => string.Empty
+        _ => string.Empty,
     };
 }

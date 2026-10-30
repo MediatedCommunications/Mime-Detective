@@ -70,7 +70,7 @@ namespace MimeDetective.Definitions.Generator
                     File = new()
                     {
                         Description = string.Join("/", Extensions),
-                        Extensions = [.. Extensions],
+                        Extensions = [.. Extensions,],
                         MimeType = MimeType,
                     },
                     Signature = Signature,
@@ -150,7 +150,7 @@ namespace MimeDetective.Definitions.Generator
                     if(Yield && Found.Count > 0) {
                         ret.Add(new PrefixSegment()
                         {
-                            Pattern = [.. Found],
+                            Pattern = [.. Found,],
                             Start = Start - Found.Count,
                         });
 
@@ -164,7 +164,7 @@ namespace MimeDetective.Definitions.Generator
 
             }
 
-            return [.. ret];
+            return [.. ret,];
         }
 
 

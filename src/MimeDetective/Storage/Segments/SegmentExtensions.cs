@@ -33,7 +33,7 @@ public static class SegmentExtensions {
 
         var ret = new Signature {
             Prefix = prefixes?.ToImmutableArray() ?? [],
-            Strings = strings?.ToImmutableArray() ?? []
+            Strings = strings?.ToImmutableArray() ?? [],
         };
 
         return ret;

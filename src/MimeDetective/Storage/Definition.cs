@@ -1,4 +1,4 @@
-﻿using MimeDetective.Diagnostics;
+using MimeDetective.Diagnostics;
 
 namespace MimeDetective.Storage;
 
