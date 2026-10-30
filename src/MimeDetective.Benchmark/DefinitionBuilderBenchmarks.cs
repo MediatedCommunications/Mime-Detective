@@ -11,7 +11,7 @@ namespace MimeDetective.Benchmark
         [Benchmark(Baseline = true)]
         public static ImmutableArray<Definition> DefaultDefinitions()
         {
-            return Definitions.DefaultDefinitions.All();
+            return Definitions.MinimalDefinitions.All();
         }
 
         [Benchmark]

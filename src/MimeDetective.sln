@@ -40,6 +40,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{79552086
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MimeDetective.Console.AOT", "Samples\MimeDetective.Console.AOT\MimeDetective.Console.AOT.csproj", "{11E08726-D4F4-4114-BBD9-C059A83DEE59}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MimeDetective.Web", "MimeDetective.Web\MimeDetective.Web.csproj", "{37021D46-3B69-42B1-B9F4-7667BD55D227}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -86,6 +88,10 @@ Global
 		{11E08726-D4F4-4114-BBD9-C059A83DEE59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11E08726-D4F4-4114-BBD9-C059A83DEE59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11E08726-D4F4-4114-BBD9-C059A83DEE59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37021D46-3B69-42B1-B9F4-7667BD55D227}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37021D46-3B69-42B1-B9F4-7667BD55D227}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37021D46-3B69-42B1-B9F4-7667BD55D227}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37021D46-3B69-42B1-B9F4-7667BD55D227}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

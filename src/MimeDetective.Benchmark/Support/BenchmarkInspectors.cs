@@ -12,7 +12,7 @@ public sealed class BenchmarkInspectors {
         = new CondensedBuilder { UsageType = UsageType.PersonalNonCommercial }.Build();
 
     public ImmutableArray<Definition> DefaultDefinitions { get; }
-        = MimeDetective.Definitions.DefaultDefinitions.All();
+        = MimeDetective.Definitions.MinimalDefinitions.All();
 
     public ImmutableArray<Definition> ExhaustiveDefinitions { get; }
         = new ExhaustiveBuilder { UsageType = UsageType.PersonalNonCommercial }.Build();

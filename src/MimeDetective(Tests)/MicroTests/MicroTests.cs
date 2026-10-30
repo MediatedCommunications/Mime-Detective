@@ -15,7 +15,7 @@ namespace MimeDetective.Tests {
             if (GetEngine_Result == default && IsDebug) {
                 var inspector = new ContentInspectorBuilder() {
                     Definitions = {
-                        Definitions.DefaultDefinitions.FileTypes.Email.EML(),
+                        Definitions.MinimalDefinitions.FileTypes.Email.EML(),
                     },
                     Parallel = false,
                 };
@@ -26,7 +26,7 @@ namespace MimeDetective.Tests {
 
 
             if (GetEngine_Result == default) {
-                var Defintions = Definitions.DefaultDefinitions.All();
+                var Defintions = Definitions.MinimalDefinitions.All();
 
                 GetEngine_Result = new ContentInspectorBuilder() {
                     Definitions = Defintions,

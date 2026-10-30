@@ -1,0 +1,70 @@
+<PageTitle>Mime Detective</PageTitle>
+
+<div class="page">
+    <header class="masthead">
+        <div class="masthead-inner">
+            <p class="eyebrow">File signatures</p>
+            <h1>Mime Detective</h1>
+            <p class="lede">Identify a file from its contents. The name and extension are ignored.</p>
+        </div>
+    </header>
+
+    <main class="bench">
+        <section class="controls" aria-label="Inspection settings">
+            <fieldset class="set-picker" disabled="@_busy">
+                <legend>Definition set</legend>
+                <div class="segments" role="radiogroup" aria-label="Definition set">
+                    @foreach (var set in Enum.GetValues<DefinitionSet>()) {
+                        <label class="segment @(_set == set ? "selected" : null)">
+                            <input type="radio"
+                                   name="definition-set"
+                                   checked="@(_set == set)"
+                                   @onchange="() => ChangeSet(set)" />
+                            <span>@set</span>
+                        </label>
+                    }
+                </div>
+                <p class="set-note">@Describe(_set)</p>
+            </fieldset>
+
+            <label class="dropzone @(_dragging ? "dragging" : null) @(_busy ? "busy" : null)"
+                   @ondragenter="OnDragEnter"
+                   @ondragleave="OnDragLeave"
+                   @ondragover:preventDefault
+                   @ondrop="OnDrop"
+                   @ondrop:preventDefault>
+                <InputFile OnChange="OnFile" disabled="@_busy" aria-label="Choose a file to inspect" />
+                <span class="drop-kicker">Upload</span>
+                <span class="drop-title">@(_content is null ? "Drop a file here" : _fileName)</span>
+                <span class="drop-detail">@(_content is null ? "or browse this computer" : "Drop another file to replace it")</span>
+            </label>
+            <p class="privacy">The file stays in this browser. Nothing is uploaded.</p>
+        </section>
+
+        <section class="results" aria-live="polite">
+            @if (_error is not null) {
+                <div class="notice error" role="alert">
+                    <h2>Inspection failed</h2>
+                    <p>@_error</p>
+                </div>
+            } else if (_status is not null) {
+                <div class="notice working">
+                    <h2>@_status</h2>
+                    <p>@WorkingDetail</p>
+                </div>
+            } else if (_report is null) {
+                <div class="notice idle">
+                    <h2>Waiting for a file</h2>
+                    <p>Choose a definition set, then drop in any file. Matches are ranked by how much of each signature was found.</p>
+                </div>
+            } else {
+                <ReportView Report="_report" />
+            }
+        </section>
+    </main>
+
+    <footer class="colophon">
+        <p>Condensed and Exhaustive signatures are derived from <a href="https://mark0.net/soft-tridnet-e.html">TrID</a> for personal, non-commercial use.</p>
+        <p><a href="https://github.com/MediatedCommunications/Mime-Detective">Mime-Detective on GitHub</a></p>
+    </footer>
+</div>

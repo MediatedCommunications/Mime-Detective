@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 
 namespace MimeDetective.Definitions {
-    public static partial class DefaultDefinitions
+    public static partial class MinimalDefinitions
     {
 
 

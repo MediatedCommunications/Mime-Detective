@@ -3,7 +3,7 @@ using System.Collections.Immutable;
 
 namespace MimeDetective.Definitions;
 
-public static partial class DefaultDefinitions {
+public static partial class MinimalDefinitions {
     public static ImmutableArray<Definition> All() {
         return [
             .. FileTypes.Archives.All(),

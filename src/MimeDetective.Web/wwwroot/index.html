@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Identify a file type from its contents with Mime Detective." />
+    <title>Mime Detective</title>
+    <base href="/" />
+    <script>
+        // GitHub project pages are served from /{repository}/. Local hosts stay at /.
+        (function () {
+            if (!location.hostname.endsWith(".github.io")) {
+                return;
+            }
+
+            var segment = location.pathname.split("/").filter(Boolean)[0];
+            if (segment) {
+                document.querySelector("base").setAttribute("href", "/" + segment + "/");
+            }
+        })();
+    </script>
+    <link rel="preload" id="webassembly" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <script type="importmap"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p class="boot">Loading Mime Detective…</p>
+    </div>
+
+    <div id="blazor-error-ui">
+        Mime Detective hit an unhandled error.
+        <a href="." class="reload">Reload</a>
+        <button type="button" class="dismiss" aria-label="Dismiss">×</button>
+    </div>
+
+    <script src="site.js"></script>
+    <script src="_framework/blazor.webassembly#[.{fingerprint}].js"></script>
+</body>
+
+</html>

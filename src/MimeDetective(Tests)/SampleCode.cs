@@ -16,7 +16,7 @@ namespace MimeDetective.Tests {
                 var MyDefinitions = new List<Definition>();
                 
                 //Add a predefined definition
-                MyDefinitions.AddRange(MimeDetective.Definitions.DefaultDefinitions.FileTypes.Audio.MP3());
+                MyDefinitions.AddRange(MimeDetective.Definitions.MinimalDefinitions.FileTypes.Audio.MP3());
 
                 //Add a custom definition
                 MyDefinitions.Add(new() {

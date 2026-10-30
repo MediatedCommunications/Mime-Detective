@@ -1,0 +1,99 @@
+<section class="report">
+    <header class="report-head">
+        <div>
+            <p class="eyebrow">@Report.DefinitionSet result</p>
+            <h2>@Report.FileName</h2>
+            <p class="file-meta">
+                <span>@InspectionReport.FormatSize(Report.FileSize)</span>
+                <span>Inspected @InspectionReport.FormatSize(Report.BytesInspected)</span>
+                <span>@InspectionReport.FormatElapsed(Report.Elapsed)</span>
+                @if (!string.IsNullOrWhiteSpace(Report.BrowserContentType)) {
+                    <span>Browser said @Report.BrowserContentType</span>
+                }
+            </p>
+            @if (Report.Truncated) {
+                <p class="truncate">Only the first 10 MB were inspected. Signatures past that point are not included.</p>
+            }
+        </div>
+        @if (Report.LeadingExtension is { } extension) {
+            <p class="verdict">
+                <span class="verdict-extension">.@extension.Extension</span>
+                <span class="verdict-mime">@(Report.LeadingMimeType?.DisplayMimeType ?? "(none)")</span>
+            </p>
+        } else {
+            <p class="verdict empty">No signature matched</p>
+        }
+    </header>
+
+    @if (Report.LeadingMatch is { } leading) {
+        <p class="leading">
+            <span>@leading.Description</span>
+            <span>@leading.Points.ToString("N0") points</span>
+            <span>@leading.Percentage.ToString("0.#%")</span>
+        </p>
+    }
+
+    @if (Report.Matches.Count == 0) {
+        <p class="empty-copy">No definition in the @Report.DefinitionSet.ToString().ToLowerInvariant() set matched these bytes. Plain text and some container-less formats have no signature.</p>
+    } else {
+        <div class="rank-grid">
+            <section>
+                <h3>Extensions</h3>
+                <ol>
+                    @foreach (var ranked in Report.Extensions) {
+                        <li>
+                            <span>.@ranked.Extension</span>
+                            <span>@ranked.Points.ToString("N0")</span>
+                        </li>
+                    }
+                </ol>
+            </section>
+            <section>
+                <h3>Mime types</h3>
+                <ol>
+                    @foreach (var mime in Report.MimeTypes) {
+                        <li>
+                            <span>@mime.DisplayMimeType</span>
+                            <span>@mime.Points.ToString("N0")</span>
+                        </li>
+                    }
+                </ol>
+            </section>
+        </div>
+
+        <section class="matches">
+            <h3>Definitions <span>@Report.Matches.Count</span></h3>
+            <div class="match-table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Description</th>
+                            <th scope="col">Extensions</th>
+                            <th scope="col">Mime type</th>
+                            <th scope="col">Categories</th>
+                            <th scope="col">Match</th>
+                            <th scope="col">Points</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var match in Report.Matches) {
+                            <tr>
+                                <th scope="row">@match.Description</th>
+                                <td>@string.Join(", ", match.Extensions.Select(static name => "." + name))</td>
+                                <td>@match.MimeType</td>
+                                <td>@(match.Categories.Count == 0 ? "—" : string.Join(", ", match.Categories))</td>
+                                <td>@match.MatchType @match.Percentage.ToString("0.#%")</td>
+                                <td class="points">@match.Points.ToString("N0")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    }
+</section>
+
+@code {
+    [Parameter, EditorRequired]
+    public required InspectionReport Report { get; set; }
+}
