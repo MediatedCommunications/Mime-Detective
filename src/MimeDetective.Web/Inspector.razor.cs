@@ -138,6 +138,7 @@ public sealed partial class Inspector : ComponentBase {
 
             _report = InspectionReport.Create(
                 matches,
+                content,
                 fileName,
                 _fileSize,
                 content.Length,

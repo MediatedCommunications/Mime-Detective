@@ -1,25 +1,16 @@
 using MimeDetective;
-using MimeDetective.Definitions;
-using MimeDetective.Engine;
-using MimeDetective.MemoryMapping;
 
-var inspector = new ContentInspectorBuilder { Definitions = MinimalDefinitions.All(), }.Build();
+var inspector = ContentInspector.Create(MinimalDefinitions.All());
 
 foreach (var file in args) {
     Console.WriteLine($"File: {file}");
-    var result = inspector.InspectMemoryMapped(file);
+    var result = inspector.Inspect(file);
 
-    foreach (var match in result.OrderByDescending(static m => m.Points)) {
-        if (match.Type != DefinitionMatchType.Complete) {
-            continue;
-        }
+    foreach (var match in result.ByExtension) {
 
-        var fileType = match.Definition.File;
-        if (string.IsNullOrEmpty(fileType.MimeType)) {
-            continue;
-        }
+        var FileType = match.Key;
 
-        Console.WriteLine($"  {fileType.MimeType} ({string.Join(", ", fileType.Extensions)})");
+        Console.WriteLine($"  {FileType}");
     }
 
     Console.WriteLine();

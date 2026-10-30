@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using MimeDetective;
-using MimeDetective.Definitions;
-using MimeDetective.Engine;
+
 using System.Buffers;
 using System.Text.Json.Serialization;
 
@@ -13,7 +12,7 @@ builder.Services.ConfigureHttpJsonOptions(options => {
 
 var app = builder.Build();
 
-var inspector = new ContentInspectorBuilder { Definitions = MinimalDefinitions.All(), }.Build();
+var inspector = ContentInspector.Create(MinimalDefinitions.All());
 
 // This can be tested with
 //   curl --data-binary @example.jpg http://localhost:5016/upload
@@ -38,13 +37,10 @@ app.Run();
 
 return;
 
-IEnumerable<MimeTypeResult> GetMimeTypes(IReadOnlyCollection<DefinitionMatch> matches) {
-    foreach (var match in matches.OrderByDescending(static m => m.Points)) {
-        if (match.Type != DefinitionMatchType.Complete) {
-            continue;
-        }
+IEnumerable<MimeTypeResult> GetMimeTypes(ContentInspectorResults matches) {
+    foreach (var match in matches.Definitions) {
 
-        var file = match.Definition.File;
+        var file = match.File;
         if (string.IsNullOrEmpty(file.MimeType)) {
             continue;
         }

@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFrameworks>net10.0</TargetFrameworks>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\MimeDetective.Definitions.Exhaustive\MimeDetective.Definitions.Exhaustive.csproj" />
+		<ProjectReference Include="..\MimeDetective.MemoryMapping\MimeDetective.MemoryMapping.csproj" />
+		<ProjectReference Include="..\MimeDetective\MimeDetective.csproj" />
+	</ItemGroup>
+
+</Project>

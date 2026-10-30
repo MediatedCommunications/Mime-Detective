@@ -7,17 +7,17 @@ namespace MimeDetective.Benchmark;
 
 public class InspectorBuilderBenchmarks {
     [Benchmark(Baseline = true)]
-    public IContentInspector BuildDefault() {
-        return new ContentInspectorBuilder { Definitions = BenchmarkInspectors.Instance.MinimalDefinitions, }.Build();
+    public ContentInspector BuildDefault() {
+        return ContentInspector.Create(BenchmarkInspectors.Instance.MinimalDefinitions);
     }
 
     [Benchmark]
-    public IContentInspector BuildCondensed() {
-        return new ContentInspectorBuilder { Definitions = BenchmarkInspectors.Instance.CondensedDefinitions, }.Build();
+    public ContentInspector BuildCondensed() {
+        return ContentInspector.Create(BenchmarkInspectors.Instance.CondensedDefinitions);
     }
 
     [Benchmark]
-    public IContentInspector BuildExhaustive() {
-        return new ContentInspectorBuilder { Definitions = BenchmarkInspectors.Instance.ExhaustiveDefinitions, }.Build();
+    public ContentInspector BuildExhaustive() {
+        return ContentInspector.Create(BenchmarkInspectors.Instance.ExhaustiveDefinitions);
     }
 }

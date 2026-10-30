@@ -68,12 +68,11 @@
                 <table>
                     <thead>
                         <tr>
-                            <th scope="col">Description</th>
+                            <th scope="col">Rule</th>
                             <th scope="col">Extensions</th>
                             <th scope="col">Mime type</th>
                             <th scope="col">Categories</th>
-                            <th scope="col">Match</th>
-                            <th scope="col">Points</th>
+                            <th scope="col">Points / Bytes</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -96,14 +95,17 @@
                                 <td>@string.Join(", ", match.Extensions.Select(static name => "." + name))</td>
                                 <td>@match.MimeType</td>
                                 <td>@(match.Categories.Count == 0 ? "—" : string.Join(", ", match.Categories))</td>
-                                <td>@match.MatchType @match.Percentage.ToString("0.#%")</td>
-                                <td class="points">@match.Points.ToString("N0")</td>
+                                <td class="points">
+                                    <span class="score-part" title="Points are the weighted score of this match">@match.Points.ToString("N0")</span>
+                                    /
+                                    <span class="score-part" title="Bytes are the raw score based on the number of bytes that were matched.">@match.Bytes.ToString("N0")</span>
+                                </td>
                             </tr>
                             @if (open) {
                                 <tr class="segment-row">
-                                    <td id="@panelId" colspan="6">
-                                        <SegmentList Title="Prefix Segments" Description="These matches must occur at exact byte offsets" Empty="No prefix segments." Segments="match.Prefixes" Prefix="true" />
-                                        <SegmentList Title="String Segments" Description="These matches must occur but can be anywhere" Empty="No string segments." Segments="match.Strings" Prefix="false" />
+                                    <td id="@panelId" colspan="5">
+                                        <SegmentList Title="Offset Segments" Description="These matches must occur at exact byte offsets" Empty="No prefix segments." Segments="match.Prefixes" Prefix="true" />
+                                        <SegmentList Title="Wildcard Segments" Description="These matches must occur but can be anywhere" Empty="No string segments." Segments="match.Strings" Prefix="false" />
                                     </td>
                                 </tr>
                             }

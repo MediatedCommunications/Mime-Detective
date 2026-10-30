@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MimeDetective.Definitions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,32 +8,24 @@ using System.Text;
 namespace MimeDetective.Tests {
     [TestClass]
     public abstract class MicroTests {
-        private static IContentInspector? GetEngine_Result;
-        protected static IContentInspector GetEngine() {
+        private static ContentInspector? GetEngine_Result;
+        protected static ContentInspector GetEngine() {
 
             var IsDebug = false;
 
             if (GetEngine_Result == default && IsDebug) {
-                var inspector = new ContentInspectorBuilder() {
-                    Definitions = {
-                        Definitions.MinimalDefinitions.FileTypes.Email.EML(),
-                    },
-                    Parallel = false,
-                };
-                GetEngine_Result = inspector.Build();
+                var Definitions = MimeDetective.MinimalDefinitions.FileTypes.Email.EML();
+
+                GetEngine_Result = ContentInspector.Create(Definitions);
             }
 
 
 
 
             if (GetEngine_Result == default) {
-                var Defintions = Definitions.MinimalDefinitions.All();
+                var Definitions = MimeDetective.MinimalDefinitions.All();
 
-                GetEngine_Result = new ContentInspectorBuilder() {
-                    Definitions = Defintions,
-                    Parallel = true,
-                }.Build();
-                ;
+                GetEngine_Result = ContentInspector.Create(Definitions);
             }
 
             return GetEngine_Result;
@@ -66,25 +59,26 @@ public void {Name}(){{
         }
 
         protected void Test(string RelativeFileName) {
+            Test1(RelativeFileName);
+        }
+
+        protected void Test1(string RelativeFileName) {
             var FN = System.IO.Path.Combine(RelativeRoot(), RelativeFileName);
             var FullPath = System.IO.Path.GetFullPath(FN);
             var FileName = System.IO.Path.GetFileName(FullPath);
 
             var Content = ContentReader.Default.ReadFromFile(FullPath);
 
-            var Engine = GetEngine();
+            var Engine = ExhaustiveDefinitions.Load(UsageType.PersonalNonCommercial).ToContentInspector();
 
-            var AllResults = Engine.Inspect(Content).ByFileExtension();
+            var AllResults = Engine.Inspect(Content.AsSpan());
 
             var Results = new HashSet<string>(StringComparer.InvariantCultureIgnoreCase);
 
-            if (AllResults.Length > 0) {
-                var MaxPoints = AllResults.First().Points;
-                Results.UnionWith(
-                    from x in AllResults 
-                    where x.Points == MaxPoints
-                    select x.Extension
-                );
+            foreach(var Result in AllResults.Definitions) {
+                foreach(var Ext in Result.File.Extensions) {
+                    Results.Add(Ext);
+                }
             }
 
             var Expected = FileName.Split('.').LastOrDefault()?.ToUpperInvariant() ?? string.Empty;

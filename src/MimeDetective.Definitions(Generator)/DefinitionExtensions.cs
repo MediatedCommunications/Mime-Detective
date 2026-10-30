@@ -84,15 +84,15 @@ namespace MimeDetective.Definitions.Generator
         {
             var ret = default(Signature);
 
-            var Any = Intersection(A.Strings, B.Strings);
-            var Front = Intersection(A.Prefix, B.Prefix);
+            var Any = Intersection(A.WildCardRules, B.WildCardRules);
+            var Front = Intersection(A.OffsetRules, B.OffsetRules);
 
             if(Any.Length > 0 || Front.Length > 0)
             {
                 ret = new Signature()
                 {
-                    Strings = Any,
-                    Prefix = Front,
+                    WildCardRules = Any,
+                    OffsetRules = Front,
                 };
             }
 
@@ -134,8 +134,8 @@ namespace MimeDetective.Definitions.Generator
 
                     if (!Terminal)
                     {
-                        var AS = A.Value[Start - A.Start];
-                        var BS = B.Value[Start - B.Start];
+                        var AS = A.Bytes[Start - A.Start];
+                        var BS = B.Bytes[Start - B.Start];
 
                         if (AS == BS)
                         {
@@ -150,7 +150,7 @@ namespace MimeDetective.Definitions.Generator
                     if(Yield && Found.Count > 0) {
                         ret.Add(new OffsetRule()
                         {
-                            Value = [.. Found,],
+                            Bytes = [.. Found,],
                             Start = Start - Found.Count,
                         });
 
@@ -185,7 +185,7 @@ namespace MimeDetective.Definitions.Generator
         {
             var ret = default(WildCardRule?);
 
-            if (A.Value.SequenceEqual(B.Value))
+            if (A.Bytes.SequenceEqual(B.Bytes))
             {
                 ret = A;
             }

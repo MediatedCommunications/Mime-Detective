@@ -184,7 +184,7 @@ public static class DefinitionExtensions {
 
         var prefixCache = (
                 from x in definitions
-                from y in x.Signature.Prefix
+                from y in x.Signature.OffsetRules
                 select y
             )
             .Distinct(OffsetRuleEqualityComparer.Instance)
@@ -216,7 +216,7 @@ public static class DefinitionExtensions {
 
         var stringCache = (
                 from x in definitions
-                from y in x.Signature.Strings
+                from y in x.Signature.WildCardRules
                 select y
             )
             .Distinct(WildCardRuleEqualityComparer.Instance)
@@ -248,12 +248,12 @@ public static class DefinitionExtensions {
             let MimeType = Definition.File.MimeType is { } v1 ? mimeTypeCache[v1] : default
             let Categories = categoryCache[Definition.File.Categories]
             let Prefixes = (
-                from y in Definition.Signature.Prefix
+                from y in Definition.Signature.OffsetRules
                 from z in prefixCacheLookup[y]
                 select z
             ).ToImmutableArray()
             let Strings = (
-                from y in Definition.Signature.Strings
+                from y in Definition.Signature.WildCardRules
                 select stringCache[y]
             ).ToImmutableArray()
             let NewDef = new Definition {
@@ -265,8 +265,8 @@ public static class DefinitionExtensions {
                 },
                 Meta = Definition.Meta,
                 Signature = new() {
-                    Prefix = Prefixes,
-                    Strings = Strings,
+                    OffsetRules = Prefixes,
+                    WildCardRules = Strings,
                 },
             }
             select NewDef

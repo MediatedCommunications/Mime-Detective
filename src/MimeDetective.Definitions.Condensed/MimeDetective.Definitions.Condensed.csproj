@@ -32,7 +32,7 @@
 
   <ItemGroup>
     <EmbeddedResource Update="Resources.resx">
-      <CustomToolNamespace>MimeDetective.Definitions</CustomToolNamespace>
+      <CustomToolNamespace>MimeDetective.Definitions.Condensed</CustomToolNamespace>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <Generator>ResXFileCodeGenerator</Generator>
     </EmbeddedResource>

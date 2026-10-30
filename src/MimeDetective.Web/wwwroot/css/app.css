@@ -375,6 +375,11 @@ td,
     white-space: nowrap;
 }
 
+.score-part {
+    cursor: help;
+    border-bottom: 1px dotted currentColor;
+}
+
 .matches {
     margin-top: 1.3rem;
 }

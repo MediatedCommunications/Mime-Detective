@@ -15,7 +15,7 @@ namespace MimeDetective.Storage {
         {
             var Extension = string.Join(@"/", Extensions.Select(x => x.ToUpperInvariant()));
 
-            return $@"{Extension} ({MimeType} /// {Description})";
+            return $@"{Description} ({Extension} = {MimeType})";
         }
     }
 }

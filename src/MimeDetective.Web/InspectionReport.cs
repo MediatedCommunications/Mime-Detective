@@ -1,8 +1,7 @@
-using MimeDetective.Engine;
+
 using MimeDetective.Storage;
 using System.Collections.Immutable;
 using System.Text;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MimeDetective.Web;
 
@@ -26,7 +25,8 @@ public sealed record InspectionReport(
     public MatchResult? LeadingMatch => Matches.Count > 0 ? Matches[0] : null;
 
     public static InspectionReport Create(
-        ImmutableArray<DefinitionMatch> matches,
+        ContentInspectorResults results,
+        ReadOnlySpan<byte> content,
         string fileName,
         long fileSize,
         int bytesInspected,
@@ -34,10 +34,24 @@ public sealed record InspectionReport(
         DefinitionSet definitionSet,
         TimeSpan elapsed) {
 
-        var ordered = matches
-            .OrderByDescending(static match => match.Points)
-            .ThenByDescending(static match => match.Percentage)
-            .ToImmutableArray();
+        var extensions = new List<ExtensionResult>(results.ByExtension.Length);
+        foreach (var group in results.ByExtension) {
+            extensions.Add(new ExtensionResult(group.Key, PointsFor(group, results)));
+        }
+
+        var mimeTypes = new List<MimeResult>(results.ByMimeType.Length);
+        foreach (var group in results.ByMimeType) {
+            mimeTypes.Add(new MimeResult(group.Key, PointsFor(group, results)));
+        }
+
+        var matches = new List<MatchResult>(results.Definitions.Length);
+        foreach (var definition in results.Definitions) {
+            matches.Add(MatchResult.From(
+                definition,
+                results.PointsAwarded[definition],
+                results.BytesMatched[definition],
+                content));
+        }
 
         return new InspectionReport(
             fileName,
@@ -46,9 +60,18 @@ public sealed record InspectionReport(
             string.IsNullOrWhiteSpace(browserContentType) ? null : browserContentType,
             definitionSet,
             elapsed,
-            [.. ordered.ByFileExtension().Select(static match => new ExtensionResult(match.Extension, match.Points)),],
-            [.. ordered.ByMimeType().Select(static match => new MimeResult(match.MimeType, match.Points)),],
-            [.. ordered.Select(static match => MatchResult.From(match)),]);
+            extensions,
+            mimeTypes,
+            matches);
+    }
+
+    private static long PointsFor(IEnumerable<Definition> definitions, ContentInspectorResults results) {
+        long total = 0;
+        foreach (var definition in definitions) {
+            total += results.BytesMatched[definition];
+        }
+
+        return total;
     }
 
     public static string FormatSize(long bytes) {
@@ -86,27 +109,37 @@ public sealed record MatchResult(
     IReadOnlyList<string> Extensions,
     IReadOnlyList<string> Categories,
     long Points,
+    long Bytes,
     decimal Percentage,
-    string MatchType,
     IReadOnlyList<SegmentDetail> Prefixes,
     IReadOnlyList<SegmentDetail> Strings) {
 
-    public static MatchResult From(DefinitionMatch match) {
-        var file = match.Definition.File;
+    public static MatchResult From(Definition definition, int points, int bytes, ReadOnlySpan<byte> content) {
+        var file = definition.File;
         var description = string.IsNullOrWhiteSpace(file.Description) ? "No description" : file.Description;
         var mimeType = string.IsNullOrWhiteSpace(file.MimeType) ? "(none)" : file.MimeType;
-        var signature = match.Definition.Signature;
+        var signature = definition.Signature;
+
+        var prefixes = new List<SegmentDetail>(signature.OffsetRules.Length);
+        foreach (var prefix in signature.OffsetRules) {
+            prefixes.Add(SegmentDetail.FromPrefix(prefix));
+        }
+
+        var strings = new List<SegmentDetail>(signature.WildCardRules.Length);
+        foreach (var segment in signature.WildCardRules) {
+            strings.Add(SegmentDetail.FromString(segment, content));
+        }
 
         var ret = new MatchResult(
             description,
             mimeType,
             file.Extensions,
             [.. file.Categories.Where(static category => category != Category.None).Select(FormatCategory),],
-            match.Points,
-            match.Percentage,
-            match.Type.ToString(),
-            [.. signature.Prefix.Select(prefix => SegmentDetail.FromPrefix(prefix, match)),],
-            [.. signature.Strings.Select(segment => SegmentDetail.FromString(segment, match)),]);
+            points,
+            bytes,
+            1,
+            prefixes,
+            strings);
 
         return ret;
     }
@@ -131,37 +164,16 @@ public sealed record MatchResult(
     }
 }
 
-public sealed record SegmentDetail(int? Offset, string Text, string Hex, bool Matched) {
-    public static SegmentDetail FromPrefix(OffsetRule segment, DefinitionMatch match) {
-        var matched = false;
-        foreach (var (key, result) in match.OffsetMatches) {
-            if (!OffsetRuleEqualityComparer.Instance.Equals(key, segment)) {
-                continue;
-            }
-
-            matched = result is not NoMatch;
-            break;
-        }
-
-        var ret = new SegmentDetail(segment.Start, Readable(segment.Value), HexOf(segment.Value), matched);
+public sealed record SegmentDetail(int? Offset, string Text, string Hex) {
+    public static SegmentDetail FromPrefix(OffsetRule segment) {
+        var ret = new SegmentDetail(segment.Start, Readable(segment.Bytes), HexOf(segment.Bytes));
         return ret;
     }
 
-    public static SegmentDetail FromString(WildCardRule segment, DefinitionMatch match) {
-        int? foundAt = null;
-        foreach (var (key, result) in match.WildCardMatches) {
-            if (!WildCardRuleEqualityComparer.Instance.Equals(key, segment)) {
-                continue;
-            }
-
-            if (result is WildCardMatch hit) {
-                foundAt = hit.Index;
-            }
-
-            break;
-        }
-
-        var ret = new SegmentDetail(foundAt, Readable(segment.Value), HexOf(segment.Value), foundAt is not null);
+    public static SegmentDetail FromString(WildCardRule segment, ReadOnlySpan<byte> content) {
+        var index = content.IndexOf(segment.Bytes.AsSpan());
+        int? foundAt = index >= 0 ? index : null;
+        var ret = new SegmentDetail(foundAt, Readable(segment.Bytes), HexOf(segment.Bytes));
         return ret;
     }
 

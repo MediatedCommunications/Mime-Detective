@@ -58,7 +58,7 @@ var Inspector = new ContentInspectorBuilder() {
 using MimeDetective;
 var Inspector = new ContentInspectorBuilder() {
     Definitions = new Definitions.CondensedBuilder() {
-        UsageType = Definitions.Licensing.UsageType.PersonalNonCommercial
+        UsageType = UsageType.PersonalNonCommercial
     }.Build()
 }.Build();
 ```
@@ -68,7 +68,7 @@ var Inspector = new ContentInspectorBuilder() {
 using MimeDetective;
 var Inspector = new ContentInspectorBuilder() {
     Definitions = new Definitions.ExhaustiveBuilder() {
-        UsageType = Definitions.Licensing.UsageType.PersonalNonCommercial
+        UsageType = UsageType.PersonalNonCommercial
     }.Build()
 }.Build();
 ```
@@ -130,7 +130,7 @@ which may be used for personal/non-commercial use (free) or with a [paid commerc
 Create a copy of these definitions by using the following code:
 ```
 var AllDefintions = new Definitions.CondensedBuilder() { 
-    UsageType = Definitions.Licensing.UsageType.PersonalNonCommercial //Change this to be your usage type
+    UsageType = UsageType.PersonalNonCommercial //Change this to be your usage type
 }.Build();
 ```
 
@@ -163,7 +163,7 @@ which may be used for personal/non-commercial use (free) or with a [paid commerc
 Create a copy of these definitions by using the following code:
 ```csharp
 var AllDefintions = new Definitions.ExhaustiveBuilder() { 
-    UsageType = Definitions.Licensing.UsageType.PersonalNonCommercial //Change this to be your usage type
+    UsageType = UsageType.PersonalNonCommercial //Change this to be your usage type
 }.Build();
 ```
 
@@ -254,7 +254,7 @@ Materializing definitions causes a new instance of each definition to be created
 same definitions for multiple purposes, load them once and reuse them.
 ```csharp
 var AllDefintions = new Definitions.ExhaustiveBuilder() { 
-    UsageType = Definitions.Licensing.UsageType.PersonalNonCommercial
+    UsageType = UsageType.PersonalNonCommercial
 }.Build();
 
 var Inspector = new ContentInspectorBuilder() {

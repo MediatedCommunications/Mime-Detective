@@ -12,6 +12,15 @@ public record Definition : DisplayRecord {
     public Meta? Meta { get; init; }
 
     public override string? GetDebuggerDisplay() {
-        return $@"{File.GetDebuggerDisplay()}: {Signature.GetDebuggerDisplay()} [{Meta?.Id}]";
+
+        var Prefix = string.Empty;
+        {
+            if(Meta?.Id is { } Id) {
+                Prefix = $@"[{Id}] ";
+            }
+
+        }
+
+        return $@"{Prefix}{File.GetDebuggerDisplay()}: {Signature.GetDebuggerDisplay()}";
     }
 }

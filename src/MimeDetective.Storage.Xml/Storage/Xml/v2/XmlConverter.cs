@@ -298,16 +298,16 @@ namespace MimeDetective.Storage.Xml.v2 {
         {
             var ret = new Storage.Signature()
             {
-                Prefix = [.. V1
+                OffsetRules = [.. V1
                     .FrontBlock
                     .Select(x => ConvertPattern(x))
                     .OrderBy(x => x.Start),]
                     ,
 
-                Strings = [.. V1
+                WildCardRules = [.. V1
                     .GlobalStrings
                     .Select(x => ConvertGlobalString(x))
-                    .OrderByDescending(x => x.Value.Length),]
+                    .OrderByDescending(x => x.Bytes.Length),]
                     ,
 
             };
@@ -335,7 +335,7 @@ namespace MimeDetective.Storage.Xml.v2 {
             var ret = new Storage.OffsetRule()
             {
                 Start = Position,
-                Value = Content,
+                Bytes = Content,
             };
 
             return ret;

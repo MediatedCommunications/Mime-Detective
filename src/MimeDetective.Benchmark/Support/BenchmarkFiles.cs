@@ -28,15 +28,12 @@ public sealed class BenchmarkFiles {
             }
         }
 
-        FilePaths = Directory
+        FilePaths = [.. Directory
             .EnumerateFiles(fullPath, "*", SearchOption.AllDirectories)
             .OrderByDescending(f => f.Length)
             .Where((_, i) => i % 10 == 0)
-            .Select(f => new BenchmarkParameter<string>(Path.GetFileName(f), f))
-            .ToArray();
+            .Select(f => new BenchmarkParameter<string>(Path.GetFileName(f), f))];
 
-        FileContents = FilePaths
-            .Select(f => new BenchmarkParameter<byte[]>(f.Name, File.ReadAllBytes(f.Value)))
-            .ToArray();
+        FileContents = [.. FilePaths.Select(f => new BenchmarkParameter<byte[]>(f.Name, File.ReadAllBytes(f.Value)))];
     }
 }

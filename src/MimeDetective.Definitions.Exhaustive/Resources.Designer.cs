@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MimeDetective.Definitions {
+namespace MimeDetective.Definitions.Exhaustive {
     using System;
     
     

@@ -35,8 +35,11 @@
     public bool Prefix { get; set; }
 
     private string Locate(SegmentDetail segment) {
-        var place = $"@{segment.Offset:X4}";
-        var ret = segment.Matched ? place : $"{place}, not found";
+        if (segment.Offset is not int offset) {
+            return "not found";
+        }
+
+        var ret = $"@ {offset:X4}";
 
         return ret;
     }

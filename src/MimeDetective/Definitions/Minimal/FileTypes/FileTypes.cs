@@ -1,4 +1,4 @@
-namespace MimeDetective.Definitions;
+namespace MimeDetective;
 
 public static partial class MinimalDefinitions {
     public static partial class FileTypes {

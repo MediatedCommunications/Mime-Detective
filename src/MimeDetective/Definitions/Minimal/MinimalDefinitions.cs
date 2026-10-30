@@ -1,7 +1,7 @@
 using MimeDetective.Storage;
 using System.Collections.Immutable;
 
-namespace MimeDetective.Definitions;
+namespace MimeDetective;
 
 public static partial class MinimalDefinitions {
     public static ImmutableArray<Definition> All() {

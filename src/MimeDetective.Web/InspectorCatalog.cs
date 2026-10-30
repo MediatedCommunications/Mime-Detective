@@ -1,14 +1,14 @@
-using MimeDetective.Definitions;
-using MimeDetective.Definitions.Licensing;
+using MimeDetective;
+
 
 namespace MimeDetective.Web;
 
 public sealed class InspectorCatalog {
     public const int MaxInspectedBytes = 10 * 1024 * 1024;
 
-    private readonly Dictionary<DefinitionSet, IContentInspector> _inspectors = [];
+    private readonly Dictionary<DefinitionSet, ContentInspector> _inspectors = [];
 
-    public IContentInspector Get(DefinitionSet set) {
+    public ContentInspector Get(DefinitionSet set) {
         if (_inspectors.TryGetValue(set, out var inspector)) {
             return inspector;
         }
@@ -18,21 +18,14 @@ public sealed class InspectorCatalog {
         return inspector;
     }
 
-    private static IContentInspector Create(DefinitionSet set) {
-        var definitions = set switch {
-            DefinitionSet.Minimal => MinimalDefinitions.All(),
-            DefinitionSet.Condensed => new CondensedBuilder {
-                UsageType = UsageType.PersonalNonCommercial,
-            }.Build(),
-            DefinitionSet.Exhaustive => new ExhaustiveBuilder {
-                UsageType = UsageType.PersonalNonCommercial,
-            }.Build(),
+    private static ContentInspector Create(DefinitionSet set) {
+        var ret = set switch {
+            DefinitionSet.Minimal => MinimalDefinitions.All().ToContentInspector(),
+            DefinitionSet.Condensed => CondensedDefinitions.Load(UsageType.PersonalNonCommercial).ToContentInspector(),
+            DefinitionSet.Exhaustive => ExhaustiveDefinitions.Load(UsageType.PersonalNonCommercial).ToContentInspector(),
             _ => throw new ArgumentOutOfRangeException(nameof(set), set, "Unknown definition set."),
         };
 
-        return new ContentInspectorBuilder {
-            Definitions = definitions,
-            Parallel = false,
-        }.Build();
+        return ret;
     }
 }

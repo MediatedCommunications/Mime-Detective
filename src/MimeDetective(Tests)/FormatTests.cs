@@ -80,6 +80,6 @@ public class FormatTests {
         Assert.AreEqual(data1.General.Time.Min, data2?.Meta?.Created?.At?.Minute);
         Assert.AreEqual(data1.General.Time.Sec, data2?.Meta?.Created?.At?.Second);
 
-        Assert.AreEqual(data1.FrontBlock.Count, data2?.Signature.Prefix.Length);
+        Assert.AreEqual(data1.FrontBlock.Count, data2?.Signature.OffsetRules.Length);
     }
 }

@@ -34,7 +34,7 @@
     <EmbeddedResource Update="Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <CustomToolNamespace>MimeDetective.Definitions</CustomToolNamespace>
+      <CustomToolNamespace>MimeDetective.Definitions.Exhaustive</CustomToolNamespace>
     </EmbeddedResource>
   </ItemGroup>
 

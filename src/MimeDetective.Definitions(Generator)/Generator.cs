@@ -71,8 +71,8 @@ public class Generator {
         //            StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries)
         //        select y.ToUpperInvariant()
         //    ).GroupBy(x => x)
-        //    .Select(x => (Key: x, Value: x.Count()))
-        //    .OrderByDescending(x => x.Value)
+        //    .Select(x => (Key: x, Bytes: x.Count()))
+        //    .OrderByDescending(x => x.Bytes)
         //    .ToArray();
 
         WriteSmall(root, items);

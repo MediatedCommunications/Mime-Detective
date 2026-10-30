@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MimeDetective.Engine;
+
 using System.Collections.Immutable;
 using System.IO;
 using System.Linq;
@@ -65,15 +65,15 @@ public class PerformanceTests {
         Test_Extension(@"C:\Windows\System32\ComputerToastIcon.png", "png");
     }
 
-    private static ImmutableArray<FileExtensionMatch> Test_Extension(string fileName, string extension) {
+    private static ContentInspectorResults Test_Extension(string fileName, string extension) {
         if (!File.Exists(fileName)) {
             Assert.Inconclusive("File not found");
         }
 
-        var ret = ImmutableArray<FileExtensionMatch>.Empty;
 
         var content = File.ReadAllBytes(fileName);
 
+        var ret = Test_Extension_Internal(content, extension);
         for (var i = 0; i < IterationsPerTest; i++) {
             ret = Test_Extension_Internal(content, extension);
         }
@@ -83,11 +83,11 @@ public class PerformanceTests {
     }
 
 
-    private static ImmutableArray<FileExtensionMatch> Test_Extension_Internal(byte[] content, string extension) {
+    private static ContentInspectorResults Test_Extension_Internal(byte[] content, string extension) {
         var engine = ContentInspectors.Exhaustive.ContentInspector;
-        var results = engine.Inspect(content).ByFileExtension();
+        var results = engine.Inspect(content);
 
-        Assert.AreEqual(extension.ToUpperInvariant(), results.First().Extension.ToUpperInvariant());
+        Assert.AreEqual(extension.ToUpperInvariant(), results.ByExtension.First().Key);
 
         return results;
     }

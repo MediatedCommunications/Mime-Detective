@@ -7,14 +7,14 @@ namespace MimeDetective.Tests {
 
         public static class CustomContentInspector {
 
-            public static IContentInspector Instance { get; }
+            public static ContentInspector Instance { get; }
 
             static CustomContentInspector() {
 
                 var MyDefinitions = new List<Definition>();
                 
                 //Add a predefined definition
-                MyDefinitions.AddRange(MimeDetective.Definitions.MinimalDefinitions.FileTypes.Audio.MP3());
+                MyDefinitions.AddRange(MimeDetective.MinimalDefinitions.FileTypes.Audio.MP3());
 
                 //Add a custom definition
                 MyDefinitions.Add(new() {
@@ -31,12 +31,7 @@ namespace MimeDetective.Tests {
                     }.ToSignature(),
                 });
 
-                Instance = new ContentInspectorBuilder() {
-                    Definitions = MyDefinitions,
-                    WildCardRuleOptions = new() {
-                        OptimizeFor = Engine.WildCardRuleResourceOptimization.HighSpeed,
-                    },
-                }.Build();
+                Instance = ContentInspector.Create([.. MyDefinitions]);
             }
 
         }
