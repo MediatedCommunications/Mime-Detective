@@ -12,27 +12,12 @@ internal class StringSegmentMatcherBrute : StringSegmentMatcher {
     public override SegmentMatch Match(ReadOnlySpan<byte> haystack) {
         SegmentMatch ret = NoSegmentMatch.Instance;
 
-        for (var i = 0; i <= haystack.Length - Segment.Pattern.Length; i++) {
-            if (Match(haystack, Segment.Pattern.AsSpan(), i)) {
-                ret = new StringSegmentMatch {
-                    Segment = Segment,
-                    Index = i
-                };
-                break;
-            }
-        }
-
-        return ret;
-    }
-
-    private static bool Match(ReadOnlySpan<byte> haystack, ReadOnlySpan<byte> needle, int start) {
-        var ret = true;
-
-        for (var i = 0; i < needle.Length; i++) {
-            if (needle[i] != haystack[i + start]) {
-                ret = false;
-                break;
-            }
+        var index = haystack.IndexOf(Segment.Pattern.AsSpan());
+        if (index >= 0) {
+            ret = new StringSegmentMatch {
+                Segment = Segment,
+                Index = index
+            };
         }
 
         return ret;

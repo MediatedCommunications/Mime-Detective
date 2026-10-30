@@ -43,7 +43,7 @@ namespace MimeDetective.Definitions {
                                 ],
                             },
                             Signature = new Segment[] {
-                                PrefixSegment.Create(0,"66 4C 61 43")
+                                PrefixSegment.Create(0, "66 4C 61 43")
                             }.ToSignature(),
                         },
                     ];

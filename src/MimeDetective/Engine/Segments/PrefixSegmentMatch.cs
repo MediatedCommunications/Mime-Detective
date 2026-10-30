@@ -1,4 +1,4 @@
-﻿using MimeDetective.Storage;
+using MimeDetective.Storage;
 
 namespace MimeDetective.Engine;
 
@@ -9,7 +9,7 @@ public record PrefixSegmentMatch : PatternSegmentMatch {
     /// <summary>
     ///     The <see cref="PrefixSegment" /> that was matched
     /// </summary>
-    public PrefixSegment Segment { get; init; } = PrefixSegment.None;
+    public required PrefixSegment Segment { get; init; }
 
     public override string? GetDebuggerDisplay() {
         return Segment.GetDebuggerDisplay();

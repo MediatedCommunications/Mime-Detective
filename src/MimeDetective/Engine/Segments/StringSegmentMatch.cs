@@ -1,4 +1,4 @@
-﻿using MimeDetective.Storage;
+using MimeDetective.Storage;
 
 namespace MimeDetective.Engine;
 
@@ -9,7 +9,7 @@ public record StringSegmentMatch : PatternSegmentMatch {
     /// <summary>
     ///     The <see cref="StringSegment" /> that was matched
     /// </summary>
-    public StringSegment Segment { get; init; } = StringSegment.None;
+    public required StringSegment Segment { get; init; }
 
     /// <summary>
     ///     The location in <see cref="PatternSegmentMatch.Content" /> that the <see cref="Segment" /> was found at.

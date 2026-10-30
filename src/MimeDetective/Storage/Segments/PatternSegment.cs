@@ -12,7 +12,7 @@ namespace MimeDetective.Storage {
         /// <summary>
         /// The <see cref="Pattern"/> that must exist in the target file.
         /// </summary>
-        public ImmutableArray<byte> Pattern { get; init; } = [];
+        public required ImmutableArray<byte> Pattern { get; init; } = [];
 
         protected static ImmutableArray<byte> BytesFromHex(string HexString) {
             var ValidCharacters = "0123456789ABCDEF";

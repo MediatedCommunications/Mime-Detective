@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
@@ -9,8 +9,6 @@ internal sealed class StringSegmentMatcherBoyerMooreProvider {
     private readonly IReadOnlyList<byte> _needle;
     private readonly int[] _offsetTable;
     private readonly int[] _skipTable;
-
-    public StringSegmentMatcherBoyerMooreProvider(IEnumerable<byte> needle) : this(needle.ToImmutableArray()) { }
 
     public StringSegmentMatcherBoyerMooreProvider(IReadOnlyList<byte> needle) {
         _needle = needle;

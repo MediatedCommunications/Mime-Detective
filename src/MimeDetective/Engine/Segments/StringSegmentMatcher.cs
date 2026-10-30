@@ -1,4 +1,4 @@
-﻿using MimeDetective.Diagnostics;
+using MimeDetective.Diagnostics;
 using MimeDetective.Storage;
 using System;
 
@@ -27,6 +27,12 @@ public abstract class StringSegmentMatcher : DisplayClass, ISegmentMatcher {
     }
 
     public static StringSegmentMatcher CreateHighSpeed(StringSegment segment) {
-        return new StringSegmentMatcherBoyerMoore(segment);
+
+        if(segment.Pattern.Length <= 16) {
+            return new StringSegmentMatcherBrute(segment);
+        } else {
+            return new StringSegmentMatcherBoyerMoore(segment);
+        }
+
     }
 }
