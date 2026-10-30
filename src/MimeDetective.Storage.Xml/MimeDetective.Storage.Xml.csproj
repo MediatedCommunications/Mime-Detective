@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net48;net10.0</TargetFrameworks>
+    <PackageId>Mime-Detective.Storage.Xml</PackageId>
+    <Description>An XML reader for definitino files.</Description>
+    <PackageReleaseNotes>For use with the "Mime-Detective" package.</PackageReleaseNotes>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\..\Mime-Detective.snk</AssemblyOriginatorKeyFile>
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="System.Collections.Immutable" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\MimeDetective\__Compatibility\Convert.cs" Link="__Compatibility\Convert.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MimeDetective\MimeDetective.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="__Compatibility\" />
+  </ItemGroup>
+
+</Project>

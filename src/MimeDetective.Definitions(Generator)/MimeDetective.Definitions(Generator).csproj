@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MimeDetective(Tests)\MimeDetective(Tests).csproj" />
+    <ProjectReference Include="..\MimeDetective.Storage.Xml\MimeDetective.Storage.Xml.csproj" />
     <ProjectReference Include="..\MimeDetective\MimeDetective.csproj" />
   </ItemGroup>
 
